@@ -3,8 +3,9 @@
 2) 스터디 시간 : 토요일 오전 8시 부터 1시간
 3) 스터디 장소 : Webex
 4) 스터디 운영 계획 (2024년 3월 ~ 2024년 10월)
-- 2024년 3월 16일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m3142650797369c2c97ccaf8747c1025e	), 발표자 - ML4D(TBD), MOFC(TBD)
+- 2024년 3월 16일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m3142650797369c2c97ccaf8747c1025e	), 발표자 - ML4D(태영), MOFC(태영)
   - 1장. 트레이딩용 머신러닝: 아이디어에서 주문 집행까지
+  - [FVA : S. Makridakis – F. Petropoulos](https://www.notion.so/FVA-S-Makridakis-F-Petropoulos-32e6f104a2de4ec18ecaa730c5871b90?pvs=4)
 - 2024년 3월 23일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m74f46b62111bb9084644ef67b5fdaa22	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 2장. 시장 데이터와 기본 데이터: 소스와 기법
 - 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(TBD), MOFC(TBD)
