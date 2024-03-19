@@ -8,7 +8,7 @@
   - [FVA : S. Makridakis – F. Petropoulos](https://www.notion.so/FVA-S-Makridakis-F-Petropoulos-32e6f104a2de4ec18ecaa730c5871b90?pvs=4)
 - 2024년 3월 23일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m74f46b62111bb9084644ef67b5fdaa22	), 발표자 - ML4D(우석), MOFC(우석)
   - 2장. 시장 데이터와 기본 데이터: 소스와 기법
-- 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(TBD), MOFC(TBD)
+- 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(태호), MOFC(태호)
   - 3장. 금융을 위한 대체 데이터: 범주와 사용 사례
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 4장. 알파 팩터 리서치
