@@ -10,7 +10,7 @@
   - [2장. 시장 데이터와 기본 데이터: 소스와 기법](https://github.com/restful3/ml4t/blob/main/source/Ch02_%EC%8B%9C%EC%9E%A5%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80%20%EA%B8%B0%EB%B3%B8%EB%8D%B0%EC%9D%B4%ED%84%B0_jeong.ipynb)
     [내용정리](https://github.com/restful3/ml4t/blob/main/source/2.Market%20%26amp%3B%20Fundamental%20Data.md)
   - [EMH-PP-Spyros-Makridakis](https://github.com/restful3/ml4t/blob/main/source/EMH-PP-Spyros-Makridakis-M6-Day-1.pdf)
-- 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(TBD), MOFC(TBD)
+- 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(태호), MOFC(태호)
   - 3장. 금융을 위한 대체 데이터: 범주와 사용 사례
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 4장. 알파 팩터 리서치
