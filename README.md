@@ -12,6 +12,7 @@
   - EMH-PP-Spyros-Makridakis: [pdf](https://github.com/restful3/ml4t/blob/main/doc/mofc/m6/02-EMH-PP-Spyros-Makridakis-M6-Day-1.pdf), [번역](https://false-chimpanzee-c50.notion.site/Spyros-Makridakis-Bridging-the-gap-between-forecasting-and-investment-decisions-4873164e7fdd4154adfcc442c0fa8205?pvs=4)
 - 2024년 3월 30일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m4a9ba133845fdf3bf0ba36062914c38b	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 3장. 금융을 위한 대체 데이터: 범주와 사용 사례
+  - Fotios-Petropoulos : [pdf](https://github.com/restful3/ml4t/blob/main/doc/mofc/m6/03-Fotios-Petropoulos-M6-Day-1-Session-3.pdf), [번역]()
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 4장. 알파 팩터 리서치
 - 2024년 4월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m6d4a233a6714b9e390cba1074185f78c	), 발표자 - ML4D(TBD), MOFC(TBD)
