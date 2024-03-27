@@ -31,7 +31,11 @@ def parse_html(html):
 
 
 restaurants = pd.DataFrame()
-driver = webdriver.Firefox()
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-gpu')
+driver = webdriver.Chrome(options=chrome_options)
 url = "https://www.opentable.com/new-york-restaurant-listings"
 driver.get(url)
 while True:
