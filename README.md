@@ -14,7 +14,7 @@
   - [3장. 금융을 위한 대체 데이터: 범주와 사용 사례](https://github.com/restful3/ml4t/blob/main/source/ch3_Alternative_Data_for_Trading_colab.ipynb), [jupyter실습](https://github.com/restful3/ml4t/blob/main/source/ch3_Alternative_Data_for_Trading_jupyternotebook.ipynb)
   - Fotios-Petropoulos : [pdf](https://github.com/restful3/ml4t/blob/main/doc/mofc/m6/03-Fotios-Petropoulos-M6-Day-1-Session-3.pdf), [번역](https://false-chimpanzee-c50.notion.site/Fotios-Petropoulos-Hypotheses-and-key-findings-c0189484d1d54c02b60ff558b5e592a0?pvs=4)
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - ML4D(태영), MOFC(태영)
-  - 4장. 알파 팩터 리서치
+  - [4장. 알파 팩터 리서치](https://github.com/restful3/ml4t/blob/main/source/ch04_%EA%B8%88%EC%9C%B5_%ED%8A%B9%EC%84%B1_%EA%B3%B5%ED%95%99_%EC%95%8C%ED%8C%8C_%ED%8C%A9%ED%84%B0_%EB%A6%AC%EC%84%9C%EC%B9%98_Song.ipynb)
 - 2024년 4월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m6d4a233a6714b9e390cba1074185f78c	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 5장. 포트폴리오 최적화와 성과 평가
 - 2024년 4월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mdf0615736152b18a90227bbeaefd2e9a	), 발표자 - ML4D(TBD), MOFC(TBD)
