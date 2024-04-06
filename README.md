@@ -15,13 +15,13 @@
   - Fotios-Petropoulos : [pdf](https://github.com/restful3/ml4t/blob/main/doc/mofc/m6/03-Fotios-Petropoulos-M6-Day-1-Session-3.pdf), [번역](https://false-chimpanzee-c50.notion.site/Fotios-Petropoulos-Hypotheses-and-key-findings-c0189484d1d54c02b60ff558b5e592a0?pvs=4)
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - ML4D(태영), MOFC(태영)
   - [4장. 알파 팩터 리서치](https://github.com/restful3/ml4t/blob/main/source/ch04_%EA%B8%88%EC%9C%B5_%ED%8A%B9%EC%84%B1_%EA%B3%B5%ED%95%99_%EC%95%8C%ED%8C%8C_%ED%8C%A9%ED%84%B0_%EB%A6%AC%EC%84%9C%EC%B9%98_Song.ipynb)
-- 2024년 4월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m6d4a233a6714b9e390cba1074185f78c	), 발표자 - ML4D(TBD), MOFC(TBD)
+- 2024년 4월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m6d4a233a6714b9e390cba1074185f78c	), 발표자 - ML4D(우석), MOFC(우석)
   - 5장. 포트폴리오 최적화와 성과 평가
 - 2024년 4월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mdf0615736152b18a90227bbeaefd2e9a	), 발표자 - ML4D(TBD), MOFC(TBD)
   - 6장. 머신러닝 프로세스
 - 2024년 4월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=me07de775182fd9230219e13040fb1be1), 발표자 - ML4D(TBD), MOFC(TBD)
   - 7장. 선형 모델: 리스크 팩터에서 수익률 예측까지
-- 2024년 5월 4일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mec2b0d984b6a169382ed1e42be474e46	), 발표자 - ML4D(TBD), MOFC(TBD)
+- 2024년 5월 4일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mec2b0d984b6a169382ed1e42be474e46	), 발표자 - ML4D(우석), MOFC(우석)
   - 8장. ML4T 작업 흐름: 모델에서 전략 백테스트까지
 - 2024년 5월 11일 (토요일) : [Webex](), 발표자 - ML4D(TBD), MOFC(TBD)
   - 9장. 시계열 모델
