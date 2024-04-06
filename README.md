@@ -21,6 +21,7 @@
   - 6장. 머신러닝 프로세스
 - 2024년 4월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=me07de775182fd9230219e13040fb1be1), 발표자 - ML4D(TBD), MOFC(TBD)
   - 7장. 선형 모델: 리스크 팩터에서 수익률 예측까지
+    ※ADP시험으로 우석 불참입니다ㅠㅠㅠㅠ
 - 2024년 5월 4일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mec2b0d984b6a169382ed1e42be474e46	), 발표자 - ML4D(우석), MOFC(우석)
   - 8장. ML4T 작업 흐름: 모델에서 전략 백테스트까지
 - 2024년 5월 11일 (토요일) : [Webex](), 발표자 - ML4D(TBD), MOFC(TBD)
