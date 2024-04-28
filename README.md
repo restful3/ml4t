@@ -16,7 +16,7 @@
 - 2024년 4월 6일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m48476eaf13916932005e700f4de2791e	), 발표자 - 태영
   - [4장. 알파 팩터 리서치](https://github.com/restful3/ml4t/blob/main/source/ch04_%EA%B8%88%EC%9C%B5_%ED%8A%B9%EC%84%B1_%EA%B3%B5%ED%95%99_%EC%95%8C%ED%8C%8C_%ED%8C%A9%ED%84%B0_%EB%A6%AC%EC%84%9C%EC%B9%98_Song.ipynb)
 - 2024년 4월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=m6d4a233a6714b9e390cba1074185f78c	), 발표자 - 우석
-  - 5장. 포트폴리오 최적화와 성과 평가
+  - [5장. 포트폴리오 최적화와 성과 평가](https://github.com/restful3/ml4t/blob/main/source/5.%20%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80%20%EC%84%B1%EA%B3%BC%ED%8F%89%EA%B0%80.ipynb)
 - 2024년 4월 21일 (일요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=mc53cc289de42fd466fe0bccf8e435030	), 발표자 - 태호
   - [6장. 머신러닝 프로세스](https://github.com/restful3/ml4t/blob/main/source/ch6_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4_Teo.ipynb)
 - 2024년 5월 4일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/e.php?MTID=mec2b0d984b6a169382ed1e42be474e46	), 발표자 - 태영
