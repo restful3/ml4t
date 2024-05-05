@@ -20,7 +20,7 @@
 - 2024년 4월 21일 (일요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=mc53cc289de42fd466fe0bccf8e435030	), 발표자 - 태호
   - [6장. 머신러닝 프로세스](https://github.com/restful3/ml4t/blob/main/source/ch6_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4_Teo.ipynb)
 - 2024년 5월 6일 (월요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m8f5e29be0ce5cd32c105d392dc1cab51), 발표자 - 태영
-  - 7장. 선형 모델: 리스크 팩터에서 수익률 예측까지
+  - [7장. 선형 모델: 리스크 팩터에서 수익률 예측까지](https://github.com/restful3/ml4t/blob/main/source/ch07_%EC%84%A0%ED%98%95%EB%AA%A8%EB%8D%B8_%EB%A6%AC%EC%8A%A4%ED%81%AC%ED%8C%A9%ED%84%B0%EC%97%90%EC%84%9C_%EC%88%98%EC%9D%B5%EB%A5%A0_%EC%98%88%EC%B8%A1%EA%B9%8C%EC%A7%80_Song.ipynb)
 - 2024년 5월 11일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=mf200f5f061fd05faedd2bdd7b5f4f874	), 발표자 - 우석
   - 8장. ML4T 작업 흐름: 모델에서 전략 백테스트까지
 - 2024년 5월 18일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m87953fe1d77cbb7eb8f78d53e7b38e9f	), 발표자 - 우석
