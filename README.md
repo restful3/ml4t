@@ -27,7 +27,7 @@
   - 9장. 시계열 모델
 - 2024년 5월 25일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=ma995b7204cff42e96e4fae240a394b06	), 발표자 - 태호
   - 10장. 베이지안 머신러닝: 동적 샤프 비율과 페어 트레이딩
-- 2024년 6월 1일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m62d5b5ffc2a3f265fc4e102c7702935a	), 발표자 - TBD
+- 2024년 6월 1일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m62d5b5ffc2a3f265fc4e102c7702935a	), 발표자 - 태영
   - 11장. 랜덤 포레스트: 일본 주식 롱/숏 전략
 - 2024년 6월 8일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me8df8edb3cf9994a451c99acc1f749ea	), 발표자 - TBD
   - 12장. 거래 전략 강화
