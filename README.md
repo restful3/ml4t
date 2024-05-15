@@ -25,7 +25,7 @@
   - 8장. ML4T 작업 흐름: 모델에서 전략 백테스트까지
 - 2024년 5월 18일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m87953fe1d77cbb7eb8f78d53e7b38e9f	), 발표자 - 우석
   - 9장. 시계열 모델
-- 2024년 5월 25일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=ma995b7204cff42e96e4fae240a394b06	), 발표자 - TBD
+- 2024년 5월 25일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=ma995b7204cff42e96e4fae240a394b06	), 발표자 - 태호
   - 10장. 베이지안 머신러닝: 동적 샤프 비율과 페어 트레이딩
 - 2024년 6월 1일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m62d5b5ffc2a3f265fc4e102c7702935a	), 발표자 - TBD
   - 11장. 랜덤 포레스트: 일본 주식 롱/숏 전략
