@@ -28,7 +28,7 @@
 - 2024년 5월 25일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=ma995b7204cff42e96e4fae240a394b06	), 발표자 - 태호
   - 10장. [베이지안 머신러닝: 동적 샤프 비율과 페어 트레이딩](https://github.com/restful3/ml4t/blob/main/source/ch10_%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%8F%99%EC%A0%81%EC%83%A4%ED%94%84%EB%B9%84%EC%9C%A8%EA%B3%BC%ED%8E%98%EC%96%B4%EB%93%9C%EB%A0%88%EC%9D%B4%EB%94%A9_Teo.ipynb)
 - 2024년 6월 1일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m62d5b5ffc2a3f265fc4e102c7702935a	), 발표자 - 태영
-  - 11장. 랜덤 포레스트: 일본 주식 롱/숏 전략
+  - [11장. 랜덤 포레스트: 일본 주식 롱/숏 전략](https://github.com/restful3/ml4t/blob/main/source/ch11_%EB%9E%9C%EB%8D%A4_%ED%8F%AC%EB%A0%88%EC%8A%A4%ED%8A%B8_Song.ipynb)
 - 2024년 6월 8일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me8df8edb3cf9994a451c99acc1f749ea	), 발표자 - TBD
   - 12장. 거래 전략 강화
 - 2024년 6월 15일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m739efd0f48677e321961efefbd3f52d8	), 발표자 - TBD
