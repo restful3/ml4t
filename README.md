@@ -6,7 +6,7 @@
 - 2024년 6월 15일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m739efd0f48677e321961efefbd3f52d8	), 발표자 - 태영
   - CHAPTER 5 SQL 기초 배워 보기 (128-160)
   - CHAPTER 6 파이썬에서 SQL 연결하기 (161-172)
-- 2024년 6월 22일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=m1bdd981b9382081f01744498781c0a1c	), 발표자 - TBD
+- 2024년 6월 22일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=m1bdd981b9382081f01744498781c0a1c	), 발표자 - 우석
   - CHAPTER 7 크롤링을 위한 웹 기본 지식 (173-186)
   - CHAPTER 8 정적 크롤링 실습 (187-203)
   - CHAPTER 9 동적 크롤링과 정규 표현식 (204-222)
