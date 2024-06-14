@@ -14,7 +14,7 @@
   - CHAPTER 10 국내 주식 데이터 수집 (223-263)
   - CHAPTER 11 전 세계 주식 데이터 수집 (264-287)
   - CHAPTER 12 투자 참고용 데이터 수집 (288-306)
-- 2024년 7월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md6aea4366188567cfafc6aaad8bb39e0	), 발표자 - 태
+- 2024년 7월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md6aea4366188567cfafc6aaad8bb39e0	), 발표자 - 태호
   - CHAPTER 13 퀀트 전략을 이용한 종목 선정 (307-366)
 - 2024년 7월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mf4f4394a61c3fe2550a7f17020a3f457	), 발표자 - TBD
   - CHAPTER 14 포트폴리오 구성 전략 (367-384)
