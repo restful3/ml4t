@@ -10,7 +10,7 @@
   - CHAPTER 7 크롤링을 위한 웹 기본 지식 (173-186)
   - CHAPTER 8 정적 크롤링 실습 (187-203)
   - CHAPTER 9 동적 크롤링과 정규 표현식 (204-222)
-- 2024년 6월 29일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma5e9754fb3c8c1f2bd09d2f98ba7557e	), 발표자 - TBD
+- 2024년 6월 29일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma5e9754fb3c8c1f2bd09d2f98ba7557e	), 발표자 - 정택
   - CHAPTER 10 국내 주식 데이터 수집 (223-263)
   - CHAPTER 11 전 세계 주식 데이터 수집 (264-287)
   - CHAPTER 12 투자 참고용 데이터 수집 (288-306)
