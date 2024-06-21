@@ -7,7 +7,7 @@
   - [CHAPTER 5 SQL 기초 배워 보기 (128-160)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch05_sql_%EA%B8%B0%EC%B4%88_%EB%B0%B0%EC%9B%8C_%EB%B3%B4%EA%B8%B0_Song.ipynb)
   - [CHAPTER 6 파이썬에서 SQL 연결하기 (161-172)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch06_%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C_sql_%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0_Song.ipynb)
 - 2024년 6월 22일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=m1bdd981b9382081f01744498781c0a1c	), 발표자 - 우석
-  - CHAPTER 7 크롤링을 위한 웹 기본 지식 (173-186)
+  - [CHAPTER 7 크롤링을 위한 웹 기본 지식 (173-186)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch07_09_%ED%81%AC%EB%A1%A4%EB%A7%81%EA%B8%B0%EC%B4%88%EB%B6%80%ED%84%B0%EC%9D%91%EC%9A%A9%EA%B9%8C%EC%A7%80_Jeong.ipynb)
   - CHAPTER 8 정적 크롤링 실습 (187-203)
   - CHAPTER 9 동적 크롤링과 정규 표현식 (204-222)
 - 2024년 6월 29일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma5e9754fb3c8c1f2bd09d2f98ba7557e	), 발표자 - 정택
