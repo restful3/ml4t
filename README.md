@@ -11,9 +11,9 @@
   - CHAPTER 8 정적 크롤링 실습 (187-203)
   - CHAPTER 9 동적 크롤링과 정규 표현식 (204-222)
 - 2024년 6월 29일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma5e9754fb3c8c1f2bd09d2f98ba7557e	), 발표자 - 정택
-  - CHAPTER 10 국내 주식 데이터 수집 (223-263)
-  - CHAPTER 11 전 세계 주식 데이터 수집 (264-287)
-  - CHAPTER 12 투자 참고용 데이터 수집 (288-306)
+  - [CHAPTER 10 국내 주식 데이터 수집 (223-263)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch10_%EA%B5%AD%EB%82%B4_%EC%A3%BC%EC%8B%9D_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91_Jtkim.ipynb)
+  - [CHAPTER 11 전 세계 주식 데이터 수집 (264-287)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch11_%EC%A0%84_%EC%84%B8%EA%B3%84_%EC%A3%BC%EC%8B%9D_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91%ED%95%98%EA%B8%B0_Jtkim.ipynb)
+  - [CHAPTER 12 투자 참고용 데이터 수집 (288-306)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch12_%ED%88%AC%EC%9E%90_%EC%B0%B8%EA%B3%A0%EC%9A%A9_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91_Jtkim.ipynb)
 - 2024년 7월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md6aea4366188567cfafc6aaad8bb39e0	), 발표자 - 태호
   - CHAPTER 13 퀀트 전략을 이용한 종목 선정 (307-366)
 - 2024년 7월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mf4f4394a61c3fe2550a7f17020a3f457	), 발표자 - TBD
