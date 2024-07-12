@@ -20,7 +20,7 @@
   - CHAPTER 14 포트폴리오 구성 전략 (367-384)
   - CHAPTER 15 트레이딩을 위한 기술적 지표 (385-392)
   - CHAPTER 16 백테스팅 시뮬레이션 (393-420)
-- 2024년 7월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m2ffb48639e2725f3cbcb5e21186bbcbc	), 발표자 - TBD
+- 2024년 7월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m2ffb48639e2725f3cbcb5e21186bbcbc	), 발표자 - 우석
   - CHAPTER 17 증권사 API 연결과 매매하기 (421-459)
 5) 스터디 운영 방법
 - 교재 : [파이썬을 이용한 퀀트 투자 포트폴리오 만들기](https://ridibooks.com/books/852001740?_s=search&_q=%ED%80%80%ED%8A%B8&_rdt_sid=search&_rdt_idx=2)
