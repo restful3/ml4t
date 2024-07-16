@@ -17,8 +17,8 @@
 - 2024년 7월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md6aea4366188567cfafc6aaad8bb39e0	), 발표자 - 태호
   - [CHAPTER 13 퀀트 전략을 이용한 종목 선정 (307-366)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch13%20%ED%80%80%ED%8A%B8%20%EC%A0%84%EB%9E%B5%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%A2%85%EB%AA%A9%20%EC%84%A0%EC%A0%95_Teo.ipynb)
 - 2024년 7월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mf4f4394a61c3fe2550a7f17020a3f457	), 발표자 - 태영
-  - CHAPTER 14 포트폴리오 구성 전략 (367-384)
-  - CHAPTER 15 트레이딩을 위한 기술적 지표 (385-392)
+  - [CHAPTER 14 포트폴리오 구성 전략 (367-384)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch14_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EA%B5%AC%EC%84%B1_%EC%A0%84%EB%9E%B5_Song.ipynb)
+  - [CHAPTER 15 트레이딩을 위한 기술적 지표 (385-392)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch15_%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%94%A9%EC%9D%84_%EC%9C%84%ED%95%9C_%EA%B8%B0%EC%88%A0%EC%A0%81_%EC%A7%80%ED%91%9C_Song.ipynb)
 - 2024년 7월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m2ffb48639e2725f3cbcb5e21186bbcbc	), 발표자 - 우석
   - CHAPTER 16 백테스팅 시뮬레이션 (393-420) 
   - CHAPTER 17 증권사 API 연결과 매매하기 (421-459)
