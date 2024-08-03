@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+git.*
+data/save_data.py
+data/.ipynb_checkpoints
+.env

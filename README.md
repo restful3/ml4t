@@ -1,31 +1,36 @@
 # ML4D study
-1) 스터디 목적 : 퀀트 관련 기본 스킬 습득과 관련 연구 학습
-2) 스터디 시간 : 토요일 오전 8시 부터 1시간
-3) 스터디 장소 : Webex
-4) 스터디 운영 계획 (2024년 3월 ~ 2024년 10월)
-- 2024년 6월 15일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m739efd0f48677e321961efefbd3f52d8	), 발표자 - 태영
-  - [CHAPTER 5 SQL 기초 배워 보기 (128-160)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch05_sql_%EA%B8%B0%EC%B4%88_%EB%B0%B0%EC%9B%8C_%EB%B3%B4%EA%B8%B0_Song.ipynb)
-  - [CHAPTER 6 파이썬에서 SQL 연결하기 (161-172)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch06_%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C_sql_%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0_Song.ipynb)
-- 2024년 6월 22일 (토요일) : [Webex](https://lgehq.webex.com/lgehq-ko/j.php?MTID=m1bdd981b9382081f01744498781c0a1c	), 발표자 - 우석
-  - [CHAPTER 7 크롤링을 위한 웹 기본 지식 (173-186)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch07_09_%ED%81%AC%EB%A1%A4%EB%A7%81%EA%B8%B0%EC%B4%88%EB%B6%80%ED%84%B0%EC%9D%91%EC%9A%A9%EA%B9%8C%EC%A7%80_Jeong.ipynb)
-  - CHAPTER 8 정적 크롤링 실습 (187-203)
-  - CHAPTER 9 동적 크롤링과 정규 표현식 (204-222)
-- 2024년 6월 29일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma5e9754fb3c8c1f2bd09d2f98ba7557e	), 발표자 - 정택
-  - [CHAPTER 10 국내 주식 데이터 수집 (223-263)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch10_%EA%B5%AD%EB%82%B4_%EC%A3%BC%EC%8B%9D_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91_Jtkim.ipynb)
-  - [CHAPTER 11 전 세계 주식 데이터 수집 (264-287)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch11_%EC%A0%84_%EC%84%B8%EA%B3%84_%EC%A3%BC%EC%8B%9D_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91%ED%95%98%EA%B8%B0_Jtkim.ipynb)
-  - [CHAPTER 12 투자 참고용 데이터 수집 (288-306)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch12_%ED%88%AC%EC%9E%90_%EC%B0%B8%EA%B3%A0%EC%9A%A9_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%88%98%EC%A7%91_Jtkim.ipynb)
-- 2024년 7월 13일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md6aea4366188567cfafc6aaad8bb39e0	), 발표자 - 태호
-  - [CHAPTER 13 퀀트 전략을 이용한 종목 선정 (307-366)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch13%20%ED%80%80%ED%8A%B8%20%EC%A0%84%EB%9E%B5%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%A2%85%EB%AA%A9%20%EC%84%A0%EC%A0%95_Teo.ipynb)
-- 2024년 7월 20일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mf4f4394a61c3fe2550a7f17020a3f457	), 발표자 - 태영
-  - [CHAPTER 14 포트폴리오 구성 전략 (367-384)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch14_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EA%B5%AC%EC%84%B1_%EC%A0%84%EB%9E%B5_Song.ipynb)
-  - [CHAPTER 15 트레이딩을 위한 기술적 지표 (385-392)](https://github.com/restful3/ml4t/blob/main/source/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84_%EC%9D%B4%EC%9A%A9%ED%95%9C_%ED%80%80%ED%8A%B8_%ED%88%AC%EC%9E%90_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A7%8C%EB%93%A4%EA%B8%B0/ch15_%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%94%A9%EC%9D%84_%EC%9C%84%ED%95%9C_%EA%B8%B0%EC%88%A0%EC%A0%81_%EC%A7%80%ED%91%9C_Song.ipynb)
-- 2024년 7월 27일 (토요일) : [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m2ffb48639e2725f3cbcb5e21186bbcbc	), 발표자 - 우석
-  - CHAPTER 16 백테스팅 시뮬레이션 (393-420) 
-  - CHAPTER 17 증권사 API 연결과 매매하기 (421-459)
-5) 스터디 운영 방법
-- 교재 : [파이썬을 이용한 퀀트 투자 포트폴리오 만들기](https://ridibooks.com/books/852001740?_s=search&_q=%ED%80%80%ED%8A%B8&_rdt_sid=search&_rdt_idx=2)
-- 참고자료 : [MOFC](https://mofc.unic.ac.cy/m6-presentations/)
-- 매주 학습 한 내용 공유 업로드 (소스 코드, 발표자료)
-- 발표 : (주제별) 50분, Q&A : 10분 
-6) 기타
-- 참가 희망 요청 : [이메일](restful3@gmail.com)
+1) **스터디 목적**: 퀀트 관련 기본 스킬 습득과 관련 연구 학습
+2) **스터디 시간**: 매주 토요일 오전 8시부터 1시간
+3) **스터디 장소**: Webex
+4) **스터디 운영 계획** (2024년 8월 ~ 2024년 10월)
+    - **2024년 8월 10일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51039acab1b92fa019a481a40406a2a3), 발표자 - TBD
+        - Acquiring Financial Data
+    - **2024년 8월 17일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5fb75cc4bbb2b79101f7ccc6d18d9e4c), 발표자 - TBD
+        - Data Preprocessing
+    - **2024년 8월 24일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf99db8752ec13c81a763dc780e495a74), 발표자 - TBD
+        - Visualizing Financial Time Series
+    - **2024년 8월 31일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=maca74f8d0e72c7b04f2b725033753584), 발표자 - TBD
+        - Exploring Financial Time Series Data
+    - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - TBD
+        - Technical Analysis and Building Interactive Dashboards
+    - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - TBD
+        - Time Series Analysis and Forecasting
+    - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - TBD
+        - Machine Learning-Based Approaches to Time Series Forecasting
+    - **2024년 10월 5일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma63a7a72be8dba2ea85350e7808688c6), 발표자 - TBD
+        - Multi-Factor Models
+    - **2024년 10월 12일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m661aad720d3c20586538f45f3bfd5aa5), 발표자 - TBD
+        - Modelling Volatility with GARCH Class Models
+    - **2024년 10월 19일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6c3d9d6a1f7db3d24a5741d4105be31f), 발표자 - TBD
+        - Monte Carlo Simulations in Finance
+    - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - TBD
+        - Asset Allocation
+
+5) **스터디 운영 방법**:
+    - **교재**: [Python for Finance Cookbook - Second Edition: Over 80 powerful recipes for effective financial data analysis](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)
+    - **참고자료**: [MOFC](https://mofc.unic.ac.cy/m6-presentations/)
+    - **매주 학습 내용 공유**: 학습한 내용(소스 코드, 발표자료) 업로드
+    - **발표**: (주제별) 50분, Q&A: 10분
+
+6) **기타**:
+    - **참가 희망 요청**: [이메일](mailto:restful3@gmail.com)
