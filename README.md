@@ -4,7 +4,7 @@
 3) **스터디 장소**: Webex
 4) **스터디 운영 계획** (2024년 8월 ~ 2024년 10월)
     - **2024년 8월 10일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51039acab1b92fa019a481a40406a2a3), 발표자 - 태영
-        - Acquiring Financial Data
+        - [Acquiring Financial Data](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_1_song.ipynb)
     - **2024년 8월 17일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5fb75cc4bbb2b79101f7ccc6d18d9e4c), 발표자 - TBD
         - Data Preprocessing
     - **2024년 8월 24일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf99db8752ec13c81a763dc780e495a74), 발표자 - TBD
