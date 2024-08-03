@@ -3,7 +3,7 @@
 2) **스터디 시간**: 매주 토요일 오전 8시부터 1시간
 3) **스터디 장소**: Webex
 4) **스터디 운영 계획** (2024년 8월 ~ 2024년 10월)
-    - **2024년 8월 10일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51039acab1b92fa019a481a40406a2a3), 발표자 - TBD
+    - **2024년 8월 10일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51039acab1b92fa019a481a40406a2a3), 발표자 - 태영
         - Acquiring Financial Data
     - **2024년 8월 17일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5fb75cc4bbb2b79101f7ccc6d18d9e4c), 발표자 - TBD
         - Data Preprocessing
