@@ -27,7 +27,7 @@
         - Asset Allocation
 
 5) **스터디 운영 방법**:
-    - **교재**: [Python for Finance Cookbook - Second Edition: Over 80 powerful recipes for effective financial data analysis 2nd ed. Edition](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)
+    - **교재**: [Python for Finance Cookbook - Second Edition: Over 80 powerful recipes for effective financial data analysis](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)
     - **참고자료**: [MOFC](https://mofc.unic.ac.cy/m6-presentations/)
     - **매주 학습 내용 공유**: 학습한 내용(소스 코드, 발표자료) 업로드
     - **발표**: (주제별) 50분, Q&A: 10분
