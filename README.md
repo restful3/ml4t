@@ -4,14 +4,14 @@
 3) **스터디 장소**: Webex
 4) **스터디 운영 계획** (2024년 8월 ~ 2024년 10월)
     - **2024년 8월 10일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51039acab1b92fa019a481a40406a2a3), 발표자 - 태영
-        - Acquiring Financial Data
+        - [Acquiring Financial Data](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_1_song.ipynb)
     - **2024년 8월 17일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5fb75cc4bbb2b79101f7ccc6d18d9e4c), 발표자 - TBD
         - Data Preprocessing
     - **2024년 8월 24일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf99db8752ec13c81a763dc780e495a74), 발표자 - TBD
         - Visualizing Financial Time Series
     - **2024년 8월 31일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=maca74f8d0e72c7b04f2b725033753584), 발표자 - TBD
         - Exploring Financial Time Series Data
-    - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - TBD
+    - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - 우석
         - Technical Analysis and Building Interactive Dashboards
     - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - TBD
         - Time Series Analysis and Forecasting
@@ -34,3 +34,7 @@
 
 6) **기타**:
     - **참가 희망 요청**: [이메일](mailto:restful3@gmail.com)
+
+
+
+
