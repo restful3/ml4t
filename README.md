@@ -15,7 +15,7 @@
         - Technical Analysis and Building Interactive Dashboards
     - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - TBD
         - Time Series Analysis and Forecasting
-    - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - TBD
+    - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - 태영
         - Machine Learning-Based Approaches to Time Series Forecasting
     - **2024년 10월 5일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma63a7a72be8dba2ea85350e7808688c6), 발표자 - TBD
         - Multi-Factor Models
