@@ -23,7 +23,7 @@
         - Modelling Volatility with GARCH Class Models
     - **2024년 10월 19일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6c3d9d6a1f7db3d24a5741d4105be31f), 발표자 - 핀조이
         - Monte Carlo Simulations in Finance
-    - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - TBD
+    - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - 태호
         - Asset Allocation
 
 5) **스터디 운영 방법**:
