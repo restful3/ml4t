@@ -13,7 +13,7 @@
         - Exploring Financial Time Series Data
     - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - 우석
         - Technical Analysis and Building Interactive Dashboards
-    - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - TBD
+    - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - 태호
         - Time Series Analysis and Forecasting
     - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - 태영
         - Machine Learning-Based Approaches to Time Series Forecasting
@@ -23,7 +23,7 @@
         - Modelling Volatility with GARCH Class Models
     - **2024년 10월 19일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6c3d9d6a1f7db3d24a5741d4105be31f), 발표자 - 핀조이
         - Monte Carlo Simulations in Finance
-    - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - TBD
+    - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - 태호
         - Asset Allocation
 
 5) **스터디 운영 방법**:
