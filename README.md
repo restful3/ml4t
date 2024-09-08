@@ -25,7 +25,7 @@
         - Monte Carlo Simulations in Finance
     - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - 태호
         - Asset Allocation
-    - **2024년 11월 02일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb098113cae78d6aecd519425b7400a98	), 발표자 - TBD
+    - **2024년 11월 02일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb098113cae78d6aecd519425b7400a98	), 발표자 - 태영
         - Backtesting Trading Strategies
     - **2024년 11월 09일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51cfa97333999ea5dc395b5c6a015508), 발표자 - TBD
         - Applied Machine Learning: Identifying Credit Default
