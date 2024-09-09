@@ -10,7 +10,7 @@
     - **2024년 8월 24일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf99db8752ec13c81a763dc780e495a74), 발표자 - 우석
         - [Visualizing Financial Time Series](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_3_wooseok_.ipynb)
     - **2024년 8월 31일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=maca74f8d0e72c7b04f2b725033753584), 발표자 - 정택
-        - Exploring Financial Time Series Data
+        - [Exploring Financial Time Series Data](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_4_jtkim.ipynb)
     - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - 우석
         - [Technical Analysis and Building Interactive Dashboards](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_5_wooseok.ipynb)
     - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - 태호
