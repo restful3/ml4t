@@ -43,7 +43,7 @@ ticker = st.sidebar.selectbox(
 )
 start_date = st.sidebar.date_input(
     "Start date", 
-    datetime.date(2019, 1, 1)
+    datetime.date(2023, 1, 1)
 )
 end_date = st.sidebar.date_input(
     "End date", 
