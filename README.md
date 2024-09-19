@@ -31,7 +31,7 @@
         - Applied Machine Learning: Identifying Credit Default
     - **2024년 11월 16일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5bf981d6a2583a9af0216a2dd3e5cf22	), 발표자 - TBD
         - Advanced Concepts for Machine Learning Projects
-    - **2024년 11월 23일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m03b52771de6f8b623d6c89d2d26a44c2	), 발표자 - TBD
+    - **2024년 11월 23일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m03b52771de6f8b623d6c89d2d26a44c2	), 발표자 - 우석
         - Deep Learning in Finance
 
 5) **스터디 운영 방법**:
