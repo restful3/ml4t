@@ -10,21 +10,30 @@
     - **2024년 8월 24일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf99db8752ec13c81a763dc780e495a74), 발표자 - 우석
         - [Visualizing Financial Time Series](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_3_wooseok_.ipynb)
     - **2024년 8월 31일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=maca74f8d0e72c7b04f2b725033753584), 발표자 - 정택
-        - Exploring Financial Time Series Data
+        - [Exploring Financial Time Series Data](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_4_jtkim.ipynb)
     - **2024년 9월 7일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6ec812564abc7626d42c2613269d7965), 발표자 - 우석
-        - Technical Analysis and Building Interactive Dashboards
+        - [Technical Analysis and Building Interactive Dashboards](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_5_wooseok.ipynb)
     - **2024년 9월 21일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7e152e7d66dff86006a2ed60e3e92a5b), 발표자 - 태호
-        - Time Series Analysis and Forecasting
+        - [Time Series Analysis and Forecasting](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_6_Time_Series_Analysis_and_Forecasting_Teo.ipynb)
+        - [AUTOETS Colab 실습](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_6_Time_Series_Analysis_and_Forecasting_ch6_AUTOETS_Colab_%EC%8B%A4%EC%8A%B5_Teo.ipynb)
     - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - 태영
         - Machine Learning-Based Approaches to Time Series Forecasting
-    - **2024년 10월 5일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma63a7a72be8dba2ea85350e7808688c6), 발표자 - TBD
+    - **2024년 10월 5일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma63a7a72be8dba2ea85350e7808688c6), 발표자 - 상호
         - Multi-Factor Models
-    - **2024년 10월 12일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m661aad720d3c20586538f45f3bfd5aa5), 발표자 - TBD
+    - **2024년 10월 12일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m661aad720d3c20586538f45f3bfd5aa5), 발표자 - 정택
         - Modelling Volatility with GARCH Class Models
     - **2024년 10월 19일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6c3d9d6a1f7db3d24a5741d4105be31f), 발표자 - 핀조이
         - Monte Carlo Simulations in Finance
     - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - 태호
         - Asset Allocation
+    - **2024년 11월 02일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb098113cae78d6aecd519425b7400a98	), 발표자 - 태영
+        - Backtesting Trading Strategies
+    - **2024년 11월 09일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51cfa97333999ea5dc395b5c6a015508), 발표자 - TBD
+        - Applied Machine Learning: Identifying Credit Default
+    - **2024년 11월 16일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5bf981d6a2583a9af0216a2dd3e5cf22	), 발표자 - TBD
+        - Advanced Concepts for Machine Learning Projects
+    - **2024년 11월 23일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m03b52771de6f8b623d6c89d2d26a44c2	), 발표자 - 우석
+        - Deep Learning in Finance
 
 5) **스터디 운영 방법**:
     - **교재**: [Python for Finance Cookbook - Second Edition: Over 80 powerful recipes for effective financial data analysis](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)
