@@ -19,7 +19,9 @@
     - **2024년 9월 28일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m82d6e37b03b9d1de9d2ea06683fbbe66), 발표자 - 태영
         - [Machine Learning-Based Approaches to Time Series Forecasting](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_7_song.ipynb)
     - **2024년 10월 5일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=ma63a7a72be8dba2ea85350e7808688c6), 발표자 - 상호
-        - Multi-Factor Models
+        - [Multi-Factor Models](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_8_sangho.ipynb)
+        - [FF_Model_KR](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/FF_model_KR.ipynb)
+        - [FF_DATA_KR](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/FF3_MODEL_KOREA_240930.ipynb)
     - **2024년 10월 12일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m661aad720d3c20586538f45f3bfd5aa5), 발표자 - 정택
         - Modelling Volatility with GARCH Class Models
     - **2024년 10월 19일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6c3d9d6a1f7db3d24a5741d4105be31f), 발표자 - 핀조이
