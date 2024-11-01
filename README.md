@@ -29,7 +29,7 @@
     - **2024년 10월 26일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=md5425739162a8a9a44cb1922e31d2da3), 발표자 - 태호
         - [Asset Allocation](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_11_Asset_Allocation_Teo.ipynb)
     - **2024년 11월 02일 (토요일)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb098113cae78d6aecd519425b7400a98	), 발표자 - 태영
-        - Backtesting Trading Strategies
+        - [Backtesting Trading Strategies](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_12_song.ipynb)
     - **2024년 11월 09일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m51cfa97333999ea5dc395b5c6a015508), 발표자 - 정택
         - Applied Machine Learning: Identifying Credit Default
     - **2024년 11월 16일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5bf981d6a2583a9af0216a2dd3e5cf22	), 발표자 - TBD
