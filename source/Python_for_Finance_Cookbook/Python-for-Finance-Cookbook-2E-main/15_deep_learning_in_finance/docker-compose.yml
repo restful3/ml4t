@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  finance_env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: finance_env
+    container_name: finance_env
+    ports:
+      - "8888:8888"  # Jupyter notebook용 포트
+    volumes:
+      - .:/workspace  # 현재 디렉토리를 컨테이너의 /workspace에 마운트
+      - ~/.cache:/root/.cache  # 캐시 저장용 (선택사항)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all   # 모든 GPU 사용 (또는 특정 개수 지정 가능)
+              capabilities: [gpu]
+    command: jupyter lab --ip 0.0.0.0 --port 8888 --no-browser --allow-root --NotebookApp.token='' 
