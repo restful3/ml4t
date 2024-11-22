@@ -1,6 +1,7 @@
 fastai
 pytorch-tabnet
 pytorch-lightning
+pytorch-forecasting
 seaborn
 pandas
 scikit-learn

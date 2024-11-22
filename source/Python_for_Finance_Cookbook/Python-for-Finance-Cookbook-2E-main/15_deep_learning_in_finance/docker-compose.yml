@@ -10,8 +10,11 @@ services:
     ports:
       - "8888:8888"  # Jupyter notebook용 포트
     volumes:
-      - .:/workspace  # 현재 디렉토리를 컨테이너의 /workspace에 마운트
-      - ~/.cache:/root/.cache  # 캐시 저장용 (선택사항)
+      - .:/workspace:rw
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+    user: root
     deploy:
       resources:
         reservations:
