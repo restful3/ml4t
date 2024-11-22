@@ -35,7 +35,8 @@
     - **2024년 11월 16일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m5bf981d6a2583a9af0216a2dd3e5cf22	), 발표자 - 태영
         - [Advanced Concepts for Machine Learning Projects](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/chapter_14_song.ipynb)
     - **2024년 11월 23일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m03b52771de6f8b623d6c89d2d26a44c2	), 발표자 - 우석
-        - [Deep Learning in Finance](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/15_deep_learning_in_finance/ch15_%EA%B8%88%EC%9C%B5%EC%97%90%EC%84%9C%EC%9D%98%20%EB%94%A5%EB%9F%AC%EB%8B%9D.ipynb) [폴더전체](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/15_deep_learning_in_finance))
+        - [Deep Learning in Finance](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/15_deep_learning_in_finance/ch15_%EA%B8%88%EC%9C%B5%EC%97%90%EC%84%9C%EC%9D%98%20%EB%94%A5%EB%9F%AC%EB%8B%9D.ipynb)
+        - [폴더전체 바로가기 (도커컴포즈실행용)](https://github.com/restful3/ml4t/blob/main/source/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/15_deep_learning_in_finance)
 
 5) **스터디 운영 방법**:
     - **교재**: [Python for Finance Cookbook - Second Edition: Over 80 powerful recipes for effective financial data analysis](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)
