@@ -11,4 +11,8 @@ torch
 torchvision
 torchaudio
 matplotlib
-numpy 
+numpy
+matplotlib
+koreanize-matplotlib
+neuralprophet
+
