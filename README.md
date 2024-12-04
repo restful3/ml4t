@@ -74,7 +74,7 @@
 ---
 
 ### **5. 스터디 운영 방법**
-- **교재**: [Python for Algorithmic Trading Cookbook: Recipes for designing, building, and deploying algorithmic trading strategies with Python](https://www.amazon.com/Python-Finance-Cookbook-effective-financial/dp/1803243198)  
+- **교재**: [Python for Algorithmic Trading Cookbook: Recipes for designing, building, and deploying algorithmic trading strategies with Python](https://www.amazon.com/Python-Algorithmic-Trading-Cookbook-algorithmic/dp/1835084702)  
 - **참고자료**: [MOFC](https://mofc.unic.ac.cy/m6-presentations/)  
 - **학습 공유**: 매주 학습 내용(소스 코드, 발표자료)을 업로드  
 - **발표**: 주제별 50분 발표, 10분 Q&A  
