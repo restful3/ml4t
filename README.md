@@ -20,7 +20,7 @@
 ### **4. 스터디 운영 계획 (2024년 12월 ~ 2025년 3월)**
 
 #### **2024년 12월 14일**: [Webex]()
-- 발표자 - TBD  
+- 발표자 - 정우석
   - Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  
 
 #### **2024년 12월 21일**: [Webex]()
