@@ -1,0 +1,207 @@
+ar_layers: &id001 []
+compute_components_flag: false
+config_ar: !!python/object:neuralprophet.configure.AR
+  ar_layers: *id001
+  ar_reg: 1
+  n_lags: 10
+  reg_lambda: 0.0001
+config_events: null
+config_holidays: !!python/object:neuralprophet.configure.Holidays
+  country: US
+  holiday_names: !!set
+    Christmas Day: null
+    Christmas Day (observed): null
+    Columbus Day: null
+    Independence Day: null
+    Independence Day (observed): null
+    Juneteenth National Independence Day: null
+    Juneteenth National Independence Day (observed): null
+    Labor Day: null
+    Martin Luther King Jr. Day: null
+    Memorial Day: null
+    New Year's Day: null
+    New Year's Day (observed): null
+    Thanksgiving: null
+    Veterans Day: null
+    Veterans Day (observed): null
+    Washington's Birthday: null
+  lower_window: -1
+  mode: additive
+  reg_lambda: null
+  upper_window: 1
+config_lagged_regressors: null
+config_normalization: !!python/object:neuralprophet.configure.Normalization
+  global_data_params: !!python/object/apply:collections.OrderedDict
+  - - - ds
+      - &id003 !!python/object:neuralprophet.df_utils.ShiftScale
+        scale: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+        - 370828800000000000
+        - 10
+        shift: !!python/object/apply:pandas._libs.tslibs.timestamps._unpickle_timestamp
+        - 1262563200000000000
+        - null
+        - null
+        - 10
+    - - y
+      - !!python/object:neuralprophet.df_utils.ShiftScale
+        scale: !!python/object/apply:numpy.core.multiarray.scalar
+        - &id002 !!python/object/apply:numpy.dtype
+          args:
+          - f8
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - -1
+          - -1
+          - 0
+        - !!binary |
+          ////B+uTpkA=
+        shift: !!python/object/apply:numpy.core.multiarray.scalar
+        - *id002
+        - !!binary |
+          AAAA4KP0j0A=
+  global_normalization: true
+  global_time_normalization: true
+  local_data_params: !!python/object/apply:collections.OrderedDict
+  - - - __df__
+      - !!python/object/apply:collections.OrderedDict
+        - - - ds
+            - *id003
+          - - y
+            - !!python/object:neuralprophet.df_utils.ShiftScale
+              scale: !!python/object/apply:numpy.core.multiarray.scalar
+              - *id002
+              - !!binary |
+                ////B+uTpkA=
+              shift: !!python/object/apply:numpy.core.multiarray.scalar
+              - *id002
+              - !!binary |
+                AAAA4KP0j0A=
+  normalize: auto
+  unknown_data_normalization: false
+config_regressors: !!python/object:neuralprophet.configure.ConfigFutureRegressors
+  d_hidden: 4
+  model: linear
+  num_hidden_layers: 2
+  regressors: null
+config_seasonality: !!python/object:neuralprophet.configure.ConfigSeasonality
+  computation: fourier
+  condition_name: null
+  daily_arg: auto
+  daily_global_local: auto
+  global_local: global
+  mode: additive
+  periods: !!python/object/apply:collections.OrderedDict
+  - - - yearly
+      - !!python/object:neuralprophet.configure.Season
+        arg: auto
+        condition_name: null
+        global_local: global
+        period: 365.25
+        resolution: 6
+    - - weekly
+      - !!python/object:neuralprophet.configure.Season
+        arg: auto
+        condition_name: null
+        global_local: global
+        period: 7
+        resolution: 3
+  reg_lambda: 0
+  seasonality_local_reg: false
+  weekly_arg: auto
+  weekly_global_local: auto
+  yearly_arg: auto
+  yearly_global_local: auto
+config_train: !!python/object:neuralprophet.configure.Train
+  batch_size: 64
+  epochs: 100
+  lambda_delay: 50
+  learning_rate: 0.01
+  loss_func: !!python/object:torch.nn.modules.loss.SmoothL1Loss
+    _backward_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _backward_pre_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _buffers: {}
+    _forward_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _forward_hooks_always_called: !!python/object/apply:collections.OrderedDict
+    - []
+    _forward_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+    - []
+    _forward_pre_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _forward_pre_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+    - []
+    _is_full_backward_hook: null
+    _load_state_dict_post_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _load_state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _modules: {}
+    _non_persistent_buffers_set: !!set {}
+    _parameters: {}
+    _state_dict_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    _state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+    - []
+    beta: 0.3
+    reduction: none
+    training: true
+  loss_func_name: SmoothL1Loss
+  lr_finder_args: {}
+  n_data: 3057
+  newer_samples_start: 0.0
+  newer_samples_weight: 2
+  optimizer: !!python/name:torch.optim.adamw.AdamW ''
+  optimizer_args:
+    weight_decay: 0.001
+  quantiles:
+  - 0.5
+  reg_delay_pct: 0.5
+  reg_lambda_trend: null
+  scheduler: !!python/name:torch.optim.lr_scheduler.OneCycleLR ''
+  scheduler_args:
+    anneal_strategy: cos
+    div_factor: 10.0
+    final_div_factor: 10.0
+    pct_start: 0.3
+    three_phase: true
+  trend_reg_threshold: null
+config_trend: !!python/object:neuralprophet.configure.Trend
+  changepoints: null
+  changepoints_range: 0.95
+  growth: linear
+  n_changepoints: 10
+  trend_global_local: global
+  trend_local_reg: false
+  trend_reg: 0
+  trend_reg_threshold: null
+id_list:
+- __df__
+lagged_reg_layers: []
+max_lags: 10
+meta_used_in_model: false
+metrics:
+  MAE:
+  - MeanAbsoluteError
+  - {}
+  RMSE:
+  - MeanSquaredError
+  - squared: false
+n_forecasts: 1
+n_lags: 10
+num_seasonalities_modelled: 1
+num_seasonalities_modelled_dict: !!python/object/apply:collections.OrderedDict
+- - - yearly
+    - 1
+  - - weekly
+    - 1
+  - - daily
+    - 1
+num_trends_modelled: 1
