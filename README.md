@@ -24,7 +24,7 @@
   - Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  
 
 #### **2024년 12월 21일**: [Webex]()
-- 발표자 - TBD  
+- 발표자 - 핀조이  
   - Chapter 2: Analyze and Transform Financial Market Data with pandas  
 
 #### **2024년 12월 28일**: [Webex]()
@@ -56,11 +56,11 @@
   - Chapter 9: Assess Backtest Risk and Performance Metrics with Pyfolio  
 
 #### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex]()
-- 발표자 - TBD  
+- 발표자 - 핀조이  
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
 #### **2025년 3월 15일**: [Webex]()
-- 발표자 - TBD  
+- 발표자 - 핀조이  
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
 #### **2025년 3월 22일**: [Webex]()
