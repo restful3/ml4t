@@ -1,0 +1,278 @@
+categorical_groups: {}
+cell_type: LSTM
+dataset_parameters:
+  add_encoder_length: false
+  add_relative_time_idx: false
+  add_target_scales: false
+  allow_missing_timesteps: false
+  categorical_encoders:
+    __group_id__Ticker: !!python/object:pytorch_forecasting.data.encoders.NaNLabelEncoder
+      add_nan: false
+      classes_:
+        ACN: 0
+        ADI: 1
+        ADSK: 2
+        AEE: 3
+        AES: 4
+        AMZN: 5
+        AON: 6
+        ARE: 7
+        ATO: 8
+        AZO: 9
+        BAC: 10
+        BDX: 11
+        BG: 12
+        BK: 13
+        BKR: 14
+        CAG: 15
+        CAT: 16
+        CDNS: 17
+        CMS: 18
+        CNC: 19
+        CNP: 20
+        CRWD: 21
+        CZR: 22
+        DAL: 23
+        DE: 24
+        DGX: 25
+        DLR: 26
+        DOW: 27
+        DRI: 28
+        EA: 29
+        EMR: 30
+        EQR: 31
+        EQT: 32
+        ERIE: 33
+        ETN: 34
+        EXC: 35
+        FDS: 36
+        FDX: 37
+        FE: 38
+        FIS: 39
+        GE: 40
+        GLW: 41
+        GOOGL: 42
+        GRMN: 43
+        HAL: 44
+        HII: 45
+        HLT: 46
+        HOLX: 47
+        HUM: 48
+        IBM: 49
+        IRM: 50
+        ITW: 51
+        JBL: 52
+        JNJ: 53
+        KIM: 54
+        KMI: 55
+        KO: 56
+        LNT: 57
+        LYV: 58
+        MAA: 59
+        MAR: 60
+        MGM: 61
+        MHK: 62
+        MKTX: 63
+        MTD: 64
+        NSC: 65
+        NTAP: 66
+        NTRS: 67
+        NUE: 68
+        NVR: 69
+        O: 70
+        OMC: 71
+        ORLY: 72
+        OXY: 73
+        PANW: 74
+        PGR: 75
+        PH: 76
+        POOL: 77
+        PPG: 78
+        REG: 79
+        ROST: 80
+        SBAC: 81
+        SBUX: 82
+        SHW: 83
+        SJM: 84
+        SMCI: 85
+        SNA: 86
+        SRE: 87
+        TAP: 88
+        TDY: 89
+        TEL: 90
+        VMC: 91
+        WAB: 92
+        WEC: 93
+        WM: 94
+        WMB: 95
+        WY: 96
+        XEL: 97
+      classes_vector_: !!python/object/apply:numpy._core.multiarray._reconstruct
+        args:
+        - !!python/name:numpy.ndarray ''
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 98
+        - !!python/object/apply:numpy.dtype
+          args:
+          - U5
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - 20
+          - 4
+          - 8
+        - false
+        - !!binary |
+          QQAAAEMAAABOAAAAAAAAAAAAAABBAAAARAAAAEkAAAAAAAAAAAAAAEEAAABEAAAAUwAAAEsAAAAA
+          AAAAQQAAAEUAAABFAAAAAAAAAAAAAABBAAAARQAAAFMAAAAAAAAAAAAAAEEAAABNAAAAWgAAAE4A
+          AAAAAAAAQQAAAE8AAABOAAAAAAAAAAAAAABBAAAAUgAAAEUAAAAAAAAAAAAAAEEAAABUAAAATwAA
+          AAAAAAAAAAAAQQAAAFoAAABPAAAAAAAAAAAAAABCAAAAQQAAAEMAAAAAAAAAAAAAAEIAAABEAAAA
+          WAAAAAAAAAAAAAAAQgAAAEcAAAAAAAAAAAAAAAAAAABCAAAASwAAAAAAAAAAAAAAAAAAAEIAAABL
+          AAAAUgAAAAAAAAAAAAAAQwAAAEEAAABHAAAAAAAAAAAAAABDAAAAQQAAAFQAAAAAAAAAAAAAAEMA
+          AABEAAAATgAAAFMAAAAAAAAAQwAAAE0AAABTAAAAAAAAAAAAAABDAAAATgAAAEMAAAAAAAAAAAAA
+          AEMAAABOAAAAUAAAAAAAAAAAAAAAQwAAAFIAAABXAAAARAAAAAAAAABDAAAAWgAAAFIAAAAAAAAA
+          AAAAAEQAAABBAAAATAAAAAAAAAAAAAAARAAAAEUAAAAAAAAAAAAAAAAAAABEAAAARwAAAFgAAAAA
+          AAAAAAAAAEQAAABMAAAAUgAAAAAAAAAAAAAARAAAAE8AAABXAAAAAAAAAAAAAABEAAAAUgAAAEkA
+          AAAAAAAAAAAAAEUAAABBAAAAAAAAAAAAAAAAAAAARQAAAE0AAABSAAAAAAAAAAAAAABFAAAAUQAA
+          AFIAAAAAAAAAAAAAAEUAAABRAAAAVAAAAAAAAAAAAAAARQAAAFIAAABJAAAARQAAAAAAAABFAAAA
+          VAAAAE4AAAAAAAAAAAAAAEUAAABYAAAAQwAAAAAAAAAAAAAARgAAAEQAAABTAAAAAAAAAAAAAABG
+          AAAARAAAAFgAAAAAAAAAAAAAAEYAAABFAAAAAAAAAAAAAAAAAAAARgAAAEkAAABTAAAAAAAAAAAA
+          AABHAAAARQAAAAAAAAAAAAAAAAAAAEcAAABMAAAAVwAAAAAAAAAAAAAARwAAAE8AAABPAAAARwAA
+          AEwAAABHAAAAUgAAAE0AAABOAAAAAAAAAEgAAABBAAAATAAAAAAAAAAAAAAASAAAAEkAAABJAAAA
+          AAAAAAAAAABIAAAATAAAAFQAAAAAAAAAAAAAAEgAAABPAAAATAAAAFgAAAAAAAAASAAAAFUAAABN
+          AAAAAAAAAAAAAABJAAAAQgAAAE0AAAAAAAAAAAAAAEkAAABSAAAATQAAAAAAAAAAAAAASQAAAFQA
+          AABXAAAAAAAAAAAAAABKAAAAQgAAAEwAAAAAAAAAAAAAAEoAAABOAAAASgAAAAAAAAAAAAAASwAA
+          AEkAAABNAAAAAAAAAAAAAABLAAAATQAAAEkAAAAAAAAAAAAAAEsAAABPAAAAAAAAAAAAAAAAAAAA
+          TAAAAE4AAABUAAAAAAAAAAAAAABMAAAAWQAAAFYAAAAAAAAAAAAAAE0AAABBAAAAQQAAAAAAAAAA
+          AAAATQAAAEEAAABSAAAAAAAAAAAAAABNAAAARwAAAE0AAAAAAAAAAAAAAE0AAABIAAAASwAAAAAA
+          AAAAAAAATQAAAEsAAABUAAAAWAAAAAAAAABNAAAAVAAAAEQAAAAAAAAAAAAAAE4AAABTAAAAQwAA
+          AAAAAAAAAAAATgAAAFQAAABBAAAAUAAAAAAAAABOAAAAVAAAAFIAAABTAAAAAAAAAE4AAABVAAAA
+          RQAAAAAAAAAAAAAATgAAAFYAAABSAAAAAAAAAAAAAABPAAAAAAAAAAAAAAAAAAAAAAAAAE8AAABN
+          AAAAQwAAAAAAAAAAAAAATwAAAFIAAABMAAAAWQAAAAAAAABPAAAAWAAAAFkAAAAAAAAAAAAAAFAA
+          AABBAAAATgAAAFcAAAAAAAAAUAAAAEcAAABSAAAAAAAAAAAAAABQAAAASAAAAAAAAAAAAAAAAAAA
+          AFAAAABPAAAATwAAAEwAAAAAAAAAUAAAAFAAAABHAAAAAAAAAAAAAABSAAAARQAAAEcAAAAAAAAA
+          AAAAAFIAAABPAAAAUwAAAFQAAAAAAAAAUwAAAEIAAABBAAAAQwAAAAAAAABTAAAAQgAAAFUAAABY
+          AAAAAAAAAFMAAABIAAAAVwAAAAAAAAAAAAAAUwAAAEoAAABNAAAAAAAAAAAAAABTAAAATQAAAEMA
+          AABJAAAAAAAAAFMAAABOAAAAQQAAAAAAAAAAAAAAUwAAAFIAAABFAAAAAAAAAAAAAABUAAAAQQAA
+          AFAAAAAAAAAAAAAAAFQAAABEAAAAWQAAAAAAAAAAAAAAVAAAAEUAAABMAAAAAAAAAAAAAABWAAAA
+          TQAAAEMAAAAAAAAAAAAAAFcAAABBAAAAQgAAAAAAAAAAAAAAVwAAAEUAAABDAAAAAAAAAAAAAABX
+          AAAATQAAAAAAAAAAAAAAAAAAAFcAAABNAAAAQgAAAAAAAAAAAAAAVwAAAFkAAAAAAAAAAAAAAAAA
+          AABYAAAARQAAAEwAAAAAAAAAAAAAAA==
+      warn: true
+  constant_fill_strategy: null
+  group_ids:
+  - Ticker
+  lags: null
+  max_encoder_length: 40
+  max_prediction_length: 20
+  min_encoder_length: 40
+  min_prediction_idx: !!python/object/apply:numpy._core.multiarray.scalar
+  - !!python/object/apply:numpy.dtype
+    args:
+    - i8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    AAAAAAAAAAA=
+  min_prediction_length: 20
+  predict_mode: false
+  randomize_length: null
+  scalers: {}
+  static_categoricals: null
+  static_reals: null
+  target: price
+  target_normalizer: &id001 !!python/object:pytorch_forecasting.data.encoders.EncoderNormalizer
+    _method_kwargs: {}
+    center: true
+    center_: !!python/object/apply:torch._utils._rebuild_tensor_v2
+    - !!python/object/apply:torch.storage._load_from_bytes
+      - !!binary |
+        gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+        AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+        aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApGbG9hdFN0b3Jh
+        Z2UKcQFYDgAAADk0NDQ0ODE2MjY0Mjg4cQJYAwAAAGNwdXEDSwFOdHEEUS6AAl1xAFgOAAAAOTQ0
+        NDQ4MTYyNjQyODhxAWEuAQAAAAAAAAAyea9A
+    - 0
+    - !!python/tuple []
+    - !!python/tuple []
+    - false
+    - !!python/object/apply:collections.OrderedDict
+      - []
+    max_length: null
+    method: standard
+    method_kwargs: {}
+    scale_: !!python/object/apply:torch._utils._rebuild_tensor_v2
+    - !!python/object/apply:torch.storage._load_from_bytes
+      - !!binary |
+        gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+        AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+        aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApGbG9hdFN0b3Jh
+        Z2UKcQFYDgAAADk0NDQ0NzE2MDk1MDA4cQJYAwAAAGNwdXEDSwFOdHEEUS6AAl1xAFgOAAAAOTQ0
+        NDQ3MTYwOTUwMDhxAWEuAQAAAAAAAAAhho08
+    - 0
+    - !!python/tuple []
+    - !!python/tuple []
+    - false
+    - !!python/object/apply:collections.OrderedDict
+      - []
+    transformation: log
+  time_idx: time_idx
+  time_varying_known_categoricals: null
+  time_varying_known_reals: null
+  time_varying_unknown_categoricals: null
+  time_varying_unknown_reals:
+  - price
+  variable_groups: null
+  weight: null
+dropout: 0.1
+embedding_labels: {}
+embedding_paddings: []
+embedding_sizes: {}
+hidden_size: 30
+learning_rate: 0.01
+log_gradient_flow: false
+log_interval: -1
+log_val_interval: null
+monotone_constaints: {}
+n_plotting_samples: null
+n_validation_samples: null
+optimizer: adam
+optimizer_params: null
+output_transformer: *id001
+reduce_on_plateau_min_lr: 1.0e-05
+reduce_on_plateau_patience: 1000
+reduce_on_plateau_reduction: 2.0
+rnn_layers: 4
+static_categoricals: []
+static_reals: []
+target: price
+target_lags: {}
+time_varying_categoricals_decoder: []
+time_varying_categoricals_encoder: []
+time_varying_reals_decoder: []
+time_varying_reals_encoder:
+- price
+weight_decay: 0.0
+x_categoricals: []
+x_reals:
+- price

@@ -1,0 +1,7 @@
+ipykernel
+numpy==1.25.2
+neuralprophet>=0.6.0
+pandas
+matplotlib
+seaborn
+yfinance 

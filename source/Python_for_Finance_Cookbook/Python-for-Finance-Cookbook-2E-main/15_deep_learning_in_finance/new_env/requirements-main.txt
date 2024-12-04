@@ -1,0 +1,16 @@
+fastai
+pytorch-tabnet
+pytorch-lightning
+pytorch-forecasting
+seaborn
+pandas
+scikit-learn
+yfinance
+ipykernel
+torch
+torchvision
+torchaudio
+matplotlib
+numpy
+matplotlib
+koreanize-matplotlib 
