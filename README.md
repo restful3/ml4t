@@ -36,7 +36,7 @@
   - Chapter 4: Store Financial Market Data on Your Computer  
 
 #### **2025년 1월 18일**: [Webex]()
-- 발표자 - TBD  
+- 발표자 - 태영  
   - Chapter 5: Build Alpha Factors for Stock Portfolios  
 
 #### **2025년 1월 25일**: [Webex]()
