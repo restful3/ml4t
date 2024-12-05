@@ -19,55 +19,55 @@
 
 ### **4. 스터디 운영 계획 (2024년 12월 ~ 2025년 3월)**
 
-#### **2024년 12월 14일**: [Webex]()
-- 발표자 - 정우석
+#### **2024년 12월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m67909b7d882fffbb28a17bdd880050f7	)
+- 발표자 - 우석
   - Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  
 
-#### **2024년 12월 21일**: [Webex]()
+#### **2024년 12월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m74bc31f0b8067acc17d5107a4cfcea0f	)
 - 발표자 - 핀조이  
   - Chapter 2: Analyze and Transform Financial Market Data with pandas  
 
-#### **2024년 12월 28일**: [Webex]()
+#### **2024년 12월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb5a74c3fb595bb2ab09920b817e1a2a5	)
 - 발표자 - TBD  
   - Chapter 3: Visualize Financial Market Data with Matplotlib, Seaborn, and Plotly Dash  
 
-#### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex]()
+#### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
 - 발표자 - TBD  
   - Chapter 4: Store Financial Market Data on Your Computer  
 
-#### **2025년 1월 18일**: [Webex]()
+#### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
 - 발표자 - 태영  
   - Chapter 5: Build Alpha Factors for Stock Portfolios  
 
-#### **2025년 1월 25일**: [Webex]()
+#### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
 - 발표자 - TBD  
   - Chapter 6: Vector-Based Backtesting with VectorBT  
 
-#### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex]()
+#### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
 - 발표자 - TBD  
   - Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded  
 
-#### **2025년 2월 15일**: [Webex]()
+#### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
 - 발표자 - TBD  
   - Chapter 8: Evaluate Factor Risk and Performance with Alphalens Reloaded  
 
-#### **2025년 2월 22일**: [Webex]()
+#### **2025년 2월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc2a52bbfacadc192ba94409533823779	)
 - 발표자 - TBD  
   - Chapter 9: Assess Backtest Risk and Performance Metrics with Pyfolio  
 
-#### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex]()
+#### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mff689e4a7817c0997b82f7ca4fbc5175	)
 - 발표자 - 핀조이  
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
-#### **2025년 3월 15일**: [Webex]()
+#### **2025년 3월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
 - 발표자 - 핀조이  
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
-#### **2025년 3월 22일**: [Webex]()
+#### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
 - 발표자 - TBD  
   - Chapter 12: Deploy Strategies to a Live Environment  
 
-#### **2025년 3월 29일**: [Webex]()
+#### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
 - 발표자 - TBD  
   - Chapter 13: Advanced Recipes for Market Data and Strategy Management  
 
