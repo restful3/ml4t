@@ -32,7 +32,7 @@
   - Chapter 3: Visualize Financial Market Data with Matplotlib, Seaborn, and Plotly Dash  
 
 #### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
-- 발표자 - TBD  
+- 발표자 - 태호  
   - Chapter 4: Store Financial Market Data on Your Computer  
 
 #### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
