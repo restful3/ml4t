@@ -21,7 +21,7 @@
 
 #### **2024년 12월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m67909b7d882fffbb28a17bdd880050f7	)
 - 발표자 - 우석
-  - Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  
+  - [Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  ](https://github.com/restful3/ml4t/blob/main/source/01.%20Acquiring%20Free%20Financial%20Market%20Data%20with%20Cutting-Edge%20Python%20Libraries_wooseok.ipynb)
 
 #### **2024년 12월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m74bc31f0b8067acc17d5107a4cfcea0f	)
 - 발표자 - 핀조이  
@@ -32,7 +32,7 @@
   - Chapter 3: Visualize Financial Market Data with Matplotlib, Seaborn, and Plotly Dash  
 
 #### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
-- 발표자 - TBD  
+- 발표자 - 태호  
   - Chapter 4: Store Financial Market Data on Your Computer  
 
 #### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
