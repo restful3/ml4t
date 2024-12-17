@@ -28,7 +28,7 @@
   - Chapter 2: Analyze and Transform Financial Market Data with pandas  
 
 #### **2024년 12월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb5a74c3fb595bb2ab09920b817e1a2a5	)
-- 발표자 - TBD  
+- 발표자 - HY  
   - Chapter 3: Visualize Financial Market Data with Matplotlib, Seaborn, and Plotly Dash  
 
 #### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
