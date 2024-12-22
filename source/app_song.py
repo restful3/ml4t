@@ -15,23 +15,23 @@ obb.user.preferences.output_type = "dataframe"
 
 pio.templates.default = "plotly"
 
-# Dash 앱을 Bootstrap 스타일로 초기화
+# Initialize the Dash app with Bootstrap styling
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-# 티커 입력을 위한 UI 컴포넌트
+# UI components for ticker input
 ticker_field = [
-    html.Label("티커 심볼 입력:"),
+    html.Label("Enter Ticker Symbols:"),
     dcc.Input(
         id="ticker-input",
         type="text",
-        placeholder="콤마로 구분된 티커 입력 (예: AAPL,MSFT)",
+        placeholder="Enter Tickers separated by commas (e.g. AAPL,MSFT)",
         style={"width": "50%"},
     ),
 ]
 
-# PCA 컴포넌트 수 선택을 위한 UI 컴포넌트
+# UI components for selecting number of PCA components
 components_field = [
-    html.Label("컴포넌트 수 선택:"),
+    html.Label("Select Number of Components:"),
     dcc.Dropdown(
         id="component-dropdown",
         options=[{"label": i, "value": i} for i in range(1, 6)],
@@ -40,32 +40,32 @@ components_field = [
     ),
 ]
 
-# 날짜 범위 선택을 위한 UI 컴포넌트
+# UI components for date range picker
 date_picker_field = [
-    html.Label("날짜 범위 선택:"),  # 날짜 선택기 레이블
+    html.Label("Select Date Range:"),  # Label for date picker
     dcc.DatePickerRange(
         id="date-picker",
         start_date=datetime.datetime.now() - datetime.timedelta(365 * 3),
-        end_date=datetime.datetime.now(),  # 오늘 날짜를 기본값으로 설정
+        end_date=datetime.datetime.now(),  # Default to today's date
         display_format="YYYY-MM-DD",
     ),
 ]
 
-# 업데이트 트리거를 위한 제출 버튼
+# Submit button for triggering the update
 submit = [
-    html.Button("제출", id="submit-button"),
+    html.Button("Submit", id="submit-button"),
 ]
 
-# 앱 레이아웃 정의
+# Define the app layout
 app.layout = dbc.Container(
     [
-        html.H1("주식 수익률의 PCA 분석"),
-        # 티커 입력
+        html.H1("PCA on Stock Returns"),
+        # Ticker Input
         dbc.Row([dbc.Col(ticker_field)]),
         dbc.Row([dbc.Col(components_field)]),
         dbc.Row([dbc.Col(date_picker_field)]),
         dbc.Row([dbc.Col(submit)]),
-        # 차트
+        # Charts
         dbc.Row(
             [
                 dbc.Col([dcc.Graph(id="bar-chart")], width=4),
@@ -93,50 +93,61 @@ app.layout = dbc.Container(
 )
 def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
     """
-    사용자 입력에 기반하여 그래프를 업데이트합니다.
+    Update the graphs based on user input.
 
-    매개변수
+    Parameters
     ----------
     n_clicks : int
-        제출 버튼이 클릭된 횟수
+        Number of times the submit button has been clicked.
     tickers : str
-        콤마로 구분된 티커 심볼 목록
+        Comma-separated list of ticker symbols.
     n_components : int
-        계산할 주성분 수
+        Number of principal components to compute.
     start_date : str
-        YYYY-MM-DD 형식의 시작 날짜
+        Start date for the historical data in YYYY-MM-DD format.
     end_date : str
-        YYYY-MM-DD 형식의 종료 날짜
+        End date for the historical data in YYYY-MM-DD format.
 
-    반환값
+    Returns
     -------
     tuple
-        막대 차트, 선 차트, 산점도를 위한 세 개의 Plotly 그림을 포함하는 튜플
+        A tuple containing three Plotly figures for the bar chart, line chart, and scatter plot.
     """
     if not tickers:
         return {}, {}, {}
 
-    # 사용자 입력 파싱
+    # Parse inputs from user
     tickers = tickers.split(",")
+    
+    # 최소 2개 이상의 티커가 필요함을 확인
+    if len(tickers) < 2:
+        return {}, {}, {}  # 또는 에러 메시지를 표시하는 차트를 반환
+        
+    # n_components가 티커 수를 초과하지 않도록 조정
+    n_components = min(n_components, len(tickers))
 
-    # 날짜 문자열을 datetime 객체로 변환
+    # Convert date strings to datetime objects
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%dT%H:%M:%S.%f").date()
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%dT%H:%M:%S.%f").date()
 
-    # 주식 히스토리 데이터 다운로드
-    data = obb.equity.price.historical(
-        tickers, start_date=start_date, end_date=end_date, provider="yfinance"
-    ).pivot(columns="symbol", values="close")
-    # 일간 수익률 계산
+    # Download historical stock data and process it
+    data = pd.DataFrame()
+    for ticker in tickers:
+        stock_data = obb.equity.price.historical(
+            ticker, start_date=start_date, end_date=end_date, provider="yfinance"
+        )
+        data[ticker] = stock_data['close']  # 'Close'를 'close'로 변경
+
+    # Calculate daily returns
     daily_returns = data.pct_change().dropna()
 
-    # 일간 수익률에 PCA 적용
+    # Apply PCA to the daily returns
     pca = PCA(n_components=n_components)
     pca.fit(daily_returns)
 
     explained_var_ratio = pca.explained_variance_ratio_
 
-    # 개별 설명 분산을 위한 막대 차트 생성
+    # Create a bar chart for individual explained variance
     bar_chart = go.Figure(
         data=[
             go.Bar(
@@ -145,13 +156,13 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
             )
         ],
         layout=go.Layout(
-            title="컴포넌트별 설명 분산",
-            xaxis=dict(title="주성분"),
-            yaxis=dict(title="설명 분산"),
+            title="Explained Variance by Component",
+            xaxis=dict(title="Principal Component"),
+            yaxis=dict(title="Explained Variance"),
         ),
     )
 
-    # 누적 설명 분산을 위한 선 차트 생성
+    # Create a line chart for cumulative explained variance
     cumulative_var_ratio = np.cumsum(explained_var_ratio)
     line_chart = go.Figure(
         data=[
@@ -162,13 +173,13 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
             )
         ],
         layout=go.Layout(
-            title="누적 설명 분산",
-            xaxis=dict(title="주성분"),
-            yaxis=dict(title="누적 설명 분산"),
+            title="Cumulative Explained Variance",
+            xaxis=dict(title="Principal Component"),
+            yaxis=dict(title="Cumulative Explained Variance"),
         ),
     )
 
-    # 요인 노출도 계산
+    # Compute factor exposures
     X = np.asarray(daily_returns)
 
     factor_returns = pd.DataFrame(
@@ -177,7 +188,7 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
         data=X.dot(pca.components_.T),
     )
 
-    # 각 주식에 대한 요인 노출도 계산
+    # Calculate factor exposures for each stock
     factor_exposures = pd.DataFrame(
         index=["f" + str(i + 1) for i in range(n_components)],
         columns=daily_returns.columns,
@@ -187,7 +198,7 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
     labels = factor_exposures.index
     data = factor_exposures.values
 
-    # 첫 두 요인에 대한 산점도 생성
+    # Create a scatter plot for the first two factors
     scatter_plot = go.Figure(
         data=[
             go.Scatter(
@@ -199,9 +210,9 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
             )
         ],
         layout=go.Layout(
-            title="첫 두 요인의 산점도",
-            xaxis=dict(title="요인 1"),
-            yaxis=dict(title="요인 2"),
+            title="Scatter Plot of First Two Factors",
+            xaxis=dict(title="Factor 1"),
+            yaxis=dict(title="Factor 2"),
         ),
     )
 
@@ -209,5 +220,5 @@ def update_graphs(n_clicks, tickers, n_components, start_date, end_date):
 
 
 if __name__ == "__main__":
-    # Dash 앱 실행
-    app.run_server(debug=True)
+    # Run the Dash app
+    app.run_server(debug=True, host="0.0.0.0", port=8050)  # Use localhost
