@@ -44,11 +44,11 @@
   - Chapter 6: Vector-Based Backtesting with VectorBT  
 
 #### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
-- 발표자 - TBD  
+- 발표자 - 상호  
   - Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded  
 
 #### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
-- 발표자 - TBD  
+- 발표자 - 상호  
   - Chapter 8: Evaluate Factor Risk and Performance with Alphalens Reloaded  
 
 #### **2025년 2월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc2a52bbfacadc192ba94409533823779	)
