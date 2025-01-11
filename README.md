@@ -33,7 +33,7 @@
 
 #### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
 - 발표자 - 태호  
-  - Chapter 4: Store Financial Market Data on Your Computer  
+  - [Chapter 4: Store Financial Market Data on Your Computer](https://github.com/restful3/ml4t/blob/main/source/04.%20Store%20Financial%20Market%20Data%20On%20Your%20Computer_teo.ipynb)
 
 #### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
 - 발표자 - 태영  
