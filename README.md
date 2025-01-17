@@ -40,7 +40,7 @@
   - [Chapter 5: Build Alpha Factors for Stock Portfolios](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.pdf)
 
 #### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
-- 발표자 - TBD  
+- 발표자 - 정택  
   - Chapter 6: Vector-Based Backtesting with VectorBT  
 
 #### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
