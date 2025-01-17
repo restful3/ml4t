@@ -37,7 +37,7 @@
 
 #### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
 - 발표자 - 태영  
-  - Chapter 5: Build Alpha Factors for Stock Portfolios  
+  - [Chapter 5: Build Alpha Factors for Stock Portfolios](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.pdf)
 
 #### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
 - 발표자 - TBD  
