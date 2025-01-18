@@ -64,7 +64,7 @@
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
 #### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
-- 발표자 - 태영  
+- 발표자 - TBD  
   - Chapter 12: Deploy Strategies to a Live Environment  
 
 #### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
