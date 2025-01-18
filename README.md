@@ -37,10 +37,10 @@
 
 #### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
 - 발표자 - 태영  
-  - Chapter 5: Build Alpha Factors for Stock Portfolios  
+  - [Chapter 5: Build Alpha Factors for Stock Portfolios](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.pdf)
 
 #### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
-- 발표자 - TBD  
+- 발표자 - 정택  
   - Chapter 6: Vector-Based Backtesting with VectorBT  
 
 #### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
@@ -64,7 +64,7 @@
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
 #### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
-- 발표자 - TBD  
+- 발표자 - 태영  
   - Chapter 12: Deploy Strategies to a Live Environment  
 
 #### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
