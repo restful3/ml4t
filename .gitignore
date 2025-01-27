@@ -164,3 +164,5 @@ cython_debug/
 source/Python_for_Finance_Cookbook/catboost_info/
 datasets/
 *.gz
+
+**/yahoo_data/
