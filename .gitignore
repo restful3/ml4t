@@ -166,3 +166,5 @@ datasets/
 *.gz
 
 **/yahoo_data/
+
+*.pickle
