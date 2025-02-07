@@ -77,7 +77,9 @@
 - **교재**: [Python for Algorithmic Trading Cookbook: Recipes for designing, building, and deploying algorithmic trading strategies with Python](https://www.amazon.com/Python-Algorithmic-Trading-Cookbook-algorithmic/dp/1835084702)  
 - **참고자료**: [MOFC](https://mofc.unic.ac.cy/m6-presentations/)  
 - **학습 공유**: 매주 학습 내용(소스 코드, 발표자료)을 업로드  
-- **발표**: 주제별 50분 발표, 10분 Q&A  
+- **발표**: 주제별 50분 발표, 10분 Q&A
+- **운영 규칙**
+  - [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
 
 ---
 
