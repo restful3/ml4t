@@ -45,7 +45,7 @@
 
 #### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
 - 발표자 - 상호  
-  - Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded  
+  - [Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded](https://github.com/restful3/ml4t/blob/main/source/07.%20Event-Based%20Backtesting%20Factor%20Portfolios%20with%20Zipline%20Reloaded_sangho.ipynb)
 
 #### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
 - 발표자 - 상호  
