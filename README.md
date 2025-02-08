@@ -41,11 +41,11 @@
 
 #### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
 - 발표자 - 정택  
-  - Chapter 6: Vector-Based Backtesting with VectorBT  
+  - [Chapter 6: Vector-Based Backtesting with VectorBT](https://github.com/restful3/ml4t/blob/main/source/06.%20Vector-Based%20Backtesting%20with%20VectorBT_jtkim.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/VectorBT%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EB%B2%A1%ED%84%B0%20%EA%B8%B0%EB%B0%98%20%EB%B0%B1%ED%85%8C%EC%8A%A4%ED%8C%85.pdf)  
 
 #### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
 - 발표자 - 상호  
-  - Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded  
+  - [Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded](https://github.com/restful3/ml4t/blob/main/source/07.%20Event-Based%20Backtesting%20Factor%20Portfolios%20with%20Zipline%20Reloaded_sangho.ipynb)
 
 #### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
 - 발표자 - 상호  
@@ -59,7 +59,7 @@
 - 발표자 - 핀조이  
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
-#### **2025년 3월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
+#### **2025년 3월 15일**: [오프라인](https://booking.naver.com/booking/10/bizes/372277), [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
 - 발표자 - 핀조이  
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
