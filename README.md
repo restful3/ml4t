@@ -59,7 +59,7 @@
 - 발표자 - 핀조이  
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
-#### **2025년 3월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
+#### **2025년 3월 15일**: [오프라인](https://booking.naver.com/booking/10/bizes/372277), [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
 - 발표자 - 핀조이  
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
