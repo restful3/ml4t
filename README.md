@@ -49,8 +49,8 @@
 
 #### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
 - 발표자 - 상호  
-  - Chapter 8: Evaluate Factor Risk and Performance with Alphalens Reloaded  
-
+  - [Chapter 8: Evaluate Factor Risk and Performance with Alphalens Reloaded](https://github.com/restful3/ml4t/blob/77a219528609ec44fd5bca75b7be5d586d5f598a/source/08.%20Evaluate%20Factor%20Risk%20and%20Performance%20With%20AlphaLens_sangho.ipynb))
+  - 
 #### **2025년 2월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc2a52bbfacadc192ba94409533823779	)
 - 발표자 - TBD  
   - Chapter 9: Assess Backtest Risk and Performance Metrics with Pyfolio  
