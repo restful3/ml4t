@@ -55,7 +55,7 @@
 - 발표자 - 우석  
   - Chapter 9: Assess Backtest Risk and Performance Metrics with Pyfolio  
 
-#### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mff689e4a7817c0997b82f7ca4fbc5175	)
+#### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mff689e4a7817c0997b82f7ca4fbc5175)
 - 발표자 - 핀조이  
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
