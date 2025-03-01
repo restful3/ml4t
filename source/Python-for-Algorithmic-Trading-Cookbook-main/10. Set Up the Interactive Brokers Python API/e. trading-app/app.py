@@ -35,6 +35,7 @@ if __name__ == "__main__":
         request_id=99,
         contract=aapl,
     )
-
+    print(data)
+    
     time.sleep(30)
     app.disconnect()
