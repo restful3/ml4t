@@ -55,6 +55,6 @@ if __name__ == "__main__":
     df.to_csv('aapl_historical_data.csv', index=True)
 
     # 데이터 수신을 위한 대기
-    time.sleep(30)
+    time.sleep(5)
     # TWS/IB Gateway 연결 종료
     app.disconnect()
