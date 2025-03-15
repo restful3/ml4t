@@ -60,15 +60,19 @@
   - Chapter 10: Set Up the Interactive Brokers Python API  
 
 #### **2025년 3월 15일**: [오프라인 : 오전 9시](https://booking.naver.com/booking/10/bizes/372277), [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
+- 발표자 - 민호
+  - [한국투자증권 API로 파이썬 자동매매 시스템 구축 - 개발환경 구축](https://www.youtube.com/watch?v=O2aOd3hzCsI&list=PLlbsy38S8CCwPJez3KA9viVcKT7OkV6X8)
+  
+#### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
 - 발표자 - 핀조이  
   - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
 
-#### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
+#### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
 - 발표자 - 태영  
   - Chapter 12: Deploy Strategies to a Live Environment  
 
-#### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
-- 발표자 - TBD  
+#### **2025년 4월 12일** *(4/5 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m13e940f392b3b5ae422edff93b61b1ea	)
+- 발표자 - 정택  
   - Chapter 13: Advanced Recipes for Market Data and Strategy Management  
 
 ---
