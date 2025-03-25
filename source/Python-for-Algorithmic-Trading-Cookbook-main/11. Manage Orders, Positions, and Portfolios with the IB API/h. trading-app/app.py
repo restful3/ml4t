@@ -59,7 +59,7 @@ if __name__ == "__main__":
     pltr = option("PLTR", "BOX", "20240315", 20, "C")
 
     limit_order = limit(BUY, 100, 190.00)
-
+    limit_order.eTradeOnly = False
     app.send_order(aapl, limit_order)
 
     time.sleep(30)
