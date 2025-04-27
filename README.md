@@ -43,11 +43,7 @@
     - Example 5: FX SVM Wavelet Forecasting  
     - Example 6: Dividend Harvesting Selection of High-Yield Assets
 
----
-
-✅ **2025년 6월 7일**: 휴일 (스터디 없음)
-
----
+#### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
 
 #### **2025년 6월 14일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -100,11 +96,7 @@
   - **Chapter 8: AI for Risk Management and Optimization**  
     - 리스크 관리 및 전략 최적화를 위한 AI 기법 소개
 
----
-
-✅ **2025년 8월 16일**: 휴일 (스터디 없음)
-
----
+#### ✅ **2025년 8월 16일**: 휴일 (스터디 없음)
 
 #### **2025년 8월 23일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
