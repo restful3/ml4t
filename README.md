@@ -23,7 +23,7 @@
 - 발표자 - TBD
   - **Chapter 1: Foundations of Capital Markets**  
     - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
-    - 추가: **Example 1: ML Trend Scanning with MLFinlab** 실습
+  - **Example 1: ML Trend Scanning with MLFinlab** 실습
 
 #### **2025년 5월 17일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -35,7 +35,7 @@
 - 발표자 - TBD
   - **Chapter 2: Foundations of Quantitative Trading**  
     - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
-    - 추가: **Example 4: Alpha by Hidden Markov Models** 실습
+  - **Example 4: Alpha by Hidden Markov Models** 실습
 
 #### **2025년 5월 31일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -49,7 +49,7 @@
 - 발표자 - TBD
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
-    - 추가: **Example 7: Effect of Positive-Negative Splits** 실습
+  - **Example 7: Effect of Positive-Negative Splits** 실습
 
 #### **2025년 6월 21일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -83,7 +83,7 @@
 - 발표자 - TBD
   - **Chapter 7: Better Hedging with Reinforcement Learning**  
     - 강화학습을 이용한 포트폴리오 헷징 최적화
-    - 추가: **Example 14: Temporal CNN Prediction** 실습
+  - **Example 14: Temporal CNN Prediction** 실습
 
 #### **2025년 8월 2일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -108,7 +108,7 @@
 - 발표자 - TBD
   - **Chapter 9: Application of LLM and Generative AI in Trading**  
     - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
-    - 추가: **Example 19: FinBERT Model** 실습
+  - **Example 19: FinBERT Model** 실습
 
 ---
 
