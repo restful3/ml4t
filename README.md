@@ -1,9 +1,9 @@
-### ML4D Study
+# 📢 ML4D Study
 
 ---
 
 ### **1. 스터디 목적**
-- **알고리즘 트레이딩과 퀀트 분야의 필수 기술을 익히고 Python으로 이를 실습하며, 실전 금융 데이터 분석 및 전략 구축에 대한 이해를 목표로 합니다.**
+- **AI와 머신러닝을 활용한 알고리즘 트레이딩 및 금융 데이터 분석의 최신 기법을 익히고, Python과 QuantConnect, AWS 환경을 기반으로 실전 전략 구축 역량을 강화하는 것을 목표로 합니다.**
 
 ---
 
@@ -17,75 +17,122 @@
 
 ---
 
-### **4. 스터디 운영 계획 (2024년 12월 ~ 2025년 3월)**
+### **4. 스터디 운영 계획 (2025년 5월 10일 ~ 2025년 8월 30일)**
 
-#### **2024년 12월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m67909b7d882fffbb28a17bdd880050f7	)
-- 발표자 - 우석
-  - [Chapter 1: Acquire Free Financial Market Data with Cutting-Edge Python Libraries  ](https://github.com/restful3/ml4t/blob/main/source/01.%20Acquiring%20Free%20Financial%20Market%20Data%20with%20Cutting-Edge%20Python%20Libraries_wooseok.ipynb)
-
-#### **2024년 12월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m74bc31f0b8067acc17d5107a4cfcea0f	)
-- 발표자 - 핀조이  
-  - Chapter 2: Analyze and Transform Financial Market Data with pandas  
-
-#### **2024년 12월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb5a74c3fb595bb2ab09920b817e1a2a5	)
-- 발표자 - HY  
-  - [Chapter 3: Visualize Financial Market Data with Matplotlib, Seaborn, and Plotly Dash ](https://github.com/xemotion/dl_study/tree/c48aa3a8bfe0ebabc4c1ff34d2de232c96b45f2b/Quant/pytho%20for%20algorithmic%20trading%20cookbook)
-
-#### **2025년 1월 11일** *(1/4 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m16c5137784cdd76dee041575c96a4e48	)
-- 발표자 - 태호  
-  - [Chapter 4: Store Financial Market Data on Your Computer](https://github.com/restful3/ml4t/blob/main/source/04.%20Store%20Financial%20Market%20Data%20On%20Your%20Computer_teo.ipynb)
-
-#### **2025년 1월 18일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0890a4d2dce5a5469ac4a4019efc3b51	)
-- 발표자 - 태영  
-  - [Chapter 5: Build Alpha Factors for Stock Portfolios](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/05.%20Build%20Alpha%20Factors%20for%20Stock%20Portfolios_song.pdf)
-
-#### **2025년 1월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m41a6759003026ae0d91e29aecc9675e9	)
-- 발표자 - 정택  
-  - [Chapter 6: Vector-Based Backtesting with VectorBT](https://github.com/restful3/ml4t/blob/main/source/06.%20Vector-Based%20Backtesting%20with%20VectorBT_jtkim.ipynb), [pdf](https://github.com/restful3/ml4t/blob/main/source/VectorBT%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EB%B2%A1%ED%84%B0%20%EA%B8%B0%EB%B0%98%20%EB%B0%B1%ED%85%8C%EC%8A%A4%ED%8C%85.pdf)  
-
-#### **2025년 2월 8일** *(2/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=mebc02c032fcf0068181e7b554c709bb3	)
-- 발표자 - 상호  
-  - [Chapter 7: Event-Based Backtesting Factor Portfolios with Zipline Reloaded](https://github.com/restful3/ml4t/blob/main/source/07.%20Event-Based%20Backtesting%20Factor%20Portfolios%20with%20Zipline%20Reloaded_sangho.ipynb)
-
-#### **2025년 2월 15일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m379b03e5c415c37bfbd5417b18034e57	)
-- 발표자 - 상호  
-  - [Chapter 8: Evaluate Factor Risk and Performance with Alphalens Reloaded](https://github.com/restful3/ml4t/blob/77a219528609ec44fd5bca75b7be5d586d5f598a/source/08.%20Evaluate%20Factor%20Risk%20and%20Performance%20With%20AlphaLens_sangho.ipynb))
-
-#### **2025년 2월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc2a52bbfacadc192ba94409533823779	)
-- 발표자 - 우석  
-  - Chapter 9: Assess Backtest Risk and Performance Metrics with Pyfolio  
-
-#### **2025년 3월 8일** *(3/1 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mff689e4a7817c0997b82f7ca4fbc5175)
-- 발표자 - 핀조이  
-  - Chapter 10: Set Up the Interactive Brokers Python API  
-
-#### **2025년 3월 15일**: [오프라인 : 오전 9시](https://booking.naver.com/booking/10/bizes/372277), [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mfaf5dc7391304da94f27f16871dce1a3	)
-- 발표자 - 민호
-  - [한국투자증권 API로 파이썬 자동매매 시스템 구축 - 개발환경 구축](https://www.youtube.com/watch?v=O2aOd3hzCsI&list=PLlbsy38S8CCwPJez3KA9viVcKT7OkV6X8)
-  
-#### **2025년 3월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m93fd00e113e21dc12a75a6b4bb2d2208	)
-- 발표자 - 핀조이  
-  - Chapter 11: Manage Orders, Positions, and Portfolios with the IB API  
-
-#### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
-- 발표자 - 태영  
-  - 바이브 코딩을 이용한 업비트 자동 거래 프로그램 만들기  
-
-#### **2025년 4월 12일** *(4/5 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m13e940f392b3b5ae422edff93b61b1ea	)
+#### **2025년 5월 10일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
-  - TBD
+  - **Chapter 1: Foundations of Capital Markets**  
+    - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
+    - 추가: **Example 1: ML Trend Scanning with MLFinlab** 실습
+
+#### **2025년 5월 17일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 2: Factor Preprocessing Techniques for Regime Detection  
+    - Example 3: Reversion vs. Trending: Strategy Selection by Classification
+
+#### **2025년 5월 24일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 2: Foundations of Quantitative Trading**  
+    - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
+    - 추가: **Example 4: Alpha by Hidden Markov Models** 실습
+
+#### **2025년 5월 31일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 5: FX SVM Wavelet Forecasting  
+    - Example 6: Dividend Harvesting Selection of High-Yield Assets
+
+---
+
+✅ **2025년 6월 7일**: 휴일 (스터디 없음)
+
+---
+
+#### **2025년 6월 14일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 3: Step 1 - Problem Definition**  
+    - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
+    - 추가: **Example 7: Effect of Positive-Negative Splits** 실습
+
+#### **2025년 6월 21일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
+    - Example 9: ML Trading Pairs Selection
+
+#### **2025년 6월 28일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 4: Step 2 - Dataset Preparation**  
+    - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
+
+#### **2025년 7월 5일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 10: Stock Selection through Clustering Fundamental Data  
+    - Example 11: Inverse Volatility Rank and Allocate to Future Contracts
+
+#### **2025년 7월 12일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 5: Step 3 - Model Choice, Training, and Application**  
+    - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
+
+#### **2025년 7월 19일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 12: Trading Costs Optimization  
+    - Example 13: PCA Statistical Arbitrage Mean Reversion
+
+#### **2025년 7월 26일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 7: Better Hedging with Reinforcement Learning**  
+    - 강화학습을 이용한 포트폴리오 헷징 최적화
+    - 추가: **Example 14: Temporal CNN Prediction** 실습
+
+#### **2025년 8월 2일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 15: Gaussian Classifier for Direction Prediction  
+    - Example 16: LLM Summarization of Tiingo News Articles
+
+#### **2025년 8월 9일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 8: AI for Risk Management and Optimization**  
+    - 리스크 관리 및 전략 최적화를 위한 AI 기법 소개
+
+---
+
+✅ **2025년 8월 16일**: 휴일 (스터디 없음)
+
+---
+
+#### **2025년 8월 23일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**  
+    - Example 17: Head Shoulders Pattern Matching with CNN  
+    - Example 18: Amazon Chronos Model
+
+#### **2025년 8월 30일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 9: Application of LLM and Generative AI in Trading**  
+    - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
+    - 추가: **Example 19: FinBERT Model** 실습
 
 ---
 
 ### **5. 스터디 운영 방법**
-- **교재**: [Python for Algorithmic Trading Cookbook: Recipes for designing, building, and deploying algorithmic trading strategies with Python](https://www.amazon.com/Python-Algorithmic-Trading-Cookbook-algorithmic/dp/1835084702)  
-- **참고자료**: [MOFC](https://mofc.unic.ac.cy/m6-presentations/)  
-- **학습 공유**: 매주 학습 내용(소스 코드, 발표자료)을 업로드  
-- **발표**: 주제별 50분 발표, 10분 Q&A
-- **운영 규칙**
-  - [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
+- **교재**: [Hands-On AI Trading with Python, QuantConnect, and AWS (2025)](https://www.amazon.com/)
+- **참고자료**: QuantConnect, AWS SageMaker Canvas, Tiingo API 등
+- **학습 공유**: 매주 학습 내용(코드, 요약 자료)을 업로드
+- **발표**: 주제별 50분 발표 + 10분 Q&A
+- **운영 규칙**: [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
 
 ---
 
 ### **6. 기타**
-- **참가 희망 요청**: [이메일](mailto:restful3@gmail.com)  
+- **참가 희망 요청**: [이메일](mailto:restful3@gmail.com)
+
+---
+
+✅ 주차별 Webex 링크와 발표자는 첫 모임(5/10) 이후에 배정 예정입니다.  
+✅ 준비 완료 후 발표 자료/코드를 매주 업로드해주세요.
