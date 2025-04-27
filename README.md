@@ -32,7 +32,7 @@
     - Example 3: Reversion vs. Trending: Strategy Selection by Classification
 
 #### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
-- 발표자 - TBD
+- 발표자 - HY
   - **Chapter 2: Foundations of Quantitative Trading**  
     - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
   - **Example 4: Alpha by Hidden Markov Models** 실습
