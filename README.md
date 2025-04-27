@@ -69,11 +69,11 @@
 
 #### **2025년 3월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m685a89d84e5c1129312cf3421b154059	)
 - 발표자 - 태영  
-  - Chapter 12: Deploy Strategies to a Live Environment  
+  - 바이브 코딩을 이용한 업비트 자동 거래 프로그램 만들기  
 
 #### **2025년 4월 12일** *(4/5 쉬는 날)*: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m13e940f392b3b5ae422edff93b61b1ea	)
-- 발표자 - 정택  
-  - Chapter 13: Advanced Recipes for Market Data and Strategy Management  
+- 발표자 - TBD
+  - TBD
 
 ---
 
