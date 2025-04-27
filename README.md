@@ -19,25 +19,25 @@
 
 ### **4. 스터디 운영 계획 (2025년 5월 10일 ~ 2025년 8월 30일)**
 
-#### **2025년 5월 10일**: [Webex 링크](https://example.com)
+#### **2025년 5월 10일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mebff409f9da191e9e2c17a6e815224b6)
 - 발표자 - TBD
   - **Chapter 1: Foundations of Capital Markets**  
     - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
   - **Example 1: ML Trend Scanning with MLFinlab** 실습
 
-#### **2025년 5월 17일**: [Webex 링크](https://example.com)
+#### **2025년 5월 17일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb85f58b1c6d1d0a9062cee50342b0e3d)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 2: Factor Preprocessing Techniques for Regime Detection  
     - Example 3: Reversion vs. Trending: Strategy Selection by Classification
 
-#### **2025년 5월 24일**: [Webex 링크](https://example.com)
+#### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
 - 발표자 - TBD
   - **Chapter 2: Foundations of Quantitative Trading**  
     - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
   - **Example 4: Alpha by Hidden Markov Models** 실습
 
-#### **2025년 5월 31일**: [Webex 링크](https://example.com)
+#### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 5: FX SVM Wavelet Forecasting  
@@ -45,19 +45,19 @@
 
 #### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
 
-#### **2025년 6월 14일**: [Webex 링크](https://example.com)
+#### **2025년 6월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mbcbbaed6d50821e7d52c93ce336aed79)
 - 발표자 - TBD
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
   - **Example 7: Effect of Positive-Negative Splits** 실습
 
-#### **2025년 6월 21일**: [Webex 링크](https://example.com)
+#### **2025년 6월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1915fca8a0b5fbc16f23c9ba84616244)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
     - Example 9: ML Trading Pairs Selection
 
-#### **2025년 6월 28일**: [Webex 링크](https://example.com)
+#### **2025년 6월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1cf3168ebcc132ee5074271e66d2defe)
 - 발표자 - TBD
   - **Chapter 4: Step 2 - Dataset Preparation**  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
