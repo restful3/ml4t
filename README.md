@@ -20,7 +20,7 @@
 ### **4. 스터디 운영 계획 (2025년 5월 10일 ~ 2025년 8월 30일)**
 
 #### **2025년 5월 10일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mebff409f9da191e9e2c17a6e815224b6)
-- 발표자 - TBD
+- 발표자 - HY
   - **Chapter 1: Foundations of Capital Markets**  
     - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
   - **Example 1: ML Trend Scanning with MLFinlab** 실습
@@ -32,7 +32,7 @@
   - Example 2: Factor Preprocessing Techniques for Regime Detection  
 
 #### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
-- 발표자 - HY
+- 발표자 - TBD
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
   - Example 3: Reversion vs. Trending: Strategy Selection by Classification 
