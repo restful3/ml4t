@@ -32,7 +32,7 @@
   - Example 2: Factor Preprocessing Techniques for Regime Detection  
 
 #### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
-- 발표자 - TBD
+- 발표자 - HY
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
   - Example 3: Reversion vs. Trending: Strategy Selection by Classification 
