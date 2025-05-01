@@ -19,77 +19,82 @@
 
 ### **4. 스터디 운영 계획 (2025년 5월 10일 ~ 2025년 8월 30일)**
 
-#### **2025년 5월 10일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+#### **2025년 5월 10일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mebff409f9da191e9e2c17a6e815224b6)
+- 발표자 - HY
   - **Chapter 1: Foundations of Capital Markets**  
     - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
-  - **Example 1: ML Trend Scanning with MLFinlab** 실습
 
-#### **2025년 5월 17일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
-  - **Chapter 6 Examples**  
-    - Example 2: Factor Preprocessing Techniques for Regime Detection  
-    - Example 3: Reversion vs. Trending: Strategy Selection by Classification
-
-#### **2025년 5월 24일**: [Webex 링크](https://example.com)
+#### **2025년 5월 17일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb85f58b1c6d1d0a9062cee50342b0e3d)
 - 발표자 - TBD
   - **Chapter 2: Foundations of Quantitative Trading**  
     - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
-  - **Example 4: Alpha by Hidden Markov Models** 실습
-
-#### **2025년 5월 31일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
-  - **Chapter 6 Examples**  
-    - Example 5: FX SVM Wavelet Forecasting  
-    - Example 6: Dividend Harvesting Selection of High-Yield Assets
-
-#### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
-
-#### **2025년 6월 14일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
-  - **Example 7: Effect of Positive-Negative Splits** 실습
 
-#### **2025년 6월 21일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
-  - **Chapter 6 Examples**  
-    - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
-    - Example 9: ML Trading Pairs Selection
-
-#### **2025년 6월 28일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+#### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
+- 발표자 - Hy
   - **Chapter 4: Step 2 - Dataset Preparation**  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
 
+#### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
+- 발표자 - TBD
+  - **Chapter 5: Step 3 - Model Choice, Training, and Application (Part1)**  
+    - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
+
+#### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
+
+#### **2025년 6월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mbcbbaed6d50821e7d52c93ce336aed79)
+- 발표자 - TBD
+  - **Chapter 5: Step 3 - Model Choice, Training, and Application (Part2)**  
+    - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
+
+#### **2025년 6월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1915fca8a0b5fbc16f23c9ba84616244)
+- 발표자 - TBD
+  - **Chapter 6 Examples**   
+    - Example 1: ML Trend Scanning with MLFinlab
+    - Example 2: Factor Preprocessing Techniques for Regime Detection
+    - Example 3: Reversion vs. Trending: Strategy Selection by Classification 
+
+#### **2025년 6월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1cf3168ebcc132ee5074271e66d2defe)
+- 발표자 - TBD
+  - **Chapter 6 Examples**
+    - Example 4: Alpha by Hidden Markov Models
+    - Example 5: FX SVM Wavelet Forecasting      
+    - Example 6: Dividend Harvesting Selection of High-Yield Assets
+
 #### **2025년 7월 5일**: [Webex 링크](https://example.com)
+- 발표자 - TBD
+  - **Chapter 6 Examples**
+    - Example 7: Effect of Positive-Negative Splits
+    - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
+    - Example 9: ML Trading Pairs Selection
+
+#### **2025년 7월 12일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 10: Stock Selection through Clustering Fundamental Data  
     - Example 11: Inverse Volatility Rank and Allocate to Future Contracts
-
-#### **2025년 7월 12일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
-  - **Chapter 5: Step 3 - Model Choice, Training, and Application**  
-    - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
+    - Example 12: Trading Costs Optimization  
 
 #### **2025년 7월 19일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
-    - Example 12: Trading Costs Optimization  
     - Example 13: PCA Statistical Arbitrage Mean Reversion
+    - Example 14: Temporal CNN Prediction
+    - Example 15: Gaussian Classifier for Direction Prediction  
 
 #### **2025년 7월 26일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
-  - **Chapter 7: Better Hedging with Reinforcement Learning**  
-    - 강화학습을 이용한 포트폴리오 헷징 최적화
-  - **Example 14: Temporal CNN Prediction** 실습
+  - **Chapter 6 Examples**
+    - Example 16: LLM Summarization of Tiingo News Articles
+    - Example 17: Head Shoulders Pattern Matching with CNN  
+    - Example 18: Amazon Chronos Model
 
 #### **2025년 8월 2일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
-  - **Chapter 6 Examples**  
-    - Example 15: Gaussian Classifier for Direction Prediction  
-    - Example 16: LLM Summarization of Tiingo News Articles
+  - **Chapter 7: Better Hedging with Reinforcement Learning**  
+    - 강화학습을 이용한 포트폴리오 헷징 최적화
+  - Example 19: FinBERT Model
 
 #### **2025년 8월 9일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
@@ -99,16 +104,9 @@
 #### ✅ **2025년 8월 16일**: 휴일 (스터디 없음)
 
 #### **2025년 8월 23일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
-  - **Chapter 6 Examples**  
-    - Example 17: Head Shoulders Pattern Matching with CNN  
-    - Example 18: Amazon Chronos Model
-
-#### **2025년 8월 30일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+- 발표자 - 태영
   - **Chapter 9: Application of LLM and Generative AI in Trading**  
     - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
-  - **Example 19: FinBERT Model** 실습
 
 ---
 
