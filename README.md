@@ -32,7 +32,7 @@
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
 
 #### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
-- 발표자 - Hy
+- 발표자 - HY
   - **Chapter 4: Step 2 - Dataset Preparation**  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
 
@@ -84,7 +84,7 @@
     - Example 15: Gaussian Classifier for Direction Prediction  
 
 #### **2025년 7월 26일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+- 발표자 - 태영
   - **Chapter 6 Examples**
     - Example 16: LLM Summarization of Tiingo News Articles
     - Example 17: Head Shoulders Pattern Matching with CNN  
