@@ -104,7 +104,7 @@
 #### ✅ **2025년 8월 16일**: 휴일 (스터디 없음)
 
 #### **2025년 8월 23일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+- 발표자 - 태영
   - **Chapter 9: Application of LLM and Generative AI in Trading**  
     - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
 
