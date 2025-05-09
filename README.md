@@ -49,7 +49,7 @@
     - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
 
 #### **2025년 6월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1915fca8a0b5fbc16f23c9ba84616244)
-- 발표자 - TBD
+- 발표자 - 핀조이
   - **Chapter 6 Examples**   
     - Example 1: ML Trend Scanning with MLFinlab
     - Example 2: Factor Preprocessing Techniques for Regime Detection
