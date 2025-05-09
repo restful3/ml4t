@@ -21,8 +21,10 @@
 
 #### **2025년 5월 10일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mebff409f9da191e9e2c17a6e815224b6)
 - 발표자 - HY
-  - **Chapter 1: Foundations of Capital Markets**  
+  - **Chapter 1: Foundations of Capital Markets **  
     - 시장 구조, 참가자, 데이터 피드, 거래 비용, 자산 및 파생상품 기본 개념 학습
+    - [발표자료](https://github.com/restful3/ml4t/blob/3a66c2444bee75b121eadd19195769ffb282d621/source/Chapter%201-%20Foundations%20of%20Capital%20Markets.pdf)
+    
 
 #### **2025년 5월 17일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb85f58b1c6d1d0a9062cee50342b0e3d)
 - 발표자 - 민호
