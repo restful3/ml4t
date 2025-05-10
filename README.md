@@ -58,14 +58,14 @@
     - Example 3: Reversion vs. Trending: Strategy Selection by Classification 
 
 #### **2025년 6월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1cf3168ebcc132ee5074271e66d2defe)
-- 발표자 - TBD
+- 발표자 - 상호
   - **Chapter 6 Examples**
     - Example 4: Alpha by Hidden Markov Models
     - Example 5: FX SVM Wavelet Forecasting      
     - Example 6: Dividend Harvesting Selection of High-Yield Assets
 
 #### **2025년 7월 5일**: [Webex 링크](https://example.com)
-- 발표자 - TBD
+- 발표자 - 상호호
   - **Chapter 6 Examples**
     - Example 7: Effect of Positive-Negative Splits
     - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
