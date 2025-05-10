@@ -65,7 +65,7 @@
     - Example 6: Dividend Harvesting Selection of High-Yield Assets
 
 #### **2025년 7월 5일**: [Webex 링크](https://example.com)
-- 발표자 - 상호호
+- 발표자 - 상호
   - **Chapter 6 Examples**
     - Example 7: Effect of Positive-Negative Splits
     - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
