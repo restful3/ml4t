@@ -170,3 +170,6 @@ datasets/
 **/yahoo_data/
 
 *.pickle
+
+.DS_Store
+**/.DS_Store
