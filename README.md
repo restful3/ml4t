@@ -33,7 +33,7 @@
   - [**Chapter 3: Step 1 - Problem Definition**](https://github.com/restful3/ml4t/blob/0564c12e8fef3fb0379bdce2b1ce7c495063f8a5/source/Chapter%2003%20Step%201-%20Problem%20Definition_ko.ipynb)  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
 
-#### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa)
+#### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa	)
 - 발표자 - 철원
   - **Chapter 4: Step 2 - Dataset Preparation**  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
