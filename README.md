@@ -28,7 +28,7 @@
 
 #### **2025년 5월 17일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb85f58b1c6d1d0a9062cee50342b0e3d)
 - 발표자 - 민호
-  - **Chapter 2: Foundations of Quantitative Trading**  
+  - [**Chapter 2: Foundations of Quantitative Trading**](https://github.com/restful3/ml4t/blob/26746e4ebf32036271a46203fb5d3753d7a71119/source/Chapter%2002%20Foundations%20of%20Quantitative%20Trading_ko_minho.ipynb)  
     - 퀀트 전략의 기본 구조, 리서치 프로세스, 테스트 방법, 전략 스타일
   - **Chapter 3: Step 1 - Problem Definition**  
     - 머신러닝 문제 정의 방법과 금융 데이터 특성 파악
