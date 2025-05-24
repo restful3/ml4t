@@ -39,7 +39,7 @@
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
 
 #### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
-- 발표자 - TBD
+- 발표자 - 정택
   - **Chapter 5: Step 3 - Model Choice, Training, and Application (Part1)**  
     - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
 
