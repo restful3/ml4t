@@ -37,7 +37,8 @@
 - 발표자 - 철원
   - **Chapter 4: Step 2 - Dataset Preparation**  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
-
+    - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Chapter%2004%20Step%202-%20Dataset%20Preparation_cw.ipynb)
+    
 #### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
 - 발표자 - 정택
   - [**Chapter 5: Step 3 - Model Choice, Training, and Application**](https://github.com/restful3/ml4t/blob/main/source/Chapter%2005%20Step%203-%20Model%20Choice%2C%20Training%2C%20and%20Application-jtkim.ipynb)  
