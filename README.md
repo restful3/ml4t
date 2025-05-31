@@ -40,7 +40,7 @@
 
 #### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
 - 발표자 - 정택
-  - **Chapter 5: Step 3 - Model Choice, Training, and Application (Part1)**  
+  - [**Chapter 5: Step 3 - Model Choice, Training, and Application (Part1)**](https://github.com/restful3/ml4t/blob/main/source/Chapter%2005%20Step%203-%20Model%20Choice%2C%20Training%2C%20and%20Application-jtkim.ipynb)  
     - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
 
 #### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
