@@ -35,9 +35,8 @@
 
 #### **2025년 5월 24일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1decb14e63ff3ff5776c8e8deaf340aa	)
 - 발표자 - 철원
-  - **Chapter 4: Step 2 - Dataset Preparation**  
+  - [**Chapter 4: Step 2 - Dataset Preparation**](https://github.com/restful3/ml4t/blob/main/source/Chapter%2004%20Step%202-%20Dataset%20Preparation_cw.ipynb)  
     - 데이터 수집, 전처리, 특성 엔지니어링 및 학습 데이터셋 구축
-    - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Chapter%2004%20Step%202-%20Dataset%20Preparation_cw.ipynb)
     
 #### **2025년 5월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m35afd51f4e675a8362f2e9c24e84ca69)
 - 발표자 - 정택
