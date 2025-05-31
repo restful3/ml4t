@@ -46,9 +46,8 @@
 #### ✅ **2025년 6월 7일**: 휴일 (스터디 없음)
 
 #### **2025년 6월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mbcbbaed6d50821e7d52c93ce336aed79)
-- 발표자 - TBD
-  - **Chapter 5: Step 3 - Model Choice, Training, and Application (Part2)**  
-    - 회귀, 분류, 순위 매김, 클러스터링, 언어모델을 이용한 금융 예측
+- 발표자 - 태영
+  - n8n + upbit mcp server
 
 #### **2025년 6월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1915fca8a0b5fbc16f23c9ba84616244)
 - 발표자 - 핀조이
