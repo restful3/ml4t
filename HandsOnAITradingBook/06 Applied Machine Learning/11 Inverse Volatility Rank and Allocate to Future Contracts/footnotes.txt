@@ -1,0 +1,21 @@
+Parameter `std_months`:
+- The minimum is 1 because it's the smallest possible integer.
+- The maximum is 6 because it's half a year.
+- The step size is 1 because it's the smallest possible step size.
+
+Parameter `atr_months`:
+- The minimum is 1 because it's the smallest possible integer.
+- The maximum is 6 because it's half a year.
+- The step size is 1 because it's the smallest possible step size.
+
+The results show:
+- The Sharpe ratio is typically highest when at least one of the indicators uses a 6 month lookback.
+- The Sharpe ratio is typically lowest when at least one of the indicators uses a 3 month lookback.
+- All parameter combinations are profitable.
+
+Backtest Parameters
+std_months: 3
+atr_months: 3
+training_set_duration: 365
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

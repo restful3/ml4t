@@ -1,0 +1,13 @@
+Parameter `stop_loss_percent`:
+- The minimum is 0.9 because KO isn't very volatile. It only dropped >20% once during the backtest period. 
+- The maximum is 0.995 because anything tighter than a 0.5% stop loss will likely trigger the stop loss every trade.
+- The step size is 0.005 because it gives us 20 different parameter values to test with just 1 decimal place.
+
+The results show:
+- The Sharpe ratio starts to collapse when the stop loss is too tight (>= 0.985).
+- 17/20 of the stop loss distances tested outperform buy-and-hold (0.263 Sharpe).
+
+Backtest Parameters
+stop_loss_percent: 0.95
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

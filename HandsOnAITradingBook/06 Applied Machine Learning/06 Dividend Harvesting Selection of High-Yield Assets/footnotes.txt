@@ -1,0 +1,21 @@
+Parameter `universe_size`:
+- The minimum is 20 so that at least 1 asset will have a dividend payment.
+- The maximum is 100 to select all assets in the QQQ ETF (the universe).
+- The step size is 20 because it leads to round numbers.
+
+Parameter `lookback_years`:
+- The minimum is 4 because dividend payments don't happen very frequently. 
+- The maximum is 8 because anything further into the past may no longer be relevant.
+- The step size is 1 because it's the smallest possible step size.
+
+The results show:
+- The Sharpe ratio only ranges from 0.476 to 0.617.
+- The Sharpe ratio is typically greater with a larger universe.
+- The results are more sensitive to changes in universe size than lookback years.
+- All parameter combinations lead to a positive Sharpe ratio.
+
+Backtest Parameters
+universe_size: 100
+lookback_years: 5
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

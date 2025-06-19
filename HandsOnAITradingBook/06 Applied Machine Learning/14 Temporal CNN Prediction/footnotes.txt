@@ -1,0 +1,19 @@
+Parameter `training_samples`:
+- The minimum is 300 because it's slightly longer than the number of trading days per year.
+- The maximum is 700 because it's large but not too large to cause the model training to be too slow.
+- The step size is 100 because it generates nice round numbers.
+
+Parameter `universe_size`:
+- The minimum is 2 because we want the algorithm to be always invested. If there is only 1 asset and the model predicts a stationary direction, the algorithm will be uninvested for some of the rebalances.
+- The maximum is 10 because the algorithm would take longer than an hour to backtest if we use more than 10.
+- The step size is 2 because it gives us 5 different values of universe_size between 2 and 10.
+
+The results show:
+- The Sharpe ratio typically increases as we increase the number of training samples.
+- Most parameter combinations are unprofitable.
+
+Backtest Parameters
+training_samples: 500
+universe_size: 3
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

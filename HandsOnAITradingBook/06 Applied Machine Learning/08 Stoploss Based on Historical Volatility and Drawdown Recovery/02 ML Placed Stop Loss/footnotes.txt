@@ -1,0 +1,21 @@
+Parameter `indicator_lookback_months`:
+- The minimum is 1 because it's the smallest integer to choose.
+- The maximum is 6 because it's half a year.
+- The step size is 1 because it's the smallest integer to choose.
+
+Parameter `stop_loss_buffer`:
+- The minimum is 0.01 because it's the minimum price variation of the asset. 
+- The maximum is 1.01 because it's almost exactly $1 and anything larger will place the stop relatively far away from the model's predition.
+- The step size is 0.25 because it's equal to one quarter and gives us several samples between the minimum and maximum.
+
+The results show:
+- The Sharpe ratio generally increases with a larger stop_loss_buffer over the range we tested.
+- 28/30 parameter combinations tested outperform buy-and-hold (0.263 Sharpe).
+- All parameter combinations lead to a positive Sharpe ratio.
+
+Backtest Parameters
+indicator_lookback_months: 3
+stop_loss_buffer: 0.01
+alpha_exponent: 4
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

@@ -1,0 +1,15 @@
+Parameter `period`:
+- The minimum is 63 because it's 3 months of trading days.
+- The maximum is 189 because it's 9 months of trading days.
+- The step size is 21 because it's 1 month of trading days.
+
+The results show:
+- The Sharpe ratio is maximized with a `period` of 8 months, but results are quite volatile between each consecutive period (high sensitivity).
+- The Sharpe ratio is typically greater with weight_threshold > 0.004 rather than <= 0.004.
+
+Backtest Parameters
+period: 152
+leverage: 20
+weight_threshold: 0.005
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

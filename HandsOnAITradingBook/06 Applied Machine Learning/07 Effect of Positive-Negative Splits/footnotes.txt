@@ -1,0 +1,20 @@
+Parameter `hold_duration`:
+- The minimum is 1 because it's the smallest positive integer.
+- The maximum is 5 because it equals 1 trading week.
+- The step size is 1 because it's the smallest possible step size.
+
+Parameter `training_lookback_years`:
+- The minimum is 3 because splits payments don't happen very frequently. 
+- The maximum is 6 because anything further into the past may no longer be relevant.
+- The step size is 1 because it's the smallest possible step size.
+
+The results show:
+- A hold_duration of 3 days generates the greatest Sharpe ratio.
+- All the Sharpe ratios are >= 0.7
+
+Backtest Parameters
+max_open_trades: 4
+hold_duration: 2
+training_lookback_years: 4
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

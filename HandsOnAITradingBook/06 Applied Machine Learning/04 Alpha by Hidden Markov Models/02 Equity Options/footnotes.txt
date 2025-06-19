@@ -1,0 +1,7 @@
+Backtest Parameters
+lookback_years: 3
+min_expiry: 90
+max_expiry: 365
+min_hold_period: 7
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

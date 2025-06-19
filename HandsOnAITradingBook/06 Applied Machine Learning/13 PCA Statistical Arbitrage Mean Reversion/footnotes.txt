@@ -1,0 +1,22 @@
+Parameter `num_components`:
+- The minimum is 2 because it's the minimum number to perform multiple linear regression.
+- The maximum is 6 because each consecutive component explains less of the variance in the data. The first 3 components already explain over 90% of the variance and each additional component explains less than the previous component.
+- The step size is 1 because it's the smallest possible step size.
+
+Parameter `lookback_days`:
+- The minimum is 21 because it's 1 month of trading days.
+- The maximum is 126 because it's 6 months of trading days.
+- The step size is 21 because it's the smallest step possible.
+
+The results show:
+- The Sharpe ratio is maximized when num_components=3 and lookback_days=126 (6 months).
+- The Sharpe ratio is typically the lowest when using 3/4 months for lookback_days.
+- All parameter combinations are profitable.
+
+Backtest Parameters
+num_components: 3
+lookback_days: 63
+z_score_threshold: 1.5
+universe_size: 100
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

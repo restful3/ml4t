@@ -1,0 +1,20 @@
+Parameter `days_per_sample`:
+- The minimum is 2 because then we have 2 factors for each asset instead of just 1.
+- The maximum is 8 because anything larger may cause the number of factors to be so large that it floods the model with noise.
+- The step size is 1 because it's the smallest possible step size.
+
+Parameter `universe_size`:
+- The minimum is 5 because anything smaller may cause the algorithm to resort to just cash during one of the rebalances.
+- The maximum is 25 because because including too many assets in the universe will cause the number of independent variables in the ML model to grow very large.
+- The step size is 5 because it leads to nice round numbers between the minimum and maximum.
+
+The results show:
+- The Sharpe ratio is greatest with a small universe size (5). It's probably because as the universe grows, the number of independent variables in the ML model grows, potentially overwhelming the model with noise and not allowing it to learn.
+- All parameter combinations are profitable.
+
+Backtest Parameters
+days_per_sample: 4
+samples: 100
+universe_size: 10
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

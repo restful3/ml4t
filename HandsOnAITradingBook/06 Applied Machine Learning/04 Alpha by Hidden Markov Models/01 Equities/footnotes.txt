@@ -1,0 +1,14 @@
+Parameter `lookback_years`:
+- The minimum is 1 because it's the smallest positive integer.
+- The maximum is 10 because data older than 10 years may no longer be relevant.
+- The step size is 1 because it's the smallest possible step size.
+
+The results show:
+- A lookback period of 4 years achieves the greatest Sharpe ratio.
+- The Sharpe ratio is very sensitive to changes in the lookback period.
+- A lookback perio do of 1 year leads to a negative Sharpe ratio.
+
+Backtest Parameters
+lookback_years: 3
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.

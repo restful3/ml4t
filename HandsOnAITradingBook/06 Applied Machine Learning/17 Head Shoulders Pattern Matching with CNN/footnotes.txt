@@ -1,0 +1,22 @@
+Parameter `confidence_threshold`:
+- The minimum is 0.3 because going lower than that means <30% confident we found the pattern, which is quite low/unlikely.
+- The maximum is 0.9 because there are already only a few trades.
+- The step size is 0.1 because it leads to nice round values.
+
+Parameter `holding_period`:
+- The minimum is 2 because it's the shortest holding period with daily data.
+- The maximum is 10 because ...
+- The step size is 1 because it's the smallest possible step size.
+
+The results show:
+- The Sharpe ratio increases with the holding period.
+- The Sharpe ratio decreases with the confidence threshold (probably since there are so few trades).
+- All parameter combinations are profitable.
+
+Backtest Parameters
+max_size: 100
+step_size: 10
+confidence_threshold: 0.5
+holding_period: 10
+
+The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.
