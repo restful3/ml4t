@@ -1,1 +1,0 @@
-The x-axis tick labels are only shown on the bottom plot of tearsheet1 to save space.
