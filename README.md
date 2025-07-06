@@ -106,7 +106,7 @@
   - **Chapter 8: AI for Risk Management and Optimization**  
     - 리스크 관리 및 전략 최적화를 위한 AI 기법 소개
 
-#### **2025년 8월 30일**: [Webex]([https://example.com](https://lgehq.webex.com/lgehq-en/j.php?MTID=m887dfc637270d7a4b653b62fdbdc8b85)
+#### **2025년 8월 30일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m887dfc637270d7a4b653b62fdbdc8b85)
 - 발표자 - 태영
   - **Chapter 9: Application of LLM and Generative AI in Trading**  
     - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
