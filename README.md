@@ -65,35 +65,35 @@
 
 #### ✅ **2025년 7월 5일**: 휴일 (스터디 없음)
 
-#### **2025년 7월 12일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mcc5c6bcbab54df1068b5bcf989d9bf8c)
+#### **2025년 7월 12일**: [Webex 링크](https://example.com)
 - 발표자 - 상호
   - **Chapter 6 Examples**
     - Example 7: Effect of Positive-Negative Splits
     - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
     - Example 9: ML Trading Pairs Selection
 
-#### **2025년 7월 19일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6a7d825ed7ea81c2529ef9c97a40e520	)
+#### **2025년 7월 19일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 10: Stock Selection through Clustering Fundamental Data  
     - Example 11: Inverse Volatility Rank and Allocate to Future Contracts
     - Example 12: Trading Costs Optimization  
 
-#### **2025년 7월 26일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m96b30ae920f54cf98cad46a72fb953b4)
+#### **2025년 7월 26일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 6 Examples**  
     - Example 13: PCA Statistical Arbitrage Mean Reversion
     - Example 14: Temporal CNN Prediction
     - Example 15: Gaussian Classifier for Direction Prediction  
 
-#### **2025년 8월 2일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m14e6df7c9cca9fc49ed0f0550a03706d)
+#### **2025년 8월 2일**: [Webex 링크](https://example.com)
 - 발표자 - 태영
   - **Chapter 6 Examples**
     - Example 16: LLM Summarization of Tiingo News Articles
     - Example 17: Head Shoulders Pattern Matching with CNN  
     - Example 18: Amazon Chronos Model
 
-#### **2025년 8월 9일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=md08bba3e4e99c60e3a3a67138d68abd5)
+#### **2025년 8월 9일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 7: Better Hedging with Reinforcement Learning**  
     - 강화학습을 이용한 포트폴리오 헷징 최적화
@@ -101,12 +101,12 @@
 
 #### ✅ **2025년 8월 16일**: 휴일 (스터디 없음)
 
-#### **2025년 8월 23일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1310965289450c223b50a2ae842abbdf)
+#### **2025년 8월 23일**: [Webex 링크](https://example.com)
 - 발표자 - TBD
   - **Chapter 8: AI for Risk Management and Optimization**  
     - 리스크 관리 및 전략 최적화를 위한 AI 기법 소개
 
-#### **2025년 8월 30일**: [Webex]([https://example.com](https://lgehq.webex.com/lgehq-en/j.php?MTID=m887dfc637270d7a4b653b62fdbdc8b85	))
+#### **2025년 8월 30일**: [Webex 링크](https://example.com)
 - 발표자 - 태영
   - **Chapter 9: Application of LLM and Generative AI in Trading**  
     - LLM과 생성형 AI를 활용한 트레이딩 전략 개발 및 사례 분석
