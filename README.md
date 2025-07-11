@@ -73,7 +73,7 @@
     - Example 9: ML Trading Pairs Selection
 
 #### **2025년 7월 19일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6a7d825ed7ea81c2529ef9c97a40e520)
-- 발표자 - TBD
+- 발표자 - 정택
   - **Chapter 6 Examples**  
     - Example 10: Stock Selection through Clustering Fundamental Data  
     - Example 11: Inverse Volatility Rank and Allocate to Future Contracts
