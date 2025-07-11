@@ -80,7 +80,7 @@
     - Example 12: Trading Costs Optimization  
 
 #### **2025년 7월 26일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m96b30ae920f54cf98cad46a72fb953b4)
-- 발표자 - TBD
+- 발표자 - HY
   - **Chapter 6 Examples**  
     - Example 13: PCA Statistical Arbitrage Mean Reversion
     - Example 14: Temporal CNN Prediction
