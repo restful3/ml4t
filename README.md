@@ -67,7 +67,7 @@
 
 #### **2025년 7월 12일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mcc5c6bcbab54df1068b5bcf989d9bf8c)
 - 발표자 - 상호
-  - **Chapter 6 Examples**
+  - [**Chapter 6 Examples**](https://github.com/restful3/ml4t/blob/main/source/Chapter6%20Example10~12%20-%20jtkim.md)
     - Example 7: Effect of Positive-Negative Splits
     - Example 8: Stop Loss Based on Historical Volatility and Drawdown Recovery  
     - Example 9: ML Trading Pairs Selection
