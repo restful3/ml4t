@@ -326,8 +326,6 @@ LGBMRanker 모델을 생성하고 준비한 데이터로 훈련
 
 ## Example 11—Inverse Volatility Rank and Allocate to Future Contracts
 
-Index(['atr', 'std_of_close_returns', 'openinterest'], dtype='object')
-
 ### Summary
 
 - 각 선물 계약의 3가지 지표를 입력 데이터로 사용
