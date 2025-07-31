@@ -88,7 +88,7 @@
 
 #### **2025년 8월 2일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m14e6df7c9cca9fc49ed0f0550a03706d)
 - 발표자 - 태영
-  - **Chapter 6 Examples**
+  - [**Chapter 6 Examples**](https://github.com/restful3/ml4t/blob/main/source/Chapter6_ex16_18_song.pdf)
     - Example 16: LLM Summarization of Tiingo News Articles
     - Example 17: Head Shoulders Pattern Matching with CNN  
     - Example 18: Amazon Chronos Model
