@@ -75,7 +75,7 @@
 #### **2025년 7월 19일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m6a7d825ed7ea81c2529ef9c97a40e520)
 - 발표자 - 정택
   - **Chapter 6 Examples**  
-    - Example 10: Stock Selection through Clustering Fundamental Data  
+    - [Example 10: Stock Selection through Clustering Fundamental Data](https://github.com/restful3/ml4t/blob/main/source/Chapter6_Example13_PCA_Statistical_Arbitrage_Mean_Reversion.ipynb)
     - Example 11: Inverse Volatility Rank and Allocate to Future Contracts
     - Example 12: Trading Costs Optimization  
 
