@@ -83,7 +83,7 @@
 - 발표자 - 태호
   - **Chapter 6 Examples**  
     - [Example 13: PCA Statistical Arbitrage Mean Reversion](https://github.com/restful3/ml4t/blob/main/source/Chapter6_Example13_PCA_Statistical_Arbitrage_Mean_Reversion.ipynb)
-    - Example 14: Temporal CNN Prediction
+    - [Example 14: Temporal CNN Prediction](https://github.com/restful3/ml4t/blob/main/source/Chapter6_Example14_Temporal_CNN_Prediction.ipynb)
     - Example 15: Gaussian Classifier for Direction Prediction  
 
 #### **2025년 8월 2일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m14e6df7c9cca9fc49ed0f0550a03706d)
