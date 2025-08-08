@@ -1,0 +1,571 @@
+<!DOCTYPE html><html><head>
+      <title>Chapter6_Example19_FinBERT_Model</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\smith\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="bert-모델">BERT 모델 </h2>
+<p>**BERT(Bidirectional Encoder Representations from Transformers)**는 문장 양방향 문맥을 동시에 보는 Transformer 인코더 전용 모델이에요. 입력 전체를 한꺼번에 보고 각 토큰의 의미를 업데이트하므로, 문장 분류·개체명 인식·질의응답 같은 이해(understanding) 작업에 특히 강합니다.</p>
+<p>이 코드는 <strong>QuantConnect 플랫폼</strong>에서 실행되는 <strong>FinBERT 기반 감정분석 트레이딩 알고리즘</strong>입니다. HuggingFace의 사전훈련된 <code>ProsusAI/finbert</code> 모델을 사용하여 뉴스 기사의 감정을 분석하고, 이를 바탕으로 자동매매 결정을 내리는 정교한 전략을 구현합니다.</p>
+<h2 id="알고리즘-초기화-과정">알고리즘 초기화 과정 </h2>
+<p><code>initialize()</code> 메서드에서는 백테스팅 기간을 2022년부터 2023년까지 1년으로 설정하고, 초기 자본을 $100,000로 지정합니다. 가장 흥미로운 부분은 <strong>동적 유니버스 선택 로직</strong>인데, 매월 초마다 S&amp;P500 종목 중에서 <strong>달러 거래량 상위 10개 종목</strong>을 먼저 필터링한 후, 그 중에서 <strong>변동성이 가장 높은 1개 종목</strong>만을 선택합니다. 이는 <code>sorted(fundamental, key=lambda f: f.dollar_volume)[-10:]</code>로 유동성을 확보하고, <code>pct_change().iloc[1:].std().idxmax()</code>로 변동성을 측정하여 수익 기회를 극대화하려는 전략입니다.</p>
+<h2 id="finbert-모델-설정과-스케줄링">FinBERT 모델 설정과 스케줄링 </h2>
+<p>알고리즘은 Transformers 라이브러리를 통해 <code>BertTokenizer</code>와 <code>TFBertForSequenceClassification</code> 모델을 로드합니다. <code>local_files_only=True</code> 옵션은 로컬에 캐시된 모델만 사용하도록 하여 네트워크 의존성을 줄입니다. <code>set_seed(1, True)</code>로 재현 가능한 결과를 보장하며, <strong>매월 첫 거래일 자정</strong>에 리밸런싱이 실행되도록 스케줄을 설정합니다. 30일의 워밍업 기간을 두어 충분한 데이터가 축적된 후에 거래를 시작합니다.</p>
+<h2 id="뉴스-데이터-처리와-감정분석">뉴스 데이터 처리와 감정분석 </h2>
+<p><code>_trade()</code> 메서드는 알고리즘의 핵심입니다. 먼저 <strong>14일 최소 간격</strong>을 두어 과도한 거래를 방지하고, 선택된 종목의 <strong>최근 10일간 TiingoNews 데이터</strong>를 수집합니다. 수집된 뉴스 기사들은 FinBERT 토크나이저를 통해 <code>padding=True, truncation=True</code> 옵션으로 전처리되어 동일한 길이로 맞춰집니다. 이후 사전훈련된 FinBERT 모델에 입력되어 <strong>긍정/중립/부정</strong> 3개 클래스에 대한 확률 점수를 출력합니다.</p>
+<h2 id="지수가중-집계와-매매-결정">지수가중 집계와 매매 결정 </h2>
+<p><code>_aggregate_sentiment_scores()</code> 메서드는 여러 뉴스 기사의 감정 점수를 하나로 통합하는 정교한 로직을 구현합니다. <code>np.exp(np.linspace(0, 1, n))</code>을 사용하여 <strong>최신 뉴스에 더 큰 가중치</strong>를 부여하는 지수가중평균을 계산합니다. 이는 시간이 지날수록 뉴스의 영향력이 감소한다는 현실적인 가정을 반영합니다. 최종적으로 <strong>긍정 점수가 부정 점수보다 크면 100% 롱 포지션</strong>, 그렇지 않으면 <strong>25% 숏 포지션</strong>을 취하는 명확한 규칙을 적용합니다.</p>
+<p>이 알고리즘의 강점은 <strong>실시간 뉴스 감정분석</strong>, <strong>동적 유니버스 선택</strong>, <strong>지수가중 점수 집계</strong> 등 여러 고급 기법을 결합하여 시장의 감정 변화를 포착하고 이를 수익으로 전환하려는 체계적인 접근방식에 있습니다.</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment"># region imports</span>
+<span class="token keyword keyword-from">from</span> AlgorithmImports <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
+
+<span class="token keyword keyword-import">import</span> tensorflow <span class="token keyword keyword-as">as</span> tf
+<span class="token keyword keyword-from">from</span> transformers <span class="token keyword keyword-import">import</span> TFBertForSequenceClassification<span class="token punctuation">,</span> BertTokenizer<span class="token punctuation">,</span> set_seed
+<span class="token keyword keyword-from">from</span> pathlib <span class="token keyword keyword-import">import</span> Path
+<span class="token comment"># endregion</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">FinbertBaseModelAlgorithm</span><span class="token punctuation">(</span>QCAlgorithm<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    FinBERT 기반 감정분석 트레이딩 알고리즘
+    
+    이 알고리즘은 HuggingFace의 사전훈련된 "ProsusAI/finbert" 모델을 사용하여
+    뉴스 기사의 감정(긍정/중립/부정)을 분석하고, 이를 바탕으로 자동매매를 수행합니다.
+    
+    전략 개요:
+    1. 매월 초 S&amp;P500에서 유동성 상위 10개 종목 선별
+    2. 그 중 변동성이 가장 높은 1개 종목만 거래 대상으로 선택
+    3. 최근 10일간 뉴스를 FinBERT로 감정분석
+    4. 지수가중평균으로 감정점수 집계
+    5. 긍정&gt;부정이면 100% 롱, 아니면 25% 숏 포지션
+    """</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        알고리즘 초기화 메서드
+        백테스팅 설정, 유니버스 정의, 모델 로딩, 스케줄링 등을 수행
+        """</span>
+        <span class="token comment"># 백테스팅 기간 설정 (2022년 1년간)</span>
+        self<span class="token punctuation">.</span>set_start_date<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>set_end_date<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>set_cash<span class="token punctuation">(</span><span class="token number">100_000</span><span class="token punctuation">)</span>  <span class="token comment"># 초기 자본금 $100,000</span>
+
+        <span class="token comment"># 유니버스 선택을 위한 기준 심볼 (SPY ETF 사용)</span>
+        spy <span class="token operator">=</span> Symbol<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">"SPY"</span><span class="token punctuation">,</span> SecurityType<span class="token punctuation">.</span>EQUITY<span class="token punctuation">,</span> Market<span class="token punctuation">.</span>USA<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>universe_settings<span class="token punctuation">.</span>resolution <span class="token operator">=</span> Resolution<span class="token punctuation">.</span>DAILY  <span class="token comment"># 일간 데이터 해상도</span>
+        <span class="token comment"># 매월 첫 거래일에 유니버스 재선택</span>
+        self<span class="token punctuation">.</span>universe_settings<span class="token punctuation">.</span>schedule<span class="token punctuation">.</span>on<span class="token punctuation">(</span>self<span class="token punctuation">.</span>date_rules<span class="token punctuation">.</span>month_start<span class="token punctuation">(</span>spy<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 동적 유니버스 선택 로직</span>
+        <span class="token comment"># 1단계: 달러 거래량 기준 상위 10개 종목 선별</span>
+        <span class="token comment"># 2단계: 그 중 1년간 일간 수익률 변동성이 가장 높은 종목 1개 선택</span>
+        self<span class="token punctuation">.</span>_universe <span class="token operator">=</span> self<span class="token punctuation">.</span>add_universe<span class="token punctuation">(</span>
+            <span class="token keyword keyword-lambda">lambda</span> fundamental<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                self<span class="token punctuation">.</span>history<span class="token punctuation">(</span>
+                    <span class="token punctuation">[</span>
+                        f<span class="token punctuation">.</span>symbol 
+                        <span class="token keyword keyword-for">for</span> f <span class="token keyword keyword-in">in</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>
+                            fundamental<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span> f<span class="token punctuation">:</span> f<span class="token punctuation">.</span>dollar_volume  <span class="token comment"># 달러 거래량 오름차순 정렬</span>
+                        <span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token punctuation">]</span>  <span class="token comment"># 상위 10개 선택</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span> 
+                    timedelta<span class="token punctuation">(</span><span class="token number">365</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Resolution<span class="token punctuation">.</span>DAILY  <span class="token comment"># 1년간 일간 데이터</span>
+                <span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>unstack<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment"># 종목별 종가 데이터를 열로 변환</span>
+                <span class="token punctuation">.</span>pct_change<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 일간 수익률 계산</span>
+                <span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>  <span class="token comment"># 첫 번째 NaN 값 제거</span>
+                <span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 각 종목의 수익률 표준편차(변동성) 계산</span>
+                <span class="token punctuation">.</span>idxmax<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 변동성이 가장 높은 종목의 심볼 반환</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 재현 가능한 결과를 위한 시드 고정</span>
+        <span class="token comment"># 두 번째 파라미터 True는 deterministic 모드 활성화</span>
+        set_seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># FinBERT 토크나이저와 모델 로드</span>
+        model_path <span class="token operator">=</span> <span class="token string">"ProsusAI/finbert"</span>
+        <span class="token comment"># local_files_only=True: 로컬 캐시된 모델만 사용 (네트워크 의존성 제거)</span>
+        self<span class="token punctuation">.</span>_tokenizer <span class="token operator">=</span> BertTokenizer<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>model_path<span class="token punctuation">,</span> local_files_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_model <span class="token operator">=</span> TFBertForSequenceClassification<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>model_path<span class="token punctuation">,</span> local_files_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 리밸런싱 스케줄 설정</span>
+        self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">=</span> datetime<span class="token punctuation">.</span><span class="token builtin">min</span>  <span class="token comment"># 마지막 리밸런싱 시간 추적</span>
+        self<span class="token punctuation">.</span>schedule<span class="token punctuation">.</span>on<span class="token punctuation">(</span>
+            self<span class="token punctuation">.</span>date_rules<span class="token punctuation">.</span>month_start<span class="token punctuation">(</span>spy<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 매월 첫 거래일</span>
+            self<span class="token punctuation">.</span>time_rules<span class="token punctuation">.</span>midnight<span class="token punctuation">,</span>  <span class="token comment"># 자정에 실행</span>
+            self<span class="token punctuation">.</span>_trade  <span class="token comment"># 실행할 메서드</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 30일 워밍업 기간 설정 (충분한 데이터 축적을 위해)</span>
+        self<span class="token punctuation">.</span>set_warm_up<span class="token punctuation">(</span>timedelta<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">on_warmup_finished</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        워밍업 기간 완료 후 첫 거래 실행
+        """</span>
+        self<span class="token punctuation">.</span>_trade<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">on_securities_changed</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> changes<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        유니버스 변경 시 호출되는 이벤트 핸들러
+        제거된 종목의 뉴스 데이터 구독 해제, 추가된 종목의 뉴스 데이터 구독
+        """</span>
+        <span class="token comment"># 유니버스에서 제거된 종목들의 뉴스 데이터 구독 해제</span>
+        <span class="token keyword keyword-for">for</span> security <span class="token keyword keyword-in">in</span> changes<span class="token punctuation">.</span>removed_securities<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>remove_security<span class="token punctuation">(</span>security<span class="token punctuation">.</span>dataset_symbol<span class="token punctuation">)</span>
+        
+        <span class="token comment"># 유니버스에 추가된 종목들의 TiingoNews 데이터 구독</span>
+        <span class="token keyword keyword-for">for</span> security <span class="token keyword keyword-in">in</span> changes<span class="token punctuation">.</span>added_securities<span class="token punctuation">:</span>
+            security<span class="token punctuation">.</span>dataset_symbol <span class="token operator">=</span> self<span class="token punctuation">.</span>add_data<span class="token punctuation">(</span>TiingoNews<span class="token punctuation">,</span> security<span class="token punctuation">.</span>symbol<span class="token punctuation">)</span><span class="token punctuation">.</span>symbol
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_trade</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        핵심 거래 로직 메서드
+        뉴스 데이터 수집 → 감정분석 → 포지션 결정 과정을 수행
+        """</span>
+        <span class="token comment"># 거래 조건 확인: 워밍업 중이거나 마지막 리밸런싱 후 14일 미만이면 거래 중단</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>is_warming_up <span class="token keyword keyword-or">or</span> self<span class="token punctuation">.</span>time <span class="token operator">-</span> self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">&lt;</span> timedelta<span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span>
+
+        <span class="token comment"># 현재 선택된 거래 대상 종목 가져오기</span>
+        security <span class="token operator">=</span> self<span class="token punctuation">.</span>securities<span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_universe<span class="token punctuation">.</span>selected<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+        <span class="token comment"># 최근 10일간 뉴스 기사 데이터 수집</span>
+        articles <span class="token operator">=</span> self<span class="token punctuation">.</span>history<span class="token punctuation">[</span>TiingoNews<span class="token punctuation">]</span><span class="token punctuation">(</span>security<span class="token punctuation">.</span>dataset_symbol<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> Resolution<span class="token punctuation">.</span>DAILY<span class="token punctuation">)</span>
+        article_text <span class="token operator">=</span> <span class="token punctuation">[</span>article<span class="token punctuation">.</span>description <span class="token keyword keyword-for">for</span> article <span class="token keyword keyword-in">in</span> articles<span class="token punctuation">]</span>  <span class="token comment"># 기사 본문만 추출</span>
+        
+        <span class="token comment"># 뉴스 기사가 없으면 거래 중단</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> article_text<span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span>
+
+        <span class="token comment"># FinBERT 토크나이저로 입력 텍스트 전처리</span>
+        <span class="token comment"># padding=True: 배치 내 모든 시퀀스를 동일한 길이로 패딩</span>
+        <span class="token comment"># truncation=True: 최대 길이 초과 시 자르기</span>
+        <span class="token comment"># return_tensors='tf': TensorFlow 텐서 형태로 반환</span>
+        inputs <span class="token operator">=</span> self<span class="token punctuation">.</span>_tokenizer<span class="token punctuation">(</span>article_text<span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> truncation<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> return_tensors<span class="token operator">=</span><span class="token string">'tf'</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># FinBERT 모델로 감정분석 추론 실행</span>
+        outputs <span class="token operator">=</span> self<span class="token punctuation">.</span>_model<span class="token punctuation">(</span><span class="token operator">**</span>inputs<span class="token punctuation">)</span>
+
+        <span class="token comment"># 모델 출력(로짓)에 소프트맥스 적용하여 확률값으로 변환</span>
+        <span class="token comment"># axis=-1: 마지막 차원(클래스 차원)에 대해 소프트맥스 적용</span>
+        scores <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>softmax<span class="token punctuation">(</span>outputs<span class="token punctuation">.</span>logits<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">str</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>  <span class="token comment"># 디버깅용 점수 로그</span>
+        
+        <span class="token comment"># 여러 기사의 감정점수를 지수가중평균으로 집계</span>
+        scores <span class="token operator">=</span> self<span class="token punctuation">.</span>_aggregate_sentiment_scores<span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+        
+        <span class="token comment"># 감정 확률을 차트에 플롯 (시각화)</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Negative"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment"># 부정 확률</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Neutral"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment"># 중립 확률</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Positive"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment"># 긍정 확률</span>
+
+        <span class="token comment"># 포지션 결정 로직</span>
+        <span class="token comment"># 긍정 점수 &gt; 부정 점수 → 100% 롱 포지션</span>
+        <span class="token comment"># 그 외의 경우 → 25% 숏 포지션</span>
+        weight <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword keyword-if">if</span> scores<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword keyword-else">else</span> <span class="token operator">-</span><span class="token number">0.25</span>
+        
+        <span class="token comment"># 포트폴리오 리밸런싱 실행</span>
+        <span class="token comment"># 세 번째 파라미터 True는 기존 포지션을 청산하고 새로 진입</span>
+        self<span class="token punctuation">.</span>set_holdings<span class="token punctuation">(</span>security<span class="token punctuation">.</span>symbol<span class="token punctuation">,</span> weight<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">=</span> self<span class="token punctuation">.</span>time  <span class="token comment"># 리밸런싱 시간 업데이트</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_aggregate_sentiment_scores</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sentiment_scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        여러 뉴스 기사의 감정점수를 지수가중평균으로 집계하는 메서드
+        
+        Args:
+            sentiment_scores: 각 기사별 감정점수 배열 (n개 기사 × 3개 클래스)
+        
+        Returns:
+            aggregated_scores: 집계된 감정점수 (3개 클래스)
+        """</span>
+        n <span class="token operator">=</span> sentiment_scores<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># 뉴스 기사 개수</span>
+        
+        <span class="token comment"># 지수적으로 증가하는 가중치 생성 (최신 뉴스에 더 큰 가중치)</span>
+        <span class="token comment"># linspace(0, 1, n): 0부터 1까지 n개의 등간격 값 생성</span>
+        <span class="token comment"># exp(): 지수함수 적용으로 최신 기사일수록 높은 가중치</span>
+        weights <span class="token operator">=</span> np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 가중치 정규화 (총합이 1이 되도록)</span>
+        weights <span class="token operator">/=</span> weights<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 감정점수에 가중치 적용</span>
+        <span class="token comment"># weights[:, np.newaxis]: (n,) → (n, 1) 형태로 브로드캐스팅</span>
+        <span class="token comment"># sentiment_scores: (n, 3) 형태</span>
+        weighted_scores <span class="token operator">=</span> sentiment_scores <span class="token operator">*</span> weights<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>newaxis<span class="token punctuation">]</span>
+        
+        <span class="token comment"># 가중 점수들을 합산하여 최종 집계 점수 계산</span>
+        <span class="token comment"># axis=0: 기사 차원(첫 번째 차원)을 따라 합산</span>
+        aggregated_scores <span class="token operator">=</span> weighted_scores<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        
+        <span class="token keyword keyword-return">return</span> aggregated_scores
+</code></pre><p><img src="Chapter6_Example19_FinBERT_Model_files/image.png" alt="image.png"></p>
+<p><img src="Chapter6_Example19_FinBERT_Model_files/image-2.png" alt="image-2.png"></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment"># region imports</span>
+<span class="token keyword keyword-from">from</span> AlgorithmImports <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
+
+<span class="token keyword keyword-import">import</span> tensorflow <span class="token keyword keyword-as">as</span> tf
+<span class="token keyword keyword-from">from</span> transformers <span class="token keyword keyword-import">import</span> TFBertForSequenceClassification<span class="token punctuation">,</span> BertTokenizer<span class="token punctuation">,</span> set_seed
+<span class="token keyword keyword-from">from</span> pathlib <span class="token keyword keyword-import">import</span> Path
+<span class="token keyword keyword-from">from</span> datasets <span class="token keyword keyword-import">import</span> Dataset  <span class="token comment"># HuggingFace 데이터셋 라이브러리</span>
+<span class="token keyword keyword-import">import</span> pytz  <span class="token comment"># 시간대 변환을 위한 라이브러리</span>
+<span class="token comment"># endregion</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">FinbertBaseModelAlgorithm</span><span class="token punctuation">(</span>QCAlgorithm<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    FinBERT 파인튜닝 기반 감정분석 트레이딩 알고리즘
+    
+    이 알고리즘은 HuggingFace의 사전훈련된 "ProsusAI/finbert" 모델을 매월 실제 시장 데이터로
+    파인튜닝하여 뉴스 기사의 감정을 분석하고, 이를 바탕으로 자동매매를 수행합니다.
+    
+    핵심 차이점 (이전 버전 대비):
+    1. 매월 초 최근 30일간 뉴스-수익률 데이터로 모델 파인튜닝
+    2. 연속된 뉴스 발표 간 자산 수익률을 레이블로 사용
+    3. 상위/하위 75% 수익률을 긍정/부정으로 분류하여 학습
+    4. 실시간 적응형 모델로 시장 변화에 동적 대응
+    """</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        알고리즘 초기화 메서드
+        백테스팅 설정, 유니버스 정의, 모델 설정, 스케줄링 등을 수행
+        """</span>
+        <span class="token comment"># 백테스팅 기간 설정 (2022년 1년간)</span>
+        self<span class="token punctuation">.</span>set_start_date<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>set_end_date<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>set_cash<span class="token punctuation">(</span><span class="token number">100_000</span><span class="token punctuation">)</span>  <span class="token comment"># 초기 자본금 $100,000</span>
+
+        <span class="token comment"># 유니버스 선택을 위한 기준 심볼 (SPY ETF 사용)</span>
+        spy <span class="token operator">=</span> Symbol<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">"SPY"</span><span class="token punctuation">,</span> SecurityType<span class="token punctuation">.</span>EQUITY<span class="token punctuation">,</span> Market<span class="token punctuation">.</span>USA<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>universe_settings<span class="token punctuation">.</span>resolution <span class="token operator">=</span> Resolution<span class="token punctuation">.</span>DAILY  <span class="token comment"># 일간 데이터 해상도</span>
+        <span class="token comment"># 매월 첫 거래일에 유니버스 재선택</span>
+        self<span class="token punctuation">.</span>universe_settings<span class="token punctuation">.</span>schedule<span class="token punctuation">.</span>on<span class="token punctuation">(</span>self<span class="token punctuation">.</span>date_rules<span class="token punctuation">.</span>month_start<span class="token punctuation">(</span>spy<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 동적 유니버스 선택 로직 (이전 버전과 동일)</span>
+        <span class="token comment"># 1단계: 달러 거래량 기준 상위 10개 종목 선별</span>
+        <span class="token comment"># 2단계: 그 중 1년간 일간 수익률 변동성이 가장 높은 종목 1개 선택</span>
+        self<span class="token punctuation">.</span>_universe <span class="token operator">=</span> self<span class="token punctuation">.</span>add_universe<span class="token punctuation">(</span>
+            <span class="token keyword keyword-lambda">lambda</span> fundamental<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                self<span class="token punctuation">.</span>history<span class="token punctuation">(</span>
+                    <span class="token punctuation">[</span>
+                        f<span class="token punctuation">.</span>symbol 
+                        <span class="token keyword keyword-for">for</span> f <span class="token keyword keyword-in">in</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>
+                            fundamental<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span> f<span class="token punctuation">:</span> f<span class="token punctuation">.</span>dollar_volume  <span class="token comment"># 달러 거래량 오름차순 정렬</span>
+                        <span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token punctuation">]</span>  <span class="token comment"># 상위 10개 선택</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span> 
+                    timedelta<span class="token punctuation">(</span><span class="token number">365</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Resolution<span class="token punctuation">.</span>DAILY  <span class="token comment"># 1년간 일간 데이터</span>
+                <span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>unstack<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment"># 종목별 종가 데이터를 열로 변환</span>
+                <span class="token punctuation">.</span>pct_change<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 일간 수익률 계산</span>
+                <span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>  <span class="token comment"># 첫 번째 NaN 값 제거</span>
+                <span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 각 종목의 수익률 표준편차(변동성) 계산</span>
+                <span class="token punctuation">.</span>idxmax<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 변동성이 가장 높은 종목의 심볼 반환</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 재현 가능한 결과를 위한 시드 고정</span>
+        set_seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 리밸런싱 스케줄 설정</span>
+        self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">=</span> datetime<span class="token punctuation">.</span><span class="token builtin">min</span>  <span class="token comment"># 마지막 리밸런싱 시간 추적</span>
+        self<span class="token punctuation">.</span>schedule<span class="token punctuation">.</span>on<span class="token punctuation">(</span>
+            self<span class="token punctuation">.</span>date_rules<span class="token punctuation">.</span>month_start<span class="token punctuation">(</span>spy<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 매월 첫 거래일</span>
+            self<span class="token punctuation">.</span>time_rules<span class="token punctuation">.</span>midnight<span class="token punctuation">,</span>  <span class="token comment"># 자정에 실행</span>
+            self<span class="token punctuation">.</span>_trade  <span class="token comment"># 실행할 메서드</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 30일 워밍업 기간 설정 (충분한 데이터 축적을 위해)</span>
+        self<span class="token punctuation">.</span>set_warm_up<span class="token punctuation">(</span>timedelta<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 모델 설정 및 토크나이저 로드</span>
+        self<span class="token punctuation">.</span>_model_name <span class="token operator">=</span> <span class="token string">"ProsusAI/finbert"</span>  <span class="token comment"># 사전훈련된 FinBERT 모델 경로</span>
+        <span class="token comment"># 토크나이저만 미리 로드 (모델은 매번 새로 로드하여 파인튜닝)</span>
+        self<span class="token punctuation">.</span>_tokenizer <span class="token operator">=</span> BertTokenizer<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>self<span class="token punctuation">.</span>_model_name<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">on_warmup_finished</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        워밍업 기간 완료 후 첫 거래 실행
+        """</span>
+        self<span class="token punctuation">.</span>_trade<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">on_securities_changed</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> changes<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        유니버스 변경 시 호출되는 이벤트 핸들러
+        제거된 종목의 뉴스 데이터 구독 해제, 추가된 종목의 뉴스 데이터 구독
+        """</span>
+        <span class="token comment"># 유니버스에서 제거된 종목들의 뉴스 데이터 구독 해제</span>
+        <span class="token keyword keyword-for">for</span> security <span class="token keyword keyword-in">in</span> changes<span class="token punctuation">.</span>removed_securities<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>remove_security<span class="token punctuation">(</span>security<span class="token punctuation">.</span>dataset_symbol<span class="token punctuation">)</span>
+        
+        <span class="token comment"># 유니버스에 추가된 종목들의 TiingoNews 데이터 구독</span>
+        <span class="token keyword keyword-for">for</span> security <span class="token keyword keyword-in">in</span> changes<span class="token punctuation">.</span>added_securities<span class="token punctuation">:</span>
+            security<span class="token punctuation">.</span>dataset_symbol <span class="token operator">=</span> self<span class="token punctuation">.</span>add_data<span class="token punctuation">(</span>
+                TiingoNews<span class="token punctuation">,</span> security<span class="token punctuation">.</span>symbol
+            <span class="token punctuation">)</span><span class="token punctuation">.</span>symbol
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_trade</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        핵심 거래 로직 메서드
+        훈련 데이터 수집 → 모델 파인튜닝 → 감정분석 → 포지션 결정 과정을 수행
+        """</span>
+        <span class="token comment"># 거래 조건 확인: 워밍업 중이거나 마지막 리밸런싱 후 14일 미만이면 거래 중단</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>is_warming_up <span class="token keyword keyword-or">or</span> 
+            self<span class="token punctuation">.</span>time <span class="token operator">-</span> self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">&lt;</span> timedelta<span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span>
+
+        <span class="token comment"># 현재 선택된 거래 대상 종목 가져오기</span>
+        security <span class="token operator">=</span> self<span class="token punctuation">.</span>securities<span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_universe<span class="token punctuation">.</span>selected<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+        <span class="token comment"># 파인튜닝을 위한 샘플 데이터 수집</span>
+        samples <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token string">'label'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 텍스트와 레이블을 저장할 DataFrame</span>
+        
+        <span class="token comment"># 최근 30일간 뉴스 기사 데이터 수집</span>
+        news_history <span class="token operator">=</span> self<span class="token punctuation">.</span>history<span class="token punctuation">(</span>security<span class="token punctuation">.</span>dataset_symbol<span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> Resolution<span class="token punctuation">.</span>DAILY<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> news_history<span class="token punctuation">.</span>empty<span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span>
+        <span class="token comment"># 뉴스 기사의 설명(description) 부분만 추출</span>
+        news_history <span class="token operator">=</span> news_history<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>security<span class="token punctuation">.</span>dataset_symbol<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'description'</span><span class="token punctuation">]</span>
+        
+        <span class="token comment"># 같은 기간의 자산 가격 데이터 수집 (초 단위 해상도로 정밀한 타이밍 분석)</span>
+        asset_history <span class="token operator">=</span> self<span class="token punctuation">.</span>history<span class="token punctuation">(</span>
+            security<span class="token punctuation">.</span>symbol<span class="token punctuation">,</span> timedelta<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Resolution<span class="token punctuation">.</span>SECOND
+        <span class="token punctuation">)</span><span class="token punctuation">.</span>loc<span class="token punctuation">[</span>security<span class="token punctuation">.</span>symbol<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span>
+        
+        <span class="token comment"># 연속된 뉴스 발표 간의 자산 수익률을 레이블로 생성</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>news_history<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment"># 현재 뉴스 기사의 본문 텍스트 추출</span>
+            factor <span class="token operator">=</span> news_history<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> factor<span class="token punctuation">:</span>  <span class="token comment"># 빈 기사는 건너뛰기</span>
+                <span class="token keyword keyword-continue">continue</span>
+
+            <span class="token comment"># 레이블 생성: 뉴스 발표 후 다음 뉴스 발표까지의 시장 반응(수익률) 계산</span>
+            release_time <span class="token operator">=</span> self<span class="token punctuation">.</span>_convert_to_eastern<span class="token punctuation">(</span>news_history<span class="token punctuation">.</span>index<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>      <span class="token comment"># 현재 뉴스 발표 시간</span>
+            next_release_time <span class="token operator">=</span> self<span class="token punctuation">.</span>_convert_to_eastern<span class="token punctuation">(</span>news_history<span class="token punctuation">.</span>index<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 다음 뉴스 발표 시간</span>
+            
+            <span class="token comment"># 두 뉴스 발표 시간 사이의 가격 데이터 추출</span>
+            reaction_period <span class="token operator">=</span> asset_history<span class="token punctuation">[</span>
+                <span class="token punctuation">(</span>asset_history<span class="token punctuation">.</span>index <span class="token operator">&gt;</span> release_time<span class="token punctuation">)</span> <span class="token operator">&amp;</span>
+                <span class="token punctuation">(</span>asset_history<span class="token punctuation">.</span>index <span class="token operator">&lt;</span> next_release_time <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>seconds<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">]</span>
+            <span class="token keyword keyword-if">if</span> reaction_period<span class="token punctuation">.</span>empty<span class="token punctuation">:</span>  <span class="token comment"># 해당 기간에 가격 데이터가 없으면 건너뛰기</span>
+                <span class="token keyword keyword-continue">continue</span>
+            
+            <span class="token comment"># 수익률 계산: (마지막 가격 - 첫 가격) / 첫 가격</span>
+            label <span class="token operator">=</span> <span class="token punctuation">(</span>
+                <span class="token punctuation">(</span>reaction_period<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> reaction_period<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+                <span class="token operator">/</span> reaction_period<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            <span class="token punctuation">)</span>
+            
+            <span class="token comment"># 훈련 샘플로 저장 (뉴스 텍스트, 해당 기간 수익률)</span>
+            samples<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token builtin">len</span><span class="token punctuation">(</span>samples<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>factor<span class="token punctuation">,</span> label<span class="token punctuation">]</span>
+
+        <span class="token comment"># 최근 100개 샘플만 사용 (메모리 효율성 및 최신 데이터 중심)</span>
+        samples <span class="token operator">=</span> samples<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+        
+        <span class="token comment"># 최소 10개 샘플이 없으면 모든 포지션 청산하고 거래 중단</span>
+        <span class="token keyword keyword-if">if</span> samples<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>liquidate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-return">return</span>
+        
+        <span class="token comment"># 연속 수익률을 3개 클래스로 분류</span>
+        <span class="token comment"># 상위 75% 긍정 수익률 → 클래스 2 (긍정)</span>
+        <span class="token comment"># 하위 75% 부정 수익률 → 클래스 0 (부정)  </span>
+        <span class="token comment"># 나머지 → 클래스 1 (중립)</span>
+        sorted_samples <span class="token operator">=</span> samples<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>
+            by<span class="token operator">=</span><span class="token string">'label'</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token boolean">False</span>  <span class="token comment"># 수익률 내림차순 정렬</span>
+        <span class="token punctuation">)</span><span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        
+        percent_signed <span class="token operator">=</span> <span class="token number">0.75</span>  <span class="token comment"># 상위/하위 75% 기준</span>
+        
+        <span class="token comment"># 긍정 수익률 중 상위 75%의 cutoff 인덱스 계산</span>
+        positive_cutoff <span class="token operator">=</span> <span class="token punctuation">(</span>
+            <span class="token builtin">int</span><span class="token punctuation">(</span>percent_signed 
+            <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sorted_samples<span class="token punctuation">[</span>sorted_samples<span class="token punctuation">.</span>label <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 부정 수익률 중 하위 75%의 cutoff 인덱스 계산</span>
+        negative_cutoff <span class="token operator">=</span> <span class="token punctuation">(</span>
+            <span class="token builtin">len</span><span class="token punctuation">(</span>sorted_samples<span class="token punctuation">)</span> 
+            <span class="token operator">-</span> <span class="token builtin">int</span><span class="token punctuation">(</span>percent_signed <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sorted_samples<span class="token punctuation">[</span>sorted_samples<span class="token punctuation">.</span>label <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 레이블 재할당</span>
+        sorted_samples<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>
+            <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span>negative_cutoff<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sorted_samples<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'label'</span>
+        <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment"># 하위 75% 부정 수익률 → 클래스 0 (부정)</span>
+        
+        sorted_samples<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>
+            <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span>positive_cutoff<span class="token punctuation">,</span> negative_cutoff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'label'</span>
+        <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>  <span class="token comment"># 중간 구간 → 클래스 1 (중립)</span>
+        
+        sorted_samples<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> positive_cutoff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'label'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>  <span class="token comment"># 상위 75% 긍정 수익률 → 클래스 2 (긍정)</span>
+
+        <span class="token comment"># 사전훈련된 FinBERT 모델 로드 (매번 새로 로드하여 파인튜닝)</span>
+        model <span class="token operator">=</span> TFBertForSequenceClassification<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>
+            self<span class="token punctuation">.</span>_model_name<span class="token punctuation">,</span> 
+            num_labels<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>      <span class="token comment"># 3개 클래스 (부정/중립/긍정)</span>
+            from_pt<span class="token operator">=</span><span class="token boolean">True</span>       <span class="token comment"># PyTorch 가중치에서 TensorFlow로 변환</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 모델 컴파일 설정</span>
+        model<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>
+            optimizer<span class="token operator">=</span>tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>optimizers<span class="token punctuation">.</span>Adam<span class="token punctuation">(</span>learning_rate<span class="token operator">=</span><span class="token number">3e-5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># Adam 옵티마이저, 낮은 학습률</span>
+            loss<span class="token operator">=</span>tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>losses<span class="token punctuation">.</span>SparseCategoricalCrossentropy<span class="token punctuation">(</span>from_logits<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment"># 다중클래스 분류 손실함수</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># HuggingFace Dataset 형태로 훈련 데이터 변환</span>
+        dataset <span class="token operator">=</span> Dataset<span class="token punctuation">.</span>from_pandas<span class="token punctuation">(</span>sorted_samples<span class="token punctuation">)</span>
+        
+        <span class="token comment"># 토크나이징 적용 (텍스트를 모델 입력 형태로 변환)</span>
+        dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>
+            <span class="token keyword keyword-lambda">lambda</span> sample<span class="token punctuation">:</span> self<span class="token punctuation">.</span>_tokenizer<span class="token punctuation">(</span>
+                sample<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+                padding<span class="token operator">=</span><span class="token string">'max_length'</span><span class="token punctuation">,</span>  <span class="token comment"># 최대 길이로 패딩</span>
+                truncation<span class="token operator">=</span><span class="token boolean">True</span>        <span class="token comment"># 최대 길이 초과 시 자르기</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># TensorFlow 데이터셋으로 변환 (모델 훈련에 적합한 형태)</span>
+        dataset <span class="token operator">=</span> model<span class="token punctuation">.</span>prepare_tf_dataset<span class="token punctuation">(</span>
+            dataset<span class="token punctuation">,</span> 
+            shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>              <span class="token comment"># 데이터 섞기</span>
+            tokenizer<span class="token operator">=</span>self<span class="token punctuation">.</span>_tokenizer  <span class="token comment"># 토크나이저 설정</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># 모델 파인튜닝 실행 (2 에포크)</span>
+        model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> epochs<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 추론을 위한 입력 데이터 준비 (최근 뉴스들)</span>
+        inputs <span class="token operator">=</span> self<span class="token punctuation">.</span>_tokenizer<span class="token punctuation">(</span>
+            <span class="token builtin">list</span><span class="token punctuation">(</span>samples<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            padding<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+            truncation<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+            return_tensors<span class="token operator">=</span><span class="token string">'tf'</span>  <span class="token comment"># TensorFlow 텐서 형태로 반환</span>
+        <span class="token punctuation">)</span>
+
+        <span class="token comment"># 파인튜닝된 모델로 감정분석 추론 실행</span>
+        outputs <span class="token operator">=</span> model<span class="token punctuation">(</span><span class="token operator">**</span>inputs<span class="token punctuation">)</span>
+
+        <span class="token comment"># 모델 출력(로짓)에 소프트맥스 적용하여 확률값으로 변환</span>
+        scores <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>softmax<span class="token punctuation">(</span>outputs<span class="token punctuation">.</span>logits<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 여러 기사의 감정점수를 지수가중평균으로 집계</span>
+        scores <span class="token operator">=</span> self<span class="token punctuation">.</span>_aggregate_sentiment_scores<span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+        
+        <span class="token comment"># 감정 확률을 차트에 플롯 (시각화)</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Negative"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment"># 부정 확률</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Neutral"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment"># 중립 확률</span>
+        self<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token string">"Sentiment Probability"</span><span class="token punctuation">,</span> <span class="token string">"Positive"</span><span class="token punctuation">,</span> scores<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment"># 긍정 확률</span>
+
+        <span class="token comment"># 포지션 결정 로직 (이전 버전과 동일)</span>
+        <span class="token comment"># 긍정 점수 &gt; 부정 점수 → 100% 롱 포지션</span>
+        <span class="token comment"># 그 외의 경우 → 25% 숏 포지션</span>
+        weight <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword keyword-if">if</span> scores<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword keyword-else">else</span> <span class="token operator">-</span><span class="token number">0.25</span>
+        
+        <span class="token comment"># 포트폴리오 리밸런싱 실행</span>
+        self<span class="token punctuation">.</span>set_holdings<span class="token punctuation">(</span>security<span class="token punctuation">.</span>symbol<span class="token punctuation">,</span> weight<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_last_rebalance_time <span class="token operator">=</span> self<span class="token punctuation">.</span>time  <span class="token comment"># 리밸런싱 시간 업데이트</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_convert_to_eastern</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dt<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        UTC 시간을 미국 동부 시간(Eastern Time)으로 변환하는 유틸리티 메서드
+        
+        Args:
+            dt: UTC 시간 객체
+            
+        Returns:
+            동부 시간으로 변환된 naive datetime 객체
+        """</span>
+        <span class="token comment"># UTC 시간을 동부 시간으로 변환 후 시간대 정보 제거</span>
+        <span class="token keyword keyword-return">return</span> dt<span class="token punctuation">.</span>astimezone<span class="token punctuation">(</span>pytz<span class="token punctuation">.</span>timezone<span class="token punctuation">(</span><span class="token string">'US/Eastern'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>tzinfo<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_aggregate_sentiment_scores</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sentiment_scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        여러 뉴스 기사의 감정점수를 지수가중평균으로 집계하는 메서드
+        (이전 버전과 동일한 로직)
+        
+        Args:
+            sentiment_scores: 각 기사별 감정점수 배열 (n개 기사 × 3개 클래스)
+        
+        Returns:
+            aggregated_scores: 집계된 감정점수 (3개 클래스)
+        """</span>
+        n <span class="token operator">=</span> sentiment_scores<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># 뉴스 기사 개수</span>
+        
+        <span class="token comment"># 지수적으로 증가하는 가중치 생성 (최신 뉴스에 더 큰 가중치)</span>
+        weights <span class="token operator">=</span> np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 가중치 정규화 (총합이 1이 되도록)</span>
+        weights <span class="token operator">/=</span> weights<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># 감정점수에 가중치 적용</span>
+        weighted_scores <span class="token operator">=</span> sentiment_scores <span class="token operator">*</span> weights<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>newaxis<span class="token punctuation">]</span>
+        
+        <span class="token comment"># 가중 점수들을 합산하여 최종 집계 점수 계산</span>
+        aggregated_scores <span class="token operator">=</span> weighted_scores<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        
+        <span class="token keyword keyword-return">return</span> aggregated_scores
+</code></pre><p><img src="Chapter6_Example19_FinBERT_Model_files/image.png" alt="image.png"></p>
+<p><img src="Chapter6_Example19_FinBERT_Model_files/image-2.png" alt="image-2.png"></p>
+<p>이 파인튜닝 버전의 핵심 차이점과 장점:</p>
+<ol>
+<li>
+<p>적응형 학습</p>
+<ul>
+<li>매월 최근 30일간의 실제 시장 반응 데이터로 모델을 재훈련</li>
+<li>시장 환경 변화에 동적으로 적응하는 능력</li>
+</ul>
+</li>
+<li>
+<p>실제 라벨링</p>
+<ul>
+<li>연속된 뉴스 발표 간 자산 수익률을 라벨로 사용</li>
+<li>상위/하위 75% 기준으로 긍정/부정 분류하여 현실적인 학습</li>
+</ul>
+</li>
+<li>
+<p>정밀한 타이밍</p>
+<ul>
+<li>초 단위 가격 데이터로 뉴스 발표 후 정확한 시장 반응 측정</li>
+<li>동부 시간대 변환으로 뉴스 발표 시간 정확성 확보</li>
+</ul>
+</li>
+<li>
+<p>메모리 효율성</p>
+<ul>
+<li>최근 100개 샘플만 사용하여 계산 부담 감소</li>
+<li>최신 데이터에 집중하여 트렌드 변화 신속 포착</li>
+<li>이 접근법은 정적 모델보다 시장 변화에 더 민감하게 반응할 수 있는 고급 전략입니다.</li>
+</ul>
+</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
