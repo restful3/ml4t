@@ -32,7 +32,8 @@
 #### **2025년 9월 27일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m794c4e50f5ff0e9aa332e21523485655)
 - 트랙 - 퀀트 전략 리뷰 (2/4)
 - 발표자 - 태호
-- 내용 - tbd
+- 내용 - [Short Term Reversal Effect in Stocks](https://quantpedia.com/strategies/short-term-reversal-in-stocks)
+- 자료 준비 중...
 
 #### **✅ 2025년 10월 4일 (토)**: 휴일 (추석 연휴 - 스터디 없음)
 
