@@ -1,6 +1,6 @@
 # Opening Range Breakout for Stocks in Play
 - 핀조이
-- 09/21/2025
+- 09/20/2025
 - Report: 
 https://www.quantconnect.com/research/18444/opening-range-breakout-for-stocks-in-play/p1
 - Slides: 
