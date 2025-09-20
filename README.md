@@ -25,7 +25,9 @@
 #### **2025년 9월 20일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7ce242843e71db115e8b2369986a04aa)
 - 트랙 - 퀀트 전략 리뷰 (1/4)
 - 발표자 - 핀조이
-- 내용 - tbd
+- 내용 - [Opening Range Breakout for Stocks in Play](https://www.quantconnect.com/research/18444/opening-range-breakout-for-stocks-in-play/p1)
+- 슬라이드 [pdf](https://github.com/restful3/ml4t/blob/main/archive/Quant%20Trading%20Strategy%20Review/ORB_for_Stocks_in_Play.pdf)
+- 백테스트 [link](https://www.quantconnect.cloud/backtest/8f984879ae58a8cc56436d59a636ef97)
 
 #### **2025년 9월 27일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m794c4e50f5ff0e9aa332e21523485655)
 - 트랙 - 퀀트 전략 리뷰 (2/4)
