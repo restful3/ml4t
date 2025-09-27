@@ -34,6 +34,7 @@
 - 발표자 - 태호
 - 내용 - [Short Term Reversal Effect in Stocks](https://quantpedia.com/strategies/short-term-reversal-in-stocks)
 - [설명 자료](https://github.com/restful3/ml4t/blob/main/archive/Quant%20Trading%20Strategy%20Review/short_term_reversal_effect_%EC%86%8C%EA%B0%9C_Teo.ipynb)
+- [코드 리뷰](https://github.com/restful3/ml4t/blob/main/archive/Quant%20Trading%20Strategy%20Review/short_term_reversal_effect_%EC%BD%94%EB%93%9C_%EB%B6%84%EC%84%9DTeo.py)
 
 #### **✅ 2025년 10월 4일 (토)**: 휴일 (추석 연휴 - 스터디 없음)
 
