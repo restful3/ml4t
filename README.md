@@ -42,13 +42,13 @@
 
 #### **2025년 10월 18일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me926d907650c9b1a34a5cf2a56fbea7c)
 - 트랙 - 퀀트 전략 리뷰 (3/4)
-- 발표자 - tbd
+- 발표자 - 정택
 - 내용 - tbd
 
 #### **2025년 10월 25일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m18b99f88356090f9f2ce9d29adefecc3)
 - 트랙 - 퀀트 전략 리뷰 (4/4)
-- 발표자 - tbd
-- 내용 - tbd
+- 발표자 - 태영 
+- 내용 - [Calendar-based clustering of weekly extremes: Empirical failure of stochastic models](https://www.sciencedirect.com/science/article/abs/pii/S1544612325012504)
 
 #### **2025년 11월 1일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m54969345967403cc4743ce696daeb9f0)
 - 트랙 - 캐글 (1/4)
