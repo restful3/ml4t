@@ -1,278 +1,361 @@
-# 주간 극값의 달력 기반 군집: 확률 모형의 실증적 실패
+# Calendar-based clustering of weekly extremes: Empirical failure of stochastic models 
 
-Im Hyeon Lee[^corresponding]  
-대한민국 부산, 동아대학교 금융학과
+Im Hyeon Lee*<br>Department of Finance, Dong-A University, Busan, Republic of Korea
 
-#### 초록
 
-본 연구는 금융시장에서 주간 최고가와 최저가의 발생이 무작위성과 크게 다르다는 사실, 즉 주간 극값의 군집 현상을 밝혀낸다. 평균 수익률과 변동성의 차이에 주목하는 잘 알려진 요일 효과와 달리, 이 군집은 무작위 변동만으로는 설명할 수 없는 최고가와 최저가의 집중을 의미한다. 이러한 공백을 메우기 위해, 본 연구는 요일별 전이확률을 포함하는 요일 의존형 마코프 전환 GARCH 모형을 제안한다. 제안 모형은 기존 모형보다 주간 극값의 군집을 더 효과적으로 포착하며, 달력에 의해 주도되는 시장 역학을 보다 정확하게 이해할 수 있는 새로운 분석 틀을 제공한다.
+#### Abstract
 
-**주제어**: 주간 극값 군집, 달력 이상현상, 요일 효과, 시장 미시구조, 금융 시계열 분석  
-**JEL**: C58, C22, C52, G14
+This study uncovers a significant deviation from randomness in the occurrence of weekly highs and lows in financial markets, a phenomenon we term the clustering of weekly extremes. Unlike the well-known day-of-the-week effect, which focuses on differences in mean returns and volatility, this clustering represents the concentration of highs and lows that cannot be explained by random variation. To address this gap, this study introduces a day-dependent Markov-switching GARCH model that incorporates weekday-specific transition probabilities. The proposed model more effectively captures the clustering of weekly extremes than conventional models and provides a novel analytical framework for more accurately understanding calendar-driven market dynamics.
 
-## 1. 서론
 
-French(1980)가 요일 효과를 정식화한 이후 실증 금융연구에서는 다양한 달력 이상현상을 폭넓게 문서화해 왔으며, 특히 주말 전후 평균 수익률이나 변동성의 차이에 주목해 왔다(예: Chiah and Zhong, 2021; Dicle and Levendis, 2014; Qadan et al., 2022; Valadkhani and O'Mahony, 2024).
+Keywords: Clustering of weekly extremes, calendar anomaly, day-of-the-week effect, market microstructure, financial time series analysis
+JEL: C58, C22, C52, G14
 
-Bowles 등(2024)은 Fama and French(1992, 이하 FF92)를 따르는 기존 리밸런싱 관행—정보 공시보다 몇 달 뒤인 6월 30일을 업데이트 날짜로 설정—이 오래된 정보에 의존하기 때문에 이상현상의 예측력을 과소평가한다고 주장한다. 이들은 비정상 수익률이 공시 후 몇 주, 심지어 며칠 내에 집중된다고 보고하는데, 이는 특정 날짜나 요일 수준의 달력 정밀성을 무시할 경우 이상현상의 존재와 위험 평가가 왜곡될 수 있음을 의미하며, 달력 효과 연구의 중요성을 부각한다.
+## 1. Introduction
 
-이러한 통찰을 바탕으로 본 연구는 평균 수익률이 아닌 다른 현상, 즉 특정 요일에 주간 가격 극값이 집중되는 현상에 초점을 전환한다. 요일 효과와 달리 이 현상은 평균 수익률이나 변동성의 차이에 의해 구동되는 것이 아니라, 한 주 동안 최저가와 최고가가 어떤 요일에 나타나는지에 의해 결정되며, 이는 시장 움직임을 지배하는 숨은 달력 구조를 암시한다.
+Since French $(1980)^{1}$, a substantial body of empirical finance literature has documented various calendar anomalies, with the day-of-the-week effect, which refers to weekend-specific differences in mean returns or volatility, receiving particular attention (e.g., Chiah and Zhong, 2021; Dicle and Levendis, 2014; Qadan et al., 2022; Valadkhani and O'Mahony, 2024).
 
-본 연구는 지수선물, 채권선물, 원자재, 통화 시장 등 주요 자산군에서 주간 최고가와 최저가의 분포를 살펴본다. 달력 주 단위 데이터 분석을 통해 각 주의 극값을 만들어낸 요일을 식별한다. 효율적 시장가설에 따르면 이러한 극값은 무작위 분포를 따라야 한다(Campbell et al., 1997). 그러나 G-검정 결과는 무작위성에서 유의하게 벗어남을 보여주며, 이 현상을 포착할 수 있는 모형 개발의 필요성을 시사한다.
+Furthermore, Bowles et al. (2024) argue that the conventional FF92 ${ }^{2}$ practice of rebalancing on 30 June, which lags the actual information release date by an average of five to six months, relies on stale information and therefore understates anomaly predictability. Their empirical finding that abnormal returns are concentrated within only a few weeks, or even a few days, after disclosure implies that ignoring calendar precision at the level of specific dates or weekdays can distort both the existence of anomalies and the assessment of risk, which may underscore the importance of research on calendar effects.
 
-## 2. 방법론
+Building on these insights, this study shifts the focus from average returns to a distinct phenomenon: the clustering of weekly price extremes on specific weekdays. Unlike the day-of-the-week effect, this phenomenon is driven not by differences in average returns or volatility, but by which days of the week the lowest and highest prices occur within a given week, suggesting a hidden calendar structure underlying market movements.
 
-본 연구의 주요 관심사는 주간 극값의 군집으로, 이는 주간 최고가와 최저가가 무작위 변동에서 기대되는 것보다 특정 요일에 더 자주 발생하는 현상을 뜻한다. 이를 실증적으로 조사하기 위해 4개 대표 시장의 일별 시계열 데이터를 구축하였다.
+We examine the distribution of weekly highs and lows across major asset classes, including index futures, bond futures, commodities, and currency markets. By analyzing the data in calendar weeks, we identify the specific weekday responsible for each week's extreme values. Under the efficient market hypothesis, these extremes should follow a random distribution (Campbell et al., 1997). However, G-tests reveal significant deviations from randomness, motivating the development of models that can capture this phenomenon.
 
-1. 주가지수 선물: E-mini S&P 500 선물(CME, 2001-10-09–2024-12-16)
-2. 채권 선물: 미국 30년 만기 국채선물(CBOT, 2001-07-19–2025-01-10)
-3. 원자재: 골드만삭스 상품지수(S&P, 2001-10-09–2025-01-10)
-4. 통화: EUR/USD 환율(ICE, 2001-10-09–2025-01-10)
+[^0]
+[^0]:    *Corresponding author. Email: 24167688donga.ac.kr
+    ${ }^{1}$ Pre-1980 evidence was scattered; French (1980) formalized the day-of-the-week effect.
+    ${ }^{2}$ Fama and French (1992)
 
-각 자산에 대해 정확히 5거래일이 있는 주만 남기고, 최고가와 최저가가 속한 요일을 기록하여 주간 극값의 실증 분포를 추정한다.
+# 2. Methodology 
 
-관찰된 주간 극값 분포가 약형 효율성과 일치하는지 평가하기 위해 기하 브라운 운동(GBM), Heston 모형, 점프-확산 모형 등 세 가지 대표적 확률 모형을 활용한다.
+The primary focus of this study is the clustering of weekly extremes, which is defined as the phenomenon in which weekly high and low prices occur more frequently on specific weekdays than would be expected under random movement. To empirically investigate this phenomenon, we compile daily time-series data from four representative markets:
 
-GBM 모형은 자산 가격 \(S_t\)의 진화를 다음과 같이 묘사한다.
+1. Index futures: E-mini S\&P 500 futures (CME, 2001-10-09-2024-12-16)
+2. Bond futures: U.S. 30-year Treasury bond futures (CBOT, 2001-07-19-2025-01-10)
+3. Commodities: Goldman Sachs commodity index (S\&P, 2001-10-09-2025-01-10)
+4. Currencies: EUR/USD exchange rate (ICE, 2001-10-09-2025-01-10)
 
-$$
-dS_t = \mu S_t\, dt + \sigma S_t\, dW_t,
-$$
+For each asset, only weeks with exactly five trading days were retained, and for each week, we recorded the weekday associated with the highest and lowest prices, yielding an empirical distribution of weekly extremes.
 
-여기서 \(\mu\)는 추세, \(\sigma\)는 변동성, \(W_t\)는 표준 브라우니안 운동이다. 이토 보조정리에 따라 로그가격 과정은
+To assess whether this observed distribution of weekly extremes deviates from the behavior expected under the assumption of weak-form efficiency, three stochastic models are employed: geometric Brownian motion (GBM), the Heston model, and the jump-diffusion model.
 
-$$
-d \ln S_t = \left(\mu - \frac{1}{2}\sigma^{2}\right) dt + \sigma\, dW_t
-$$
-
-을 만족한다. 로그수익률
+The GBM model describes the evolution of an asset price $S_{t}$ as
 
 $$
-r_t = \ln \left(\frac{S_t}{S_{t-1}}\right)
+d S_{t}=\mu S_{t} d t+\sigma S_{t} d W_{t}
 $$
 
-이 정규분포를 따른다고 가정하고, 최대우도추정(MLE)을 통해 \(\mu\)와 \(\sigma\)를 추정한다.
+where $\mu$ is the drift and $\sigma$ is the volatility, and $W_{t}$ is a standard Brownian motion. It follows from Itô's lemma that the log-price process satisfies
 
-Heston 모형은 변동성에 대한 확률과정을 도입하여 GBM을 확장한 것으로(Heston, 1993), 다음 연립방정식으로 정의된다.
+$$
+d \ln S_{t}=\left(\mu-\frac{1}{2} \sigma^{2}\right) d t+\sigma d W_{t}
+$$
+
+Assuming the log returns
+
+$$
+r_{t}=\ln \left(\frac{S_{t}}{S_{t-1}}\right)
+$$
+
+are normally distributed, maximum likelihood estimation (MLE) is used to estimate $\mu$ and $\sigma$ from the observed data.
+
+The Heston model extends GBM by introducing a stochastic process for volatility (Heston, 1993). It is defined by the system
 
 $$
 \begin{aligned}
-dS_t &= \mu S_t\, dt + \sqrt{v_t}\, S_t\, dW_t^{(1)}, \\
-dv_t &= \kappa\left(\theta - v_t\right) dt + \xi \sqrt{v_t}\, dW_t^{(2)}, \\
-dW_t^{(1)} dW_t^{(2)} &= \rho\, dt,
+d S_{t} & =\mu S_{t} d t+\sqrt{v_{t}} S_{t} d W_{t}^{S} \\
+d v_{t} & =\kappa\left(\theta-v_{t}\right) d t+\xi \sqrt{v_{t}} d W_{t}^{v}
 \end{aligned}
 $$
 
-여기서 \(v_t\)는 순간 분산, \(\kappa\)는 장기 분산 \(\theta\)로의 평균회귀 속도, \(\xi\)는 분산의 변동성, \(\rho\)는 브라우니안 운동 \(W_t^{(1)}\)과 \(W_t^{(2)}\) 사이의 상관을 나타낸다.
+where $v_{t}$ denotes the instantaneous variance, $\kappa$ is the speed of mean reversion, $\theta$ is the long-run average variance, and $\xi$ is the volatility of volatility. The Brownian motions $d W_{t}^{S}$ and $d W_{t}^{v}$ are correlated, with $\mathbb{E}\left[d W_{t}^{S} d W_{t}^{v}\right]=\rho d t$. Due to the latent nature of $v_{t}$, a particle filter (details are provided in Appendix A) is employed to construct the conditional likelihood and to estimate the parameters $v_{0}, \kappa, \theta, \xi, \rho, \mu$.
 
-점프-확산 모형은 포아송 구동 점프를 도입하여 확산 과정을 보강한다.
-
-$$
-dS_t = \mu S_t\, dt + \sigma S_t\, dW_t + (J_t - 1) S_t\, dN_t,
-$$
-
-여기서 \(N_t\)는 강도 \(\lambda\)를 가진 포아송 과정, \(J_t\)는 점프 크기이다. 그 결과 우도함수는 구간별 점프 횟수를 반영하는 정규분포 혼합 형태를 띤다.
-
-각 모형의 모수를 최대우도추정 또는 Heston 모형의 경우 잠재 분산 상태를 통합하기 위한 파티클 필터링으로 추정한다. 이후 모형이 암시하는 요일별 주간 극값 분포가 실증 분포와 일치하는지 평가하기 위해 시뮬레이션을 수행한다. 구체적으로 요일별 전이확률에 따라 잠재 상태를 추출하고, 조건부 분포로부터 수익률을 시뮬레이션하며, \(P_t = P_{t-1} \exp(r_t)\)로 가격을 갱신한다. 모형 적합도는 시뮬레이션과 관측된 빈도를 비교한 쿨백–라이블러(KL) 발산과 G-검정 통계량으로 평가한다.
-
-또한 요일별로 전이확률과 조건부 분산이 달라지는 요일 의존형 마코프 전환 GARCH(MSGARCH) 모형을 고려한다. 시간 \(t\)에서의 잠재 상태 \(S_t \in \{1,\dots,K\}\)와 요일 \(d(t)\)를 정의하면, 조건부 수익률은 다음을 따른다.
+As demonstrated by Bates (1996), the jump-diffusion model augments the continuous diffusion process with a jump component to account for sudden, discontinuous movements due to rare events. The dynamics are given by
 
 $$
-r_t \mid (S_t = i, d(t) = d) \sim \mathcal{N}\left(\mu_{i,d}, \sigma_{i,d}^2\right),
+d S_{t}=(\mu-\lambda k) S_{t} d t+\sigma S_{t} d W_{t}+S_{t} d J_{t}
 $$
 
-조건부 분산은 GARCH(1,1) 구조로 진화한다.
+where $d J_{t}$ represents a jump process (often modeled via a Poisson process with intensity $\lambda$ ), and the jump size is typically drawn from a normal distribution. The correction term $k=\mathbb{E}\left[e^{J_{t}}-1\right]$ adjusts for the mean impact of the jumps. Parameter estimation involves MLE techniques with a log-sum-exp formulation to simultaneously estimate $\lambda, \mu_{J}$ (the mean jump size), and $\sigma_{J}$ (the jump volatility).
+
+The parameters for each model were estimated using their respective procedures. The model then generated 2,000 weekly price paths, starting from an initial price. The frequencies of these extreme values were aggregated and rescaled to match the expected frequency based on the real data. Under the assumption that markets exhibit weak-form efficiency, it is hypothesized that the distribution of weekly extremes by weekday does not significantly differ from that implied by those stochastic models.
+
+In this study, the existence of such weekday-dependent clustering in weekly extremes is primarily evaluated using the Kullback–Leibler divergence (KL divergence) and the G-statistic, by comparing distributions derived from simulated and actual data. KL divergence is defined as
+
+$D_{KL}(O\|\left.E)=\sum_{d=0}^{4} O_{d}\log\frac{O_{d}}{E_{d}}\right.$,
+
+and the G-statistic is given by
+
+$G=2\sum_{d=0}^{4} O_{d}\ln\left(\frac{O_{d}}{E_{d}}\right),$
+
+where $O_{d}$ and $E_{d}$ represent the observed and expected frequencies for day $d$, respectively.
+
+# 2.1. Day-dependent Markov-switching GARCH model 
+
+In this study, to replicate and predict the clustering of weekly extremes, we build on the regime-switching framework initially proposed by Gray (1996) and introduce an extended day-dependent Markov-switching GARCH model (day-dependent MSGARCH model; cf. Anderson et al., 1999) that incorporates weekdaydependent state transitions and volatility dynamics.
+
+Formally, the market state at time $t$ is defined as
 
 $$
-\sigma_{i,d}^2 = \alpha_{i,d} + \beta_{i,d} \epsilon_{t-1}^2 + \gamma_{i,d} \sigma_{t-1}^2,
-\quad \epsilon_t = r_t - \mu_{i,d},
+S_{t} \in\{1,2, \ldots, K\}
 $$
 
-단 \(\alpha_{i,d}>0\), \(\beta_{i,d} \geq 0\), \(\gamma_{i,d} \geq 0\), \(\beta_{i,d} + \gamma_{i,d} < 1\)을 만족한다. 모수 집합은 요일별 전이행렬 \(p_{ij}(d)\), 상태·요일별 평균, GARCH 계수, 초기 상태 분포 \(\pi_0\)로 구성되며, E단계에서 순방향-역방향(Baum–Welch) 알고리즘을 사용하고 M단계에서 최대우도로 갱신하는 기대값-최대화 절차로 추정한다.
+with an initial distribution $\pi_{0}=\left(\pi_{1}, \ldots, \pi_{K}\right)$, where $\pi_{i}=P\left(S_{1}=i\right)$. Each day of the week is represented as $d(t) \in\{0,1,2,3,4\}$ (Mon-Fri). The state transition probability from state $i$ to state $j$ depends on the day of the week
 
-## 3. 실증 결과
+$$
+p_{i j}(d(t+1))=P\left(S_{t+1}=j \mid S_{t}=i, d(t+1)\right)
+$$
 
-대표 확률 모형을 이용한 시뮬레이션은 실증 자료와 현저히 다른 요일별 주간 극값 분포를 산출한다(표 1). 이는 단순 확산 과정이나 확률변동성, 점프 위험만으로는 시장에서 관측되는 주간 극값 군집을 재현하기에 충분하지 않음을 시사한다.
+with $\sum_{j=1}^{K} p_{i j}(d)=1$ for each $i$.
+For each asset, candidate models with $K=2$ to $K=5$ states were evaluated. The optimal $K$ was determined based on the minimization of the KL divergence between the empirical and simulated distributions of weekly extremes. (The full results can be found in the Supplementary Material.)
 
-표 1. 확률 모형 시뮬레이션과 실증 자료 간 KL 발산 및 G-검정 통계량.
+Returns at time $t$ conditional on the current state $S_{t}=i$ and day $d(t)$ follow
 
-| 자산 | 모형 | KL 발산(고가) | KL 발산(저가) | G-통계량(고가) | G-통계량(저가) | p-값(고가) | p-값(저가) |
+$$
+r_{t} \mid\left(S_{t}=i, d(t)\right) \sim \mathcal{N}\left(\mu_{i, d(t)}, \sigma_{i, d(t)}^{2}\right)
+$$
+
+where the conditional variance is governed by a $\operatorname{GARCH}(1,1)$ process
+
+$$
+\sigma_{t}^{2}=\alpha_{i, d(t)}+\beta_{i, d(t)} \epsilon_{t-1}^{2}+\gamma_{i, d(t)} \sigma_{t-1}^{2}, \quad \epsilon_{t}=r_{t}-\mu_{i, d(t)}
+$$
+
+with constraints $\alpha_{i, d(t)}>0, \beta_{i, d(t)} \geq 0, \gamma_{i, d(t)} \geq 0$, and $\beta_{i, d(t)}+\gamma_{i, d(t)}<1$.
+The full parameter set is thus defined as
+
+$$
+\theta=\left\{p_{i j}(d), \mu_{i, d}, \alpha_{i, d}, \beta_{i, d}, \gamma_{i, d}, \pi_{0}\right\}
+$$
+
+Given observed returns $r_{1: T}$, the likelihood function is computed by summing over all latent states
+
+$$
+L\left(\theta ; r_{1: T}\right)=\sum_{S_{1}=1}^{K} \cdots \sum_{S_{T}=1}^{K} \pi_{S_{1}} f\left(r_{1} \mid S_{1}, d(1)\right) \prod_{t=2}^{T} p_{S_{t-1}, S_{t}}(d(t)) f\left(r_{t} \mid S_{t}, d(t)\right)
+$$
+
+where $f(\cdot)$ denotes the normal probability density function. Parameter estimation is conducted through expectation-maximization (EM) methods (details are provided in Appendix B).
+
+Simulation involves drawing states according to the day-specific transition probabilities and generating returns from their conditional distributions
+
+$$
+\begin{gathered}
+S_{t+1} \sim \operatorname{Multinomial}\left(1 ; p_{S_{t}, 1}(d(t+1)), \ldots, p_{S_{t}, K}(d(t+1))\right) \\
+r_{t} \mid\left(S_{t}, d(t)\right) \sim \mathcal{N}\left(\mu_{S_{t}, d(t)}, \sigma_{S_{t}, d(t)}^{2}\right)
+\end{gathered}
+$$
+
+Prices are then updated according to $P_{t}=P_{t-1} \exp \left(r_{t}\right)$.
+Likewise, the model's ability to replicate weekly extremes was assessed based on Equations (6) and (7).
+
+Table 1: KL divergence and G-test for the day-of-week distribution of weekly extreme values, based on stochastic model simulations and corresponding empirical market data.
+
+|  |  | KL div |  | G-stat |  | $p$-value |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ES | GBM | 0.015 | 0.006 | 30.98 | 12.79 | 0.000*** | 0.012** |
-| ES | Heston | 0.011 | 0.006 | 23.22 | 11.43 | 0.000*** | 0.022** |
-| ES | 점프-확산 | 0.001 | 0.007 | 2.39 | 14.44 | 0.665 | 0.006*** |
-| ZB | GBM | 0.002 | 0.006 | 4.37 | 11.67 | 0.358 | 0.020** |
-| ZB | Heston | 0.001 | 0.008 | 2.71 | 17.42 | 0.608 | 0.002*** |
-| ZB | 점프-확산 | 0.001 | 0.014 | 2.32 | 28.92 | 0.677 | 0.000*** |
-| GSCI | GBM | 0.009 | 0.008 | 17.73 | 16.52 | 0.001*** | 0.002*** |
-| GSCI | Heston | 0.010 | 0.009 | 19.05 | 17.91 | 0.001*** | 0.001*** |
-| GSCI | 점프-확산 | 0.005 | 0.003 | 9.80 | 6.22 | 0.044** | 0.183 |
-| EUR/USD | GBM | 0.006 | 0.002 | 14.66 | 5.67 | 0.005*** | 0.225 |
-| EUR/USD | Heston | 0.003 | 0.003 | 7.15 | 7.30 | 0.128 | 0.121 |
-| EUR/USD | 점프-확산 | 0.006 | 0.005 | 13.21 | 12.34 | 0.010*** | 0.015** |
+|  |   |   |   |   |   |   |   |
+|  Asset | Model | High | Low | High | Low | High | Low |
+|  |   |   |   |   |   |   |   |
+|  ES | GBM | 0.015 | 0.006 | 30.98 | 12.79 | $0.000^{* * *}$ | $0.012^{* *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Heston | 0.011 | 0.006 | 23.22 | 11.43 | $0.000^{* * *}$ | $0.022^{* *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Jump-diff | 0.001 | 0.007 | 2.39 | 14.44 | 0.665 | $0.006^{* * *}$ |
+|  |   |   |   |   |   |   |   |
+|  ZB | GBM | 0.002 | 0.006 | 4.37 | 11.67 | 0.358 | $0.020^{* *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Heston | 0.001 | 0.008 | 2.71 | 17.42 | 0.608 | $0.002^{* * *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Jump-diff | 0.001 | 0.014 | 2.32 | 28.92 | 0.677 | $0.000^{* * *}$ |
+|  |   |   |   |   |   |   |   |
+|  GSCI | GBM | 0.009 | 0.008 | 17.73 | 16.52 | $0.001^{* * *}$ | $0.002^{* * *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Heston | 0.010 | 0.009 | 19.05 | 17.91 | $0.001^{* * *}$ | $0.001^{* * *}$ |
+|  |   |   |   |   |   |   |   |
+|   | Jump-diff | 0.005 | 0.003 | 9.80 | 6.22 | $0.044^{* *}$ | 0.183 |
+|  |   |   |   |   |   |   |   |
+|  EUR/USD | GBM | 0.006 | 0.002 | 14.66 | 5.67 | $0.005^{* * *}$ | 0.225 |
+|  |   |   |   |   |   |   |   |
+|   | Heston | 0.003 | 0.003 | 7.15 | 7.30 | 0.128 | 0.121 |
+|  |   |   |   |   |   |   |   |
+|   | Jump-diff | 0.006 | 0.005 | 13.21 | 12.34 | $0.010^{* * *}$ | $0.015^{* *}$ |
 
-주: 유의수준은 *** (1%), ** (5%), * (10%)로 표시한다.
+Note. $p$-values are reported in parentheses. ${ }^{* * *},{ }^{* *}$, and * indicate significance at the $1 \%, 5 \%$, and $10 \%$ levels, respectively.
+when contrasted with actual market outcomes, deviate markedly. This finding highlights the insufficiency of diffusion processes, stochastic volatility, and jump risk alone to replicate salient clustering of weekly extremes.
 
-요일별 전이행렬과 분산을 포함하지 않은 기본 MSGARCH 명세는 확률 모형보다 개선된 성능을 보이나 실증 자료의 요일별 군집을 완전히 재현하지는 못한다(표 2). 반면, 전이와 분산을 모두 요일에 따라 달리하는 요일 의존형 MSGARCH 모형은 관측된 분포를 밀접하게 복제하며, 그림 2와 표 3에서 이를 확인할 수 있다.
+The original MSGARCH specification, which excludes both the weekday-conditional transition matrix and the weekday state-specific variance structure, yields the results presented in Table 2 under the same analytical conditions as the day-dependent MSGARCH. Although this model exhibits improved performance compared to the previously analyzed stochastic models, it still fails to adequately capture the observed clustering of weekly extremes.
 
-표 2. 기본 MSGARCH 모형의 KL 발산 및 G-검정 통계량.
+In contrast, the day-dependent MSGARCH model, by incorporating day-dependent transition matrices and state-contingent GARCH parameters, effectively replicates the observed market behavior. The model's ability to capture the clustering of weekly high and low frequencies is demonstrated in Figure 2. The alignment of day-dependent MSGARCH simulations with the observed distribution of weekly extremes, as summarized in Table 3, demonstrates that the model provides a more comprehensive explanation of the phenomenon, as evidenced by the G-test and KL divergence values.
 
-| 자산 | KL 발산(고가) | KL 발산(저가) | G-통계량(고가) | G-통계량(저가) | p-값(고가) | p-값(저가) |
+Table 2: KL divergence and G-test for the day-of-week distribution of weekly extreme values, based on MSGARCH model simulations and corresponding empirical market data.
+
+|  | KL div |  | G-stat |  | $p$-value |  |
 | --- | --- | --- | --- | --- | --- | --- |
-| ES | 0.004 | 0.001 | 10.79 | 3.37 | 0.029** | 0.498 |
-| ZB | 0.004 | 0.004 | 9.80 | 9.97 | 0.044** | 0.041** |
-| GSCI | 0.002 | 0.004 | 5.95 | 9.85 | 0.279 | 0.043** |
+|  Asset | High | Low | High | Low | High | Low |
+|  ES | 0.004 | 0.001 | 10.79 | 3.37 | $0.029^{* *}$ | 0.498 |
+| ZB | 0.004 | 0.004 | 9.80 | 9.97 | $0.044^{* *}$ | $0.041^{* *}$ |
+| GSCI | 0.002 | 0.004 | 5.95 | 9.85 | 0.279 | $0.043^{* *}$ |
 | EUR/USD | 0.001 | 0.002 | 3.28 | 4.04 | 0.516 | 0.401 |
 
-표 3. 요일 의존형 MSGARCH 모형의 KL 발산 및 G-검정 통계량.
+Note. $K=3$ for ES, and ZB, $K=4$ for GSCI, $K=5$ for EUR/USD. $p$-values are reported in parentheses. ${ }^{* * *},{ }^{* *}$, and * indicate significance at the $1 \%, 5 \%$, and $10 \%$ levels, respectively.
 
-| 자산 | KL 발산(고가) | KL 발산(저가) | G-통계량(고가) | G-통계량(저가) | p-값(고가) | p-값(저가) |
+![img-0.jpeg](image/Calendar-based%20clustering%20of%20weekly%20extremes_fig_01.png)
+
+Figure 1: Day-of-week clustering of weekly extremes in empirical data and mean model-implied frequencies from stochastic simulations for four assets. Panels (a)–(d) show the distribution of weekly high counts by weekday; panels (e)–(h) show the corresponding distributions of weekly low counts.
+
+![img-1.jpeg](image/Calendar-based%20clustering%20of%20weekly%20extremes_fig_02.png)
+
+Figure 2: Day-of-week clustering of weekly extremes in empirical data and day-dependent MSGARCH model for four assets. Panels (a)–(d) show the distribution of weekly high counts by weekday; panels (e)–(h) show the corresponding distributions of weekly low counts.
+
+Table 3: KL divergence and G-test for the day-of-week distribution of weekly extreme values, based on day-dependent MSGARCH model simulations and corresponding empirical market data.
+
+|  | KL div |  | G-stat |  | $p$-value |  |
 | --- | --- | --- | --- | --- | --- | --- |
-| ES | 0.002 | 0.001 | 3.84 | 3.25 | 0.428 | 0.516 |
+|  |   |   |   |   |   |   |
+|  Asset | High | Low | High | Low | High | Low |
+|  |   |   |   |   |   |   |
+|  ES | 0.002 | 0.001 | 3.84 | 3.25 | 0.428 | 0.516 |
 | ZB | 0.003 | 0.002 | 6.76 | 4.90 | 0.151 | 0.298 |
 | GSCI | 0.001 | 0.000 | 2.68 | 0.45 | 0.610 | 0.987 |
 | EUR/USD | 0.001 | 0.002 | 3.05 | 5.57 | 0.550 | 0.234 |
 
-주: ES와 ZB는 \(K = 3\), GSCI는 \(K = 4\), EUR/USD는 \(K = 5\)이다. 유의수준 표기는 표 1과 동일하다.
+Note. $K=3$ for ES, $K=4$ for GSCI, $K=5$ for ZB, and EUR/USD. $p$-values are reported in parentheses. ${ }^{* * *},{ }^{* *}$, and * indicate significance at the $1 \%, 5 \%$, and $10 \%$ levels, respectively.
 
-<img src="./image/Calendar-based clustering of weekly extremes_fig_01.png" width="800" alt="실증 자료와 확률 모형 시뮬레이션에서 요일별 주간 극값 군집" />
+# 3.1. Robustness test 
 
-그림 1. 네 개 자산에 대해 실증 자료와 확률 모형 시뮬레이션에서의 요일별 주간 극값 군집. (a)–(d)는 요일별 주간 최고가 횟수를, (e)–(h)는 요일별 주간 최저가 횟수를 보여준다.
+To evaluate the day-dependent MSGARCH model's out-of-sample performance and temporal stability, we conducted two exercises:
 
-<img src="./image/Calendar-based clustering of weekly extremes_fig_02.png" width="800" alt="실증 자료와 요일 의존형 MSGARCH 모형의 요일별 주간 극값 군집" />
+1. Out-of-sample: $80 / 20$ split; KL divergence and G-test on the held-out weeks
+2. Rolling window: 750-day estimation and 375-day evaluation windows, advanced in 375-day steps
 
-그림 2. 네 개 자산에 대해 실증 자료와 요일 의존형 MSGARCH 모형에서의 요일별 주간 극값 군집. (a)–(d)는 요일별 주간 최고가 횟수를, (e)–(h)는 요일별 주간 최저가 횟수를 나타낸다.
+Full-sample calibration yields KL divergences below 0.003 and no G-test rejections, confirming an excellent in-sample fit. However, in the out-of-sample split, 5 of 8 G-tests ( $62.5 \%$ ) reject the null at the $5 \%$ level. In the rolling-window analysis, the proportion of windows in which the null hypothesis was not rejected was $77 \%$ for ES ( 20 of 26 ), $80.8 \%$ for GSCI ( 21 of 26 ), but lower for ZB ( 15 of $26 ; 57.7 \%$ ) and EUR/USD (12 of $26 ; 46.2 \%$ ). Overall, 64 out of 104 tests ( $65.4 \%$ ) failed to reject the null ( $p \geq 0.05$ ). These results are summarized in Tables 4 and 5 .
 
-### 3.1 강건성 검정
+Table 4: KL divergence and G-test for the day-of-week distribution of weekly extreme values based on out-of-sample tests of the day-dependent MSGARCH model.
 
-요일 의존형 MSGARCH 모형의 표본 외 성능과 시간적 안정성을 평가하기 위해 두 가지 실험을 수행했다. (1) 80/20 분할을 적용하여 보류 구간에서 KL 발산과 G-검정 통계량을 계산하고, (2) 750일 추정 구간과 375일 평가 구간으로 구성된 롤링 윈도우를 375일씩 이동시켰다.
-
-전체 표본 보정에서는 KL 발산이 0.003 미만이며 G-검정 기각이 없어 탁월한 표본 내 적합을 확인했다. 그러나 표본 외 분할에서는 8개 G-검정 중 5개(62.5%)가 5% 유의수준에서 귀무가설을 기각했다. 롤링 윈도우 분석에서는 귀무가설이 기각되지 않는 윈도우의 비율이 ES 77%(26개 중 20개), GSCI 80.8%(26개 중 21개), ZB 57.7%(26개 중 15개), EUR/USD 46.2%(26개 중 12개)였다. 전체적으로 104개 검정 중 64개(65.4%)가 귀무가설을 기각하지 않았다(p ≥ 0.05). 세부 통계는 표 4와 표 5에 요약하였다.
-
-표 4. 요일 의존형 MSGARCH 모형의 표본 외 KL 발산 및 G-검정 통계량.
-
-| 자산 | KL 발산(고가) | KL 발산(저가) | G-통계량(고가) | G-통계량(저가) | p-값(고가) | p-값(저가) |
+|  | KL div |  | G-stat |  | $p$-value |  |
 | --- | --- | --- | --- | --- | --- | --- |
-| ES | 0.012 | 0.003 | 5.69 | 1.20 | 0.223 | 0.878 |
-| ZB | 0.037 | 0.009 | 17.80 | 4.23 | 0.001*** | 0.375 |
-| GSCI | 0.002 | 0.020 | 0.96 | 9.78 | 0.913 | 0.045** |
-| EUR/USD | 0.042 | 0.009 | 20.54 | 4.55 | 0.000*** | 0.336 |
+|  |   |   |   |   |   |   |
+|  Asset | High | Low | High | Low | High | Low |
+|  |   |   |   |   |   |   |
+|  ES | 0.012 | 0.003 | 5.69 | 1.20 | 0.223 | 0.878 |
+| ZB | 0.037 | 0.009 | 17.80 | 4.23 | $0.001^{* * *}$ | 0.375 |
+| GSCI | 0.002 | 0.020 | 0.96 | 9.78 | 0.913 | $0.045^{* *}$ |
+| EUR/USD | 0.042 | 0.009 | 20.54 | 4.55 | $0.000^{* * *}$ | 0.336 |
 
-표 5. 요일 의존형 MSGARCH 모형의 롤링 윈도우 KL 발산 및 G-검정 통계량.
+Note. $K=4$ for ES, $K=5$ for ZB, GSCI, and EUR/USD. $p$-values are reported in parentheses. ${ }^{* * *},{ }^{* *}$, and * indicate significance at the $1 \%, 5 \%$, and $10 \%$ levels, respectively.
 
-| 자산 | 윈도우 인덱스 | KL 발산(고가) | KL 발산(저가) | G-통계량(고가) | G-통계량(저가) | p-값(고가) | p-값(저가) |
+These findings imply that, although the proposed weekday-conditional transition and volatility dynamics improve explanatory power over baseline stochastic models, the framework still lacks robustness under distributional shifts.
+
+To address this limitation, further extensions are needed. More flexible inference procedures, such as Bayesian Markov chain Monte Carlo (MCMC) or sequential Monte Carlo, could accommodate time-varying parameter uncertainty and latent state dynamics. Additionally, allowing the transition matrix and volatility structure to incorporate macroeconomic or market-based covariates may improve responsiveness to structural breaks. Lastly, robustness may be enhanced by conducting window-sensitivity analyses, including variations in window lengths and step sizes, as well as by applying time-series cross-validation frameworks to mitigate sample dependency.
+
+Taken together, the results validate the model's structural design but also underscore the need for methodological refinements to ensure robustness and generalization in dynamic market environments.
+
+## 4. Discussion
+
+Building on the studies reviewed in Section 1, this study empirically identifies the clustering of weekly extremes in financial markets, defined as the statistically significant concentration of weekly high and low
+
+Table 5: KL divergence and G-test for the day-of-week distribution of weekly extreme values based on rolling window tests of the day-dependent MSGARCH model.
+
+|  Asset | Index | KL div |  | G-stat |  | $p$-value |   |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ES | 1875 | 0.011 | 0.034 | 1.76 | 5.25 | 0.780 | 0.264 |
-| ES | 3000 | 0.054 | 0.022 | 8.46 | 3.50 | 0.076* | 0.478 |
-| ES | 4125 | 0.095 | 0.018 | 14.86 | 2.80 | 0.005*** | 0.592 |
-| ZB | 1875 | 0.030 | 0.027 | 4.68 | 4.32 | 0.322 | 0.364 |
-| ZB | 3000 | 0.045 | 0.087 | 6.96 | 13.51 | 0.138 | 0.009*** |
-| ZB | 4125 | 0.056 | 0.107 | 8.77 | 16.92 | 0.067* | 0.002*** |
-| GSCI | 1875 | 0.082 | 0.051 | 6.98 | 4.71 | 0.012 | 0.094* |
-| GSCI | 3000 | 0.176 | 0.074 | 24.71 | 9.30 | 0.000*** | 0.019 |
-| GSCI | 4125 | 0.008 | 0.049 | 3.54 | 2.47 | 0.883 | 0.103 |
-| EUR/USD | 1875 | 0.030 | 0.034 | 4.57 | 5.14 | 0.334 | 0.273 |
-| EUR/USD | 3000 | 0.135 | 0.086 | 32.63 | 13.52 | 0.000*** | 0.011 |
-| EUR/USD | 4125 | 0.030 | 0.025 | 8.13 | 2.13 | 0.336 | 0.430 |
-| ES (평균) | — | 0.048 | 0.046 | 7.47 | 7.10 | — | — |
-| ZB (평균) | — | 0.063 | 0.061 | 9.88 | 9.44 | — | — |
-| GSCI (평균) | — | 0.046 | 0.050 | 7.12 | 7.83 | — | — |
-| EUR/USD (평균) | — | 0.091 | 0.063 | 13.66 | 9.50 | — | — |
+|   |  | High | Low | High | Low | High | Low  |
+|  ES | 1875 | 0.011 | 0.034 | 1.76 | 5.25 | 0.780 | 0.264  |
+|   | 3000 | 0.054 | 0.022 | 8.46 | 3.50 | $0.076^{*}$ | 0.478  |
+|   | 4125 | 0.095 | 0.018 | 14.86 | 2.80 | $0.005^{ *** }$ | 0.592  |
+|   | 1875 | 0.030 | 0.027 | 4.68 | 4.32 | 0.322 | 0.364  |
+|  ZB | 3000 | 0.045 | 0.087 | 6.96 | 13.51 | 0.138 | $0.009^{ *** }$  |
+|   | 4125 | 0.056 | 0.107 | 8.77 | 16.92 | $0.067^{*}$ | $0.002^{ *** }$  |
+|   | 1875 | 0.082 | 0.051 | 6.98 | 4.71 | $0.012^{ }$ | $0.094^{*}$  |
+|  GSCI | 3000 | 0.176 | 0.074 | 24.71 | 9.30 | $0.000^{ *** }$ | $0.019^{ }$  |
+|   | 4125 | 0.008 | 0.049 | 3.54 | 2.47 | 0.883 | 0.103  |
+|   | 1875 | 0.030 | 0.034 | 4.57 | 5.14 | 0.334 | 0.273  |
+|  EUR/USD | 3000 | 0.135 | 0.086 | 32.63 | 13.52 | $0.000^{ *** }$ | $0.011^{ }$  |
+|   | 4125 | 0.030 | 0.025 | 8.13 | 2.13 | 0.336 | 0.430  |
+|  ES mean |  | 0.048 | 0.046 | 7.47 | 7.10 | - | -  |
+|  ZB mean |  | 0.063 | 0.061 | 9.88 | 9.44 | - | -  |
+|  GSCI mean |  | 0.046 | 0.050 | 7.12 | 7.83 | - | -  |
+|  EUR/USD mean |  | 0.091 | 0.063 | 13.66 | 9.50 | - | -  |
 
-주: ES는 \(K = 2\), ZB와 EUR/USD는 \(K = 3\), GSCI는 \(K = 5\)이다. 유의수준 표기는 표 1과 동일하다.
+Note. $K=2$ for ES, $K=3$ for ZB, and EUR/USD, $K=5$ for GSCI. $p$-values are reported in parentheses. ${ }^{ *** },{ }^{ }$, and * indicate significance at the $1 \%, 5 \%$, and $10 \%$ levels, respectively. prices on specific weekdays, contrary to what would be expected under random price movements. To replicate and predict this phenomenon, a day-dependent MSGARCH model is proposed, incorporating weekday-specific state transition probabilities and volatility dynamics. Empirical analysis shows that, unlike conventional stochastic models, the proposed model effectively captures the clustering of weekly extremes. However, the model does not achieve perfect performance in out-of-sample and rolling window evaluations, revealing limitations in its ability to generalize beyond the estimation sample under dynamic market conditions.
 
-이러한 결과는 요일별 조건부 전이와 변동성 역학이 기본 확률 모형보다 설명력을 향상시키지만, 분포 변화가 발생할 경우 여전히 강건성이 부족함을 시사한다.
+Here, a synthesis of prior microstructure research may help partly explain the asset-class heterogeneity in our findings. Hasbrouck (2003) shows that roughly $90 \%$ of price discovery in the S\&P 500 is initiated in E-mini futures (information share, IS $\approx 0.89-0.93$ ) and then diffuses sequentially from futures to ETFs and finally to the cash index. Kilian and Murphy (2014), using a structural VAR, report that about $78 \%$ of crude-oil price fluctuations arise from physical demand-and-supply shocks, with speculative activity accounting for no more than $20 \%$. By contrast, fixed-income and FX markets are dominated by concentrated public signals: Fleming and Remolona (1999) find that approximately $60 \%-70 \%$ of intraday variance in U.S. Treasury yields and major exchange rates is realized within the first 30 min after key macro releases, while Kuttner (2001) estimates that a 1 bp monetary-policy surprise moves the 30 -year Treasury yield by $0.19-0.33 \mathrm{bp}$ almost instantaneously.
 
-이 한계를 극복하기 위해 추가 확장이 필요하다. 베이지안 마코프 연쇄 몬테카를로 또는 순차 몬테카를로와 같은 보다 유연한 추론 절차는 시간에 따라 변하는 모수 불확실성과 잠재 상태 역학을 포착할 수 있다. 또한 전이행렬과 변동성 구조에 거시경제 또는 시장 기반 공변량을 포함하면 구조적 단절에 대한 대응력이 향상될 수 있다. 마지막으로 창 길이와 이동 폭을 다양화하거나 시계열 교차검증을 적용하는 창 민감도 분석을 수행하면 표본 의존성을 완화해 강건성을 높일 수 있다.
+These discussions may suggest that, while information in the ES and GSCI markets is dispersed, asynchronous, and incorporated sequentially, information in the ZB and EUR/USD markets is incorporated almost immediately into prices. Accordingly, the routine of information assimilation appears stronger in ES and GSCI than in ZB and EUR/USD, leading to the hypothesis that the economic and theoretical drivers documented in this study may be partly explained by market-specific information-incorporation routines.
 
-결과적으로 모형의 구조적 설계가 타당함을 확인했으나, 역동적인 시장 환경에서 강건성과 일반화를 확보하려면 방법론적 정교화가 요구됨을 알 수 있다.
+Subsequent research could extend toward enhancing model robustness through the alternative estimation methodologies proposed in Section 3.1 and toward uncovering the fundamental drivers behind the observed phenomenon. Additionally, exploring practical and policy-oriented approaches to integrate these phenomena and models into risk management frameworks, such as dynamic VaR estimation or variable margin systems, remains an important avenue for future research.
 
-## 4. 논의
+# Appendix A. Detailed estimation procedures: MLE and particle filter 
 
-1장에서 검토한 선행연구를 바탕으로, 본 연구는 금융시장에서 주간 극값이 특정 요일에 통계적으로 유의하게 집중되는 현상을 실증적으로 확인했다. 이러한 현상을 재현·예측하기 위해 요일별 상태 전이확률과 변동성 역학을 포함하는 요일 의존형 MSGARCH 모형을 제안하였다. 실증 분석 결과, 기존 확률 모형과 달리 제안 모형은 주간 극값의 군집을 효과적으로 포착했다. 그러나 표본 외 및 롤링 윈도우 평가에서 완전한 성과를 거두지는 못해, 역동적 시장 조건에서 추정 표본을 넘어 일반화하는 데 한계가 드러났다.
+This section delineates the estimation procedures employed for the continuous-time models under consideration. The methodological exposition encompasses MLE for the GBM and jump-diffusion models, as well as the particle filtering approach applied to the Heston model.
 
-기존 시장 미시구조 연구를 종합하면 자산군별 이질성이 설명될 수 있다. Hasbrouck(2003)은 S&P 500의 가격 발견 중 약 90%가 E-mini 선물에서 시작되어 ETF와 현물지수로 순차적으로 확산된다고 보고한다(정보 점유율 IS ≈ 0.89–0.93). Kilian과 Murphy(2014)는 구조적 VAR을 통해 원유 가격 변동의 약 78%가 실물 수급 충격에서 비롯되며, 투기 활동은 최대 20%에 그친다고 밝혔다. 반면, 채권과 외환시장은 집중된 공공 신호가 지배한다. Fleming과 Remolona(1999)는 주요 거시지표 발표 후 30분 이내에 미국 국채 수익률과 주요 환율의 일중 분산 중 약 60–70%가 실현된다고 보고하며, Kuttner(2001)는 통화정책 서프라이즈 1bp가 30년물 국채 수익률을 거의 즉시 0.19–0.33bp 움직인다고 추정한다.
+## Appendix A.1. MLE for the GBM and jump-diffusion models
 
-이러한 논의는 ES와 GSCI 시장의 정보가 분산적이고 비동기적으로 순차 반영되는 반면, ZB와 EUR/USD 시장에서는 정보가 거의 즉시 가격에 반영된다는 점을 시사한다. 따라서 정보 흡수의 일상적 패턴은 ES와 GSCI에서 더 강하게 나타나며, 본 연구가 문서화한 경제적·이론적 요인이 시장별 정보 반영 방식으로 부분적으로 설명될 수 있다는 가설을 제기한다.
+The log returns, defined as Equation (3) are posited to follow a normal distribution characterized by a mean of $\mu-1 / 2 \sigma^{2}$ and volatility $\sigma$. Parameter estimation proceeds through the maximization of the log-likelihood function computed over the observed log returns.
 
-후속 연구는 3.1절에서 제안한 대체 추정 방법을 통해 모형의 강건성을 강화하고, 관측된 현상의 근본적 동인을 규명하는 방향으로 확장될 수 있다. 또한 이러한 현상과 모형을 동적 VaR 추정이나 변동 증거금 제도와 같은 위험관리 프레임워크에 통합하기 위한 실무적·정책적 접근을 탐색하는 것도 향후 중요한 과제다.
+Within the jump-diffusion framework, the diffusion process is augmented by a jump component, the occurrence of which adheres to a Poisson arrival process. The resultant likelihood function assumes the form of a mixture of normal components, each representing the probability structure associated with zero or multiple jumps. To enhance numerical stability, a log-sum-exp formulation is implemented. The parameter set $\left\{\mu, \sigma, \lambda, \mu_{J}, \sigma_{J}\right\}$ is inferred by maximizing the resultant likelihood function.
 
-## 부록 A. 세부 추정 절차: 최대우도와 파티클 필터
+## Appendix A.2. Particle filter for the Heston model
 
-이 부록은 연속시간 모형에 적용된 추정 절차를 개괄한다. GBM과 점프-확산 모형의 최대우도추정, 그리고 Heston 모형에서 사용된 파티클 필터링 접근법을 다룬다.
+The Heston model introduces a latent variance process, denoted $v_{t}$, whose unobserved nature necessitates the adoption of a particle filtering methodology for likelihood approximation. The procedure unfolds through the following sequential stages:
 
-### 부록 A.1. GBM 및 점프-확산 모형의 최대우도추정
-
-2장에서 도입한 로그수익률은 평균 \(\mu - \frac{1}{2}\sigma^{2}\), 변동성 \(\sigma\)를 갖는 정규분포를 따른다고 가정한다. 관측된 로그수익률에 대한 로그우도함수를 극대화해 모수를 추정한다.
-
-점프-확산 틀에서는 확산 과정에 포아송 도착의 점프 구성요소를 추가한다. 결과적인 우도함수는 구간별 점프 횟수를 반영하는 정규분포 혼합 형태를 띤다. 수치 안정성을 높이기 위해 로그-합-지수(log-sum-exp) 형태로 구현하며, 모수 집합 \(\{\mu, \sigma, \lambda, \mu_J, \sigma_J\}\)는 우도 최대화를 통해 추정한다.
-
-### 부록 A.2. Heston 모형의 파티클 필터
-
-Heston 모형은 잠재 분산 과정 \(v_t\)를 도입하므로, 관측되지 않는 분산을 적분하기 위해 파티클 필터 기반 우도 근사를 필요로 한다. 절차는 다음과 같다.
-
-1. **초기화**: 초기 분산 \(v_0\)의 분포에서 \(N\)개의 파티클 \(\{v_0^{(i)}\}\)을 생성하고 균등 가중치 \(w_0^{(i)} = 1/N\)를 부여한다.
-2. **전파**: 각 시점마다 Heston 동학의 이산근사로 파티클 분산을 업데이트한다.
-   $$
-   v_t^{(i)} \approx v_{t-1}^{(i)} + \kappa(\theta - v_{t-1}^{(i)}) \Delta t + \xi \sqrt{\max\{v_{t-1}^{(i)}, \varepsilon\}}\, \epsilon_t^{(i)},
-   $$
-   여기서 \(\epsilon_t^{(i)} \sim \mathcal{N}(0, \Delta t)\)이다.
-3. **가중치 갱신**: 관측된 로그수익률 \(r_t\)의 파티클별 분산에 조건부한 우도를 이용해 가중치를 갱신하고, 합이 1이 되도록 정규화한다.
-4. **재표본추출**: 유효 표본 크기가 임계값 아래로 떨어질 때마다 재표본추출을 수행해 파티클 붕괴를 완화한다.
-5. **우도 근사**: 전체 우도는 다음과 같이 근사한다.
-   $$
-   L(\theta) \approx \prod_{t=1}^{T-1} \left(\sum_{i=1}^{N} w_t^{(i)}\right).
-   $$
-
-## 부록 B. 요일 의존형 MSGARCH 모형 구현
-
-이 부록은 2장에서 제시한 요일 의존형 MSGARCH 모형의 구현을 상세히 설명한다. 요일별 전이확률 \(p_{ij}(d(t+1))\)을 갖는 잠재 상태 \(S_t\)를 고려하면, 상태 \(i\), 요일 \(d\)에 조건부한 수익률 분포는
+1. Initialization: A set of $N$ particles, $\left\{v_{0}^{(i)}\right\}$, is generated from an initial distribution over $v_{0}$. Uniform weights are assigned, such that $w_{0}^{(i)}=1 / N$.
+2. Propagation: At each temporal increment, particle variances are updated via a discretized approximation of the Heston dynamics
 
 $$
-r_t \sim \mathcal{N}\left(\mu_{i,d}, \sigma_{i,d}^2\right)
+v_{t}^{(i)} \approx v_{t-1}^{(i)}+\kappa\left(\theta-v_{t-1}^{(i)}\right) \Delta t+\xi \sqrt{\max \left\{v_{t-1}^{(i)}, \epsilon\right\}} \epsilon_{t}^{(i)}
 $$
 
-을 따른다.
+where $\epsilon_{t}^{(i)} \sim N(0, \Delta t)$.
+3. Weight update: Each particle's weight is updated in accordance with the likelihood of the observed log return $r_{t}$, conditional upon the particle-specific variance. The weights are subsequently normalized to ensure their sum equals unity.
+4. Resampling: In instances where the effective sample size declines below a pre-specified threshold, resampling is conducted to mitigate particle degeneracy.
+5. Likelihood approximation: The overall likelihood is approximated by the expression
 
-\(\sigma_{i,d}^2\)는 GARCH(1,1) 과정을 따르며, 추정은 Haas et al.(2004)을 참고하여 기대값-최대화 절차로 진행된다.
+$$
+L(\theta) \approx \prod_{t=1}^{T-1}\left(\sum_{i=1}^{N} w_{t}^{(i)}\right)
+$$
 
-1. **E단계**: 관측 수익률을 조건으로 한 잠재 상태의 사후확률과 연속 상태의 결합확률을 순방향-역방향(Baum–Welch) 알고리즘으로 계산한다.
-2. **M단계**: 요일별 전이확률 \(p_{ij}(d)\), 상태·요일별 평균 \(\mu_{i,d}\), GARCH 모수 \(\{\alpha_{i,d}, \beta_{i,d}, \gamma_{i,d}\}\)를 완전자료 로그우도의 기댓값을 극대화하여 갱신한다.
+## Appendix B. Implementation: Day-dependent MSGARCH model
 
-## 참고문헌
+This section delineates the implementation of the day-dependent MSGARCH model, incorporating day-of-week-dependent transitions, as introduced in the primary text. Let Equation (8) denote the latent state at time $t$, with the transition probability defined as Equation (9) where $d(t+1)$ designates the weekday $(0-4)$. The return distribution conditional on state $i$ and day $d$ is expressed as
 
-Anderson, H.M., Nam, K., Vahid, F., 1999. Asymmetric nonlinear smooth transition GARCH models. 수록: Rothman, P.(편), *Nonlinear Time Series Analysis of Economic and Financial Data*. Springer US, 191–207쪽.
+$$
+r_{t} \sim \mathcal{N}\left(\mu_{i, d}, \sigma_{i, d}^{2}\right)
+$$
 
-Bates, D.S., 1996. Jumps and stochastic volatility: exchange rate processes implicit in Deutsche Mark options. *Review of Financial Studies* 9(1), 69–107.
+with $\sigma_{i, d}^{2}$ governed by a $\operatorname{GARCH}(1,1)$ process. Following the estimation methodology articulated in Haas et al. (2004), the EM algorithm is employed.
 
-Bowles, B., Reed, A.V., Ringgenberg, M.C., Thornock, J.R., 2024. Anomaly time. *Journal of Finance* 79(5), 3543–3579.
+1. E-step: Posterior probabilities of latent states and joint probabilities of consecutive states, conditional upon observed returns, are computed utilizing the forward-backward (Baum-Welch) algorithm.
+2. M-step: Transition probabilities $p_{i j}(d)$, state- and day-specific means $\mu_{i, d}$, and GARCH parameters $\left\{\alpha_{i, d}, \beta_{i, d}, \gamma_{i, d}\right\}$ are updated by maximizing the expected complete-data log-likelihood.
 
-Campbell, J.Y., Lo, A.W., MacKinlay, A., 1997. *The Econometrics of Financial Markets*. Princeton University Press.
+# References 
 
-Chiah, M., Zhong, A., 2021. Tuesday blues and the day-of-the-week effect in stock returns. *Journal of Banking & Finance* 133, 106243.
+Anderson, H.M., Nam, K., Vahid, F., 1999. Asymmetric nonlinear smooth transition GARCH models, in: Rothman, P. (Ed.), Nonlinear time series analysis of economic and financial data. Springer US, pp. 191-207.
 
-Dicle, M.F., Levendis, J.D., 2014. The day-of-the-week effect revisited: international evidence. *Journal of Economics and Finance* 38(3), 407–437.
+Bates, D.S., 1996. Jumps and stochastic volatility: exchange rate processes implicit in Deutsche Mark options. Rev. Financ. Stud. 9 (1), 69-107.
 
-Fama, E.F., French, K.R., 1992. The cross-section of expected stock returns. *Journal of Finance* 47(2), 427–465.
+Bowles, B., Reed, A.V., Ringgenberg, M.C., Thornock, J.R., 2024. Anomaly time. J. Finance 79 (5), $3543-3579$.
 
-Fleming, M.J., Remolona, E.M., 1999. Price formation and liquidity in the U.S. Treasury market: the response to public information. *Journal of Finance* 54(5), 1901–1915.
+Campbell, J.Y., Lo, A.W., MacKinlay, A., 1997. The econometrics of financial markets. Princeton University Press.
 
-French, K.R., 1980. Stock returns and the weekend effect. *Journal of Financial Economics* 8(1), 55–69.
+Chiah, M., Zhong, A., 2021. Tuesday blues and the day-of-the-week effect in stock returns. J. Bank. Finance 133, 106243 .
 
-Gray, S.F., 1996. Modeling the conditional distribution of interest rates as a regime-switching process. *Journal of Financial Economics* 42(1), 27–62.
+Dicle, M.F., Levendis, J.D., 2014. The day-of-the-week effect revisited: international evidence. J. Econ. Finance 38 (3), 407-437.
 
-Haas, M., Mittnik, S., Paolella, M.S., 2004. A new approach to Markov-switching GARCH models. *Journal of Financial Econometrics* 2(4), 493–530.
+Fama, E.F., French, K.R., 1992. The cross-section of expected stock returns. J. Finance 47 (2), 427-465.
+Fleming, M.J., Remolona, E.M., 1999. Price formation and liquidity in the U.S. Treasury market: the response to public information. J. Finance 54 (5), 1901-1915.
 
-Hasbrouck, J., 2003. Intraday price formation in U.S. equity index markets. *Journal of Finance* 58(6), 2375–2400.
+French, K.R., 1980. Stock returns and the weekend effect. J. Financ. Econ. 8 (1), 55-69.
+Gray, S.F., 1996. Modeling the conditional distribution of interest rates as a regime-switching process. J. Financ. Econ. 42 (1), 27-62.
 
-Heston, S.L., 1993. A closed-form solution for options with stochastic volatility with applications to bond and currency options. *Review of Financial Studies* 6(2), 327–343.
+Haas, M., Mittnik, S., Paolella, M.S., 2004. A new approach to Markov-switching GARCH models. J. Financ. Econom. 2 (4), 493-530.
 
-Kilian, L., Murphy, D.P., 2014. The role of inventories and speculative trading in the global market for crude oil. *Journal of Applied Econometrics* 29(3), 454–478.
+Hasbrouck, J., 2003. Intraday price formation in U.S. equity index markets. J. Finance 58 (6), 2375-2400.
+Heston, S.L., 1993. A closed-form solution for options with stochastic volatility with applications to bond and currency options. Rev. Financ. Stud. 6 (2), 327-343.
 
-Kuttner, K.N., 2001. Monetary policy surprises and interest rates: evidence from the Fed funds futures market. *Journal of Monetary Economics* 47(3), 523–544.
+Kilian, L., Murphy, D.P., 2014. The role of inventories and speculative trading in the global market for crude oil. J. Appl. Econom. 29 (3), 454-478.
 
-Qadan, M., Aharon, D.Y., Eichel, R., 2022. Seasonal and calendar effects and the price efficiency of cryptocurrencies. *Finance Research Letters* 46, 102354.
+Kuttner, K.N., 2001. Monetary policy surprises and interest rates: evidence from the Fed funds futures market. J. Monet. Econ. 47 (3), 523-544.
 
-Valadkhani, A., O'Mahony, B., 2024. Sector-specific calendar anomalies in the U.S. equity market. *International Review of Financial Analysis* 95, 103347.
+Qadan, M., Aharon, D.Y., Eichel, R., 2022. Seasonal and calendar effects and the price efficiency of cryptocurrencies. Finance Res. Lett. 46, 102354.
 
-[^corresponding]: 교신저자. 이메일: 24167688@donga.ac.kr.
+Valadkhani, A., O'Mahony, B., 2024. Sector-specific calendar anomalies in the U.S. equity market. Int. Rev. Financ. Anal. 95, 103347.
+
