@@ -1,10 +1,3 @@
-이 QuantConnect 프로젝트의 `main.py`와 `universe.py` 파일을 분석해드리겠습니다. 먼저 두 파일을 읽어보겠습니다.
-
-
-[2 tools called]
-
-이제 두 파일을 분석해서 설명드리겠습니다.
-
 ## 프로젝트 개요
 
 이 프로젝트는 **위상 데이터 분석(Topological Data Analysis, TDA)**을 사용하여 포트폴리오를 구성하는 QuantConnect 알고리즘입니다. SPY ETF의 구성종목들을 대상으로 위상학적 그래프를 구축하고 클러스터링하여 포트폴리오를 만드는 방식입니다.
