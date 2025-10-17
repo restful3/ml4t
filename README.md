@@ -43,7 +43,7 @@
 #### **2025년 10월 18일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me926d907650c9b1a34a5cf2a56fbea7c)
 - 트랙 - 퀀트 전략 리뷰 (3/4)
 - 발표자 - 정택
-- 내용 - tbd
+- 내용 - [Portfolio Construction Using Topological Data Analysis](https://github.com/restful3/ml4t/tree/main/archive/Quant%20Trading%20Strategy%20Review/Portfolio%20Construction%20Using%20Topological%20Data%20Analysis)
 
 #### **2025년 10월 25일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m18b99f88356090f9f2ce9d29adefecc3)
 - 트랙 - 퀀트 전략 리뷰 (4/4)
