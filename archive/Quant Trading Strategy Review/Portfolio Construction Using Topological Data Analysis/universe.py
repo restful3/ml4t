@@ -101,12 +101,15 @@ class TopologicalGraphUniverseSelectionModel(ETFConstituentsUniverseSelectionMod
         # 유니버스에 선택된 종목이 없는 경우 빈 결과 반환 / Return empty result if no symbols selected in universe
         if not self.universe.selected:
             return {}, []
+        # self.universe.selected.shape = (200)
         
         # 주식 간의 관계를 분석하기 위한 히스토리 데이터 수집 / Collect historical data to analyze stock relationships
         prices = algorithm.history(self.universe.selected, lookback_window, Resolution.DAILY).unstack(0).close
+        # prices.shape = (150, 200)
         
         # 일별 로그 수익률 계산 (주식 간 관계 분석을 위해) / Calculate daily log returns (for stock relationship analysis)
         log_returns = np.log(prices / prices.shift(1)).dropna().T
+        # log_returns.shape = (200, 149)
         if log_returns.empty:
             return {}, []
 
@@ -124,6 +127,7 @@ class TopologicalGraphUniverseSelectionModel(ETFConstituentsUniverseSelectionMod
                 UMAP(n_components=1, random_state=1, n_jobs=-1)
             ]
         )
+        # projected_data.shape = (200)
         
         # DBSCAN을 사용한 클러스터링 (노이즈 처리에 우수) / Clustering using DBSCAN (excellent for noise handling)
         # 상관관계 거리를 사용하여 포트폴리오 구성에 적합한 클러스터 형성 / Use correlation distance to form clusters suitable for portfolio construction
