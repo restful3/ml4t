@@ -62,12 +62,12 @@
 
 #### **2025년 11월 15일 (토)**: [Webex](tbd)
 - 트랙 - 캐글 (3/4)
-- 발표자 - tbd
+- 발표자 - 수헌
 - 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
 #### **2025년 11월 22일 (토)**: [Webex](tbd)
 - 트랙 - 캐글 (4/4)
-- 발표자 - tbd
+- 발표자 - 도운
 - 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
 ---
