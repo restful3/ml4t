@@ -52,13 +52,23 @@
 
 #### **2025년 11월 1일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m54969345967403cc4743ce696daeb9f0)
 - 트랙 - 캐글 (1/4)
-- 발표자 - tbd
-- 내용 - tbd
+- 발표자 - 영재
+- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
 #### **2025년 11월 8일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me13617ac007993e928d591c2d3dc036e)
 - 트랙 - 캐글 (2/4)
+- 발표자 - 태영
+- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
+
+#### **2025년 11월 15일 (토)**: [Webex](tbd)
+- 트랙 - 캐글 (3/4)
 - 발표자 - tbd
-- 내용 - tbd
+- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
+
+#### **2025년 11월 22일 (토)**: [Webex](tbd)
+- 트랙 - 캐글 (4/4)
+- 발표자 - tbd
+- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
 ---
 
