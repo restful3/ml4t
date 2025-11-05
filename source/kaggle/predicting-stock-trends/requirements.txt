@@ -1,0 +1,28 @@
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
+
+# Machine Learning
+scikit-learn==1.5.1
+xgboost==2.0.3
+lightgbm==4.3.0
+
+# Technical Analysis
+ta==0.11.0
+
+# Visualization
+matplotlib==3.9.0
+seaborn==0.13.2
+plotly==5.22.0
+
+# Kaggle API
+kaggle==1.6.14
+
+# Utilities
+tqdm==4.66.4
+jupyter==1.0.0
+ipykernel==6.29.4
+
+# Development
+black==24.4.2
+pylint==3.2.5

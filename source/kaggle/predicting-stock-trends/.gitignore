@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Data files
+data/
+*.csv
+*.zip
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Model outputs
+outputs/
+models/
+*.pkl
+*.joblib
+*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kaggle
+.kaggle/
+kaggle.json
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
