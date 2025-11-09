@@ -78,8 +78,8 @@
 #### **2025년 12월 6일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m440b55ecb6412ea23b0d388326e11581)
 - 트랙 - 퀀트 전략 리뷰 (2/4)
 - 발표자 - TBD
-- 내용 - TBD
-- 
+- 내용 - TBD 
+
 #### **2025년 12월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4043e4d9f8ed7a669db2e90873cfb9cc)
 - 트랙 - 퀀트 전략 리뷰 (3/4)
 - 발표자 - TBD
