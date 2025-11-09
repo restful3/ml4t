@@ -60,16 +60,36 @@
 - 발표자 - 태영
 - 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
-#### **2025년 11월 15일 (토)**: [Webex](tbd)
+#### **2025년 11월 15일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m2f1c9bd81d1f13fd9a638b4092d599b2)
 - 트랙 - 캐글 (3/4)
 - 발표자 - 수헌
 - 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
-#### **2025년 11월 22일 (토)**: [Webex](tbd)
+#### **2025년 11월 22일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb7eadd3edf33c21a979fa92ff7f8da7c)
 - 트랙 - 캐글 (4/4)
 - 발표자 - 도운
 - 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
 
+#### **2025년 11월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc1203b072b82d970ac091b79ca6c03f6)
+- 트랙 - 퀀트 전략 리뷰 (1/4)
+- 발표자 - TBD
+- 내용 - TBD
+
+#### **2025년 12월 6일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m440b55ecb6412ea23b0d388326e11581)
+- 트랙 - 퀀트 전략 리뷰 (2/4)
+- 발표자 - TBD
+- 내용 - TBD
+- 
+#### **2025년 12월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4043e4d9f8ed7a669db2e90873cfb9cc)
+- 트랙 - 퀀트 전략 리뷰 (3/4)
+- 발표자 - TBD
+- 내용 - TBD
+  
+#### **2025년 12월 20일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m144d92d270fea25298c353e9cc001b28)
+- 트랙 - 퀀트 전략 리뷰 (4/4)
+- 발표자 - TBD
+- 내용 - TBD
+  
 ---
 
 ### **5. 스터디 운영 방법**
