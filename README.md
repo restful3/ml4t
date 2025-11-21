@@ -72,7 +72,7 @@
 
 #### **2025년 11월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc1203b072b82d970ac091b79ca6c03f6)
 - 트랙 - 퀀트 전략 리뷰 (1/4)
-- 발표자 - TBD
+- 발표자 - 우석
 - 내용 - TBD
 
 #### **2025년 12월 6일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m440b55ecb6412ea23b0d388326e11581)
@@ -87,7 +87,7 @@
   
 #### **2025년 12월 20일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m144d92d270fea25298c353e9cc001b28)
 - 트랙 - 퀀트 전략 리뷰 (4/4)
-- 발표자 - TBD
+- 발표자 - 도운
 - 내용 - TBD
   
 ---
