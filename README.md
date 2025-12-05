@@ -78,8 +78,8 @@
 #### **2025년 12월 6일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m440b55ecb6412ea23b0d388326e11581)
 - 트랙 - 퀀트 전략 리뷰 (2/4)
 - 발표자 - HY
-- 내용 - [Post-Earnings Announcement Effect](https://quantpedia.com/strategies/post-earnings-announcement-effect)
- 
+- 내용 - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Quant%20Trading%20Strategy%20Review/Post-Earnings%20Announcement%20Effect.pdf)
+
 
 #### **2025년 12월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4043e4d9f8ed7a669db2e90873cfb9cc)
 - 트랙 - 퀀트 전략 리뷰 (3/4)
