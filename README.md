@@ -84,7 +84,7 @@
 #### **2025년 12월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4043e4d9f8ed7a669db2e90873cfb9cc)
 - 트랙 - 퀀트 전략 리뷰 (3/4)
 - 발표자 - WONMI
-- 내용 - TBD
+- 내용 - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Quant%20Trading%20Strategy%20Review)
   
 #### **2025년 12월 20일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m144d92d270fea25298c353e9cc001b28)
 - 트랙 - 퀀트 전략 리뷰 (4/4)
