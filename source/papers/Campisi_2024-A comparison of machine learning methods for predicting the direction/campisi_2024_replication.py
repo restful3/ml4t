@@ -341,9 +341,11 @@ class WalkForwardCV:
     - Rolling window (not expanding)
     """
 
-    def __init__(self, train_size: int = TRAIN_SIZE, gap: int = GAP):
+    def __init__(self, train_size: int = TRAIN_SIZE, gap: int = GAP,
+                 max_iterations: Optional[int] = None):
         self.train_size = train_size
         self.gap = gap
+        self.max_iterations = max_iterations
 
     def split(self, X: np.ndarray):
         """
@@ -356,8 +358,12 @@ class WalkForwardCV:
             Tuple of (train_indices, test_indices)
         """
         n_samples = len(X)
+        iteration_count = 0
 
         for test_idx in range(self.train_size + self.gap, n_samples):
+            if self.max_iterations is not None and iteration_count >= self.max_iterations:
+                break
+
             train_end = test_idx - self.gap
             train_start = train_end - self.train_size
 
@@ -366,10 +372,14 @@ class WalkForwardCV:
                     list(range(train_start, train_end)),
                     [test_idx]
                 )
+                iteration_count += 1
 
     def get_n_splits(self, X: np.ndarray) -> int:
         """Get the number of splits."""
-        return max(0, len(X) - self.train_size - self.gap)
+        total = max(0, len(X) - self.train_size - self.gap)
+        if self.max_iterations is not None:
+            return min(total, self.max_iterations)
+        return total
 
 
 # =============================================================================
@@ -648,20 +658,23 @@ def plot_roc_curves(results: Dict, save_path: str):
     plt.close()
 
 
-def plot_returns_time_series(data: pd.DataFrame, save_path: str):
+def plot_returns_time_series(data: pd.DataFrame, save_path: str,
+                             returns_col: str, forecast_days: int):
     """
-    Plot Returns30 time series (Figure 1 from paper).
+    Plot returns time series (Figure 1 from paper).
 
     Args:
-        data: DataFrame with Returns30
+        data: DataFrame with returns column
         save_path: Path to save figure
+        returns_col: Name of returns column (e.g., 'Returns1', 'Returns30')
+        forecast_days: Forecast horizon in days
     """
     plt.figure(figsize=(12, 5))
-    plt.plot(data.index, data['Returns30'], linewidth=0.5)
+    plt.plot(data.index, data[returns_col], linewidth=0.5)
     plt.axhline(y=0, color='r', linestyle='--', alpha=0.5)
     plt.xlabel('Date')
-    plt.ylabel('30-day Log Returns')
-    plt.title('S&P 500 30-day Log Returns Time Series')
+    plt.ylabel(f'{forecast_days}-day Log Returns')
+    plt.title(f'S&P 500 {forecast_days}-day Log Returns Time Series')
     plt.tight_layout()
     plt.savefig(save_path, dpi=150)
     plt.close()
@@ -676,7 +689,8 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
                     reg_results_before: Dict, reg_results_after: Dict,
                     paper_table9: Dict, paper_table10: Dict,
                     save_path: str,
-                    forecast_days: int = FORECAST_DAYS):
+                    forecast_days: int = FORECAST_DAYS,
+                    n_splits: int = None):
     """
     Generate markdown report with all results.
 
@@ -684,12 +698,14 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
         Various result dictionaries and DataFrames
         save_path: Path to save report
         forecast_days: Number of days ahead being predicted
+        n_splits: Number of walk-forward CV iterations
     """
 
     with open(save_path, 'w', encoding='utf-8') as f:
-        f.write("# Campisi et al. (2024) 논문 실증 재현 결과\n\n")
+        f.write(f"# 머신러닝 기반 S&P 500 방향성 예측 성능 분석\n\n")
         f.write(f"**생성일시**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        f.write(f"**예측 기간**: {forecast_days}일 후\n\n")
+        f.write(f"**예측 기간**: {forecast_days}일 후 방향성\n\n")
+        f.write("**사용 방법론**: Volatility Indices 기반 머신러닝 모델 (Campisi et al., 2024)\n\n")
         f.write("---\n\n")
 
         # 1. Data Summary
@@ -697,10 +713,12 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
         f.write(f"- **수집 기간**: {data_info['start_date']} ~ {data_info['end_date']}\n")
         f.write(f"- **총 관측치 수**: {data_info['n_observations']:,}\n")
         f.write(f"- **변수 수**: {data_info['n_features']}\n")
+        if n_splits is not None:
+            f.write(f"- **Walk-Forward CV 이터레이션**: {n_splits}개\n")
         f.write(f"- **데이터 소스**: Yahoo Finance\n\n")
 
         # 2. Summary Statistics
-        f.write("## 2. 기술 통계량 (Table 1 비교)\n\n")
+        f.write("## 2. 기술 통계량\n\n")
         f.write(tabulate(stats_df.round(3), headers='keys',
                         tablefmt='pipe', showindex=False))
         f.write("\n\n")
@@ -716,7 +734,7 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
 
         # 4. Classification Results Before Feature Selection
         f.write("## 4. 모델 성능 비교 (Feature Selection 전)\n\n")
-        f.write("### 4.1 분류 모델 (Table 7 비교)\n\n")
+        f.write("### 4.1 분류 모델\n\n")
 
         clf_table_before = []
         for name, res in clf_results_before.items():
@@ -731,7 +749,7 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
         f.write("\n\n")
 
         # 4.2 Regression Results Before
-        f.write("### 4.2 회귀 모델 (Table 8 비교)\n\n")
+        f.write("### 4.2 회귀 모델\n\n")
 
         reg_table_before = []
         for name, res in reg_results_before.items():
@@ -747,75 +765,106 @@ def generate_report(data_info: Dict, stats_df: pd.DataFrame,
 
         # 5. Results After Feature Selection
         f.write("## 5. 모델 성능 비교 (Feature Selection 후)\n\n")
-        f.write("### 5.1 분류 모델 (Table 9 비교)\n\n")
+        f.write("### 5.1 분류 모델\n\n")
 
         clf_table_after = []
         for name, res in clf_results_after.items():
-            paper_vals = paper_table9.get(name, {})
             clf_table_after.append({
                 'Model': name,
                 'Accuracy': res['metrics']['Accuracy'],
-                'Paper ACC': paper_vals.get('ACC', '-'),
                 'AUC': res['metrics'].get('AUC', '-'),
-                'Paper AUC': paper_vals.get('AUC', '-'),
-                'F-measure': res['metrics']['F-measure'],
-                'Paper F': paper_vals.get('F', '-')
+                'F-measure': res['metrics']['F-measure']
             })
         f.write(tabulate(pd.DataFrame(clf_table_after).round(4),
                         headers='keys', tablefmt='pipe', showindex=False))
         f.write("\n\n")
 
         # 5.2 Regression Results After
-        f.write("### 5.2 회귀 모델 (Table 10 비교)\n\n")
+        f.write("### 5.2 회귀 모델\n\n")
 
         reg_table_after = []
         for name, res in reg_results_after.items():
-            paper_vals = paper_table10.get(name, {})
             reg_table_after.append({
                 'Model': name,
                 'Accuracy': res['metrics']['Accuracy'],
-                'Paper ACC': paper_vals.get('ACC', '-'),
                 'AUC': res['metrics'].get('AUC', '-'),
-                'Paper AUC': paper_vals.get('AUC', '-'),
-                'F-measure': res['metrics']['F-measure'],
-                'Paper F': paper_vals.get('F', '-')
+                'F-measure': res['metrics']['F-measure']
             })
         f.write(tabulate(pd.DataFrame(reg_table_after).round(4),
                         headers='keys', tablefmt='pipe', showindex=False))
         f.write("\n\n")
 
-        # 6. Comparison with Paper
-        f.write("## 6. 논문 결과와 비교 분석\n\n")
+        # 6. Model Performance Summary
+        f.write("## 6. 모델 성능 요약\n\n")
 
-        # Find best models
-        best_clf = max(clf_results_after.items(),
-                      key=lambda x: x[1]['metrics']['Accuracy'])
-        best_reg = max(reg_results_after.items(),
-                      key=lambda x: x[1]['metrics']['Accuracy'])
+        # Find best models for before and after feature selection
+        best_clf_before = max(clf_results_before.items(),
+                             key=lambda x: x[1]['metrics']['Accuracy'])
+        best_clf_after = max(clf_results_after.items(),
+                            key=lambda x: x[1]['metrics']['Accuracy'])
+        best_reg_before = max(reg_results_before.items(),
+                             key=lambda x: x[1]['metrics']['Accuracy'])
+        best_reg_after = max(reg_results_after.items(),
+                            key=lambda x: x[1]['metrics']['Accuracy'])
 
-        f.write("### 6.1 주요 발견사항\n\n")
-        f.write(f"- **최고 성능 분류 모델**: {best_clf[0]} (Accuracy: {best_clf[1]['metrics']['Accuracy']:.4f})\n")
-        f.write(f"- **최고 성능 회귀 모델**: {best_reg[0]} (Accuracy: {best_reg[1]['metrics']['Accuracy']:.4f})\n")
-        f.write(f"- **논문의 결론 (Bagging/RF 최고 성능)**: ")
+        f.write("### 6.1 Feature Selection 전후 비교\n\n")
+        f.write("**분류 모델:**\n")
+        f.write(f"- Feature Selection 전: {best_clf_before[0]} (Accuracy: {best_clf_before[1]['metrics']['Accuracy']:.4f})\n")
+        f.write(f"- Feature Selection 후: {best_clf_after[0]} (Accuracy: {best_clf_after[1]['metrics']['Accuracy']:.4f})\n\n")
 
-        if 'Bagging' in best_clf[0] or 'Random Forest' in best_clf[0]:
-            f.write("재현됨 ✓\n")
+        f.write("**회귀 모델:**\n")
+        f.write(f"- Feature Selection 전: {best_reg_before[0]} (Accuracy: {best_reg_before[1]['metrics']['Accuracy']:.4f})\n")
+        f.write(f"- Feature Selection 후: {best_reg_after[0]} (Accuracy: {best_reg_after[1]['metrics']['Accuracy']:.4f})\n\n")
+
+        f.write("### 6.2 전체 최고 성능 모델\n\n")
+
+        # Find overall best model
+        all_models = list(clf_results_after.items()) + list(reg_results_after.items())
+        overall_best = max(all_models, key=lambda x: x[1]['metrics']['Accuracy'])
+
+        f.write(f"**최고 성능**: {overall_best[0]}\n")
+        f.write(f"- Accuracy: {overall_best[1]['metrics']['Accuracy']:.4f}\n")
+
+        auc_value = overall_best[1]['metrics'].get('AUC', '-')
+        if isinstance(auc_value, (int, float)) and not np.isnan(auc_value):
+            f.write(f"- AUC: {auc_value:.4f}\n")
         else:
-            f.write("일부 차이 있음\n")
+            f.write(f"- AUC: -\n")
 
-        f.write("\n### 6.2 차이 원인 분석\n\n")
-        f.write("- 데이터 소스 차이: 논문 (Bloomberg) vs 실증 (Yahoo Finance)\n")
-        f.write("- PUTCALL 변수 미포함 (데이터 수집 제한)\n")
-        f.write("- 하이퍼파라미터 차이 가능\n\n")
+        f.write(f"- F-measure: {overall_best[1]['metrics']['F-measure']:.4f}\n\n")
 
         # 7. Conclusion
-        f.write("## 7. 결론\n\n")
-        f.write("본 실증 연구를 통해 Campisi et al. (2024) 논문의 주요 결과를 재현하였습니다.\n\n")
-        f.write("**주요 결론:**\n")
-        f.write("1. 머신러닝 모델이 전통적인 선형 회귀보다 우수한 예측 성능을 보임\n")
-        f.write("2. 앙상블 방법 (Random Forest, Bagging)이 최고 성능 달성\n")
-        f.write("3. Feature Selection을 통해 모델 성능 개선\n")
-        f.write("4. 분류 모델이 회귀 모델보다 방향 예측에 효과적\n\n")
+        f.write("## 7. 주요 인사이트\n\n")
+
+        # Compare classification vs regression
+        avg_clf_acc = sum(r['metrics']['Accuracy'] for r in clf_results_after.values()) / len(clf_results_after)
+        avg_reg_acc = sum(r['metrics']['Accuracy'] for r in reg_results_after.values()) / len(reg_results_after)
+
+        # Compare feature selection impact
+        avg_acc_before = (sum(r['metrics']['Accuracy'] for r in clf_results_before.values()) +
+                          sum(r['metrics']['Accuracy'] for r in reg_results_before.values())) / (len(clf_results_before) + len(reg_results_before))
+        avg_acc_after = (sum(r['metrics']['Accuracy'] for r in clf_results_after.values()) +
+                         sum(r['metrics']['Accuracy'] for r in reg_results_after.values())) / (len(clf_results_after) + len(reg_results_after))
+
+        f.write("**1. Feature Selection 효과**\n")
+        f.write(f"- 전체 평균 Accuracy: {avg_acc_before:.4f} → {avg_acc_after:.4f}\n")
+        if avg_acc_after > avg_acc_before:
+            f.write(f"- Feature Selection을 통해 성능 향상 (+{(avg_acc_after-avg_acc_before):.4f})\n\n")
+        else:
+            f.write(f"- Feature Selection으로 성능 변화 ({(avg_acc_after-avg_acc_before):.4f})\n\n")
+
+        f.write("**2. 분류 vs 회귀 모델**\n")
+        f.write(f"- 분류 모델 평균 Accuracy: {avg_clf_acc:.4f}\n")
+        f.write(f"- 회귀 모델 평균 Accuracy: {avg_reg_acc:.4f}\n")
+        if avg_reg_acc > avg_clf_acc:
+            f.write("- 회귀 모델이 방향 예측에 더 효과적\n\n")
+        else:
+            f.write("- 분류 모델이 방향 예측에 더 효과적\n\n")
+
+        f.write("**3. 모델별 특성**\n")
+        f.write(f"- 선형 모델 (LR, Ridge, Lasso): 안정적인 성능, 해석 가능\n")
+        f.write(f"- 앙상블 모델 (RF, Bagging, GB): 비선형 패턴 포착 능력\n")
+        f.write(f"- 최종 추천 모델: {overall_best[0]}\n\n")
 
         f.write("---\n\n")
         f.write("## 8. 시각화\n\n")
@@ -841,6 +890,12 @@ def parse_args():
         default=FORECAST_DAYS,
         help=f'예측할 미래 일수 (기본값: {FORECAST_DAYS}일)'
     )
+    parser.add_argument(
+        '--max-iterations', '-m',
+        type=int,
+        default=None,
+        help='Walk-Forward CV 최대 이터레이션 수 (기본값: 전체 ~755개)'
+    )
     return parser.parse_args()
 
 
@@ -853,10 +908,13 @@ def main():
     # Parse arguments
     args = parse_args()
     forecast_days = args.forecast_days
+    max_iterations = args.max_iterations
 
     print("=" * 70)
     print("Campisi et al. (2024) 논문 실증 재현")
     print(f"예측 기간: {forecast_days}일 후")
+    if max_iterations is not None:
+        print(f"최대 이터레이션: {max_iterations}개 (빠른 테스트 모드)")
     print("=" * 70)
 
     # Create output directories
@@ -940,7 +998,7 @@ def main():
     # =========================================================================
     # Phase 5-7: Model Training
     # =========================================================================
-    cv = WalkForwardCV(train_size=TRAIN_SIZE, gap=GAP)
+    cv = WalkForwardCV(train_size=TRAIN_SIZE, gap=GAP, max_iterations=max_iterations)
     n_splits = cv.get_n_splits(X_scaled)
     print(f"\n[6] Training models with Walk-Forward CV ({n_splits} splits)...")
 
@@ -1053,7 +1111,9 @@ def main():
     # Returns time series
     plot_returns_time_series(
         data,
-        os.path.join(FIGURES_DIR, 'returns_timeseries.png')
+        os.path.join(FIGURES_DIR, 'returns_timeseries.png'),
+        returns_col,
+        forecast_days
     )
 
     print("  Visualizations saved to figures/")
@@ -1086,7 +1146,8 @@ def main():
         paper_table9=paper_table9,
         paper_table10=paper_table10,
         save_path=report_path,
-        forecast_days=forecast_days
+        forecast_days=forecast_days,
+        n_splits=n_splits
     )
 
     # =========================================================================

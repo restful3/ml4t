@@ -29,6 +29,10 @@ else
     FORECAST_DAYS=("$@")
 fi
 
+# 최대 이터레이션 수 설정 (환경변수로 제어 가능)
+# 예: MAX_ITER=10 ./run_experiments.sh
+MAX_ITER="${MAX_ITER:-}"  # 기본값: 비어있음 (전체 실행)
+
 # 로그 디렉토리 생성
 LOG_DIR="$SCRIPT_DIR/logs"
 mkdir -p "$LOG_DIR"
@@ -43,6 +47,11 @@ echo "Campisi 2024 실험 시작"
 echo "======================================================"
 echo "시작 시간: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "예측 기간: ${FORECAST_DAYS[*]} 일"
+if [ -n "$MAX_ITER" ]; then
+    echo "최대 이터레이션: $MAX_ITER 개 (빠른 테스트 모드)"
+else
+    echo "최대 이터레이션: 전체 (~755개)"
+fi
 echo "로그 파일: $MAIN_LOG"
 echo "======================================================"
 echo ""
@@ -53,6 +62,11 @@ echo ""
     echo "Campisi 2024 실험 로그"
     echo "시작 시간: $(date '+%Y-%m-%d %H:%M:%S')"
     echo "예측 기간: ${FORECAST_DAYS[*]} 일"
+    if [ -n "$MAX_ITER" ]; then
+        echo "최대 이터레이션: $MAX_ITER 개 (빠른 테스트 모드)"
+    else
+        echo "최대 이터레이션: 전체 (~755개)"
+    fi
     echo "======================================================"
     echo ""
 } >> "$MAIN_LOG"
@@ -73,7 +87,14 @@ for days in "${FORECAST_DAYS[@]}"; do
     START_TIME=$(date +%s)
 
     # 실행 및 결과 캡처
-    if python campisi_2024_replication.py --forecast-days "$days" 2>&1 | tee -a "$MAIN_LOG"; then
+    # MAX_ITER이 설정되어 있으면 --max-iterations 옵션 추가
+    if [ -n "$MAX_ITER" ]; then
+        CMD="python campisi_2024_replication.py --forecast-days $days --max-iterations $MAX_ITER"
+    else
+        CMD="python campisi_2024_replication.py --forecast-days $days"
+    fi
+
+    if $CMD 2>&1 | tee -a "$MAIN_LOG"; then
         END_TIME=$(date +%s)
         ELAPSED=$((END_TIME - START_TIME))
         MINUTES=$((ELAPSED / 60))
