@@ -89,7 +89,7 @@
 #### **2025년 12월 20일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m144d92d270fea25298c353e9cc001b28)
 - 트랙 - 퀀트 전략 리뷰 (4/4)
 - 발표자 - 도운
-- 내용 - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Quant%20Trading%20Strategy%20Review/january_effect/The_Enduring_January_Puzzle_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)
+- 내용 - [발표자료](https://github.com/restful3/ml4t/tree/main/source/Quant%20Trading%20Strategy%20Review/january_effect)
        - [백테스트](https://www.quantconnect.cloud/backtest/71c58963dd83fb3abccb6761f89ee23a/?theme=chrome)
   
 ---
