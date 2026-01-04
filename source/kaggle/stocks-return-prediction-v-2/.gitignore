@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Data files
+data/
+submissions/
+*.pkl
+*.csv
+*.zip
+*.parquet
+*.h5
+*.hdf5
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model artifacts
+*.model
+*.joblib
+*.h5
+*.pth
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/

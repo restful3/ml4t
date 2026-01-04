@@ -176,3 +176,13 @@ data/
 **/.DS_Store
 
 ._.DS_Store
+
+# Kaggle competition data files
+source/kaggle/**/data/
+source/kaggle/**/submissions/
+*.pkl
+*.csv
+*.zip
+*.parquet
+*.h5
+*.hdf5
