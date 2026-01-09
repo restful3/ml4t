@@ -91,7 +91,12 @@
 - 발표자 - 도운
 - 내용 - [발표자료](https://github.com/restful3/ml4t/tree/main/source/Quant%20Trading%20Strategy%20Review/january_effect)
        , [백테스트](https://www.quantconnect.cloud/backtest/71c58963dd83fb3abccb6761f89ee23a/?theme=chrome)
-  
+
+#### **2026년 1월 10일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m39386da27451f75e1f8c0d5cf270c807)
+- 트랙 - 캐글 
+- 발표자 - 핀조이/태영
+- 내용 - [Stocks Return Prediction V2](https://www.kaggle.com/competitions/stocks-return-prediction-v-2/leaderboard)
+
 ---
 
 ### **5. 스터디 운영 방법**
