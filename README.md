@@ -97,6 +97,11 @@
 - 발표자 - 핀조이/태영
 - 내용 - [Stocks Return Prediction V2](https://www.kaggle.com/competitions/stocks-return-prediction-v-2/leaderboard)
 
+#### **2026년 1월 17일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0cd125e89daaebfe531315885a61a4aa)
+- 트랙 - 캐글 
+- 발표자 - 원미
+- 내용 - [G-research-crypto-forecasting
+](https://github.com/restful3/ml4t/blob/main/source/kaggle/G-research-crypto-forecasting/Kaggle_G-Research%20Crypto%20Forecasting%20%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD.pdf)
 ---
 
 ### **5. 스터디 운영 방법**
