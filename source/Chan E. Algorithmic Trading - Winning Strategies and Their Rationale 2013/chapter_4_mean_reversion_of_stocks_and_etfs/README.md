@@ -1,5 +1,7 @@
 # 주식 및 ETF의 평균 회귀 (Mean Reversion of Stocks and ETFs)
 
+### **[발표자료 PDF 다운로드](./Mean_Reversion_Alpha_Evolution.pdf)**
+
 ## 서문 (Executive Summary)
 
 본 보고서는 주식과 ETF 시장에서 발생하는 평균 회귀 현상과 이를 활용한 주요 트레이딩 전략, 그리고 실제 운용 시 직면하는 기술적 난제들을 분석한다. 핵심 조사 결과는 다음과 같다.

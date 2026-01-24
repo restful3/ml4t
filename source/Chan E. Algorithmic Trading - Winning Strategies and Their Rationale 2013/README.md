@@ -1,5 +1,7 @@
 # 알고리즘 트레이딩 전략 및 실무 지침서: 브리핑 문서
 
+### **[발표자료 PDF 다운로드](./Building_the_Statistical_Trading_Edge.pdf)**
+
 ![Algorithmic Trading Book Cover](./unnamed.png)
 
 ## 챕터별 요약 목차 (Table of Contents)

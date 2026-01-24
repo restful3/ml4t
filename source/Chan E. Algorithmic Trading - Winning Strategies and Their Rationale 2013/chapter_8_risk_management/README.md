@@ -1,5 +1,7 @@
 # 리스크 관리 (Risk Management)
 
+### **[발표자료 PDF 다운로드](./Engineering_Portfolio_Survival.pdf)**
+
 ## 요약 (Executive Summary)
 
 리스크 관리의 궁극적인 목표는 **장기적인 자본 성장(Compounded Growth Rate)**의 극대화이다. 초보 트레이더는 단순한 '손실 회피(Loss Aversion)'에 집중하지만, 체계적인 리스크 관리는 레버리지의 최적화와 최대 낙폭(Drawdown)의 통제를 통해 이루어진다.

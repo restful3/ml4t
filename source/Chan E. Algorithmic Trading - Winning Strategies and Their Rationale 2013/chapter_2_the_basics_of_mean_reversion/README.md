@@ -1,5 +1,7 @@
 # 평균 회귀의 기초 (The Basics of Mean Reversion)
 
+### **[발표자료 PDF 다운로드](./Quant_Alpha_From_Chaos.pdf)**
+
 ## 요약 (Executive Summary)
 
 본 문서는 금융 시계열 데이터에서 **평균 회귀(Mean Reversion)** 속성을 식별하고 활용하는 방법에 대해 다룬다. 대부분의 금융 가격 데이터는 기하학적 랜덤 워크(Geometric Random Walk)를 따르지만, 통계적 검정을 통해 평균으로 회귀하는 **정상성(Stationarity)**을 지닌 시계열이나 포트폴리오를 찾아낼 수 있다. 이를 위해 ADF 검정, Hurst 지수, 공적분(Cointegration) 등의 수학적 도구를 활용하며, 이러한 분석을 바탕으로 파라미터 최적화 없이도 유효한 선형 매매 전략을 수립하는 방법을 제시한다.

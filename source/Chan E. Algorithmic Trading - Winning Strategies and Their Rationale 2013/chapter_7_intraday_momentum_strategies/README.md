@@ -1,5 +1,7 @@
 # 인트라데이 모멘텀 전략(Intraday Momentum Strategies) 심층 브리핑
 
+### **[발표자료 PDF 다운로드](./Intraday_Alpha_Strategies.pdf)**
+
 ## 요약 (Executive Summary)
 
 본 문서는 주식, 선물, 외환 시장에서 발생하는 단기 가격 지속 현상인 '**인트라데이 모멘텀(Intraday Momentum)**' 전략의 핵심 메커니즘과 실행 방법론을 분석한다. 전통적인 중장기 모멘텀 전략은 낮은 샤프 지수(Sharpe ratio)와 금융 위기 직후의 부진이라는 단점이 있으나, 인트라데이 전략은 이러한 결함을 보완하면서도 높은 통계적 유의성을 제공한다.

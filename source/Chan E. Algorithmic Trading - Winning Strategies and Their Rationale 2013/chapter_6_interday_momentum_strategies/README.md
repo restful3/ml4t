@@ -1,5 +1,7 @@
 # 일간 모멘텀 전략 분석 보고서: 핵심 통찰 및 전략적 고찰 (Interday Momentum Strategies)
 
+### **[발표자료 PDF 다운로드](./Momentum_Strategy_Dissected.pdf)**
+
 ## 1. 요약 (Executive Summary)
 
 본 보고서는 금융 시장에서의 **일간(Interday) 모멘텀 전략**에 관한 핵심 원인, 측정 방법론, 주요 전략 유형 및 위험 요인을 심층적으로 분석한다. 제공된 소스 자료를 바탕으로 모멘텀 현상의 근본적인 동인과 이를 활용한 구체적인 트레이딩 모델을 정리하였다.

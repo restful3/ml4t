@@ -1,126 +1,118 @@
-# 📢 ML4D Study
-
----
+# **ML4D Study**
 
 ### **1. 스터디 목적**
-- **AI와 머신러닝을 활용한 알고리즘 트레이딩 및 금융 데이터 분석의 최신 기법을 익히고, Kaggle 대회를 기반으로 실전 전략 구축 역량을 강화하는 것을 목표로 합니다.**
+
+* **『Algorithmic Trading: Winning Strategies and Their Rationale』를 통해 알고리즘 트레이딩의 핵심 전략(평균 회귀, 모멘텀)을 익히고, 통계적 검증 방법(백테스팅)과 리스크 관리 기법을 습득하여 실전 가능한 퀀트 투자 역량을 강화하는 것**을 목표로 한다.
 
 ---
 
 ### **2. 스터디 시간**
-- 매주 토요일 오전 8시부터 1시간
+
+* 매주 토요일 오전 8시부터 1시간
 
 ---
 
 ### **3. 스터디 장소**
-- Webex
+
+* Webex
 
 ---
 
-### **4. 스터디 운영 계획 (4주 로테이션)**
+### **4. 스터디 운영 계획 (2026년 1월 ~ 2026년 4월)**
+
+---
+
+#### **2026년 1월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m12b923314420c81943b168ba0182f65e)
+
+* 발표자 - TBD
+* **Chapter 1. 백테스팅 및 자동 실행 (Backtesting and Automated Execution)**
+    * 백테스팅의 중요성과 실행 세부 사항
+    * 주요 함정(Look-ahead, Data-snooping, Survivorship 편향)과 해결 방안
+    * 통계적 유의성 검정 및 플랫폼 선정 가이드
 
 
-#### 향후 일정
+#### **2026년 2월 7일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m54999825444bdea65caae8a342000862)
 
-#### **2025년 9월 20일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7ce242843e71db115e8b2369986a04aa)
-- 트랙 - 퀀트 전략 리뷰 (1/4)
-- 발표자 - 핀조이
-- 내용 - [Opening Range Breakout for Stocks in Play](https://www.quantconnect.com/research/18444/opening-range-breakout-for-stocks-in-play/p1)
-- 슬라이드 [pdf](https://github.com/restful3/ml4t/blob/main/source/Quant%20Trading%20Strategy%20Review/ORB_for_Stocks_in_Play/ORB_for_Stocks_in_Play.pdf)
-- 백테스트 [link](https://www.quantconnect.cloud/backtest/8f984879ae58a8cc56436d59a636ef97)
-
-#### **2025년 9월 27일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m794c4e50f5ff0e9aa332e21523485655)
-- 트랙 - 퀀트 전략 리뷰 (2/4)
-- 발표자 - 태호
-- 내용 - [Short Term Reversal Effect in Stocks](https://quantpedia.com/strategies/short-term-reversal-in-stocks)
-- [설명 자료](https://github.com/restful3/ml4t/blob/main/archive/Quant%20Trading%20Strategy%20Review/short_term_reversal_effect_%EC%86%8C%EA%B0%9C_Teo.ipynb)
-- [코드 리뷰](https://github.com/restful3/ml4t/blob/main/archive/Quant%20Trading%20Strategy%20Review/short_term_reversal_effect_%EC%BD%94%EB%93%9C_%EB%B6%84%EC%84%9D_Teo.py)
-
-#### **✅ 2025년 10월 4일 (토)**: 휴일 (추석 연휴 - 스터디 없음)
-
-#### **✅ 2025년 10월 11일 (토)**: 휴일 (추석 연휴 - 스터디 없음)
-
-#### **2025년 10월 18일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me926d907650c9b1a34a5cf2a56fbea7c)
-- 트랙 - 퀀트 전략 리뷰 (3/4)
-- 발표자 - 정택
-- 내용 - [Portfolio Construction Using Topological Data Analysis](https://github.com/restful3/ml4t/tree/main/archive/Quant%20Trading%20Strategy%20Review/Portfolio%20Construction%20Using%20Topological%20Data%20Analysis)
-
-#### **2025년 10월 25일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m18b99f88356090f9f2ce9d29adefecc3)
-- 트랙 - 퀀트 전략 리뷰 (4/4)
-- 발표자 - 태영 
-- 내용 - [Calendar-based clustering of weekly extremes: Empirical failure of stochastic models](https://www.sciencedirect.com/science/article/abs/pii/S1544612325012504)
-
-#### **2025년 11월 1일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m54969345967403cc4743ce696daeb9f0)
-- 트랙 - 캐글 (1/4)
-- 발표자 - 영재
-- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
-
-#### **2025년 11월 8일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me13617ac007993e928d591c2d3dc036e)
-- 트랙 - 캐글 (2/4)
-- 발표자 - 태영
-- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
-
-#### **2025년 11월 15일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m2f1c9bd81d1f13fd9a638b4092d599b2)
-- 트랙 - 캐글 (3/4)
-- 발표자 - 수헌
-- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
-
-#### **2025년 11월 22일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mb7eadd3edf33c21a979fa92ff7f8da7c)
-- 트랙 - 캐글 (4/4)
-- 발표자 - 도운
-- 내용 - [Predicting Stock Trends: Rise or Fall?](https://www.kaggle.com/competitions/predicting-stock-trends-rise-or-fall)
-
-#### **2025년 11월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc1203b072b82d970ac091b79ca6c03f6)
-- 트랙 - 퀀트 전략 리뷰 (1/4)
-- 발표자 - 우석
-- 내용 - TBD
-
-#### **2025년 12월 6일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m440b55ecb6412ea23b0d388326e11581)
-- 트랙 - 퀀트 전략 리뷰 (2/4)
-- 발표자 - HY
-- 내용 - [발표자료](https://github.com/restful3/ml4t/blob/main/source/Quant%20Trading%20Strategy%20Review/Post-Earnings%20Announcement%20Effect.pdf)
+* 발표자 - TBD
+* **Chapter 2. 평균 회귀의 기초 (The Basics of Mean Reversion)**
+    * 평균 회귀와 정상성(Stationarity) (ADF 검정, Hurst 지수)
+    * 반감기(Half-Life)와 선형 매매 전략
+    * 공적분(Cointegration)과 포트폴리오 구성 (CADF, Johansen 검정)
 
 
-#### **2025년 12월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4043e4d9f8ed7a669db2e90873cfb9cc)
-- 트랙 - 퀀트 전략 리뷰 (3/4)
-- 발표자 - WONMI
-- 내용 - [발표자료](https://github.com/restful3/ml4t/tree/main/source/Quant%20Trading%20Strategy%20Review/Low_Volatility_Time_Series_Momentum)
-  
-#### **2025년 12월 20일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m144d92d270fea25298c353e9cc001b28)
-- 트랙 - 퀀트 전략 리뷰 (4/4)
-- 발표자 - 도운
-- 내용 - [발표자료](https://github.com/restful3/ml4t/tree/main/source/Quant%20Trading%20Strategy%20Review/january_effect)
-       , [백테스트](https://www.quantconnect.cloud/backtest/71c58963dd83fb3abccb6761f89ee23a/?theme=chrome)
+#### **2026년 2월 14일**: 
 
-#### **2026년 1월 10일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m39386da27451f75e1f8c0d5cf270c807)
-- 트랙 - 캐글 
-- 발표자 - 핀조이/태영
-- 내용 - [Stocks Return Prediction V2](https://www.kaggle.com/competitions/stocks-return-prediction-v-2/leaderboard)
+* **설 연휴로 쉼**
 
-#### **2026년 1월 17일 (토)**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m0cd125e89daaebfe531315885a61a4aa)
-- 트랙 - 캐글 
-- 발표자 - 원미
-- 내용 - [G-research-crypto-forecasting
-](https://github.com/restful3/ml4t/blob/main/source/kaggle/G-research-crypto-forecasting/Kaggle_G-Research%20Crypto%20Forecasting%20%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD.pdf)
+
+#### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
+
+* 발표자 - TBD
+* **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**
+    * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
+    * 볼린저 밴드 활용 및 실무적 전략 구현
+    * 칼만 필터(Kalman Filter)를 통한 동적 최적화
+
+
+#### **2026년 2월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=meb86188e66a94dce2e3b5206140e22d0)
+
+* 발표자 - TBD
+* **Chapter 4. 주식 및 ETF의 평균 회귀 (Mean Reversion of Stocks and ETFs)**
+    * 주식 페어 트레이딩의 난제(공적분 붕괴 등)와 ETF 전략의 우위
+    * 장중 계절성: Buy-on-Gap 모델
+    * 횡단면적(Cross-Sectional) 평균 회귀 전략
+
+
+#### **2026년 3월 7일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m8a86f86479fe817a0e45466e66548de1)
+
+* 발표자 - TBD
+* **Chapter 5. 통화 및 선물의 평균 회귀 (Mean Reversion of Currencies and Futures)**
+    * 통화 교차 환율 거래 및 상품 통화 공적분
+    * 롤오버 이자(Rollover Interests)와 선물 롤 수익률(Roll Returns)
+    * 선물 캘린더 스프레드 및 인터마켓 스프레드 전략
+
+
+#### **2026년 3월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=md32de1ca842efa99471df2562bc982db)
+
+* 발표자 - TBD
+* **Chapter 6. 일간 모멘텀 전략 (Interday Momentum Strategies)**
+    * 모멘텀의 발생 원인(롤 리턴 지속성, 정보 지연 등) 및 유형
+    * 시계열 모멘텀(Time Series Momentum) 및 롤 리턴 추출 전략
+    * 횡단면 모멘텀(Cross-sectional Momentum) 및 뉴스 감성 팩터
+
+
+#### **2026년 3월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf72ed58f53d4d744dd9e7bfa21a9c086)
+
+* 발표자 - TBD
+* **Chapter 7. 장중 모멘텀 전략 (Intraday Momentum Strategies)**
+    * 시가 갭(Opening Gap) 전략 메커니즘
+    * 뉴스 기반 모멘텀(PEAD) 및 레버리지 ETF 재조정 전략
+    * 고빈도 매매(HFT) 기초 및 호가 불균형 활용
+
+
+#### **2026년 3월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1bed326e057a1b2c8277b04560d6c89f)
+
+* 발표자 - TBD
+* **Chapter 8. 리스크 관리 (Risk Management)**
+    * 최적 레버리지 산출(켈리 공식) 및 시뮬레이션
+    * 최대 낙폭(MDD) 관리와 CPPI 전략
+    * 스톱 로스(Stop Loss) 및 리스크 선행 지표(VIX 등) 활용
+
 ---
 
 ### **5. 스터디 운영 방법**
-- **참고자료**: QuantConnect, [QuantPedia](https://quantpedia.com/), [Kaggle](https://www.kaggle.com/), AWS SageMaker Canvas, Tiingo API 등
-- **학습 공유**: 매주 학습 내용(코드, 요약 자료)을 업로드
-- **발표**: 주제별 50분 발표 + 10분 Q&A
-- **운영 규칙**: [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
 
-
-#### 운영 방식
-- 4주 단위로 '퀀트 트레이딩 전략 리뷰'와 '캐글 대회 공동 참가'를 번갈아 진행합니다.
-- 첫 사이클은 '퀀트 트레이딩 전략 리뷰'로 4주간 진행합니다.
-- 발표자 선정은 자발적 지원을 기본으로 하며, 모든 참여자가 한 번씩 발표하는 로테이션(1인 1발표)을 적용합니다. 신규 참여자는 해당 세션 종료까지 발표 의무가 유예됩니다.
-- 캐글 스터디는 각 4주 단위로 3~4명의 공동 진행자를 선정해 협업으로 운영합니다.
-- 발표 범위는 이론, 구현(Python/C#), 백테스팅, 실전 적용 중에서 발표자의 관심사와 수준에 맞춰 구성합니다.
-- 참고 리소스: [QuantPedia](https://quantpedia.com/) 전략 데이터베이스, [Kaggle](https://www.kaggle.com/) 대회/노트북
+* **교재**:
+    * [Algorithmic Trading: Winning Strategies and Their Rationale (Ernie Chan)](https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146)
+* **학습 공유**: 매주 학습한 내용을 발표자료와 함께 GitHub에 공유
+* **발표 방식**:
+    * 각 챕터 또는 해당 주제에 대한 50분 발표 + 10분 Q&A (총 1시간 진행)
+* **운영 규칙**:
+    * [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/etc/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
 
 ---
 
 ### **6. 기타**
-- **참가 희망 요청**: [이메일](mailto:restful3@gmail.com)
----
+
+* **참가 희망 요청**: [Email](mailto:restful3@gmail.com)
+* **아카이브**: [GitHub Archive](https://github.com/restful3/ml4t/tree/main/archive)

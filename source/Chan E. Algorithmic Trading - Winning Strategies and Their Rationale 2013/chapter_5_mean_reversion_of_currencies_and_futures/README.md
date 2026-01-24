@@ -1,5 +1,7 @@
 # 통화 및 선물 시장의 평균 회귀 전략 분석 보고서 (Mean Reversion of Currencies and Futures)
 
+### **[발표자료 PDF 다운로드](./Structural_Alpha_in_Momentum_Markets.pdf)**
+
 ## 요약 (Executive Summary)
 
 본 보고서는 **통화(Currencies)** 및 **선물(Futures)** 시장에서 발생하는 **평균 회귀(Mean Reversion)** 현상과 이를 활용한 거래 전략을 심도 있게 분석한다. 일반적으로 통화와 선물은 모멘텀 트레이더의 영역으로 간주되나, 특정 조건하에서는 평균 회귀 전략이 유효한 기회를 제공한다.

@@ -1,5 +1,7 @@
 # 평균 회귀 전략의 실행 (Implementing Mean Reversion Strategies)
 
+### **[발표자료 PDF 다운로드](./Adaptive_Mean_Reversion_Algorithms.pdf)**
+
 ## 핵심 요약 (Executive Summary)
 
 본 문서는 자산 가격이 평균으로 회귀하는 성질을 이용한 트레이딩 전략의 실무적 구현 방법을 분석합니다. 주요 분석 결과는 다음과 같습니다.
