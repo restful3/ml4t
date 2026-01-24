@@ -1,0 +1,120 @@
+{
+  "original_file": "Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013.pdf",
+  "total_pages": 224,
+  "chapters": [
+    {
+      "index": 1,
+      "title": "ALGORITHMIC TRADING",
+      "start_page": 1,
+      "end_page": 6,
+      "file": "01_algorithmic_trading.pdf"
+    },
+    {
+      "index": 2,
+      "title": "CONTENTS",
+      "start_page": 7,
+      "end_page": 8,
+      "file": "02_contents.pdf"
+    },
+    {
+      "index": 3,
+      "title": "PREFACE",
+      "start_page": 9,
+      "end_page": 16,
+      "file": "03_preface.pdf"
+    },
+    {
+      "index": 4,
+      "title": "CHAPTER 1 Backtesting and Automated Execution",
+      "start_page": 17,
+      "end_page": 54,
+      "file": "04_chapter_1_backtesting_and_automated_execution.pdf"
+    },
+    {
+      "index": 5,
+      "title": "CHAPTER 2 The Basics of Mean Reversion",
+      "start_page": 55,
+      "end_page": 78,
+      "file": "05_chapter_2_the_basics_of_mean_reversion.pdf"
+    },
+    {
+      "index": 6,
+      "title": "CHAPTER 3 Implementing Mean Reversion Strategies",
+      "start_page": 79,
+      "end_page": 102,
+      "file": "06_chapter_3_implementing_mean_reversion_strategies.pdf"
+    },
+    {
+      "index": 7,
+      "title": "CHAPTER 4 Mean Reversion of Stocks and ETFs",
+      "start_page": 103,
+      "end_page": 122,
+      "file": "07_chapter_4_mean_reversion_of_stocks_and_etfs.pdf"
+    },
+    {
+      "index": 8,
+      "title": "CHAPTER 5 Mean Reversion of Currencies and Futures",
+      "start_page": 123,
+      "end_page": 148,
+      "file": "08_chapter_5_mean_reversion_of_currencies_and_futures.pdf"
+    },
+    {
+      "index": 9,
+      "title": "CHAPTER 6 Interday Momentum Strategies ",
+      "start_page": 149,
+      "end_page": 170,
+      "file": "09_chapter_6_interday_momentum_strategies.pdf"
+    },
+    {
+      "index": 10,
+      "title": "CHAPTER 7 Intraday Momentum Strategies",
+      "start_page": 171,
+      "end_page": 184,
+      "file": "10_chapter_7_intraday_momentum_strategies.pdf"
+    },
+    {
+      "index": 11,
+      "title": "CHAPTER 8 Risk Management",
+      "start_page": 185,
+      "end_page": 202,
+      "file": "11_chapter_8_risk_management.pdf"
+    },
+    {
+      "index": 12,
+      "title": "CONCLUSION",
+      "start_page": 203,
+      "end_page": 206,
+      "file": "12_conclusion.pdf"
+    },
+    {
+      "index": 13,
+      "title": "BIBLIOGRAPHY",
+      "start_page": 207,
+      "end_page": 212,
+      "file": "13_bibliography.pdf"
+    },
+    {
+      "index": 14,
+      "title": "ABOUT THE AUTHOR",
+      "start_page": 213,
+      "end_page": 214,
+      "file": "14_about_the_author.pdf"
+    },
+    {
+      "index": 15,
+      "title": "ABOUT THE WEBSITE",
+      "start_page": 215,
+      "end_page": 216,
+      "file": "15_about_the_website.pdf"
+    },
+    {
+      "index": 16,
+      "title": "INDEX",
+      "start_page": 217,
+      "end_page": 223,
+      "file": "16_index.pdf"
+    }
+  ],
+  "created_at": "2026-01-24T04:35:49Z",
+  "tool_version": "0.1.0"
+}
