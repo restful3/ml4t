@@ -52,19 +52,17 @@ You will fi nd several examples of linear trading models in this book because th
 
 The most extreme form of linear predictive models is one in which all the coefficients are equal in magnitude (but not necessarily in sign). For example, suppose you have identified a number of factors ( *f* 's) that are useful in predicting whether tomorrow's return of a stock index is positive. One factor may be today's return, with a positive today's return predicting a positive future return. Another factor may be today's change in the volatility index (VIX), with a negative change predicting positive future return. You may have several such factors. If you normalize these factors by turning them first into Z-scores (using in-sample data!):
 
-$$z(i) = (f(i) - mean(f)) / std(f), \tag{1.1}$$
+$$z(i) = \frac{f(i) - \text{mean}(f)}{\text{std}(f)} \qquad (1.1)$$
 
 where *f* (*i*) is the *i th* factor, you can then predict tomorrow's return *R* by
 
-$$R = mean(R) + std(R) \sum_{i}^{n} sign(i)z(i) / n.$$
- (1.2)
+$$R = \text{mean}(R) + \text{std}(R) \sum_{i}^{n} \frac{\text{sign}(i)z(i)}{n} \qquad (1.2)$$
 
 The quantities *mean*( *f* ) and *std*( *f* ) are the historical average and standard deviation of the various *f*(*i*), *sign*(*i*) is the sign of the historical correlation between *f*(*i*) and *R*, and *mean*(*R*) and *std*(*R*) are the historical average and standard deviation of one-day returns, respectively. Daniel Kahneman, the Nobel Prize-winning economist, wrote in his bestseller *Thinking, Fast and Slow* that "formulas that assign equal weights to all the predictors are often superior, because they are not aff ected by accidents of sampling" (Kahneman, 2011). Equation 1.2 is a simplifi ed version of the usual factor model used in stock return prediction. While its prediction of the *absolute* returns may or may not be very accurate, its prediction of *relative* returns between stocks is often good enough. This means that if we use it to rank stocks, and then form a long-short portfolio by buying the stocks in the top decile and shorting those in the bottom decile, the average return of the portfolio is often positive.
 
 Actually, if your goal is just to rank stocks instead of coming up with an expected return, there is an even simpler way to combine the factors *f* 's without using Equations 1.1 and 1.2. We can fi rst compute the *ranks* (*i*) of a stock *s* based on a factor *f*(*i*). Then we multiply these ranks by the sign of the correlation between *f*(*i*) and the expected return of the stock. Finally, we sum all these signed ranks to form the rank of a stock:
 
-$$rank_s = \sum_{i}^{n} sign(i) rank_s(i).$$
- (1.3)
+$$\text{rank}_s = \sum_{i}^{n} \text{sign}(i) \text{rank}_s(i) \qquad (1.3)$$
 
 As an example, Joel Greenblatt has famously used a two-factor model as a "magic formula" to rank stocks: *f*(1) = return on capital and *f*(2) = earnings yield (Greenblatt, 2006). We are supposed to buy the top 30 ranked stocks and hold them for a year. The annual percentage rate (APR) for this strategy was 30.8 percent from 1988 to 2004, compared with 12.4 percent for the S&P 500. Quite a triumph of linearity!
 

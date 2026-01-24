@@ -22,25 +22,21 @@ Even when a cross-rate such as AUD.CAD is ready-made for trading, we may sometim
 
 In Example 5.1, we focus on trading two currencies that can ultimately be reduced to a pair with a common quote currency USD:  $B_1$ .USD —  $B_2$ .USD. So the returns of a portfolio with  $n_1$  units of  $B_1$ .USD and  $n_2$  units of  $B_2$ .USD is
 
-$$r(t+1) = \frac{n_1 y_{1,U}(t) r_1(t+1) + n_2 y_{2,U}(t) r_2(t+1)}{|n_1| y_{1,U}(t) + |n_2| y_{2,U}(t)}$$
-(5.1)
+$$r(t+1) = \frac{n_1 y_{1,U}(t) r_1(t+1) + n_2 y_{2,U}(t) r_2(t+1)}{|n_1| y_{1,U}(t) + |n_2| y_{2,U}(t)} \qquad (5.1)$$
 
 as displayed in the last line of the MATLAB code in the example. Here  $r_i$  is the return of  $B_i$ . USD:
 
-$$r_i(t+1) = (y_{i,U}(t+1) - y_{i,U}(t))/y_{i,U}(t)$$
-(5.2)
+$$r_i(t+1) = \frac{y_{i,U}(t+1) - y_{i,U}(t)}{y_{i,U}(t)} \qquad (5.2)$$
 
 where  $y_{i,U}(t)$  and  $y_{i,U}(t+1)$  are the quotes for  $B_i$ . USD at t and t+1 respectively. This is because one unit of  $B_i$ . USD is worth  $y_{i,U}$  in U.S. dollars.
 
 However, if a portfolio has  $n'_1$  units of USD. $Q_1$  and  $n'_2$  units of USD. $Q_2$  instead, then the return can be written more simply as
 
-$$r(t+1) = \frac{n_1' r_1(t+1) + n_2' r_2(t+1)}{|n_1'| + |n_2'|}$$
- (5.3)
+$$r(t+1) = \frac{n_1' r_1(t+1) + n_2' r_2(t+1)}{|n_1'| + |n_2'|} \qquad (5.3)$$
 
 where
 
-$$r_i(t+1) = (y_{Ui}(t+1) - y_{Ui}(t))/y_{Ui}(t)$$
- (5.4)
+$$r_i(t+1) = \frac{y_{Ui}(t+1) - y_{Ui}(t)}{y_{Ui}(t)} \qquad (5.4)$$
 
 and  $y_{U,i}(t)$  and  $y_{U,i}(t+1)$  are the quotes for  $USD.Q_i$  at t and t+1, respectively. This is because one unit of  $USD.Q_i$  is worth exactly one U.S. dollar.
 
@@ -93,8 +89,7 @@ Taking care to exclude the first 250 days of rolling training data when computin
 
 You may sometimes find profitable opportunities trading two pairs of entirely different cross-rates against each other:  $B_1.Q_1$  versus  $B_2.Q_2$ . If the strategy calls for a portfolio of  $n_1$  units of  $B_1.Q_1$  and  $n_2$  units of  $B_2.Q_2$ , the daily return (in the presumed local currency of USD) of the portfolio is given by the same Equation 5.1. The  $r_i$  there will be the return of  $B_i.Q_i$ , so Equation 5.2 is replaced by
 
-$$r_i(t+1) = \{ \log (y_{i,Q_i}(t+1)) - \log (y_{i,Q_i}(t)) \}$$
- (5.5)
+$$r_i(t+1) = \{ \log (y_{i,Q_i}(t+1)) - \log (y_{i,Q_i}(t)) \} \qquad (5.5)$$
 
 where  $y_{i,Qi}(t)$  is the quote for  $B_i.Q_i$ . The same equations, 5.1 through 5.5, are valid if we had used EUR or any other currency instead of USD as the local currency for computing returns.
 
@@ -108,8 +103,7 @@ A feature of trading currency cross-rate is the diff erential interest rate earn
 
 When we calculate the Sharpe ratio for any strategy, we need to calculate the excess return, because the Sharpe ratio is the ratio of the average excess return divided by the standard deviation of the excess returns, suitably annualized. The excess return is the return of the positions that the strategy holds minus the fi nancing cost of those positions. So if we have only intraday positions, the fi nancing cost is zero. If we are trading a long-short dollar neutral equity portfolio, we can assume the fi nancing cost is close to zero, even though the credit interest is usually slightly less than the absolute value of the debit interest. For futures positions, the fi nancing cost is also zero, because futures positions are just contracts, not assets that require cash to fi nance. (We do not count the margin cash requirement, since that cash generates interest in the account.) In the case of currency cross-rates, we can again set the fi nancing cost to be zero, as long as we are careful to add the rollover interest to the percent change of the cross-rate. That is, we need to modify Equation 5.5 so that the excess return *rt*+1 from holding a cross-rate position *POSB.Q* from day *t* to day *t* + 1 is
 
-$$r(t+1) = \{ \log (y_{B,Q}(t+1)) - \log (y_{B,Q}(t)) + \log (1 + i_B(t)) - \log (1 + i_Q(t)) \}$$
-(5.6)
+$$r(t+1) = \{ \log (y_{B,Q}(t+1)) - \log (y_{B,Q}(t)) + \log (1 + i_B(t)) - \log (1 + i_Q(t)) \} \qquad (5.6)$$
 
 where *y*(*t*) and *y*(*t* + 1) are the quotes for BQ at *t* and *t* + 1, respectively (Dueker, 2006).
 
@@ -181,26 +175,23 @@ I can never remember whether backwardation means near contracts have higher or l
 
 To calculate the spot and roll returns for a set of futures contracts, it is helpful to have a simple model of futures prices. For many commodities, we can write
 
-$$F(t, T) = S(t)exp(\gamma(t - T))$$
-(5.7)
+$$F(t, T) = S(t)\exp(\gamma(t - T)) \qquad (5.7)$$
 
 where *t* is the current time, *T* is the expiration time, and *S*(*t*) is the spot price (Hull, 1997). This model implies that the (compounded) roll return γ is constant over time. But we can take a step further, and assume that the (compounded) spot return α is also constant:
 
-$$S(t) = c e^{\alpha t} (5.8)$$
+$$S(t) = c e^{\alpha t} \qquad (5.8)$$
 
 Essentially, we want to mathematically describe those lines in Figures 5.2 and 5.3, with the slight modifi cation that they terminate not on a horizontal line, but one that has a nonzero slope. So the model we adopt for the price of a future that matures at time *T* is
 
-$$F(t, T) = c e^{\alpha t} exp(\gamma(t - T))$$
-(5.9)
+$$F(t, T) = c e^{\alpha t} \exp(\gamma(t - T)) \qquad (5.9)$$
 
 where *c*, α, and γ are constants. The total return of a contract is given by
 
-$$\partial(\log F(t, T))/\partial t = \alpha + \gamma$$
- (5.10)
+$$\frac{\partial(\log F(t, T))}{\partial t} = \alpha + \gamma \qquad (5.10)$$
 
 since *T* is fi xed for a specifi c contract. Finally, the roll return of the futures is given by
 
-$$-\partial(\log F(t, T))/\partial T = \gamma \tag{5.11}$$
+$$-\frac{\partial(\log F(t, T))}{\partial T} = \gamma \qquad (5.11)$$
 
 Hence, we have mathematically captured the notion that *total return* = *spot return* + *roll return*.
 
@@ -435,8 +426,7 @@ We choose to compute the regression coeffi cients only for the fi rst 500 days o
 
 The linear relationship is shown in Equation 5.11.
 
-$$ES \times 50 = -0.3906 \times VX \times 1,000 + $77,150$$
- (5.11)
+$$ES \times 50 = -0.3906 \times VX \times 1,000 + 77,150 \qquad (5.11)$$
 
 where ES and VX are their re spective futures (settlement) prices. The standard deviation of the residues is \$2,047. This means that a portfolio that is long 0.3906 contracts of VX and long one contract of ES should be stationary, as a plot (Figure 5.11) of this portfolio's market value would convince us.
 

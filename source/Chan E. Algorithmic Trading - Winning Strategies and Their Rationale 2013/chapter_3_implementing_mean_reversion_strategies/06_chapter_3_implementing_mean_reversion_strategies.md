@@ -14,23 +14,21 @@ In presenting the backtests of any strategy in this book, we do not include tran
 
 In constructing a portfolio for mean reversion trading in Chapter 2, we simply used the market value of the "unit" portfolio as the trading signal. This market value or price is just the weighted sums of the constituent price series, where the weights are the hedge ratios we found from linear regression or from the eigenvectors of the Johansen test:
 
-$$y = h_1 y_1 + h_2 y_2 + \dots + h_n y_n$$
- (3.1)
+$$y = h_1 y_1 + h_2 y_2 + \dots + h_n y_n \qquad (3.1)$$
 
 *y* is, by construction, a stationary time series, and the *hi* 's tell us the number of shares of each constituent stock (assuming we are trading a stock portfolio). In the case of just two stocks, this reduces to a spread familiar to many pair traders:
 
-$$y = y_1 - hy_2. (3.2)$$
+$$y = y_1 - h y_2 \qquad (3.2)$$
 
 (We inserted a minus sign in Equation 3.2 to anticipate the fact that we will usually be long one stock and short another, so that *h* as defi ned this way will be positive.) Suppose instead of price series, we fi nd that the log of prices are cointegrating, such that
 
-$$\log(q) = h_1 \log(y_1) + h_2 \log(y_2) + \dots + h_n \log(y_n)$$
- (3.3)
+$$\log(q) = h_1 \log(y_1) + h_2 \log(y_2) + \dots + h_n \log(y_n) \qquad (3.3)$$
 
 is stationary for some set of *h*'s derived from either a regression fi t or Johansen's eigenvectors. How do we interpret this equation, since *q* (for "query") is just a name given to a stationary time series that may or may not be the market value of a portfolio? To fi nd out its properties, let's take its fi rst difference in time:
 
-$$\Delta \log(q) = h_1 \Delta \log(y_1) + h_2 \Delta \log(y_2) + \dots + h_n \Delta \log(y_n). \tag{3.4}$$
+$$\Delta \log(q) = h_1 \Delta \log(y_1) + h_2 \Delta \log(y_2) + \dots + h_n \Delta \log(y_n) \qquad (3.4)$$
 
-Remembering that Δ *log* (*x*) ≡ *log* (*x*(*t*)) − *log* (*x* (*t*− 1)) =*log* (*x*(*t*)/*x*(*t*− 1)) ≈ Δ *x*/*x* for small changes in *x*, the right hand side of Equation 3.4 becomes *h*1<sup>Δ</sup> *y*1/*y*<sup>1</sup> + *h*2<sup>Δ</sup> *y*2/*y*<sup>2</sup> + … + *hn* <sup>Δ</sup> *yn*/*yn*, which is none other than the returns of a portfolio consisting of the *n* assets with weights *h*'s. But unlike the hedge ratio *h*'s in Equation 3.1 where they referred to the number of shares of each asset, here we can set the market value of each asset to *h*. So we can interpret *q* as the market value of a portfolio of assets with prices *y*1, *y*2, …, *yn* and with constant capital weights *h*1, *h*2, …, *hn*, together with a cash component implicitly included, and this market value will form a stationary time series. Note that a cash component must be implicitly included in the portfolio *q* because if the capital weights *h*'s are kept constant, there is no other way that the market value of the portfolio can vary with time. This cash does not show up in Equation 3.4 because its market value, of course, doesn't change from *t* − 1 to *t* as a result of market movement, but its value will change at *t* when the trader rebalances the portfolio to maintain the constancy of the capital weights, realizing some of the gains or losses, and adding to or subtracting from the cash balance. So to keep the market value of this portfolio stationary (but not constant!) requires a lot of work for the traders, as they need to constantly rebalance the portfolio, which is necessitated by using the log of prices.
+Remembering that $\Delta \log(x) \equiv \log(x(t)) - \log(x(t-1)) = \log(x(t)/x(t-1)) \approx \Delta x/x$ for small changes in $x$, the right hand side of Equation 3.4 becomes $h_1 \Delta y_1/y_1 + h_2 \Delta y_2/y_2 + \dots + h_n \Delta y_n/y_n$, which is none other than the returns of a portfolio consisting of the $n$ assets with weights $h$'s. But unlike the hedge ratio $h$'s in Equation 3.1 where they referred to the number of shares of each asset, here we can set the market value of each asset to $h$. So we can interpret $q$ as the market value of a portfolio of assets with prices $y_1, y_2, \dots, y_n$ and with constant capital weights $h_1, h_2, \dots, h_n$, together with a cash component implicitly included, and this market value will form a stationary time series. Note that a cash component must be implicitly included in the portfolio $q$ because if the capital weights $h$'s are kept constant, there is no other way that the market value of the portfolio can vary with time. This cash does not show up in Equation 3.4 because its market value, of course, doesn't change from $t - 1$ to $t$ as a result of market movement, but its value will change at $t$ when the trader rebalances the portfolio to maintain the constancy of the capital weights, realizing some of the gains or losses, and adding to or subtracting from the cash balance. So to keep the market value of this portfolio stationary (but not constant!) requires a lot of work for the traders, as they need to constantly rebalance the portfolio, which is necessitated by using the log of prices.
 
 The upshot of all these is that mean reversion trading using price spreads is simpler than using log price spreads, but both can be theoretically justifi ed if both price and log price series are cointegrating. But what about the ratio of prices *y*1/*y*2 that many traders favor as the signal for a pair? If we look at Equation 3.1 in the case of just two price series, we notice that if *h*<sup>1</sup> = −*h*2, then indeed log( *y*1/*y*2) or *y*1/*y*2 is stationary. But this is a special case: We normally don't expect the hedge ratios to be equal in magnitude, or equal to −1 if we normalize them. So the ratio *y*1/*y*2 does not necessarily form a stationary series. But as one reader mentioned, using ratios may have an advantage when the underlying pair is not truly cointegrating ([http://epchan.blogspot](http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894) [.com/2012/02/ideas-from-psychologist.html?showComment](http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894)=132980 [1874131#c3278677864367113894\). Su](http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894)ppose price A = \$10 and price B = \$5 initially, so the ratio is 2. After some time, price A increases to \$100 and price B to \$50. The spread has gone from \$5 to \$50, and we will probably fi nd that it is not stationary. But the ratio remains 2, and a mean-reverting strategy that trades based on ratio can be equally eff ective whether their prices are \$10 versus \$5 or \$100 versus \$50. In other words, if your two assets are not really cointegrating but you believe their spread is still mean reverting on a short time frame, then using ratio as an indicator may work better than either price spreads or log price spreads. (This is the same idea as using moving average and standard deviation in our linear mean-reverting strategy.)
 
@@ -221,15 +219,13 @@ This is actually the only creative part of the application because once these qu
 
 In our application where the focus is to fi nd the hedge ratio and the average mean and volatility of the spread, the *observable variable* is one of the price series *y*, and the *hidden variable* is the hedge ratio β. The linear function that relates *y* and β is, of course,
 
-$$y(t) = x(t) \beta(t) + \epsilon(t),$$
- ("Measurement equation") (3.5)
+$$y(t) = x(t) \beta(t) + \epsilon(t) \qquad \text{("Measurement equation")} \qquad (3.5)$$
 
 where *x* is the price series of the other asset, and <sup>∋</sup> is a Gaussian noise with variance *V* <sup>∋</sup>. As we typically allow the spread between *x* and *y* to have a nonzero mean, we will use a 2 × 1 vector β to denote both the intercept μ and the slope of the linear relation between *x* and *y*, and we will augment *x*(*t*) with a column vector of ones to create an *N* × 2 array to allow for the constant off set between *x* and *y*. *x* actually serves as the *observation model* in the Kalman fi lter lingo.
 
 It may seem strange that we regard only *y*(*t*) as an observable but not *x*(*t*), but this is just a mathematical trick, as every variable in the Kalman fi lter equations is observable except for the hidden variable and the noises, and so we have the freedom to designate which variable is *the* "observable" (*y*) and which one is the "observation model" (*x*). Next, we make a crucial assumption that the regression coeffi cient (our hidden variable) at time *t* is the same as that at time *t* − 1 plus noise
 
-$$\beta(t) = \beta(t-1) + \omega(t-1), \qquad \text{("State transition")}$$
- (3.6)
+$$\beta(t) = \beta(t-1) + \omega(t-1) \qquad \text{("State transition")} \qquad (3.6)$$
 
 where ω is also a Gaussian noise but with covariance *V*ω. In other words, the *state transition model* here is just the identity matrix.
 
@@ -245,29 +241,25 @@ Actually, besides the iterative equations, we also need to specify the (co) vari
 
 We denote the expected value of β at t given observation at t − 1 by βˆ (t | t − 1), the expected value of β given observation at t by βˆ (t | t), and the expected value of y(t) given the observation at t − 1 by yˆ (t | t − 1). Given the quantities βˆ (t − 1 | t − 1) and R(t − 1 | t − 1) at time t − 1, we can make the one-step predictions
 
-$$\hat{\beta}(t|t-1) = \hat{\beta}(t-1|t-1) \qquad \text{("State prediction")} \tag{3.7}$$
+$$\hat{\beta}(t|t-1) = \hat{\beta}(t-1|t-1) \qquad \text{("State prediction")} \qquad (3.7)$$
 
 $$R(t|t-1) = R(t-1|t-1) + V_w \qquad \text{("State covariance prediction")} \qquad (3.8)$$
 
-$$\hat{y}(t) = x(t)\hat{\beta}(t|t-1)$$
- ("Measurement prediction") (3.9)
+$$\hat{y}(t) = x(t)\hat{\beta}(t|t-1) \qquad \text{("Measurement prediction")} \qquad (3.9)$$
 
-$$Q(t) = x(t)'R(t|t-1)x(t) + V_e$$
- ("Measurement variance prediction") (3.10)
+$$Q(t) = x(t)'R(t|t-1)x(t) + V_e \qquad \text{("Measurement variance prediction")} \qquad (3.10)$$
 
 where R(t | t − 1) is cov(β(t) − βˆ (t | t − 1)), measuring the covariance of the error of the hidden variable estimates. (It is a covariance instead of a variance because β has two independent components.) Similarly, R(t | t) is cov(β(t) − βˆ (t | t)). Remembering that the hidden variable consists of both the mean of the spread as well as the hedge ratio, R is a 2 × 2 matrix. e(t) = y(t) − x(t)βˆ (t | t − 1) is the forecast error for y(t) given observation at t − 1, and Q(t) is var(e(t)), measuring the variance of the forecast error.
 
 After observing the measurement at time t, the famous Kalman fi lter state estimate update and covariance update equations are
 
-$$\hat{\beta}(t|t) = \hat{\beta}(t|t-1) + K(t) * e(t)$$
- ("State update") (3.11)
+$$\hat{\beta}(t|t) = \hat{\beta}(t|t-1) + K(t) * e(t) \qquad \text{("State update")} \qquad (3.11)$$
 
-R(t| t) = R(t| t − 1) − K(t) \* x(t) \* R(t| t − 1) ("State covariance update") (3.12)
+$$R(t| t) = R(t| t - 1) - K(t) * x(t) * R(t| t - 1) \qquad \text{("State covariance update")} \qquad (3.12)$$
 
 where K(t) is called the Kalman gain and is given by
 
-$$K(t) = R(t \mid t - 1) * x(t)/Q(t)$$
- (3.13)
+$$K(t) = \frac{R(t \mid t - 1) * x(t)}{Q(t)} \qquad (3.13)$$
 
  To start off these recursions, we assume βˆ (1 | 0) = 0, R(0 | 0) = 0. But what about Vw and Ve? There is a method to estimate these variances from data called autocovariance least squares developed by Rajamani and Rawlings (2007, 2009). There is even a free Matlab/Octave package for implementing (Continued )
 
@@ -371,35 +363,31 @@ Instead of coding the Kalman fi lter yourself as we demonstrated, you can also u
 
 There is another noteworthy application of Kalman fi lter to a meanreverting strategy. In this application we are concerned with only one mean-reverting price series; we are not concerned with fi nding the hedge ratio between two cointegrating price series. However, as before, we still want to fi nd the mean price and the standard deviation of the price series for our mean reversion trading. So the mean price *m*(*t*) is the hidden variable here, and the price *y*(*t*) is the observable variable. The measurement equation in this case is trivial:
 
-$$y(t) = m(t) + \epsilon(t)$$
-, ("Measurement equation") (3.14)
+$$y(t) = m(t) + \epsilon(t) \qquad \text{("Measurement equation")} \qquad (3.14)$$
 
 with the same state transition equation
 
-$$m(t) = m(t-1) + \omega(t-1).$$
- ("State transition") (3.15)
+$$m(t) = m(t-1) + \omega(t-1) \qquad \text{("State transition")} \qquad (3.15)$$
 
 So the state update equation 3.11 is just
 
-$$m(t \mid t) = m(t \mid t-1) + K(t)(y(t) - m(t \mid t-1))$$
-. ("State update") (3.16)
+$$m(t \mid t) = m(t \mid t-1) + K(t)(y(t) - m(t \mid t-1)) \qquad \text{("State update")} \qquad (3.16)$$
 
 (This may be the time to review Box 3.1 if you skipped it on fi rst reading.) The variance of the forecast error is
 
-$$Q(t) = Var(m(t)) + V_e. (3.17)$$
+$$Q(t) = \text{Var}(m(t)) + V_e \qquad (3.17)$$
 
 The Kalman gain is
 
-$$K(t) = R(t \mid t - 1) / (R(t \mid t - 1) + V_e), \tag{3.18}$$
+$$K(t) = \frac{R(t \mid t - 1)}{R(t \mid t - 1) + V_e} \qquad (3.18)$$
 
 and the state variance update is
 
-$$R(t \mid t) = (1 - K(t))R(t \mid t - 1). \tag{3.19}$$
+$$R(t \mid t) = (1 - K(t))R(t \mid t - 1) \qquad (3.19)$$
 
 Why are these equations worth highlighting? Because this is a favorite model for market makers to update their estimate of the mean price of an asset, as Euan Sinclair pointed out (Sinclair, 2010). To make these equations more practical, practitioners make further assumptions about the measurement error  $V_e$ , which, as you may recall, measures the uncertainty of the observed transaction price. But how can there be uncertainty in the observed transaction price? It turns out that we can interpret the uncertainty in such a way that if the trade size is large (compared to some benchmark), then the uncertainty is small, and vice versa. So  $V_e$  in this case becomes a function of t as well. If we denote the trade size as T and the benchmark trade size as  $T_{max}$ , then  $V_e$  can have the form
 
-$$V_e = R(t \mid t - 1) \left(\frac{T}{T_{max}} - 1\right)$$
- (3.20)
+$$V_e = R(t \mid t - 1) \left(\frac{T}{T_{max}} - 1\right) \qquad (3.20)$$
 
 So you can see that if  $T=T_{max}$ , there is no uncertainty in the observed price, and the Kalman gain is 1, and hence the new estimate of the mean price m(t) is exactly equal to the observed price! But what should  $T_{max}$  be? It can be some fraction of the total trading volume of the previous day, for example, where the exact fraction is to be optimized with some training data.
 

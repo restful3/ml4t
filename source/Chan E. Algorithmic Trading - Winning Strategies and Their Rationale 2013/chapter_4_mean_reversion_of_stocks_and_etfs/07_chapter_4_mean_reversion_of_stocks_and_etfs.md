@@ -245,7 +245,7 @@ One interesting feature of cross-sectional strategies is that, in contrast to "t
 
 I described in my previous book just such a strategy proposed by Khandani and Lo (Example 3.7 of Chan, 2009; original paper is Khandani and Lo, 2007). With this strategy, we invest in every stock from some favorite index such as S&P 500, S&P 1500, or Russell 2000, but with diff erent capital allocation per stock. Near the market close of each day, we will determine the long or short capital *wi* allocated to the *i th* stock as
 
-$$w_i = -(r_i - \langle r_j \rangle) / \sum_k |r_k - \langle r_j \rangle| \tag{4.1}$$
+$$w_i = -\frac{r_i - \langle r_j \rangle}{\sum_k |r_k - \langle r_j \rangle|} \qquad (4.1)$$
 
 where *ri* is the daily return of the *i th* stock, and 〈*rj* 〉 is the average daily return of all the stocks in the index. In other words, if a stock has a very positive return relative to its peers, we will short lots of it, and if it has a very negative return relative to its peers, we will buy lots of it. Note that we always invest the same total gross capital of \$1 to the portfolio every day because of the normalization factor in the denominator. The MATLAB code fragment for this is displayed in Example 4.3.
 

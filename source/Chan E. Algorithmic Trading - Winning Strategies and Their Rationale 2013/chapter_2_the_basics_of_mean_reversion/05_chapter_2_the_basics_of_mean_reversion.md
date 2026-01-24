@@ -22,7 +22,7 @@ Mean reversion and stationarity are two equivalent ways of looking at the same t
 
 The mathematical description of a mean-reverting price series is that the change of the price series in the next period is proportional to the diff erence between the mean price and the current price. This gives rise to the ADF test, which tests whether we can reject the null hypothesis that the proportionality constant is zero.
 
-However, the mathematical description of a stationary price series is that the variance of the log of the prices increases slower than that of a geometric random walk. That is, their variance is a sublinear function of time, rather than a linear function, as in the case of a geometric random walk. This sublinear function is usually approximated by τ<sup>2</sup>*H,* where τ is the time separating two price measurements, and *H* is the so-called Hurst exponent, which is less than 0.5 if the price series is indeed stationary (and equal to 0.5 if the price series is a geometric random walk). The Variance Ratio test can be used to see whether we can reject the null hypothesis that the Hurst exponent is actually 0.5.
+However, the mathematical description of a stationary price series is that the variance of the log of the prices increases slower than that of a geometric random walk. That is, their variance is a sublinear function of time, rather than a linear function, as in the case of a geometric random walk. This sublinear function is usually approximated by $\tau^2 H$, where $\tau$ is the time separating two price measurements, and $H$ is the so-called Hurst exponent, which is less than 0.5 if the price series is indeed stationary (and equal to 0.5 if the price series is a geometric random walk). The Variance Ratio test can be used to see whether we can reject the null hypothesis that the Hurst exponent is actually 0.5.
 
 Note that stationarity is somewhat of a misnomer: It doesn't mean that the prices are necessarily range bound, with a variance that is independent of time and thus a Hurst exponent of zero. It merely means that the variance increases slower than normal diff usion.
 
@@ -36,7 +36,7 @@ We can describe the price changes using a linear model:
 
 $$\Delta y(t) = \lambda y(t-1) + \mu + \beta t + \alpha_1 \Delta y(t-1) + \dots + \alpha_k \Delta y(t-k) + \epsilon_t \qquad (2.1)$$
 
-where Δ*y*(*t*) ≡ *y*(*t*) − *y*(*t* − 1), Δ*y*(*t* − 1) ≡ *y*(*t* − 1) − *y*(*t* − 2), and so on. The ADF test will fi nd out if λ = 0. If the hypothesis λ = 0 can be rejected, that means the next move Δ*y*(*t*) depends on the current level *y*(*t* − 1), and therefore it is not a random walk. The test statistic is the regression coeffi cient λ (with *y*(*t* − 1) as the independent variable and Δ*y*(*t*) as the dependent variable) divided by the standard error of the regression fi t: λ/SE(λ). The statisticians Dickey and Fuller have kindly found out for us the distribution of this test statistic and tabulated the critical values for us, so we can look up for any value of λ/SE(λ) whether the hypothesis can be rejected at, say, the 95 percent probability level.
+where $\Delta y(t) \equiv y(t) - y(t - 1)$, $\Delta y(t - 1) \equiv y(t - 1) - y(t - 2)$, and so on. The ADF test will fi nd out if $\lambda = 0$. If the hypothesis $\lambda = 0$ can be rejected, that means the next move $\Delta y(t)$ depends on the current level $y(t - 1)$, and therefore it is not a random walk. The test statistic is the regression coeffi cient $\lambda$ (with $y(t - 1)$ as the independent variable and $\Delta y(t)$ as the dependent variable) divided by the standard error of the regression fi t: $\lambda/\text{SE}(\lambda)$. The statisticians Dickey and Fuller have kindly found out for us the distribution of this test statistic and tabulated the critical values for us, so we can look up for any value of $\lambda/\text{SE}(\lambda)$ whether the hypothesis can be rejected at, say, the 95 percent probability level.
 
 Notice that since we expect mean regression, λ/SE(λ) has to be negative, and it has to be more negative than the critical value for the hypothesis to be rejected. The critical values themselves depend on the sample size and whether we assume that the price series has a non-zero mean −μ/λ or a steady drift −β*t*/λ. In practical trading, the constant drift in price, if any, tends to be of a much smaller magnitude than the daily fl uctuations in price. So for simplicity we will assume this drift term to be zero (β = 0).
 
@@ -75,26 +75,23 @@ prt(results);
 
 Intuitively speaking, a "stationary" price series means that the prices diff use from its initial value more slowly than a geometric random walk would. Mathematically, we can determine the nature of the price series by measuring this speed of diff usion. The speed of diff usion can be characterized by the variance
 
-$$Var(\tau) = \langle |z(t+\tau) - z(t)|^2 \rangle$$
- (2.2)
+$$\text{Var}(\tau) = \langle |z(t+\tau) - z(t)|^2 \rangle \qquad (2.2)$$
 
-where *z* is the log prices (*z* = *log*( *y*)), <sup>τ</sup> is an arbitrary time lag, and 〈…〉 is an average over all *t*'s. For a geometric random walk, we know that
+where $z$ is the log prices ($z = \text{log}(y)$), $\tau$ is an arbitrary time lag, and $\langle \dots \rangle$ is an average over all $t$'s. For a geometric random walk, we know that
 
-$$\langle |z(t+\tau) - z(t)|^2 \rangle \sim \tau$$
- (2.3)
+$$\langle |z(t+\tau) - z(t)|^2 \rangle \sim \tau \qquad (2.3)$$
 
-The ∼ means that this relationship turns into an equality with some proportionality constant for large τ, but it may deviate from a straight line for small τ. But if the (log) price series is mean reverting or trending (i.e., has positive correlations between sequential price moves), Equation 2.3 won't hold. Instead, we can write:
+The $\sim$ means that this relationship turns into an equality with some proportionality constant for large $\tau$, but it may deviate from a straight line for small $\tau$. But if the (log) price series is mean reverting or trending (i.e., has positive correlations between sequential price moves), Equation 2.3 won't hold. Instead, we can write:
 
-$$\langle |z(t+\tau) - z(t)|^2 \rangle \sim \tau^{2H}$$
- (2.4)
+$$\langle |z(t+\tau) - z(t)|^2 \rangle \sim \tau^{2H} \qquad (2.4)$$
 
-where we have defined the Hurst exponent H. For a price series exhibiting geometric random walk, H = 0.5. But for a mean-reverting series, H < 0.5, and for a trending series, H > 0.5. As H decreases toward zero, the price series is more mean reverting, and as H increases toward 1, the price series is increasingly trending; thus, H serves also as an indicator for the degree of mean reversion or trendiness.
+where we have defined the Hurst exponent $H$. For a price series exhibiting geometric random walk, $H = 0.5$. But for a mean-reverting series, $H < 0.5$, and for a trending series, $H > 0.5$. As $H$ decreases toward zero, the price series is more mean reverting, and as $H$ increases toward 1, the price series is increasingly trending; thus, $H$ serves also as an indicator for the degree of mean reversion or trendiness.
 
 In Example 2.2, we computed the Hurst exponent for the same currency rate series USD.CAD that we used in the previous section using the MATLAB code. It generates an H of 0.49, which suggests that the price series is weakly mean reverting.
 
 #### **Example 2.2: Computing the Hurst Exponent**
 
-Using the same USD.CAD price series in the previous example, we now compute the Hurst exponent using a function called *genhurst* we can download from MATLAB Central (www.mathworks.com /matlabcentral/fileexchange/30076-generalized-hurst-exponent). This function computes a generalized version of the Hurst exponent defined by  $\langle |z(t+\tau)-z(t)|^{2q} \rangle \sim \tau^{2H(q)}$ , where q is an arbitrary number. But here we are only interested in q=2, which we specify as the second input parameter to *genhurst*.
+Using the same USD.CAD price series in the previous example, we now compute the Hurst exponent using a function called *genhurst* we can download from MATLAB Central (www.mathworks.com /matlabcentral/fileexchange/30076-generalized-hurst-exponent). This function computes a generalized version of the Hurst exponent defined by $\langle |z(t+\tau)-z(t)|^{2q} \rangle \sim \tau^{2H(q)}$, where $q$ is an arbitrary number. But here we are only interested in $q=2$, which we specify as the second input parameter to *genhurst*.
 
 ```
 H=genhurst(log(y), 2);
@@ -106,7 +103,7 @@ Because of finite sample size, we need to know the statistical significance and 
 
 The Variance Ratio Test simply tests whether
 
-$$\frac{Var(z(t)-z(t-\tau))}{\tau Var(z(t)-z(t-1))}$$
+$$\frac{\text{Var}(z(t)-z(t-\tau))}{\tau \text{Var}(z(t)-z(t-1))}$$
 
 is equal to 1. There is another ready-made MATLAB Econometrics Toolbox function *vratiotest* for this, whose usage I demonstrate in Example 2.3.
 
@@ -124,14 +121,13 @@ The statistical tests I described for mean reversion or stationarity are very de
 
 To reveal this new interpretation, it is only necessary to transform the discrete time series Equation 2.1 to a diff erential form so that the changes in prices become infi nitesimal quantities. Furthermore, if we ignore the drift (β*t*) and the lagged diff erences (Δ*y*(*t* − 1), …, Δ*y*(*t* − *k*)) in Equation 2.1, then it becomes recognizable in stochastic calculus as the Ornstein-Uhlenbeck formula for mean-reverting process:
 
-$$dy(t) = (\lambda y(t-1) + \mu)dt + d\varepsilon \tag{2.5}$$
+$$dy(t) = (\lambda y(t-1) + \mu)dt + d\varepsilon \qquad (2.5)$$
 
 where *d*ε is some Gaussian noise. In the discrete form of 2.1, linear regression of Δ*y*(*t*) against *y*(*t* − 1) gave us λ, and once determined, this value of λ carries over to the diff erential form of 2.5. But the advantage of writing the equation in the diff erential form is that it allows for an analytical solution for the expected value of *y*(*t*):
 
-$$E(y(t)) = y_0 exp(\lambda t) - \mu/\lambda (1 - exp(\lambda t))$$
-(2.6)
+$$E(y(t)) = y_0 \exp(\lambda t) - \frac{\mu}{\lambda} (1 - \exp(\lambda t)) \qquad (2.6)$$
 
-Remembering that λ is negative for a mean-reverting process, this tells us that the expected value of the price decays exponentially to the value −μ/λ with the half-life of decay equals to −*log*(2)/λ. This connection between a regression coeffi cient λ and the half-life of mean reversion is very useful to traders. First, if we fi nd that λ is positive, this means the price series is not at all mean reverting, and we shouldn't even attempt to write a meanreverting strategy to trade it. Second, if λ is very close to zero, this means the half-life will be very long, and a mean-reverting trading strategy will not be very profi table because we won't be able to complete many round-trip trades in a given time period. Third, this λ also determines a natural time scale for many parameters in our strategy. For example, if the half life is 20 days, we shouldn't use a look-back of 5 days to compute a moving average or standard deviation for a mean-reversion strategy. Often, setting the lookback to equal a small multiple of the half-life is close to optimal, and doing so will allow us to avoid brute-force optimization of a free parameter based on the performance of a trading strategy. We will demonstrate how to compute half-life in Example 2.4.
+Remembering that $\lambda$ is negative for a mean-reverting process, this tells us that the expected value of the price decays exponentially to the value $-\mu/\lambda$ with the half-life of decay equals to $-\text{log}(2)/\lambda$. This connection between a regression coeffi cient $\lambda$ and the half-life of mean reversion is very useful to traders. First, if we fi nd that $\lambda$ is positive, this means the price series is not at all mean reverting, and we shouldn't even attempt to write a meanreverting strategy to trade it. Second, if $\lambda$ is very close to zero, this means the half-life will be very long, and a mean-reverting trading strategy will not be very profi table because we won't be able to complete many round-trip trades in a given time period. Third, this $\lambda$ also determines a natural time scale for many parameters in our strategy. For example, if the half life is 20 days, we shouldn't use a look-back of 5 days to compute a moving average or standard deviation for a mean-reversion strategy. Often, setting the lookback to equal a small multiple of the half-life is close to optimal, and doing so will allow us to avoid brute-force optimization of a free parameter based on the performance of a trading strategy. We will demonstrate how to compute half-life in Example 2.4.
 
 #### **Example 2.4: Computing Half-Life for Mean Reversion**
 
@@ -256,7 +252,7 @@ We fi nd that the ADF test statistic is about –3.64, certainly more negative t
 
 In order to test for cointegration of more than two variables, we need to use the Johansen test. To understand this test, let's generalize Equation 2.1 to the case where the price variable *y*(*t*) are actually vectors representing multiple price series, and the coeffi cients λ and α are actually matrices. (Because I do not think it is practical to allow for a constant drift in the price of a stationary portfolio, we will assume β*t* = 0 for simplicity.) Using English and Greek capital letters to represent vectors and matrices respectively, we can rewrite Equation 2.1 as
 
-$$\Delta Y(t) = \Lambda Y(t-1) + M + A_1 \Delta Y(t-1) + \dots + A_k \Delta Y(t-k) + \epsilon_t \quad (2.7)$$
+$$\Delta Y(t) = \Lambda Y(t-1) + M + A_1 \Delta Y(t-1) + \dots + A_k \Delta Y(t-k) + \epsilon_t \qquad (2.7)$$
 
 Just as in the univariate case, if Λ = 0, we do not have cointegration. (Recall that if the next move of *Y* doesn't depend on the current price level, there can be no mean reversion.) Let's denote the rank (remember this quaint linear algebraic term?) of Λ as *r,* and the number of price series *n.* The number of independent portfolios that can be formed by various linear combinations of the cointegrating price series is equal to *r.* The Johansen test will calculate *r* for us in two diff erent ways, both based on eigenvector decomposition of Λ. One test produces the so-called trace statistic, and other produces the eigen statistic. (A good exposition can be found in Sorensen, 2005.) We need not worry what they are exactly, since the jplv7 package will provide critical values for each statistic to allow us to test whether we can reject the null hypotheses that *r* = 0 (no cointegrating relationship), *r* ≤ 1, …, up to *r* ≤ *n* – 1. If all these hypotheses are rejected, then clearly we have *r* = *n.* As a useful by-product, the eigenvectors found can be used as our hedge ratios for the individual price series to form a stationary portfolio. We show how to run this test on the EWA-EWC pair in Example 2.7, where we fi nd that the Johansen test confi rms the CADF test's conclusion that this pair is cointegrating. But, more interestingly, we add another ETF to the mix: IGE, an ETF consisting of natural resource stocks. We will see how many cointegrating relations can be found from these three price series. We also use the eigenvectors to form a stationary portfolio, and fi nd out its half-life for mean reversion.
 

@@ -291,8 +291,7 @@ Researchers Coval and Stafford (2007) found that mutual funds experiencing large
 
 A factor can be constructed to measure the selling (buying) pressure on a stock based on the net percentage of funds holding them that experienced redemptions (inflows). More precisely,
 
-$$= \frac{\sum_{j} (Buy(j,i,t) | flow(j,t) > 5\%) - \sum_{j} (Sell(j,i,t) | flow(j,t) < -5\%)}{\sum_{j} Own(j,i,t-1)}$$
-(6.1)
+$$\text{PRESSURE}(i, t) = \frac{\sum_{j} (\text{Buy}(j,i,t) | \text{flow}(j,t) > 5\%) - \sum_{j} (\text{Sell}(j,i,t) | \text{flow}(j,t) < -5\%)}{\sum_{j} \text{Own}(j,i,t-1)} \qquad (6.1)$$
 
 where *PRESSURE*(*i*, *t*) is the factor for stock *i* at the end of quarter *t*, *Buy*( *j*, *i*, *t*) = 1 if fund *j* increased its holding in stock *i* during the quarter *t* and if the fund experienced infl ows greater than 5 percent of its net asset value (NAV) ("*fl ow*( *j*, *t*) > 5%"), and zero otherwise. *Sell*( *j*, *i*, *t*) is similarly defi ned for decreases in holdings, and ∑*<sup>j</sup> Own*( *j*, *i*, *t* − 1) is the total number of mutual funds holding stock *i* the beginning of quarter *t*.
 

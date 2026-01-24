@@ -36,7 +36,7 @@ Many analysts believe that this "selling into losses" feature of the risk manage
 
 If one assumes that the probability distribution of returns is Gaussian, the Kelly formula gives us a very simple answer for optimal leverage *f:* 
 
-$$f = m / s^2, \tag{8.1}$$
+$$f = m / s^2 \qquad (8.1)$$
 
 where *m* is the mean excess return, and *s* 2 is the variance of the excess returns.
 
@@ -48,7 +48,7 @@ But just using Kelly optimal leverage as an upper bound can sometimes provide in
 
 There is another usage of the Kelly formula besides setting the optimal leverage: it also tells us how to optimally allocate our buying power to different portfolios or strategies. Let's denote F as a column vector of optimal leverages that we should apply to the different portfolios based on a common pool of equity. (For example, if we have \$1 equity, then  $F = [3.2 \ 1.5]^T$  means the first portfolio should have a market value of \$3.2 while the second portfolio should have a market value of \$1.5. The T signifies matrix transpose.) The Kelly formula says
 
-$$F = C^{-1}M \tag{8.2}$$
+$$F = C^{-1}M \qquad (8.2)$$
 
 where C is the covariance matrix of the returns of the portfolios and M is the mean excess returns of these portfolios.
 
@@ -64,8 +64,7 @@ When we have multiple portfolios or strategies, the Kelly formula says that we s
 
 Suppose we have two strategies, 1 and 2. Strategy 1 has annualized mean excess return and volatility of 30 percent and 26 percent, respectively. Strategy 2 has annualized mean excess return and volatility of 60 percent and 35 percent, respectively. Suppose further that their returns distributions are Gaussian, and that there is zero correlation between the returns of 1 and 2. So the Kelly leverages for them are 4.4 and 4.9, respectively, with a total gross leverage of 9.3. The annualized compounded growth rate is (Thorp, 1997)
 
-$$g = F^{T}CF/2 = 2.1,$$
- (8.3)
+$$g = F^{T}CF/2 = 2.1 \qquad (8.3)$$
 
 where we have also assumed that the risk-free rate is 0. Now, let's say our brokerage tells us that we are allowed a maximum leverage of 2.
 
@@ -75,8 +74,7 @@ where we have also assumed that the risk-free rate is 0. Now, let's say our brok
 
 So the leverages for the strategies have to be reduced to 0.95 and 1.05, respectively. The growth rate is now reduced to
 
-$$g = \sum_{i=1}^{2} (F_i M_i - F_i^2 s_i^2 / 2) = 0.82.$$
- (8.4)
+$$g = \sum_{i=1}^{2} (F_i M_i - F_i^2 s_i^2 / 2) = 0.82 \qquad (8.4)$$
 
 (Equation 8.3 for *g* applies only when the leverages used are optimal.)
 
@@ -88,7 +86,7 @@ paper and arrive at another optimal leverage, though the formula won't be as sim
 
 The expected value of the compounded growth rate as a function of the leverage *f* is (assuming for simplicity that the risk-free rate is zero)
 
-$$g(f) = \langle \log(1 + fR) \rangle, \tag{8.5}$$
+$$g(f) = \langle \log(1 + fR) \rangle \qquad (8.5)$$
 
 where 〈…〉 indicates an average over some random sampling of the unlevered return-per-bar *R*(*t*) of the strategy (not of the market prices) based on some probability distribution of *R*. (We typically use daily bars for *R*(*t*), but the bar can be as long or short as we please.) If this probability distribution is Gaussian, then *g*( *f* ) can be analytically reduced to *g*( *f* ) = *fm* − *f* <sup>2</sup> *m*2 /2, which is the same as Equation 8.4 in the single strategy case. Furthermore, the maxima of *g*( *f* ) can of course be analytically determined by taking the derivative of*g*( *f* ) with respect to*f* and setting it to zero. This will reproduce the Kelly formula in Equation 8.1 and will reproduce the maximum growth rate indicated by Equation 8.3 in the single strategy case. But this is not our interest here. We would like to compute Equation 8.5 using a non-Gaussian distribution of *R*.
 

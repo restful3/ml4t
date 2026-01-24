@@ -22,7 +22,7 @@ After being tested on a number of futures, this strategy proved to work best on 
 
 #### **Example 7.1: Opening Gap Strategy for FSTX**
 
-This code assumes the open, high, low, and close prices are contained in *T* × 1 arrays *op, hi, lo, cl.*It makes use of utilities function *smartMovingStd* and *backshift* available from epchan.com/book2.
+This code assumes the open, high, low, and close prices are contained in *T* × 1 arrays *op, hi, lo, cl.* It makes use of utilities function *smartMovingStd* and *backshift* available from epchan.com/book2.
 
 ```
 entryZscore=0.1;
