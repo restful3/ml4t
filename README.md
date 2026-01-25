@@ -33,7 +33,7 @@
 
 #### **2026년 2월 7일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m54999825444bdea65caae8a342000862)
 
-* 발표자 - TBD
+* 발표자 - 태영
 * **Chapter 2. 평균 회귀의 기초 (The Basics of Mean Reversion)**
     * 평균 회귀와 정상성(Stationarity) (ADF 검정, Hurst 지수)
     * 반감기(Half-Life)와 선형 매매 전략
@@ -47,7 +47,7 @@
 
 #### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
 
-* 발표자 - TBD
+* 발표자 - 태영
 * **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**
     * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
     * 볼린저 밴드 활용 및 실무적 전략 구현
