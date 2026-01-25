@@ -107,9 +107,3 @@
 > "알고리즘 트레이딩은 단순히 수학과 프로그래밍의 결합이 아니라, 시장 구조에 대한 깊은 이해와 통계적 엄밀함이 결합된 예술이다."
 
 ---
-
-<div align="center">
-
-Previous | [Table of Contents](README.md) | [Next >](chapter_1_backtesting_and_automated_execution/README.md)
-
-</div>
