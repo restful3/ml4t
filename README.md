@@ -24,7 +24,7 @@
 
 #### **2026년 1월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m12b923314420c81943b168ba0182f65e)
 
-* 발표자 - 핀조이이
+* 발표자 - 핀조이
 * **Chapter 1. 백테스팅 및 자동 실행 (Backtesting and Automated Execution)**
     * 백테스팅의 중요성과 실행 세부 사항
     * 주요 함정(Look-ahead, Data-snooping, Survivorship 편향)과 해결 방안
@@ -81,7 +81,7 @@
 
 #### **2026년 3월 21일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mf72ed58f53d4d744dd9e7bfa21a9c086)
 
-* 발표자 - TBD
+* 발표자 - 핀조이
 * **Chapter 7. 장중 모멘텀 전략 (Intraday Momentum Strategies)**
     * 시가 갭(Opening Gap) 전략 메커니즘
     * 뉴스 기반 모멘텀(PEAD) 및 레버리지 ETF 재조정 전략
