@@ -20,6 +20,7 @@ def main():
     
     bold_script = os.path.join(script_dir, "fix_multilingual_bold.py")
     latex_script = os.path.join(script_dir, "fix_github_latex.py")
+    code_blocks_script = os.path.join(script_dir, "fix_code_blocks.py")
     
     print(f"Formating file: {file_path}")
     
@@ -37,6 +38,13 @@ def main():
     except subprocess.CalledProcessError:
         print("LaTeX fixer failed.")
         
+    # Run Code Block Fixer
+    print(">>> Running Code Block Fixer...")
+    try:
+        subprocess.run([sys.executable, code_blocks_script, file_path], check=True)
+    except subprocess.CalledProcessError:
+        print("Code block fixer failed.")
+
     print("Formatting complete.")
 
 if __name__ == '__main__':

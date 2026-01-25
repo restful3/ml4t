@@ -179,7 +179,7 @@ Streambase와 같은 시세 통합기가 다른 거래소의 데이터 피드를
 
 *marketRet*가 TU의 관찰된 일일 수익률을 포함하는 Tx1 배열이라고 가정하면, 프로그램 조각은 아래에 표시됩니다. (이 테스트의 소스 코드는 [www.wiley.com/go/algotrading](http://www.wiley.com/go/algotrading)에서 *TU_mom_hypothesisTest.m*으로 다운로드할 수 있습니다.)
 
-```
+```matlab
 moments={mean(marketRet), std(marketRet), ...
  skewness(marketRet), kurtosis(marketRet)};
 numSampleAvgretBetterOrEqualObserved=0;
@@ -213,7 +213,7 @@ end
 
 세 번째 가설 검정은 백테스트에서와 동일한 수의 롱 거래와 숏 거래를 유지하면서 롱과 숏 진입 날짜를 무작위화하는 것을 포함합니다. 이는 MATLAB 함수 *randperm*으로 매우 쉽게 달성할 수 있습니다:
 
-```
+```matlab
 numSampleAvgretBetterOrEqualObserved=0;
 for sample=1:100000
     P=randperm(length(longs));
