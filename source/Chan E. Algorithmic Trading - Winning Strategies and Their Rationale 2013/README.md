@@ -8,14 +8,14 @@
 
 각 챕터의 상세 내용은 아래 링크를 클릭하여 확인할 수 있습니다.
 
-*   [**Chapter 1: Backtesting and Automated Execution**](./chapter_1_backtesting_and_automated_execution/README.md)
-*   [**Chapter 2: The Basics of Mean Reversion**](./chapter_2_the_basics_of_mean_reversion/README.md)
-*   [**Chapter 3: Implementing Mean Reversion Strategies**](./chapter_3_implementing_mean_reversion_strategies/README.md)
-*   [**Chapter 4: Mean Reversion of Stocks and ETFs**](./chapter_4_mean_reversion_of_stocks_and_etfs/README.md)
-*   [**Chapter 5: Mean Reversion of Currencies and Futures**](./chapter_5_mean_reversion_of_currencies_and_futures/README.md)
-*   [**Chapter 6: Interday Momentum Strategies**](./chapter_6_interday_momentum_strategies/README.md)
-*   [**Chapter 7: Intraday Momentum Strategies**](./chapter_7_intraday_momentum_strategies/README.md)
-*   [**Chapter 8: Risk Management**](./chapter_8_risk_management/README.md)
+*   [**Chapter 1: Backtesting and Automated Execution**](./chapter_1_backtesting_and_automated_execution/README.md) ([PDF](./chapter_1_backtesting_and_automated_execution/Quant_Trading_System_Blueprint.pdf))
+*   [**Chapter 2: The Basics of Mean Reversion**](./chapter_2_the_basics_of_mean_reversion/README.md) ([PDF](./chapter_2_the_basics_of_mean_reversion/Quant_Alpha_From_Chaos.pdf))
+*   [**Chapter 3: Implementing Mean Reversion Strategies**](./chapter_3_implementing_mean_reversion_strategies/README.md) ([PDF](./chapter_3_implementing_mean_reversion_strategies/Adaptive_Mean_Reversion_Algorithms.pdf))
+*   [**Chapter 4: Mean Reversion of Stocks and ETFs**](./chapter_4_mean_reversion_of_stocks_and_etfs/README.md) ([PDF](./chapter_4_mean_reversion_of_stocks_and_etfs/Mean_Reversion_Alpha_Evolution.pdf))
+*   [**Chapter 5: Mean Reversion of Currencies and Futures**](./chapter_5_mean_reversion_of_currencies_and_futures/README.md) ([PDF](./chapter_5_mean_reversion_of_currencies_and_futures/Structural_Alpha_in_Momentum_Markets.pdf))
+*   [**Chapter 6: Interday Momentum Strategies**](./chapter_6_interday_momentum_strategies/README.md) ([PDF](./chapter_6_interday_momentum_strategies/Momentum_Strategy_Dissected.pdf))
+*   [**Chapter 7: Intraday Momentum Strategies**](./chapter_7_intraday_momentum_strategies/README.md) ([PDF](./chapter_7_intraday_momentum_strategies/Intraday_Alpha_Strategies.pdf))
+*   [**Chapter 8: Risk Management**](./chapter_8_risk_management/README.md) ([PDF](./chapter_8_risk_management/Engineering_Portfolio_Survival.pdf))
 *   [**Conclusion**](./conclusion/README.md)
 
 ---
