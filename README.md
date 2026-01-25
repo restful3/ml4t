@@ -46,6 +46,8 @@
 
 
 #### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
+
+* 발표자 - TBD
 * **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**
     * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
     * 볼린저 밴드 활용 및 실무적 전략 구현
