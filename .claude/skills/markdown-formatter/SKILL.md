@@ -197,7 +197,31 @@ rg -n '\*\*[^*]+\*\*[[:alpha:][:digit:]]' "$TARGET_FILE"
 
 The script automatically handles all three bug types across all languages.
 
-### Phase 4: Validation and Reporting
+### Phase 4: LaTeX Compatibility Fixes
+
+Fix LaTeX formulas to ensure they render correctly on GitHub.
+
+#### LaTeX Rules
+
+1.  **NO `\tag{}`**: GitHub's math renderer often breaks layout.
+    -   Replace `\tag{...}` with `\qquad (...)` at the end of the line.
+
+2.  **Use `\text{}` for Function Names**:
+    -   **Incorrect**: `mean(x)` (Renders as $m \times e \times a \times n$)
+    -   **Correct**: `\text{mean}(x)`
+
+3.  **Inline Math using `$`**:
+    -   Use `$x$` instead of `*x*` for variables.
+
+#### Automated Fix Script
+
+Use the master script to fix both bold formatting and LaTeX issues:
+
+```bash
+python3 scripts/format_all.py "$TARGET_FILE"
+```
+
+### Phase 5: Validation and Reporting
 
 #### Validation Commands
 
