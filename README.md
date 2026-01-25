@@ -24,7 +24,7 @@
 
 #### **2026년 1월 31일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m12b923314420c81943b168ba0182f65e)
 
-* 발표자 - TBD
+* 발표자 - 핀조이이
 * **Chapter 1. 백테스팅 및 자동 실행 (Backtesting and Automated Execution)**
     * 백테스팅의 중요성과 실행 세부 사항
     * 주요 함정(Look-ahead, Data-snooping, Survivorship 편향)과 해결 방안
@@ -45,9 +45,7 @@
 * **설 연휴로 쉼**
 
 
-#### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
-
-* 발표자 - TBD
+#### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a51이
 * **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**
     * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
     * 볼린저 밴드 활용 및 실무적 전략 구현
