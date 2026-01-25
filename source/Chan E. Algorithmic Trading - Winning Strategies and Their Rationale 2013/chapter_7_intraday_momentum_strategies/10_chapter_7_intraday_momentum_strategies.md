@@ -14,17 +14,17 @@ Intraday momentum can also be triggered by the actions of large funds. I examine
 
 Finally, at the shortest possible time scale, the imbalance of the bid and ask sizes, the changes in order fl ow, or the aforementioned nonuniform distribution of stop orders can all induce momentum in prices. Some of the common high-frequency trading tactics that take advantage of such momentum will be presented in this chapter.
 
-## ■ **Opening Gap Strategy**
+## Opening Gap Strategy
 
 In Chapter 4, we discussed a mean-reverting buy-on-gap strategy for stocks. The opposite momentum strategy will sometimes work on futures and currencies: buying when the instrument gaps up, and shorting when it gaps down.
 
 After being tested on a number of futures, this strategy proved to work best on the Dow Jones STOXX 50 index futures (FSTX) trading on Eurex, which generates an annual percentage rate (APR) of 13 percent and a Sharpe ratio of 1.4 from July 16, 2004, to May 17, 2012. Example 7.1 shows the gap momentum code (available for download as *gapFutures\_FSTX.m*).
 
-#### **Example 7.1: Opening Gap Strategy for FSTX**
+#### Example 7.1: Opening Gap Strategy for FSTX
 
 This code assumes the open, high, low, and close prices are contained in *T* × 1 arrays *op, hi, lo, cl.* It makes use of utilities function *smartMovingStd* and *backshift* available from epchan.com/book2.
 
-```
+```matlab
 entryZscore=0.1;
 stdretC2C90d=backshift(1, smartMovingStd(calculateReturns ...
  (cl, 1), 90));
@@ -44,21 +44,21 @@ The same strategy works on some currencies, too. However, the daily "open" and "
 
 What's special about the overnight or weekend gap that sometimes triggers momentum? The extended period without any trading means that the opening price is often quite diff erent from the closing price. Hence, stop orders set at diff erent prices may get triggered all at once at the open. The execution of these stop orders often leads to momentum because a cascading eff ect may trigger stop orders placed further away from the open price as well. Alternatively, there may be signifi cant events that occurred overnight. As discussed in the next section, many types of news events generate momentum.
 
-## ■ **News-Driven Momentum Strategy**
+## News-Driven Momentum Strategy
 
 If, as many people believe, momentum is driven by the slow diff usion of news, surely we can benefi t from the fi rst few days, hours, or even seconds after a newsworthy event. This is the rationale behind traditional post–earnings announcement drift (PEAD) models, as well as other models based on various corporate or macroeconomic news.
 
-# **Post–Earnings Announcement Drift**
+### Post–Earnings Announcement Drift
 
 There is no surprise that an earnings announcement will move stock price. It is, however, surprising that this move will persist for some time after the announcement, and in the same direction, allowing momentum traders to benefi t. Even more surprising is that though this fact has been known and studied since 1968 (Bernard and Thomas, 1989), the eff ect still has not been arbitraged away, though the duration of the drift may have shortened. What I will show in this section is that as recently as 2011 this strategy is still profitable if we enter at the market open after the earnings announcement was made after the previous close, buying the stock if the return is very positive and shorting if the return is very negative, and liquidate the position at the same day's close. Notice that this strategy does not require the trader to interpret whether the earnings announcement is "good" or "bad." It does not even require the trader to know whether the earnings are above or below analysts' expectations. We let the market tell us whether it thinks the earnings are good or bad.
 
 Before we backtest this strategy, it is necessary to have historical data of the times of earnings annoucements. You can use the function *parseEarnings CalendarFromEarningsDotcom.m* displayed in the box to retrieve one year or so of such data from earnings.com given a certain stock universe specifi ed by the stock symbols array *allsyms*. The important feature of this program is that it carefully selects only earnings announcements occurring after the previous trading day's market close and before today's market open. Earnings announcements occurring at other times should not be triggers for our entry trades as they occur at today's market open.
 
-# **Function for Retrieving Earnings Calendar from earnings.com**
+### Function for Retrieving Earnings Calendar from earnings.com
 
 This function takes an input 1xN stock symbols cell array allsyms and creates a 1 × N logical array earnann, which tells us whether (with values true or false) the corresponding stock has an earnings announcement after the previous day's 4:00 P.M. ET (U.S. market closing time) and before today's 9:30 A.M. ET (U.S. market opening time). The inputs prevDate and todayDate should be in yyyymmdd format.
 
-```
+```matlab
 function [earnann]= ...
  parseEarningsCalendarFromEarningsDotCom(prevDate, ...
  todayDate, allsyms)
@@ -66,7 +66,7 @@ function [earnann]= ...
 
 **BOX 7.1**
 
-```
+```matlab
 % [earnann]==parseEaringsCalendarFromEarningsDotCom
  % (prevDate,todayDate, allsyms)
 earnann=zeros(size(allsyms));
@@ -106,7 +106,7 @@ patternTodayDateTime=['<td align="center"><nobr>', ...
 
 (Continued)
 
-```
+```matlab
 symA=regexp(todayEarningsFile, patternSym , 'tokens');
 timeA=regexp(todayEarningsFile, patternTodayDateTime, ...
  'tokens');
@@ -127,15 +127,15 @@ We need to call this program for each day in the backtest for the PEAD strategy.
 
 Assuming that we have compiled the historical earnings announcement logical array, whether using our function above or through other means, the actual backtest program for the PEAD strategy is very simple, as shown in Example 7.2. We just need to compute the 90-day moving standard deviation of previous-close-to-next day's-open return as the benchmark for deciding whether the announcement is "surprising" enough to generate the post announcement drift.
 
-#### **Example 7.2: Backtest of Post-Earnings Annoucement Drift Strategy**
+#### Example 7.2: Backtest of Post-Earnings Annoucement Drift Strategy
 
 We assume the historical open and close prices are stored in the *T* × *N* arrays *op* and *cl*. The input *T* × *N* logical array *earnann* indicates whether there is an earnings announcement for a stock on a given day prior to that day's market open but after the previous trading day's market close. The utility functions backshift, smartMovingStd and
 
-#### **Example 7.2 (***Continued***)**
+#### Example 7.2 (*Continued*)
 
 smartsum are available for download from epchan.com/book2. The backtest program itself is named *pead.m*.
 
-```
+```matlab
 lookback=90;
 retC2O=(op-backshift(1, cl))./backshift(1, cl);
 stdC2O=smartMovingStd(retC2O, lookback);
@@ -157,7 +157,7 @@ announcements per day is quite predictable, this is not a very grievous bias. Si
 
 You might wonder whether holding these positions overnight will generate additional profi ts. The answer is no: the overnight returns are negative on average. On the contrary, many published results from 10 or 20 years ago have shown that PEAD lasted more than a day. This may be an example where the duration of momentum is shortened due to increased awareness of the existence of such momentum. It remains to be tested whether an even shorter holding period may generate better returns.
 
-# **Drift Due to Other Events**
+### Drift Due to Other Events
 
 Besides earnings announcements, there are other corporate events that may exhibit post-announcement drift: An incomplete list includes earnings guidance, analyst ratings and recommendation changes, same store sales, and airline load factors. (A reasonable daily provider of such data is the Dow Jones newswire delivered by Newsware because it has the code specifi c to the type of event attached to each story and is machine readable.) In theory, any announcements that prompt a reevaluation of the fair market value of a company should induce a change in its share price toward a new equilibrium price. (For a recent comprehensive study of all these events and their impact on the stock's post-event returns, see Hafez, 2011.) Among these events, mergers and acquisitions, of course, draw the attention of specialized hedge funds that possess in-depth fundamental knowledge of the acquirer and acquiree corporations. Yet a purely technical model like the one described earlier for PEAD can still extract an APR of about 3 percent for mergers and acquisitions (M&As). (It is interesting to note that contrary to common beliefs, Hafez found that the acquiree's stock price falls more than the acquirer's after the initial announcement of the acquisition.)
 
@@ -167,7 +167,7 @@ own testing with more recent data suggests that the drift horizon has also been 
 
 While we are on the subject of momentum due to scheduled announcements, what about the impact of macroeconomic events such as Federal Open Market Committee's rate decisions or the release of the latest consumer price index? I have tested their eff ects on EURUSD, but unfortunately have found no signifi cant momentum. However, Clare and Courtenay reported that U.K. macroeconomic data releases as well as Bank of England interest rate announcements induced momentum in GBPUSD for up to at least 10 minutes after the announcements (Clare and Courtnenay, 2001). These results were based on data up to 1999, so we should expect that the duration of this momentum to be shorter in recent years, if the momentum continues to exist at all.
 
-## ■ **Leveraged ETF Strategy**
+## Leveraged ETF Strategy
 
 Imagine that you have a portfolio of stocks that is supposed to track the MSCI US REIT index (RMZ), except that you want to keep the leverage of the portfolio at 3, especially at the market close. As I demonstrate in Example 8.1, this constant leverage requirement has some counterintuitive and important consequences. Suppose the RMZ dropped precipitously one day. That would imply that you would need to substantially reduce the positions in your portfolio by selling stocks across the board in order to keep the leverage constant. Conversely, if the RMZ rose that day, you would need to increase the positions by buying stocks.
 
@@ -181,7 +181,7 @@ Naturally, the return of this strategy should increase as the aggregate assets o
 
 There is of course another event that will aff ect the equity of an ETF, leveraged or not: the fl ow of investors' cash. A large infl ow into long leveraged ETFs will cause positive momentum on the underlying stocks' prices, while a large infl ow into short leveraged ("inverse") ETFs will cause negative momentum. So it is theoretically possible that on the same day when the market index had a large positive return many investors sold the long leveraged ETFs (perhaps as part of a mean-reverting strategy). This would have neutralized the momentum. But our backtests show that this did not happen often.
 
-## ■ **High-Frequency Strategies**
+## High-Frequency Strategies
 
 Most high-frequency momentum strategies involve extracting information from the order book, and the basic idea is simple: If the bid size is much bigger than the ask size, expect the price to tick up and vice versa. This idea is backed by academic research. For example, an approximately linear relationship between the imbalance of bid versus ask sizes and short-term price changes in the Nasdaq market was found (Maslov and Mills, 2001). As expected, the eff ect is stronger for lower volume stocks. The eff ect is not limited to just the national best bid off er (NBBO) prices: an imbalance of the entire order book also induces price changes for a stock on the Stockholm stock market (Hellström and Simonsen, 2006).
 
@@ -213,7 +213,7 @@ the order fl ow will deduce, quite correctly, that such large one-directional de
 
 Since most of us are not large market makers or operators of an exchange, how can we access such order fl ow information? For stocks and futures markets, we can monitor and record every tick (i.e., changes in best bid, ask, and transaction price and size), and thus determine whether a transaction took place at the bid (negative order fl ow) or at the ask (positive order fl ow). For the currencies market, this is diffi cult because most dealers do not report transaction prices. We may have to resort to trading currency futures for this strategy. Once the order fl ow per transaction is computed, we can easily compute the cumulative or average order fl ow over some look-back period and use that to predict whether the price will move up or down.
 
-#### **KEY POINTS**
+#### KEY POINTS
 
 - Intraday momentum strategies do not suffer from many of the disadvantages of interday momentum strategies, but they retain some key advantages.
 - "Breakout" momentum strategies involve a price exceeding a trading range.

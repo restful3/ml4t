@@ -15,7 +15,7 @@ vice versa. We will examine examples of both types in momentum in futures and st
 
 The strategies I describe in this chapter tend to hold positions for multiple days, which is why I call them "interday" momentum strategies. I will consider the intraday, higher-frequency momentum strategies in the next chapter. The reason for this distinction is that many interday momentum strategies suff er from a recently discovered weakness, while intraday momentum strategies are less aff ected by it. I will highlight this weakness in this chapter, and also discuss the very diff erent properties of momentum strategies versus their mean-reverting counterparts, as well as their pros and cons.
 
-## ■ **Tests for Time Series Momentum**
+## Tests for Time Series Momentum
 
 Before we delve into the diff erent causes of momentum, we should fi rst see how we can measure momentum, or more specifi cally, time series momentum. Time series momentum of a price series means that past returns are positively correlated with future returns. It follows that we can just calculate the correlation coeffi cient of the returns together with its *p*-value (which represents the probability for the null hypothesis of no correlation). One feature of computing the correlation coeffi cient is that we have to pick a specifi c time lag for the returns. Sometimes, the most positive correlations are between returns of diff erent lags. For example, 1-day returns might show negative correlations, while the correlation between past 20-day return with the future 40-day return might be very positive. We should fi nd the optimal pair of past and future periods that gives the highest positive correlation and use that as our look-back and holding period for our momentum strategy.
 
@@ -33,7 +33,7 @@ In computing the correlations of pairs of returns resulting from diff erent look
 
 The top two bars in Figure 6.1 are for the case where look-back is greater than the holding period. The top bar represents the data set that forms the fi rst returns pair, and the second bar from the top represents the data set that forms the second independent returns pair. The bottom two bars are for the case where the look-back is smaller than the holding. The code is listed below (and available for download as *TU\_mom.m*).
 
-#### **Finding Correlations between Returns of Different Time Frames**
+### Finding Correlations between Returns of Different Time Frames
 
 **BOX 6.1**
 
@@ -112,11 +112,11 @@ How are these two conflicting results reconciled? As we show in the correlation 
 | 250       | 120                                                      | 0.5112  | 0.0617  |  |  |  |
 | 250       | 250                                                      | 0.4873  | 0.3269  |  |  |  |
 
-## ■ **Time Series Strategies**
+## Time Series Strategies
 
 For a certain future, if we fi nd that the correlation coeffi cient between a past return of a certain look-back and a future return of a certain holding period is high, and the *p*-value is small, we can proceed to see if a profi table momentum strategy can be found using this set of optimal time periods. Since Table 6.1 shows us that for TU, the 250-25-days pairs of returns have a correlation coeffi cient of 0.27 with a *p*-value of 0.02, we will pick this look-back and holding period. We take our cue for a simple time series momentum strategy from a paper by Moskowitz, Yao, and Pedersen: simply buy (sell) the future if it has a positive (negative) 12-month return, and hold the position for 1 month (Moskowitz, Yao, and Pedersen, 2012). We will modify one detail of the original strategy: Instead of making a trading decision every month, we will make it every day, each day investing only one twenty-fi fth of the total capital.
 
-#### **Example 6.1: TU Momentum Strategy**
+### Example 6.1: TU Momentum Strategy
 
 This code assumes the closing prices are contained in a *T* × 1 array cl. This code is contained in *TU\_mom.m*.
 
@@ -172,7 +172,7 @@ In fact, if you don't want to construct your own time series momentum strategy, 
 
 Since there aren't many trades in the relatively limited amount of test data that we used due to the substantial holding periods, there is a risk of data-snooping bias in these results. The real test for the strategy is, as always, in true out-of-sample testing.
 
-#### ■ **Extracting Roll Returns through Future versus ETF Arbitrage**
+### Extracting Roll Returns through Future versus ETF Arbitrage
 
 If futures' total returns = spot returns + roll returns, then an obvious way to extract roll return is buy the underlying asset and short the futures, if the roll return is negative (i.e., under contango); and vice versa if the roll return is positive (i.e., under backwardation). This will work as long as the sign of the roll return does not change quickly, as it usually doesn't. This arbitrage strategy is also likely to result in a shorter holding period and a lower risk than the buy-and-hold strategy discussed in the previous section, since in that strategy we needed to hold the future for a long time before the noisy spot return can be averaged out.
 
@@ -195,7 +195,7 @@ The APR is a very respectable 16 percent from April 26, 2006, to April 9, 2012, 
 
 What about a future whose underlying is not a traded commodity? VX is an example of such a future: It is very expensive to maintain a basket of options that replicate the underlying VIX index, and no ETF sponsors have been foolish enough to do that. But, again, we do not need to fi nd an instrument that tracks the spot price exactly—we just need to fi nd one that has a high correlation (or anti-correlation) with the spot return. In the case of VIX, the familiar ETF SPY fi ts the bill. Because the S&P E-mini future ES has insignifi cant roll return (about 1 percent annualized), it has almost the same returns as the underlying asset. Because it is certainly easier to trade futures than an ETF, we will investigate the performance of our earlier arbitrage strategy using ES instead.
 
-# **Volatility Futures versus Equity Index Futures: Redux**
+## Volatility Futures versus Equity Index Futures: Redux
 
 VX is a natural choice if we want to extract roll returns: its roll returns can be as low as –50 percent annualized. At the same time, it is highly anticorrelated with ES, with a correlation coeffi cient of daily returns reaching –75 percent. In Chapter 5, we used the cointegration between VX and ES to develop a profi table mean-reverting strategy. Here, we will make use of the large roll return magnitude of VX, the small roll return magnitude of ES, and the anticorrelation of VX and ES to develop a momentum strategy. This strategy was proposed by Simon and Campasano (2012):
 
@@ -210,7 +210,7 @@ Recall that if the front contract price is higher than the spot price, the roll 
 
 Notice that the hedge ratio of this strategy is slightly diff erent from that reported by Simon and Campasano: It is based on the regression fi t between the VX versus ES prices in Equation 5.11, not between their returns as in the original paper. The settlement is the day after the contracts expire. The APR for July 29, 2010, to May 7, 2012 (this period was not used for hedge ratio determination) is 6.9 percent, with a Sharpe ratio of 1. The cumulative return chart is displayed in Figure 6.4. You can fi nd the MATLAB code for this strategy in *VX\_ES\_rollreturn.m* on my website.
 
-# ■ **Cross-Sectional Strategies**
+## Cross-Sectional Strategies
 
 There is a third way to extract the often large roll returns in futures besides buying and holding or arbitraging against the underlying asset (or against an instrument correlated with the underlying asset). This third way is a crosssectional strategy: We can just buy a portfolio of futures in backwardation, and simultaneously short a portfolio of futures in contango. The hope is that the returns of the spot prices cancel each other out (a not unreasonable expectation if we believe commodities' spot prices are positively correlated with economic growth or some other macroeconomic indices), and we are left with the favorable roll returns. Daniel and Moskowitz described just such a simple "cross-sectional" momentum strategy that is almost a mirror image of the linear long-short mean-reverting stock model proposed by Khandani and Lo described in Chapter 3, albeit one with a much longer look-back and holding period (Daniel and Moskowitz, 2011).
 
@@ -224,7 +224,7 @@ Daniel and Moskowitz have also found that this same strategy worked for the univ
 
 Applying this strategy to U.S. stocks, we can buy and hold stocks within the top decile of 12-month lagged returns for a month, and vice versa for the bottom decile. I illustrate the strategy in Example 6.2.
 
-#### **Example 6.2: Cross-Sectional Momentum Strategy for Stocks**
+### Example 6.2: Cross-Sectional Momentum Strategy for Stocks
 
 This code assumes the close prices are contained in *T* × *N* array *cl*, where *T* is the number of trading days, and *N* is the number of the stocks in S&P 500. It makes use of utilities functions *smartsum* and *backshift,* available from [http://epchan.com/book2.](http://epchan.com/book2) The code itself can be downloaded as *kentdaniel.m*.
 
@@ -259,7 +259,7 @@ dailyret=smartsum(backshift(1, positions).*(cl-lag(cl)) ...
 dailyret(isnan(dailyret))=0;
 ```
 
-#### **Example 6.2 (***Continued***)**
+### Example 6.2 (Continued)
 
  The APR from May 15, 2007, to December 31, 2007, is 37 percent with a Sharpe ratio of 4.1. The cumulative returns are shown in Figure 6.6. (Daniel and Moskowitz found an annualized average return of 16.7 percent and a Sharpe ratio of 0.83 from 1947 to 2007.) However, the APR from January 2, 2008, to December 31, 2009, is a miserable –30 percent. The fi nancial crisis of 2008–2009 also ruined this momentum strategy. The return after 2009 did stabilize, though it hasn't returned to its former high level yet.
 
@@ -275,7 +275,7 @@ While we are on the subject of factors, it bears mentioning that a factor model 
 
 In recent years, with the advance of computer natural language processing and understanding capability, there is one other factor that has come into use. This is the so-called news sentiment score, our next topic.
 
-# **News Sentiment as a Fundamental Factor**
+## News Sentiment as a Fundamental Factor
 
 With the advent of machine-readable, or "elementized," newsfeeds, it is now possible to programmatically capture all the news items on a company, not just those that fi t neatly into one of the narrow categories such as earnings announcements or merger and acquisition (M&A) activities. Furthermore, natural language processing algorithms are now advanced enough to analyze the textual information contained in these news items, and assign a "sentiment score" to each news article that is indicative of its price impact on a stock, and an aggregation of these sentiment scores from multiple news articles from a certain period was found to be predictive of its future return. For example, Hafez and Xie, using RavenPack's Sentiment Index, found that buying a portfolio of stocks with positive sentiment change and shorting one with negative sentiment change results in an APR from 52 percent to 156 percent and Sharpe ratios from 3.9 to 5.3 before transaction costs, depending on how many stocks are included in the portfolios (Hafez and Xie, 2012). The success of these cross-sectional strategies also demonstrates very neatly that the slow diff usion of news is the cause of stock momentum.
 
@@ -283,7 +283,7 @@ There are other vendors besides RavenPack that provide news sentiments on stocks
 
 Beyond such very reasonable use of news sentiment as a factor for cross-sectional momentum trading, there has also been research that suggested the general "mood" of society as revealed in the content of Twitter feeds is predictive of the market index itself (Bollen, Mao, and Zeng, 2010). In fact, a multimillion-dollar hedge fund was launched to implement this outland-ish idea (Bryant, 2010), though the validity of the research itself was under attack (*Buy the Hype*, 2012).
 
-# **Mutual Funds Asset Fire Sale and Forced Purchases**
+## Mutual Funds Asset Fire Sale and Forced Purchases
 
 Researchers Coval and Stafford (2007) found that mutual funds experiencing large redemptions are likely to reduce or eliminate their existing stock positions. This is no surprise since mutual funds are typically close to fully invested, with very little cash reserves. More interestingly, funds experiencing large capital inflows tend to increase their existing stock positions rather than using the additional capital to invest in other stocks, perhaps because new investment ideas do not come by easily. Stocks disproportionately held by poorly performing mutual funds facing redemptions therefore experience negative returns. Furthermore, this asset "fire sale" by poorly performing mutual funds is contagious. Since the fire sale depresses the stock prices, they suppress the performance of other funds holding those stocks, too, causing further redemptions at those funds. The same situation occurs in reverse for stocks disproportionately held by superbly performing mutual funds with large capital inflows. Hence, momentum in both directions for the commonly held stocks can be ignited.
 
@@ -307,7 +307,7 @@ Combining all three strategies (momentum, front running, and mean reverting) gen
 
 Mutual funds are not the only type of funds that can induce momentum in stocks due to forced asset sales and purchases. In Chapter 7, we will discover that index funds and levered ETFs ignite similar momentum as well. In fact, forced asset sales and purchases by hedge funds can also lead to momentum in stocks, and that caused the August 2007 quant funds meltdown, as I explain in Chapter 8.
 
-## ■ **Pros and Cons of Momentum Strategies**
+## Pros and Cons of Momentum Strategies
 
 Momentum strategies, especially interday momentum strategies, often have diametrically opposite reward and risk characteristics in comparison to mean reverting strategies. We will compare their pros and cons in this section.
 
@@ -329,7 +329,7 @@ Not only do momentum strategies survive risks well, they can thrive in them (tho
 
 Finally, as most futures and currencies exhibit momentum, momentum strategies allow us to truly diversify our risks across diff erent asset classes and countries. Adding momentum strategies to a portfolio of meanreverting strategies allows us to achieve higher Sharpe ratios and smaller drawdowns than either type of strategy alone.
 
-#### **KEY POINTS**
+## KEY POINTS
 
 - Time-series momentum refers to the positive correlation of a price series' past and future returns.
 - Cross-sectional momentum refers to the positive correlation of a price series' past and future relative returns, in relation to that of other price series in a portfolio.
