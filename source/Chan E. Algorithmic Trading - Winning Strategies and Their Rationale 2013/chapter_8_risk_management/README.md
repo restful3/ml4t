@@ -83,3 +83,11 @@ $$ f = m / s^2 $$
 2.  **낙폭 제한**: 최대 낙폭을 엄격히 관리해야 한다면 CPPI 전략을 사용하여 하방을 방어하면서도 상승 잠재력을 유지하라.
 3.  **전략별 손절매**: 모멘텀 전략에는 타이트한 스톱 로스를, 평균 회귀 전략에는 국면 전환을 대비한 느슨한 스톱 로스를 적용하라.
 4.  **리스크 회피**: VIX, TED 스프레드 등 거시 지표와 주문 흐름을 모니터링하여 통계적으로 불리한 시장 환경에서는 매매를 쉬는 것을 고려하라.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_7_intraday_momentum_strategies/README.md) | [Table of Contents](../README.md) | [Next >](../conclusion/README.md)
+
+</div>

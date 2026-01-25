@@ -100,3 +100,11 @@
 3. **이벤트 드리븐**: 실적 발표와 같은 뉴스는 시장의 재평가 과정에서 지속적인 가격 흐름을 만든다.
 4. **구조적 모멘텀**: 레버리지 ETF의 재조정은 장 마감 전 예측 가능한 수급 불균형을 야기한다.
 5. **HFT 경쟁**: 호가창의 미세한 불균형과 주문 흐름 분석은 초단기 가격 예측의 핵심 도구이다.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_6_interday_momentum_strategies/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_8_risk_management/README.md)
+
+</div>

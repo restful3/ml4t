@@ -106,3 +106,11 @@
 ## 7. 결론
 
 일간 모멘텀 전략은 시장의 비효율성(정보 지연, 강제 매매 등)을 활용하는 강력한 수단이다. 특히 선물의 롤 리턴을 정교하게 추출하는 전략은 변동성이 큰 시장에서도 안정적인 수익원이 될 수 있다. 다만, 2008년과 같은 시장 위기 상황에서의 취약성을 인지하고, 평균 회귀 전략과 적절히 혼합하여 포트폴리오의 샤프 지수를 높이고 최대 낙폭을 관리하는 접근이 권장된다.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_5_mean_reversion_of_currencies_and_futures/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_7_intraday_momentum_strategies/README.md)
+
+</div>

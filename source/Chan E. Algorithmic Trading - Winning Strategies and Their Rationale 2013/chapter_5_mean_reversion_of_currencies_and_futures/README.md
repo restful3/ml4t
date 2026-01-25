@@ -98,3 +98,11 @@ $$ \text{총수익률} = \text{현물 수익률}(\alpha) + \text{롤 수익률}(
 2. **데이터 무결성**: 백테스팅 시 요한슨 테스트의 인용 통화 일치 여부와 롤오버 이자 산입 여부가 전략의 성패를 가른다.
 3. **현물과 선물의 괴리**: 기초 자산(현물)이 평균 회귀한다고 해서 선물 가격이 반드시 평균 회귀하는 것은 아니다. 특히 변동성 선물(VX)과 같이 강력한 콘탱고가 지배하는 시장에서는 주의가 필요하다.
 4. **시장 구조 이해**: 선물 캘린더 스프레드는 롤 수익률 모델링을 통해, 인터마켓 스프레드는 자산 간의 상관관계와 시장 리진에 대한 분석을 통해 유의미한 알파를 창출할 수 있다.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_4_mean_reversion_of_stocks_and_etfs/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_6_interday_momentum_strategies/README.md)
+
+</div>

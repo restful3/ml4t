@@ -104,3 +104,11 @@
 2. **유연한 대응**: 공적분 관계가 불분명한 자산이나 통화쌍의 경우 가격 비율(Ratio)이 효과적일 수 있습니다.
 3. **지표의 동적 업데이트**: 헤지 비율과 평균의 변화에 대응하기 위해 이동 룩백 기간이나 칼만 필터를 적극적으로 활용하십시오.
 4. **데이터 무결성 확보**: 데이터 오류는 전략의 수익을 허위로 부풀리거나 실거래에서 막대한 손실을 초래하므로 정교한 데이터 정제(Cleansing)가 선행되어야 합니다.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_2_the_basics_of_mean_reversion/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_4_mean_reversion_of_stocks_and_etfs/README.md)
+
+</div>

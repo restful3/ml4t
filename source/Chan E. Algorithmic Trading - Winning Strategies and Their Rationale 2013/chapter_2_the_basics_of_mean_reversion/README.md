@@ -64,3 +64,11 @@
 *   공적분은 비정상 시계열들을 결합하여 정상 포트폴리오를 만드는 개념이다.
 *   반감기는 전략의 타임 스케일을 결정하는 중요한 지표다.
 *   Johansen 검정을 통해 최적의 헤지 비율과 포트폴리오 구성을 도출할 수 있다.
+
+---
+
+<div align="center">
+
+[< Previous](../chapter_1_backtesting_and_automated_execution/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_3_implementing_mean_reversion_strategies/README.md)
+
+</div>

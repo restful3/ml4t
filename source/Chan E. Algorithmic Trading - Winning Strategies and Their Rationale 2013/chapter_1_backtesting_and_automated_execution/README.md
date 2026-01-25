@@ -90,3 +90,11 @@
 * **멀티쓰레딩 (Multithreading)**: 여러 종목을 동시에 거래할 때 한 종목의 계산이 다른 종목의 주문을 방해하지 않도록 처리해야 한다. MATLAB의 경우 Parallel Computing Toolbox를 사용하더라도 쓰레드 수에 제한이 있다.
 * **복합 이벤트 처리 (CEP)**: 이벤트 드리븐(Event-driven) 방식으로 데이터 도착 즉시 반응하는 시스템이다. 복잡한 매매 규칙을 선언적으로 표현할 때 유리하다.
 * **통합 환경의 이점**: 백테스팅과 실거래 코드가 동일한 플랫폼(예: TradeLink, Marketcetera 등)을 사용하면 전사(Transcribing) 오류를 방지하고 선행 편향을 자동으로 제거할 수 있다.
+
+---
+
+<div align="center">
+
+[< Previous](../README.md) | [Table of Contents](../README.md) | [Next >](../chapter_2_the_basics_of_mean_reversion/README.md)
+
+</div>
