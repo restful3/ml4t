@@ -1,4 +1,4 @@
-# 일간 모멘텀 전략 분석 보고서: 핵심 통찰 및 전략적 고찰 (Interday Momentum Strategies)
+# ch06 Interday Momentum Strategies
 
 ### **[발표자료 PDF 다운로드](./Momentum_Strategy_Dissected.pdf)**
 

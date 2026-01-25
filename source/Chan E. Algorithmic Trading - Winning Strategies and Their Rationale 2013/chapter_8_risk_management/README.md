@@ -1,4 +1,4 @@
-# 리스크 관리 (Risk Management)
+# ch08 Risk Management
 
 ### **[발표자료 PDF 다운로드](./Engineering_Portfolio_Survival.pdf)**
 

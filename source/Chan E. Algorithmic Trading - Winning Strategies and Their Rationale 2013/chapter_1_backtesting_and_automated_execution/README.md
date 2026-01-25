@@ -1,4 +1,4 @@
-# 백테스팅 및 자동 체결 시스템: 핵심 인사이트 및 실행 전략 브리핑
+# ch01 Backtesting And Automated Execution
 
 ### **[발표자료 PDF 다운로드](./Quant_Trading_System_Blueprint.pdf)**
 

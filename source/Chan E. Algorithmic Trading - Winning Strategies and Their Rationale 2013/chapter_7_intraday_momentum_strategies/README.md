@@ -1,4 +1,4 @@
-# 인트라데이 모멘텀 전략(Intraday Momentum Strategies) 심층 브리핑
+# ch07 Intraday Momentum Strategies
 
 ### **[발표자료 PDF 다운로드](./Intraday_Alpha_Strategies.pdf)**
 

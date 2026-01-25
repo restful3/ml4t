@@ -1,4 +1,4 @@
-# 평균 회귀 전략의 실행 (Implementing Mean Reversion Strategies)
+# ch03 Implementing Mean Reversion Strategies
 
 ### **[발표자료 PDF 다운로드](./Adaptive_Mean_Reversion_Algorithms.pdf)**
 

@@ -1,4 +1,4 @@
-# 평균 회귀의 기초 (The Basics of Mean Reversion)
+# ch02 The Basics Of Mean Reversion
 
 ### **[발표자료 PDF 다운로드](./Quant_Alpha_From_Chaos.pdf)**
 

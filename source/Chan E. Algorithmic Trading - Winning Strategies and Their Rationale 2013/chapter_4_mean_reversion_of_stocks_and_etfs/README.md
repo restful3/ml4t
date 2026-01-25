@@ -1,4 +1,4 @@
-# 주식 및 ETF의 평균 회귀 (Mean Reversion of Stocks and ETFs)
+# ch04 Mean Reversion Of Stocks And Etfs
 
 ### **[발표자료 PDF 다운로드](./Mean_Reversion_Alpha_Evolution.pdf)**
 

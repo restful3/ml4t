@@ -1,4 +1,4 @@
-# 통화 및 선물 시장의 평균 회귀 전략 분석 보고서 (Mean Reversion of Currencies and Futures)
+# ch05 Mean Reversion Of Currencies And Futures
 
 ### **[발표자료 PDF 다운로드](./Structural_Alpha_in_Momentum_Markets.pdf)**
 
