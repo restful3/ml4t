@@ -136,18 +136,15 @@ Streambase와 같은 시세 통합기가 다른 거래소의 데이터 피드를
 
 ## 백테스팅의 통계적 유의성: 가설 검정 (Statistical Significance of Backtesting: Hypothesis Testing)
 
-모든 백테스트에서 우리는 유한한 표본 크기의 문제에 직면합니다: 평균 수익률이나 최대 손실 등 어떤 통계적 측정치를 계산하든 무작위성에 영향을 받습니다. 다시 말해, 우리의 전략이 작은 데이터 표본에서 우연히 수익성이 있었을 수 있습니다. 통계학자들은 이 문제를 해결하기 위해 *가설 검정(hypothesis testing)*이라는 일반적인 방법론을 개발했습니다.
+모든 백테스트에서 우리는 유한한 표본 크기의 문제에 직면합니다: 평균 수익률이나 최대 손실 등 어떤 통계적 측정치를 계산하든 무작위성에 영향을 받습니다. 다시 말해, 우리의 전략이 작은 데이터 표본에서 우연히 수익성이 있었을 수 있습니다. 통계학자들은 이 문제를 해결하기 위해 **가설 검정(hypothesis testing)** 이라는 일반적인 방법론을 개발했습니다.
 
 백테스팅에 적용되는 가설 검정의 일반적인 프레임워크는 다음 단계를 따릅니다:
 
-- 1. 유한한 데이터 표본에 대한 백테스트를 기반으로, *검정 통계량(test statistic)*이라는 특정 통계적 측정치를 계산합니다. 구체적으로, 검정 통계량이 해당 기간 동안 거래 전략의 평균 일일 수익률이라고 합시다.
-- 2. 무한한 데이터 세트에 기반한 실제 평균 일일 수익률이 실제로 0이라고 가정합니다. 이 가정을 *귀무가설(null hypothesis)*이라고 합니다.
-- 3. 일일 수익률의 확률 분포가 알려져 있다고 가정합니다. 이 확률 분포는 귀무가설에 기반하여 평균이 0입니다. 이 확률 분포를 어떻게 결정하는지는 나중에 설명합니다.
-- 4. 이 귀무가설 확률 분포에 기반하여, 평균 일일 수익률이 백테스트에서 관찰된 값 이상이 될 확률 *p*를 계산합니다(또는, 일반적인 검정 통계량의 경우, 음의 검정 통계량의 가능성을 허용하여 극단적인 값). 이 확률 *p*를 *p-값(p-value)*이라고 하며, 매우 작으면(예를 들어 0.01보다 작으면), 이는 "귀무가설을 기각"할 수 있으며, 백테스트된 평균 일일 수익률이 통계적으로 유의하다고 결론짓을 수 있음을 의미합니다.
+1. 유한한 데이터 표본에 대한 백테스트를 기반으로, **검정 통계량(test statistic)** 이라는 특정 통계적 측정치를 계산합니다. 구체적으로, 검정 통계량이 해당 기간 동안 거래 전략의 평균 일일 수익률이라고 합시다.
+3. 일일 수익률의 확률 분포가 알려져 있다고 가정합니다. 이 확률 분포는 귀무가설에 기반하여 평균이 0입니다. 이 확률 분포를 어떻게 결정하는지는 나중에 설명합니다.
+4. 이 귀무가설 확률 분포에 기반하여, 평균 일일 수익률이 백테스트에서 관찰된 값 이상이 될 확률 *p*를 계산합니다(또는, 일반적인 검정 통계량의 경우, 음의 검정 통계량의 가능성을 허용하여 극단적인 값). 이 확률 *p*를 **p-값(p-value)** 이라고 하며, 매우 작으면(예를 들어 0.01보다 작으면), 이는 "귀무가설을 기각"할 수 있으며, 백테스트된 평균 일일 수익률이 통계적으로 유의하다고 결론짓을 수 있음을 의미합니다.
 
-이 절차에서 가장 많은 생각을 요하는 단계는 3단계입니다. 귀무가설 하에서 확률 분포를 어떻게 결정할까요? 아마도 일일 수익률이 평균이 0이고 표준편차가 일일 수익률의 표본 표준편차에 의해 주어지는 가우시안 분포와 같은 표준 매개변수 확률 분포를 따른다고 가정할 수 있습니다. 이렇게 하면, 백테스트가 높은 샤프 비율을 가지고 있다면 귀무가설을 매우 쉽게 기각할 수 있음이 분명합니다. 이는 가우시안 분포의 표준 검정 통계량이 다름 아닌 평균을 표준편차로 나누고 데이터 포인트 수의 제곱근을 곱한 것이기 때문입니다(Berntson, 2002). 다양한 임계값에 대한 *p*-값이 표 1.1에 나열되어 있습니다. 예를 들어, 일일 샤프 비율에 백테스트의 일수(*n*)의 제곱근을 곱한 값이 임계값 2.326 이상이면, *p*-값은 0.01 이하입니다.
-
-이 가설 검정 방법은 높은 샤프 비율 전략이 더 통계적으로 유의하다는 우리의 믿음과 일치합니다.
+이 절차에서 가장 많은 생각을 요하는 단계는 3단계입니다. 귀무가설 하에서 확률 분포를 어떻게 결정할까요? 아마도 일일 수익률이 평균이 0이고 표준편차가 일일 수익률의 표본 표준편차에 의해 주어지는 가우시안 분포와 같은 표준 매개변수 확률 분포를 따른다고 가정할 수 있습니다. 이렇게 하면, 백테스트가 높은 샤프 비율을 가지고 있다면 귀무가설을 매우 쉽게 기각할 수 있음이 분명합니다. 이는 가우시안 분포의 표준 검정 통계량이 다름 아닌 평균을 표준편차로 나누고 데이터 포인트 수의 제곱근을 곱한 것이기 때문입니다(Berntson, 2002). 다양한 임계값에 대한 *p*-값이 표 1.1에 나열되어 있습니다. 예를 들어, 일일 샤프 비율에 백테스트의 일수(*n*)의 제곱근을 곱한 값이 임계값 2.326 이상이면, *p*-값은 0.01 이하입니다. 이 가설 검정 방법은 높은 샤프 비율 전략이 더 통계적으로 유의하다는 우리의 믿음과 일치합니다.
 
 귀무가설의 확률 분포를 추정하는 또 다른 방법은 몬테카를로 방법을 사용하여 시뮬레이션된 과거 가격 데이터를 생성하고 이 시뮬레이션된 데이터를 전략에 입력하여 수익의 경험적 확률 분포를 결정하는 것입니다. 우리의 믿음은 거래 전략의 수익성이 가격 시계열의 미묘한 패턴이나 상관관계를 포착한 것이지, 단지 가격 분포의 처음 몇 모멘트 때문이 아니라는 것입니다. 따라서 실제 가격 데이터와 동일한 처음 몇 모멘트와 동일한 길이를 가진 많은 시뮬레이션된 가격 시계열을 생성하고, 이 모든 시뮬레이션된 가격 시계열에 대해 거래 전략을 실행하면, 이 가격 시계열의 몇 분의 *p*에서 평균 수익률이 백테스트 수익률 이상인지 알 수 있습니다.
 
@@ -173,6 +170,8 @@ Streambase와 같은 시세 통합기가 다른 거래소의 데이터 피드를
 
 첫 번째 가설 검정은 매우 쉽습니다. 귀무가설에 적합하게 평균이 0이고, 표준편차가 백테스트에서 주어진 일일 수익률의 표준편차인 가우시안 분포를 일일 수익률의 확률 분포로 가정합니다. 따라서 *ret*가 전략의 일일 수익률을 포함하는 Tx1 MATLAB 배열이라면, 검정 통계량은 단순히 다음과 같습니다:
 
+$$ \frac{\text{mean}(\text{ret})}{\text{std}(\text{ret})} \sqrt{\text{length}(\text{ret})} $$
+
 우리 데이터 세트에서 이것은 2.93으로 나타납니다. 이 검정 통계량을 표 1.1의 임계값과 비교하면, 99% 이상의 확률로 귀무가설을 기각할 수 있음을 알 수 있습니다.
 
 두 번째 가설 검정은 백테스트와 동일한 일수 동안 TU 선물(전략의 일일 수익률이 아닌)에 대한 무작위 시뮬레이션 일일 수익률 데이터 세트를 생성하는 것을 포함합니다. 이 무작위 일일 수익률 데이터는 관찰된 선물 수익률과 동일한 평균, 표준편차, 왜도, 첨도를 가지지만, 물론 동일한 상관관계가 내재되어 있지는 않습니다. 전략이 이 무작위 수익률 시계열에서 관찰된 수익률 시계열과 동일하거나 더 나은 수익률을 생성할 수 있는 좋은 확률이 있다면, 모멘텀 전략이 실제로 수익률의 모멘텀이나 직렬 상관관계를 포착하지 못하고 관찰된 수익률의 확률 분포가 특정 평균과 특정 형태를 가졌기 때문에 수익성이 있었음을 의미합니다. 처방된 모멘트를 가진 시뮬레이션된 무작위 수익률을 생성하기 위해 MATLAB Statistics Toolbox의 *pearsrnd* 함수를 사용합니다. 시뮬레이션된 수익률 *marketRet_sim*이 생성된 후, 이 수익률을 사용하여 시뮬레이션된 가격 시계열 *cl_sim*을 구성합니다. 마지막으로, 이 시뮬레이션된 가격에 대해 전략을 실행하고 전략의 평균 수익률을 계산합니다. 이를 10,000번 반복하고 전략이 관찰된 데이터 세트에서 생성된 것 이상의 평균 수익률을 생성하는 횟수를 셉니다.
@@ -180,32 +179,44 @@ Streambase와 같은 시세 통합기가 다른 거래소의 데이터 피드를
 *marketRet*가 TU의 관찰된 일일 수익률을 포함하는 Tx1 배열이라고 가정하면, 프로그램 조각은 아래에 표시됩니다. (이 테스트의 소스 코드는 [www.wiley.com/go/algotrading](http://www.wiley.com/go/algotrading)에서 *TU_mom_hypothesisTest.m*으로 다운로드할 수 있습니다.)
 
 ```matlab
-moments={mean(marketRet), std(marketRet), ...
- skewness(marketRet), kurtosis(marketRet)};
-numSampleAvgretBetterOrEqualObserved=0;
-for sample=1:10000
-    marketRet_sim=pearsrnd(moments{:}, length(marketRet), 1);
-    cl_sim=cumprod(1+marketRet_sim)-1;
-    longs_sim=cl_sim > backshift(lookback, cl_sim) ;
-    shorts_sim=cl_sim < backshift(lookback, cl_sim) ;
+moments = {mean(marketRet), std(marketRet), ...
+           skewness(marketRet), kurtosis(marketRet)};
+numSampleAvgretBetterOrEqualObserved = 0;
 
-pos_sim=zeros(length(cl_sim), 1);
-       for h=0:holddays-1
-           long_sim_lag=backshift(h, longs_sim);
-           long_sim_lag(isnan(long_sim_lag))=false;
-           long_sim_lag=logical(long_sim_lag);
-           short_sim_lag=backshift(h, shorts_sim);
-           short_sim_lag(isnan(short_sim_lag))=false;
-           short_sim_lag=logical(short_sim_lag);
-           pos_sim(long_sim_lag)=pos_sim(long_sim_lag)+1;
-           pos_sim(short_sim_lag)=pos_sim(short_sim_lag)-1;
-       end
-       ret_sim=backshift(1, pos_sim).*marketRet_sim/holddays;
-       ret_sim(~isfinite(ret_sim))=0;
-  if (mean(ret_sim)>= mean(ret))
-    numSampleAvgretBetterOrEqualObserved=numSampleAvgret
-     BetterOrEqualObserved+1;
-  end
+for sample = 1:10000
+    % 1. 가짜 수익률 생성 (통계적 속성은 같으나 순서는 랜덤)
+    marketRet_sim = pearsrnd(moments{:}, length(marketRet), 1);
+    
+    % 2. 가짜 가격 차트 생성
+    cl_sim = cumprod(1 + marketRet_sim) - 1;
+    
+    % 3. 전략 신호 생성 (Lookback 기간 대비 상승/하락 여부)
+    longs_sim = cl_sim > backshift(lookback, cl_sim);
+    shorts_sim = cl_sim < backshift(lookback, cl_sim);
+
+    % 4. 포지션 보유 기간(holddays) 동안 포지션 유지 로직
+    pos_sim = zeros(length(cl_sim), 1);
+    for h = 0:holddays-1
+        long_sim_lag = backshift(h, longs_sim);
+        long_sim_lag(isnan(long_sim_lag)) = false;
+        long_sim_lag = logical(long_sim_lag);
+        
+        short_sim_lag = backshift(h, shorts_sim);
+        short_sim_lag(isnan(short_sim_lag)) = false;
+        short_sim_lag = logical(short_sim_lag);
+        
+        pos_sim(long_sim_lag) = pos_sim(long_sim_lag) + 1;
+        pos_sim(short_sim_lag) = pos_sim(short_sim_lag) - 1;
+    end
+    
+    % 5. 전략 수익률 계산
+    ret_sim = backshift(1, pos_sim) .* marketRet_sim / holddays;
+    ret_sim(~isfinite(ret_sim)) = 0; % 무한대나 NaN 제거
+
+    % 6. 결과 비교 (가짜 수익률 >= 진짜 수익률 인지 체크)
+    if (mean(ret_sim) >= mean(ret))
+        numSampleAvgretBetterOrEqualObserved = numSampleAvgretBetterOrEqualObserved + 1;
+    end
 end
 ```
 
@@ -214,29 +225,39 @@ end
 세 번째 가설 검정은 백테스트에서와 동일한 수의 롱 거래와 숏 거래를 유지하면서 롱과 숏 진입 날짜를 무작위화하는 것을 포함합니다. 이는 MATLAB 함수 *randperm*으로 매우 쉽게 달성할 수 있습니다:
 
 ```matlab
-numSampleAvgretBetterOrEqualObserved=0;
-for sample=1:100000
-    P=randperm(length(longs));
+numSampleAvgretBetterOrEqualObserved = 0;
 
-longs_sim=longs(P);
-       shorts_sim=shorts(P);
-       pos_sim=zeros(length(cl), 1);
-       for h=0:holddays-1
-           long_sim_lag=backshift(h, longs_sim);
-           long_sim_lag(isnan(long_sim_lag))=false;
-           long_sim_lag=logical(long_sim_lag);
-           short_sim_lag=backshift(h, shorts_sim);
-           short_sim_lag(isnan(short_sim_lag))=false;
-           short_sim_lag=logical(short_sim_lag);
-           pos(long_sim_lag)=pos(long_sim_lag)+1;
-           pos(short_sim_lag)=pos(short_sim_lag)-1;
-       end
-       ret_sim=backshift(1, pos_sim).*marketRet/holddays;
-       ret_sim(isnan(ret_sim))=0;
-       if (mean(ret_sim)>= mean(ret))
-       numSampleAvgretBetterOrEqualObserved=...
-        numSampleAvgretBetterOrEqualObserved+1;
-       end
+for sample = 1:100000
+    % 1. 순서 무작위 섞기 (Random Permutation)
+    P = randperm(length(longs));
+    
+    % 2. 거래 신호(longs/shorts)의 날짜 순서를 뒤섞음
+    longs_sim = longs(P);
+    shorts_sim = shorts(P);
+    
+    % 3. 포지션 보유 기간(holddays) 동안 포지션 유지 로직
+    pos_sim = zeros(length(cl), 1);
+    for h = 0:holddays-1
+        long_sim_lag = backshift(h, longs_sim);
+        long_sim_lag(isnan(long_sim_lag)) = false;
+        long_sim_lag = logical(long_sim_lag);
+        
+        short_sim_lag = backshift(h, shorts_sim);
+        short_sim_lag(isnan(short_sim_lag)) = false;
+        short_sim_lag = logical(short_sim_lag);
+        
+        pos_sim(long_sim_lag) = pos_sim(long_sim_lag) + 1;
+        pos_sim(short_sim_lag) = pos_sim(short_sim_lag) - 1;
+    end
+    
+    % 4. 가짜 전략 수익률 계산 (원래 시장 수익률 marketRet 사용하되 포지션 타이밍만 다름)
+    ret_sim = backshift(1, pos_sim) .* marketRet / holddays;
+    ret_sim(isnan(ret_sim)) = 0;
+    
+    % 5. 결과 비교
+    if (mean(ret_sim) >= mean(ret))
+        numSampleAvgretBetterOrEqualObserved = numSampleAvgretBetterOrEqualObserved + 1;
+    end
 end
 ```
 
