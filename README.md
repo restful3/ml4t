@@ -56,7 +56,7 @@
 
 #### **2026년 2월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=meb86188e66a94dce2e3b5206140e22d0)
 
-* 발표자 - TBD
+* 발표자 - HY
 * **Chapter 4. 주식 및 ETF의 평균 회귀 (Mean Reversion of Stocks and ETFs)**
     * 주식 페어 트레이딩의 난제(공적분 붕괴 등)와 ETF 전략의 우위
     * 장중 계절성: Buy-on-Gap 모델
