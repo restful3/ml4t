@@ -1,6 +1,7 @@
 # ch01 Backtesting And Automated Execution
 
 ### **[발표자료 PDF 다운로드](./Quant_Trading_System_Blueprint.pdf)**
+### **[원본 도서 내용 (한글 번역)](./04_chapter_1_backtesting_and_automated_execution_ko.md)**
 
 ## 요약 (Executive Summary)
 

@@ -1,6 +1,7 @@
 # ch06 Interday Momentum Strategies
 
 ### **[발표자료 PDF 다운로드](./Momentum_Strategy_Dissected.pdf)**
+### **[원본 도서 내용 (한글 번역)](./09_chapter_6_interday_momentum_strategies_ko.md)**
 
 ## 1. 요약 (Executive Summary)
 

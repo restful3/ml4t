@@ -1,6 +1,7 @@
 # ch03 Implementing Mean Reversion Strategies
 
 ### **[발표자료 PDF 다운로드](./Adaptive_Mean_Reversion_Algorithms.pdf)**
+### **[원본 도서 내용 (한글 번역)](./06_chapter_3_implementing_mean_reversion_strategies_ko.md)**
 
 ## 핵심 요약 (Executive Summary)
 

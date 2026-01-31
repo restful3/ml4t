@@ -1,6 +1,7 @@
 # ch05 Mean Reversion Of Currencies And Futures
 
 ### **[발표자료 PDF 다운로드](./Structural_Alpha_in_Momentum_Markets.pdf)**
+### **[원본 도서 내용 (한글 번역)](./08_chapter_5_mean_reversion_of_currencies_and_futures_ko.md)**
 
 ## 요약 (Executive Summary)
 

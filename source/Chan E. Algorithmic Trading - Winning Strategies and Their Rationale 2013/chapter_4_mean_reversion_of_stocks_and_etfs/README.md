@@ -1,6 +1,7 @@
 # ch04 Mean Reversion Of Stocks And Etfs
 
 ### **[발표자료 PDF 다운로드](./Mean_Reversion_Alpha_Evolution.pdf)**
+### **[원본 도서 내용 (한글 번역)](./07_chapter_4_mean_reversion_of_stocks_and_etfs_ko.md)**
 
 ## 서문 (Executive Summary)
 

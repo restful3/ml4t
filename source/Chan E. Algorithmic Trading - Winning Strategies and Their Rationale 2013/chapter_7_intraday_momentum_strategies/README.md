@@ -1,6 +1,7 @@
 # ch07 Intraday Momentum Strategies
 
 ### **[발표자료 PDF 다운로드](./Intraday_Alpha_Strategies.pdf)**
+### **[원본 도서 내용 (한글 번역)](./10_chapter_7_intraday_momentum_strategies_ko.md)**
 
 ## 요약 (Executive Summary)
 

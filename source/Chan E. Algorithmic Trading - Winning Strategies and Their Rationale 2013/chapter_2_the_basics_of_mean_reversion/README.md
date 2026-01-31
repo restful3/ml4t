@@ -1,10 +1,11 @@
 # ch02 The Basics Of Mean Reversion
 
 ### **[발표자료 PDF 다운로드](./Quant_Alpha_From_Chaos.pdf)**
+### **[원본 도서 내용 (한글 번역)](./05_chapter_2_the_basics_of_mean_reversion_ko.md)**
 
 ## 요약 (Executive Summary)
 
-본 문서는 금융 시계열 데이터에서 **평균 회귀(Mean Reversion)** 속성을 식별하고 활용하는 방법에 대해 다룬다. 대부분의 금융 가격 데이터는 기하학적 랜덤 워크(Geometric Random Walk)를 따르지만, 통계적 검정을 통해 평균으로 회귀하는 **정상성(Stationarity)**을 지닌 시계열이나 포트폴리오를 찾아낼 수 있다. 이를 위해 ADF 검정, Hurst 지수, 공적분(Cointegration) 등의 수학적 도구를 활용하며, 이러한 분석을 바탕으로 파라미터 최적화 없이도 유효한 선형 매매 전략을 수립하는 방법을 제시한다.
+본 문서는 금융 시계열 데이터에서 **평균 회귀(Mean Reversion)** 속성을 식별하고 활용하는 방법에 대해 다룬다. 대부분의 금융 가격 데이터는 기하학적 랜덤 워크(Geometric Random Walk)를 따르지만, 통계적 검정을 통해 평균으로 회귀하는 **정상성(Stationarity)** 을 지닌 시계열이나 포트폴리오를 찾아낼 수 있다. 이를 위해 ADF 검정, Hurst 지수, 공적분(Cointegration) 등의 수학적 도구를 활용하며, 이러한 분석을 바탕으로 파라미터 최적화 없이도 유효한 선형 매매 전략을 수립하는 방법을 제시한다.
 
 ![Figure](unnamed.png)
 
@@ -35,7 +36,7 @@
 
 ## 3. 공적분 (Cointegration)과 포트폴리오 구성
 
-개별 자산이 정상이 아니더라도(Non-stationary), 이들의 선형 결합은 정상성을 띨 수 있다. 이를 **공적분(Cointegration)**이라 한다.
+개별 자산이 정상이 아니더라도(Non-stationary), 이들의 선형 결합은 정상성을 띨 수 있다. 이를 **공적분(Cointegration)** 이라 한다.
 
 ### 3.1. 공적분 검정 방법
 | 검정 방식 | 설명 및 특징 |

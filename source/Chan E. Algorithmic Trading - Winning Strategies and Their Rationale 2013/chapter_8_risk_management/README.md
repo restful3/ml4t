@@ -1,6 +1,7 @@
 # ch08 Risk Management
 
 ### **[발표자료 PDF 다운로드](./Engineering_Portfolio_Survival.pdf)**
+### **[원본 도서 내용 (한글 번역)](./11_chapter_8_risk_management_ko.md)**
 
 ## 요약 (Executive Summary)
 
