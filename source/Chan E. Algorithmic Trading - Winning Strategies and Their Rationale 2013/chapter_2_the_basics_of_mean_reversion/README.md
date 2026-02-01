@@ -68,6 +68,24 @@
 
 ---
 
+## 5. 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter2_analysis.py`](src/run_chapter2_analysis.py)
+    *   ADF 검정, Hurst 지수 계산
+    *   공적분 검정 (CADF, Johansen)
+    *   반감기 계산 및 선형 평균 회귀 전략 백테스팅
+*   **상세 분석 리포트**: [📄 **Chapter 2 종합 분석 리포트 보기**](src/reports/chapter2_report.md)
+
+### 리포트 주요 내용
+1.  **USD/CAD**: 정상성 검정 실패, 약한 평균 회귀 성향 확인
+2.  **EWA-EWC**: 약한 공적분 관계, 페어 트레이딩 가능성 확인
+3.  **EWA-EWC-IGE**: Johansen 검정을 통해 강력한 공적분 관계 확인, 반감기 약 23일
+4.  **전략 성과**: 선형 평균 회귀 전략 적용 시 **APR 12.8%, Sharpe 1.40** 달성
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_1_backtesting_and_automated_execution/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_3_implementing_mean_reversion_strategies/README.md)

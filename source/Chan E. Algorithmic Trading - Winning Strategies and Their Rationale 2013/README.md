@@ -20,6 +20,75 @@
 
 ---
 
+## 코드 구조 (Code Structure)
+
+각 챕터별로 `src/` 폴더에 관련 Python 코드와 데이터 파일이 정리되어 있습니다.
+
+```
+├── chapter_2_the_basics_of_mean_reversion/src/
+│   ├── stationaryTests.py          # ADF 검정, 허스트 지수
+│   ├── cointegrationTests.py       # CADF, Johansen 공적분 검정
+│   ├── genhurst.py                 # 허스트 지수 계산 함수
+│   └── inputData_*.csv             # EWA/EWC/IGE, USDCAD 데이터
+│
+├── chapter_3_implementing_mean_reversion_strategies/src/
+│   ├── bollinger.py                # 볼린저 밴드 전략
+│   ├── KF_beta_EWA_EWC.py          # 칼만 필터 전략
+│   ├── PriceSpread.py              # 가격 스프레드 전략
+│   ├── LogPriceSpread.py           # 로그 가격 스프레드 전략
+│   └── Ratio.py                    # 비율 전략
+│
+├── chapter_4_mean_reversion_of_stocks_and_etfs/src/
+│   ├── indexArb.py                 # SPY 인덱스 차익거래
+│   ├── pead.py                     # 실적 발표 후 드리프트 (PEAD)
+│   ├── bog.py                      # Buy-on-Gap 전략
+│   └── andrewlo_2007_2012.py       # 선형 롱숏 모델
+│
+├── chapter_5_mean_reversion_of_currencies_and_futures/src/
+│   ├── AUDCAD_daily.py             # AUD/CAD 페어 트레이딩
+│   ├── AUDCAD_unequal.py           # Johansen 기반 통화쌍 트레이딩
+│   ├── calendarSpdsMeanReversion.py # 캘린더 스프레드 평균회귀
+│   └── estimateFuturesReturns.py   # 선물 수익률 추정
+│
+├── chapter_6_interday_momentum_strategies/src/
+│   ├── TU_mom.py                   # 채권선물 모멘텀
+│   ├── TU_mom_hypothesisTest.py    # 모멘텀 가설 검정
+│   └── kentdaniel.py               # 횡단면 모멘텀 전략
+│
+├── chapter_7_intraday_momentum_strategies/src/
+│   ├── gapFutures_FSTX.py          # 갭 오프닝 전략
+│   └── VX_ES_rollreturn.py         # VIX 선물 vs ES 롤 수익률
+│
+└── chapter_8_risk_management/src/
+    ├── monteCarloOptimLeverage.py  # 몬테카를로 레버리지 최적화
+    └── calculateMaxDD.py           # 최대 낙폭(MDD) 계산
+```
+
+### 가상환경 설정
+
+```bash
+cd "/home/restful3/workspace/ml4t/source/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013"
+
+# 가상환경 활성화
+source .venv/bin/activate
+
+# 예시: Chapter 2 코드 실행
+cd chapter_2_the_basics_of_mean_reversion/src
+python stationaryTests.py
+```
+
+### 주요 의존성
+
+| 패키지 | 용도 |
+|--------|------|
+| `numpy`, `pandas` | 수치 연산, 데이터 분석 |
+| `statsmodels` | ADF 검정, 공적분 검정, 회귀 분석 |
+| `arch` | 분산비 검정, GARCH 모델 |
+| `matplotlib` | 시각화 |
+| `scipy` | 과학 계산, 최적화 |
+
+---
+
 ## 1. 개요 (Executive Summary)
 
 본 문서는 **어네스트 찬(Ernest P. Chan)** 의 저서 **"Algorithmic Trading: Winning Strategies and Their Rationale"** 의 내용을 바탕으로 알고리즘 트레이딩의 핵심 전략, 백테스팅 실무, 그리고 통계적 검증 방법을 요약한 브리핑 문서이다.

@@ -1,0 +1,22 @@
+# Chan - Algorithmic Trading Book (2013)
+# Python dependencies for running book examples
+# Updated for Python 3.10+
+
+# Core scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Statistics and econometrics
+statsmodels>=0.14.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Additional dependencies used in book code
+arch>=6.0.0              # For Variance Ratio test, GARCH models
+patsy>=0.5.3             # Formula interface for statsmodels
+
+# Optional but recommended
+jupyter>=1.0.0           # For running notebooks
+ipython>=8.0.0           # Enhanced interactive Python

@@ -108,6 +108,23 @@
 
 ---
 
+## 6. 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter3_analysis.py`](src/run_chapter3_analysis.py)
+    *   스프레드 유형별 성과 비교 (가격, 로그, 비율)
+    *   볼린저 밴드 전략 백테스팅
+    *   칼만 필터 기반 동적 헤지 전략 백테스팅
+*   **상세 분석 리포트**: [📄 **Chapter 3 종합 분석 리포트 보기**](src/reports/chapter3_report.md)
+
+### 리포트 주요 내용
+1.  **스프레드 유형 비교**: 공적분 관계가 없는 GLD-USO 페어에서는 **가격 스프레드**가 가장 안정적
+2.  **볼린저 밴드 전략**: 선형 전략 대비 샤프 비율 개선 (**0.60 → 1.11**)
+3.  **칼만 필터 전략**: EWA-EWC 페어에 적용 시 **APR 54.6%, Sharpe 3.31**의 압도적 성과 달성
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_2_the_basics_of_mean_reversion/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_4_mean_reversion_of_stocks_and_etfs/README.md)
