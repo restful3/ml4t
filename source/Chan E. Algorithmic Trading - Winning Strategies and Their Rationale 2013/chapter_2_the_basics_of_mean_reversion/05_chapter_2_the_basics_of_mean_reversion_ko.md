@@ -54,7 +54,7 @@ ADF 검정은 MATLAB Econometrics 함수 *adftest*로 사용 가능하거나, �
 
 그리고 실제로, ADF 검정 통계량이 약 -1.84임을 확인할 수 있지만, 90% 수준의 임계값은 -2.594이므로 $\lambda$가 0이라는 가설을 기각할 수 없다. 즉, USD.CAD가 정상이라는 것을 보여줄 수 없는데, 캐나다 달러는 원자재 통화로 알려져 있고 미국 달러는 그렇지 않기 때문에 이는 놀라운 일이 아닐 수 있다. 그러나 $\lambda$가 음수라는 점에 주목하라. 이는 가격 시계열이 적어도 추세를 보이지는 않는다는 것을 나타낸다.
 
-```text
+```matlab
 results=adf(y, 0, 1);
 prt(results);
 % Augmented DF test for unit root variable: variable 1
@@ -136,11 +136,9 @@ $$E(y(t)) = y_0 \exp(\lambda t) - \frac{\mu}{\lambda} (1 - \exp(\lambda t)) \qqu
 이 코드 조각은 *stationaryTests.m*의 일부이다.
 
 ```matlab
-ylag=lag(y, 1); % lag is a function in the jplv7
- % (spatial-econometrics.com) package.
+ylag=lag(y, 1); % lag is a function in the jplv7 (spatial-econometrics.com) package.
 deltaY=y-ylag;
-deltaY(1)=[]; % Regression functions cannot handle the NaN
- in the first bar of the time series.
+deltaY(1)=[]; % Regression functions cannot handle the NaN in the first bar of the time series.
 ylag(1)=[];
 regress_results=ols(deltaY, [ylag ones(size(ylag))]);
 halflife=-log(2)/regress_results.beta(1);
@@ -159,24 +157,18 @@ halflife=-log(2)/regress_results.beta(1);
 이 간단한 전략에서 우리는 USD.CAD의 이동 평균에서 음의 정규화된 편차와 같은 수의 USD.CAD 단위를 보유하려고 한다. 통화쌍 USD.X의 한 단위의 시장 가치(USD 기준)는 USD.X 시세에 불과하므로, 이 경우 선형 평균 회귀는 포트폴리오의 시장 가치를 USD.CAD의 Z-점수의 음수로 설정하는 것과 같다. *movingAvg* 및 *movingStd* 함수는 내 웹사이트에서 다운로드할 수 있다. (이 코드 조각은 *stationaryTests.m*의 일부이다.)
 
 ```matlab
-lookback=round(halflife); % setting lookback to the halflife
- % found above
+lookback=round(halflife); % setting lookback to the halflife found above
 mktVal=-(y-movingAvg(y, lookback))./movingStd(y, lookback);
-pnl=lag(mktVal, 1).*(y-lag(y, 1))./lag(y, 1); % daily P&L of
- % the strategy
+pnl=lag(mktVal, 1).*(y-lag(y, 1))./lag(y, 1); % daily P&L of the strategy
 ```
 
 이 전략의 누적 손익(P&L)은 그림 2.3에 표시되어 있다.
 
-긴 반감기에도 불구하고, 총 손익(P&L)은 큰 드로다운이 있긴 하지만 양수를 유지한다. 이 책의 대부분의 예제 전략과 마찬가지로, 거래 비용은 포함하지 않았다. 또한, 이 특정 예제에는 인샘플 데이터를 사용하여 반감기와 따라서 룩백을 찾았기 때문에
+긴 반감기에도 불구하고, 총 손익(P&L)은 큰 드로다운이 있긴 하지만 양수를 유지한다. 이 책의 대부분의 예제 전략과 마찬가지로, 거래 비용은 포함하지 않았다. 또한, 이 특정 예제에는 인샘플 데이터를 사용하여 반감기와 따라서 룩백을 찾았기 때문에 미래 예측 편향(look-ahead bias)이 관련되어 있다. 또한, 포트폴리오의 시장 가치에 최대치를 부과하지 않았기 때문에 손익을 생성하기 위해 무제한의 자본이 필요할 수 있다. 따라서 실용적인 거래 전략으로 확실히 추천하지 않는다. (제5장에 이 평균 회귀 전략의 더 실용적인 버전이 있다.) 그러나 비정상 가격 시계열이 평균 회귀 전략 거래를 단념하게 해서는 안 되며, 평균 회귀 시계열에서 수익을 추출하기 위해 매우 복잡한 전략이나 기술적 지표가 필요하지 않다는 것을 보여준다.
 
 ![](_page_10_Figure_7.jpeg)
 
 **그림 2.3** AUDCAD에 대한 선형 거래 전략의 자산 곡선
-
-#### 예제 2.5 (계속)
-
-미래 예측 편향(look-ahead bias)이 관련되어 있다. 또한, 포트폴리오의 시장 가치에 최대치를 부과하지 않았기 때문에 손익을 생성하기 위해 무제한의 자본이 필요할 수 있다. 따라서 실용적인 거래 전략으로 확실히 추천하지 않는다. (제5장에 이 평균 회귀 전략의 더 실용적인 버전이 있다.) 그러나 비정상 가격 시계열이 평균 회귀 전략 거래를 단념하게 해서는 안 되며, 평균 회귀 시계열에서 수익을 추출하기 위해 매우 복잡한 전략이나 기술적 지표가 필요하지 않다는 것을 보여준다.
 
 트레이더의 목표가 궁극적으로 평균 회귀 거래 전략의 기대 수익률이나 샤프 비율이 충분히 좋은지 결정하는 것이라면, 왜 정상성 검정(ADF 또는 분산비)과 반감기 계산을 거치는 수고를 해야 할까? 거래 전략에 대해 직접 백테스트를 실행하고 끝내면 안 될까? 이러한 예비 검정을 거친 이유는 그들의 통계적 유의성이 일반적으로 거래 전략의 직접 백테스트보다 높기 때문이다. 이러한 예비 검정은 매일의(또는 더 일반적으로 매 봉의) 가격 데이터를 검정에 활용하는 반면, 백테스트는 일반적으로 성과 통계를 수집하기 위해 상당히 적은 수의 왕복 거래를 생성한다. 또한, 백테스트의 결과는 특정 거래 매개변수 세트를 가진 거래 전략의 세부 사항에 의존한다. 그러나 정상성 통계 검정을 통과한 가격 시계열, 또는 적어도 충분히 짧은 반감기를 가진 가격 시계열이 주어지면, 비록 백테스트한 것은 아니더라도 결국 수익성 있는 거래 전략을 찾을 수 있다고 확신할 수 있다.
 
@@ -190,25 +182,17 @@ pnl=lag(mktVal, 1).*(y-lag(y, 1))./lag(y, 1); % daily P&L of
 
 #### 예제 2.6: 공적분에 CADF 검정 사용하기 (Example 2.6: Using the CADF Test for Cointegration)
 
-ETF는 공적분 가격 시계열을 찾기 위한 비옥한 토양을 제공하므로 페어 트레이딩의 좋은 후보이다. 예를 들어, 캐나다와 호주 경제는 모두 원자재 기반이므로 공적분할 것 같다. *cointegrationTest.m* 프로그램은 내 웹사이트에서 다운로드할 수 있다. EWA의 가격 시계열은 (*계속*)
-
-#### 예제 2.6 (계속)
+ETF는 공적분 가격 시계열을 찾기 위한 비옥한 토양을 제공하므로 페어 트레이딩의 좋은 후보이다. 예를 들어, 캐나다와 호주 경제는 모두 원자재 기반이므로 공적분할 것 같다. *cointegrationTest.m* 프로그램은 내 웹사이트에서 다운로드할 수 있다. EWA의 가격 시계열은 배열 *x*에 포함되어 있고, EWC는 배열 *y*에 포함되어 있다고 가정한다. 그림 2.4에서 볼 수 있듯이 상당히 공적분하는 것처럼 보인다.
 
 ![](_page_13_Figure_2.jpeg)
 
 **그림 2.4** EWA 대 EWC 주가
 
-배열 *x*에 포함되어 있고, EWC는 배열 *y*에 포함되어 있다고 가정한다. 그림 2.4에서 볼 수 있듯이 상당히 공적분하는 것처럼 보인다.
-
-그림 2.5의 EWA 대 EWC 산점도는 가격 쌍이 직선 위에 떨어지므로 더욱 설득력 있다.
-
-jplv7 패키지에 있는 *ols* 함수를 사용하여 최적의 헤지 비율을 찾을 수 있다.
+그림 2.5의 EWA 대 EWC 산점도는 가격 쌍이 직선 위에 떨어지므로 더욱 설득력 있다. jplv7 패키지에 있는 *ols* 함수를 사용하여 최적의 헤지 비율을 찾을 수 있다.
 
 ![](_page_13_Figure_7.jpeg)
 
 **그림 2.5** EWA 대 EWC 산점도
-
-#### 예제 2.6 (계속)
 
 ```matlab
 regression_result=ols(y, [x ones(size(x))]);
@@ -222,8 +206,6 @@ hedgeRatio=regression_result.beta(1);
 ![](_page_14_Figure_6.jpeg)
 
 **그림 2.6** EWA 대 EWC 간 선형 회귀 잔차의 정상성
-
-#### 예제 2.6 (계속)
 
 각 변수를 독립 변수로 시도하고 어떤 순서가 가장 좋은(가장 음수인) *t*-통계량을 제공하는지 확인한 다음, 그 순서를 사용하여 헤지 비율을 얻어야 한다. 간결함을 위해 EWA가 독립 변수라고 가정하고 CADF 검정을 실행할 것이다.
 
@@ -263,18 +245,13 @@ y2=[y, x];
 results=johansen(y2, 0, 1);
 % Print out results
 prt(results);
-```
-
-#### 예제 2.7 (계속)
-
-```text
 % Output: Johansen MLE estimates
-NULL: Trace Statistic Crit 90% Crit 95% Crit 99%
-r <= 0 variable 1 19.983 13.429 15.494 19.935
-r <= 1 variable 2 3.983 2.705 3.841 6.635
-NULL: Eigen Statistic Crit 90% Crit 95% Crit 99%
-r <= 0 variable 1 16.000 12.297 14.264 18.520
-r <= 1 variable 2 3.983 2.705 3.841 6.635
+% NULL: Trace Statistic Crit 90% Crit 95% Crit 99%
+% r <= 0 variable 1 19.983 13.429 15.494 19.935
+% r <= 1 variable 2 3.983 2.705 3.841 6.635
+% NULL: Eigen Statistic Crit 90% Crit 95% Crit 99%
+% r <= 0 variable 1 16.000 12.297 14.264 18.520
+% r <= 1 variable 2 3.983 2.705 3.841 6.635
 ```
 
 트레이스 통계량 검정에서 $r = 0$ 가설이 99% 수준에서 기각되고, $r \le 1$은 95% 수준에서 기각됨을 알 수 있다. 아이겐 통계량 검정은 $r = 0$ 가설이 95% 수준에서 기각되고, $r \le 1$도 95%에서 기각된다고 결론짓는다. 이는 두 검정 모두에서 EWA와 EWC 사이에 두 개의 공적분 관계가 있다고 결론 내린다는 것을 의미한다.
@@ -282,8 +259,6 @@ r <= 1 variable 2 3.983 2.705 3.841 6.635
 두 가격 시계열만 있을 때 두 개의 공적분 관계를 갖는다는 것은 무슨 의미일까? EWA와 EWC 사이에 자본을 배분하여 정상 포트폴리오를 형성하는 헤지 비율이 하나뿐이지 않을까? 실제로 그렇지 않다. CADF 검정을 논의할 때 순서에 의존한다고 지적했음을 기억하라. EWA의 역할을 독립 변수에서 종속 변수로 바꾸면 다른 결론을 얻을 수 있다. 마찬가지로, EWA를 EWC에 대한 회귀에서 종속 변수로 사용할 때와 EWA를 독립 변수로 사용할 때 다른 헤지 비율을 얻게 된다. 이 두 가지 다른 헤지 비율(반드시 서로의 역수가 아닌)은 두 개의 독립적인 정상 포트폴리오를 형성할 수 있게 해준다. 요한센 검정에서는 이러한 포트폴리오를 얻기 위해 회귀를 두 번 실행할 필요가 없다: 한 번 실행하면 존재하는 모든 독립적인 공적분 관계를 생성한다. 요한센 검정은, 다시 말해, 가격 시계열의 순서에 독립적이다.
 
 이제 포트폴리오에 또 다른 ETF를 도입하자: 천연 자원 주식으로 구성된 IGE. 가격 시계열이 배열 *z*에 포함되어 있다고 가정하고, 세 가격 시계열 모두에 요한센 검정을 실행하여 이 트리오에서 얼마나 많은 공적분 관계를 얻을 수 있는지 알아볼 것이다.
-
-#### 예제 2.7 (계속)
 
 ```matlab
 y3=[y2, z];
@@ -309,9 +284,6 @@ prt(results);
 
 ```matlab
 results.eig % Display the eigenvalues
-```
-
-```text
 % ans =
 %
 % 0.0112
@@ -327,15 +299,11 @@ results.evec % Display the eigenvectors
 
 고유벡터(*results.evec*에서 열 벡터로 표현됨)가 해당 고유값의 내림차순으로 정렬되어 있음에 주목하라. 따라서 첫 번째 공적분 관계가 (*계속*)
 
-#### 예제 2.7 (계속)
-
 "가장 강할" 것으로 예상해야 한다. 즉, 평균 회귀의 반감기가 가장 짧다. 당연히 이 고유벡터를 선택하여 정상 포트폴리오를 형성하고(고유벡터가 각 ETF의 주식 수를 결정함), 이전에 정상 가격 시계열을 다룰 때와 동일한 방법으로 반감기를 찾을 수 있다. 유일한 차이점은 포트폴리오의 순 시장 가치(가격)를 나타내는 T × 1 배열 *yport*를 계산해야 한다는 것이다. 이는 각 ETF의 주식 수에 각 ETF의 주가를 곱한 다음 모든 ETF에 대해 합산한 것과 같다. *yport*는 예제 2.4에서 *y*의 역할을 한다.
 
 ```matlab
-yport=smartsum(repmat(results.evec(:, 1)', [size(y3, 1) ...
- 1]).*y3, 2);
-% Find value of lambda and thus the half-life of mean
- % reversion by linear regression fit
+yport=smartsum(repmat(results.evec(:, 1)', [size(y3, 1) ...1]).*y3, 2);
+% Find value of lambda and thus the half-life of mean reversion by linear regression fit
 ylag=lag(yport, 1); % lag is a function in the jplv7
  % (spatial-econometrics.com) package.
 deltaY=yport-ylag;
@@ -348,7 +316,7 @@ halflife=-log(2)/regress_results.beta(1);
 
 23일의 반감기는 USD.CAD의 115일보다 상당히 짧으므로, 평균 회귀 거래 전략이 이 트리플렛에 더 잘 작동할 것으로 예상한다.
 
-# 포트폴리오에 대한 선형 평균 회귀 거래 (Linear Mean-Reverting Trading on a Portfolio)
+## 포트폴리오에 대한 선형 평균 회귀 거래 (Linear Mean-Reverting Trading on a Portfolio)
 
 예제 2.7에서 요한센 검정의 "최상의" 고유벡터로 형성된 EWA-EWC-IGE 포트폴리오가 짧은 반감기를 가진다고 결정했다. 이제 이 포트폴리오에 대해 간단한 선형 평균 회귀 전략을 백테스트할 수 있다. 아이디어는 USD.CAD의 이동 평균에서 음의 정규화된 편차(즉, Z-점수)에 비례하는 단위 수를 소유했던 이전과 같다. 여기서도 "단위" 포트폴리오 가격의 음의 Z-점수에 비례하여 포트폴리오 단위를 누적한다. 단위 포트폴리오는 요한센 고유벡터에 의해 결정된 주식 수를 가진 것이다. 단위 포트폴리오의 주가는 뮤추얼 펀드나 ETF의 주가와 같다: 시장 가치와 동일하다. 단위 포트폴리오가 두 상품의 롱 및 숏 포지션만 있을 때, 일반적으로 *스프레드(spread)*라고 한다. (제3장에서 이것을 더 수학적인 형태로 표현한다.)
 
@@ -361,19 +329,15 @@ halflife=-log(2)/regress_results.beta(1);
 *yport*는 앞의 코드 조각에서 계산된 "단위" 포트폴리오의 순 시장 가치를 나타내는 Tx1 배열이다. *numUnits*는 구매하려는 이 단위 포트폴리오의 배수를 나타내는 Tx1 배열이다. (배수는 단위 포트폴리오를 숏하려는 경우 음수이다.) 다른 모든 변수는 이전에 계산된 대로이다. *positions*는 투자한 포트폴리오에서 각 ETF의 포지션(시장 가치)을 나타내는 Tx3 배열이다. (이 코드 조각은 *cointegrationTests.m*의 일부이다.)
 
 ```matlab
-% Apply a simple linear mean reversion strategy to EWA-EWC-
- % IGE
+% Apply a simple linear mean reversion strategy to EWA-EWC-IGE
 lookback=round(halflife); % setting lookback to the halflife
  % found above
 numUnits =-(yport-movingAvg(yport, lookback))...
  ./movingStd(yport, lookback); % multiples of unit
- % portfolio . movingAvg and movingStd are functions from
- % epchan.com/book2
+ % portfolio . movingAvg and movingStd are functions from epchan.com/book2
 positions=repmat(numUnits, [1 size(y3, 2)]).*repmat(results. ...
  evec(:, 1)', [size(y3, 1) 1]).*y3;
- % results.evec(:, 1)' is the shares allocation, while
- % positions is the capital (dollar)
- % allocation in each ETF.
+ % results.evec(:, 1)' is the shares allocation, while positions is the capital (dollar) allocation in each ETF.
 pnl=sum(lag(positions, 1).*(y3-lag(y3, 1))./lag(y3, 1), 2);
  % daily P&L of the strategy
 ret=pnl./sum(abs(lag(positions, 1)), 2); % return is P&L
@@ -381,8 +345,6 @@ ret=pnl./sum(abs(lag(positions, 1)), 2); % return is P&L
 ```
 
 그림 2.7은 EWA, EWC, IGE의 정상 포트폴리오에 대한 이 선형 평균 회귀 전략의 누적 수익률 곡선을 표시한다. (*계속*)
-
-#### 예제 2.8 (계속)
 
 ![](_page_21_Figure_3.jpeg)
 
@@ -392,7 +354,7 @@ ret=pnl./sum(abs(lag(positions, 1)), 2); % return is P&L
 
 가격이 무한소량으로 움직일 때마다 실제로 무한소 수의 주식을 진입하고 청산할 수 없다. 이러한 비실용성에도 불구하고, 이 간단한 선형 전략으로 평균 회귀 가격 시계열을 백테스팅하는 것의 중요성은 전략에 최적화할 매개변수가 없으므로 데이터 스누핑 편향 없이 수익을 추출할 수 있음을 보여준다는 것이다. (룩백조차도 우리의 특정 거래 전략이 아닌 가격 시계열 자체의 속성에 의존하는 수량인 반감기와 같게 설정됨을 기억하라.) 또한, 전략이 지속적으로 포지션에 진입하고 청산하므로, 더 복잡하고 선택적인 진입 및 청산 규칙을 가진 다른 거래 전략보다 통계적 유의성이 더 높을 가능성이 있다.
 
-# 평균 회귀 전략의 장단점 (Pros and Cons of Mean-Reverting Strategies)
+## 평균 회귀 전략의 장단점 (Pros and Cons of Mean-Reverting Strategies)
 
 평균 회귀 전략을 구축하는 것은 종종 상당히 쉽다. 왜냐하면 본질적으로 정상인 상품만 거래하는 데 국한되지 않기 때문이다. 우리는 다양한 공적분 주식과 ETF 중에서 선택하여 자체 정상, 평균 회귀 포트폴리오를 만들 수 있다. 매년 기존 것과 약간만 다를 수 있는 새로운 ETF가 생성된다는 사실도 분명히 우리의 목적에 도움이 된다.
 
