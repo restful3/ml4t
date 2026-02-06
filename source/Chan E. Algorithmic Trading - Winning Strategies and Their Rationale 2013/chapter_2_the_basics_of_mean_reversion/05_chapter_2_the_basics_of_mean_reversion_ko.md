@@ -322,33 +322,28 @@ halflife=-log(2)/regress_results.beta(1);
 
 "선형" 전략이란 투자 단위 수가 Z-점수에 비례한다는 것만 의미하고, 투자의 시장 가치가 비례한다는 것은 아니라는 점에 유의하라.
 
-이 선형 평균 회귀 전략은 적어도 가장 단순한 버전에서는 분명히 실용적인 전략이 아니다. 처음에 필요한 최대 자본을 알 수 없고
-
 #### 예제 2.8: 포트폴리오에 대한 선형 평균 회귀 전략 백테스팅하기 (Example 2.8: Backtesting a Linear Mean-Reverting Strategy on a Portfolio)
 
-*yport*는 앞의 코드 조각에서 계산된 "단위" 포트폴리오의 순 시장 가치를 나타내는 Tx1 배열이다. *numUnits*는 구매하려는 이 단위 포트폴리오의 배수를 나타내는 Tx1 배열이다. (배수는 단위 포트폴리오를 숏하려는 경우 음수이다.) 다른 모든 변수는 이전에 계산된 대로이다. *positions*는 투자한 포트폴리오에서 각 ETF의 포지션(시장 가치)을 나타내는 Tx3 배열이다. (이 코드 조각은 *cointegrationTests.m*의 일부이다.)
+이 선형 평균 회귀 전략은 적어도 가장 단순한 버전에서는 분명히 실용적인 전략이 아니다. 처음에 필요한 최대 자본을 알 수 없고, *yport*는 앞의 코드 조각에서 계산된 "단위" 포트폴리오의 순 시장 가치를 나타내는 Tx1 배열이다. *numUnits*는 구매하려는 이 단위 포트폴리오의 배수를 나타내는 Tx1 배열이다. (배수는 단위 포트폴리오를 숏하려는 경우 음수이다.) 다른 모든 변수는 이전에 계산된 대로이다. *positions*는 투자한 포트폴리오에서 각 ETF의 포지션(시장 가치)을 나타내는 Tx3 배열이다. (이 코드 조각은 *cointegrationTests.m*의 일부이다.)
 
 ```matlab
-% Apply a simple linear mean reversion strategy to EWA-EWC-IGE
-lookback=round(halflife); % setting lookback to the halflife
- % found above
-numUnits =-(yport-movingAvg(yport, lookback))...
- ./movingStd(yport, lookback); % multiples of unit
- % portfolio . movingAvg and movingStd are functions from epchan.com/book2
-positions=repmat(numUnits, [1 size(y3, 2)]).*repmat(results. ...
- evec(:, 1)', [size(y3, 1) 1]).*y3;
- % results.evec(:, 1)' is the shares allocation, while positions is the capital (dollar) allocation in each ETF.
+% EWA-EWC-IGE에 간단한 선형 평균 회귀 전략 적용
+lookback=round(halflife); % 룩백(lookback) 기간을 위에서 구한 반감기로 설정
+numUnits =-(yport-movingAvg(yport, lookback))..../movingStd(yport, lookback); % 단위 포트폴리오의 배수
+ % movingAvg와 movingStd는 epchan.com/book2에서 제공하는 함수임
+positions=repmat(numUnits, [1 size(y3, 2)]).*repmat(results. ... evec(:, 1)', [size(y3, 1) 1]).*y3;
+ % results.evec(:, 1)'은 주식 수 할당량이며, positions는 각 ETF의 자본(달러) 할당량임
 pnl=sum(lag(positions, 1).*(y3-lag(y3, 1))./lag(y3, 1), 2);
- % daily P&L of the strategy
-ret=pnl./sum(abs(lag(positions, 1)), 2); % return is P&L
- % divided by gross market value of portfolio
+ % 전략의 일일 손익(P&L)
+ret=pnl./sum(abs(lag(positions, 1)), 2); % 수익률은 손익을
+ % 포트폴리오의 총 시장 가치로 나눈 값임
 ```
 
 그림 2.7은 EWA, EWC, IGE의 정상 포트폴리오에 대한 이 선형 평균 회귀 전략의 누적 수익률 곡선을 표시한다. (*계속*)
 
 ![](_page_21_Figure_3.jpeg)
 
-** 그림 2.7**EWA-EWC-IGE 정상 포트폴리오에 대한 선형 거래 전략의 누적 수익률
+**그림 2.7** EWA-EWC-IGE 정상 포트폴리오에 대한 선형 거래 전략의 누적 수익률
 
 전략에 대해 APR = 12.6%와 샤프 비율 1.4를 얻는다.
 
