@@ -47,7 +47,7 @@
 
 #### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
 
-* 발표자 - 태영
+* 발표자 - 태호
 * **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**
     * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
     * 볼린저 밴드 활용 및 실무적 전략 구현
@@ -65,7 +65,7 @@
 
 #### **2026년 3월 7일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m8a86f86479fe817a0e45466e66548de1)
 
-* 발표자 - TBD
+* 발표자 - 태영
 * **Chapter 5. 통화 및 선물의 평균 회귀 (Mean Reversion of Currencies and Futures)**
     * 통화 교차 환율 거래 및 상품 통화 공적분
     * 롤오버 이자(Rollover Interests)와 선물 롤 수익률(Roll Returns)
