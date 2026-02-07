@@ -74,7 +74,7 @@
 
 #### **2026년 3월 14일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=md32de1ca842efa99471df2562bc982db)
 
-* 발표자 - TBD
+* 발표자 - WM
 * **Chapter 6. 일간 모멘텀 전략 (Interday Momentum Strategies)**
     * 모멘텀의 발생 원인(롤 리턴 지속성, 정보 지연 등) 및 유형
     * 시계열 모멘텀(Time Series Momentum) 및 롤 리턴 추출 전략
