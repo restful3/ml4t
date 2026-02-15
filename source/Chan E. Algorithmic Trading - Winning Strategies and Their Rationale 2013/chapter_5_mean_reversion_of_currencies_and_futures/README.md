@@ -102,6 +102,34 @@ $$ \text{총수익률} = \text{현물 수익률}(\alpha) + \text{롤 수익률}(
 
 ---
 
+## 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter5_analysis.py`](src/run_chapter5_analysis.py)
+    *   예제 5.1: AUD/USD vs CAD/USD 요한센 공적분 페어 트레이딩
+    *   예제 5.2: AUD/CAD 롤오버 이자 반영 전략
+    *   예제 5.3: 옥수수 선물 스팟/롤 수익률 분해 (상수 수익률 모델)
+    *   예제 5.4: CL 캘린더 스프레드 평균 회귀
+*   **상세 분석 리포트**: [📄 **Chapter 5 종합 분석 리포트 보기**](src/reports/chapter5_report.md)
+
+### 리포트 주요 결과
+
+| 예제 | 핵심 지표 | 실행 결과 | 책 기대값 |
+|------|-----------|----------|----------|
+| 5.1 AUD/CAD 페어 | Sharpe Ratio | **1.3629** | 1.36 |
+| 5.2 롤오버 이자 | APR | **6.28%** | 6.2% |
+| 5.3 옥수수 선물 | 롤 수익률 (gamma) | **-12.78%** | -12.8% |
+| 5.4 CL 캘린더 스프레드 | Sharpe Ratio | **1.22** | 1.28 |
+
+### 생성된 차트
+*   `src/reports/figures/ch5_audcad_unequal.png` - AUD/CAD 요한센 페어 트레이딩 누적 수익률
+*   `src/reports/figures/ch5_audcad_rollover.png` - 롤오버 이자 반영 전략 비교
+*   `src/reports/figures/ch5_futures_returns.png` - 옥수수 선물 스팟/롤 수익률
+*   `src/reports/figures/ch5_calendar_spread.png` - CL 캘린더 스프레드 누적 수익률
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_4_mean_reversion_of_stocks_and_etfs/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_6_interday_momentum_strategies/README.md)

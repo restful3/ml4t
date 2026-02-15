@@ -9,13 +9,13 @@
 각 챕터의 상세 내용은 아래 링크를 클릭하여 확인할 수 있습니다.
 
 *   [**Chapter 1: Backtesting and Automated Execution**](./chapter_1_backtesting_and_automated_execution/README.md) ([PDF](./chapter_1_backtesting_and_automated_execution/Quant_Trading_System_Blueprint.pdf))
-*   [**Chapter 2: The Basics of Mean Reversion**](./chapter_2_the_basics_of_mean_reversion/README.md) ([PDF](./chapter_2_the_basics_of_mean_reversion/Quant_Alpha_From_Chaos.pdf))
-*   [**Chapter 3: Implementing Mean Reversion Strategies**](./chapter_3_implementing_mean_reversion_strategies/README.md) ([PDF](./chapter_3_implementing_mean_reversion_strategies/Adaptive_Mean_Reversion_Algorithms.pdf))
-*   [**Chapter 4: Mean Reversion of Stocks and ETFs**](./chapter_4_mean_reversion_of_stocks_and_etfs/README.md) ([PDF](./chapter_4_mean_reversion_of_stocks_and_etfs/Mean_Reversion_Alpha_Evolution.pdf))
-*   [**Chapter 5: Mean Reversion of Currencies and Futures**](./chapter_5_mean_reversion_of_currencies_and_futures/README.md) ([PDF](./chapter_5_mean_reversion_of_currencies_and_futures/Structural_Alpha_in_Momentum_Markets.pdf))
-*   [**Chapter 6: Interday Momentum Strategies**](./chapter_6_interday_momentum_strategies/README.md) ([PDF](./chapter_6_interday_momentum_strategies/Momentum_Strategy_Dissected.pdf))
-*   [**Chapter 7: Intraday Momentum Strategies**](./chapter_7_intraday_momentum_strategies/README.md) ([PDF](./chapter_7_intraday_momentum_strategies/Intraday_Alpha_Strategies.pdf))
-*   [**Chapter 8: Risk Management**](./chapter_8_risk_management/README.md) ([PDF](./chapter_8_risk_management/Engineering_Portfolio_Survival.pdf))
+*   [**Chapter 2: The Basics of Mean Reversion**](./chapter_2_the_basics_of_mean_reversion/README.md) ([PDF](./chapter_2_the_basics_of_mean_reversion/Quant_Alpha_From_Chaos.pdf)) | [분석 리포트](./chapter_2_the_basics_of_mean_reversion/src/reports/chapter2_report.md)
+*   [**Chapter 3: Implementing Mean Reversion Strategies**](./chapter_3_implementing_mean_reversion_strategies/README.md) ([PDF](./chapter_3_implementing_mean_reversion_strategies/Adaptive_Mean_Reversion_Algorithms.pdf)) | [분석 리포트](./chapter_3_implementing_mean_reversion_strategies/src/reports/chapter3_report.md)
+*   [**Chapter 4: Mean Reversion of Stocks and ETFs**](./chapter_4_mean_reversion_of_stocks_and_etfs/README.md) ([PDF](./chapter_4_mean_reversion_of_stocks_and_etfs/Mean_Reversion_Alpha_Evolution.pdf)) | [분석 리포트](./chapter_4_mean_reversion_of_stocks_and_etfs/src/reports/chapter4_report.md)
+*   [**Chapter 5: Mean Reversion of Currencies and Futures**](./chapter_5_mean_reversion_of_currencies_and_futures/README.md) ([PDF](./chapter_5_mean_reversion_of_currencies_and_futures/Structural_Alpha_in_Momentum_Markets.pdf)) | [분석 리포트](./chapter_5_mean_reversion_of_currencies_and_futures/src/reports/chapter5_report.md)
+*   [**Chapter 6: Interday Momentum Strategies**](./chapter_6_interday_momentum_strategies/README.md) ([PDF](./chapter_6_interday_momentum_strategies/Momentum_Strategy_Dissected.pdf)) | [분석 리포트](./chapter_6_interday_momentum_strategies/src/reports/chapter6_report.md)
+*   [**Chapter 7: Intraday Momentum Strategies**](./chapter_7_intraday_momentum_strategies/README.md) ([PDF](./chapter_7_intraday_momentum_strategies/Intraday_Alpha_Strategies.pdf)) | [분석 리포트](./chapter_7_intraday_momentum_strategies/src/reports/chapter7_report.md)
+*   [**Chapter 8: Risk Management**](./chapter_8_risk_management/README.md) ([PDF](./chapter_8_risk_management/Engineering_Portfolio_Survival.pdf)) | [분석 리포트](./chapter_8_risk_management/src/reports/chapter8_report.md)
 *   [**Conclusion**](./conclusion/README.md)
 
 ---
@@ -26,42 +26,56 @@
 
 ```
 ├── chapter_2_the_basics_of_mean_reversion/src/
+│   ├── run_chapter2_analysis.py    # [종합 분석] ADF, 허스트, 공적분, 반감기
 │   ├── stationaryTests.py          # ADF 검정, 허스트 지수
 │   ├── cointegrationTests.py       # CADF, Johansen 공적분 검정
 │   ├── genhurst.py                 # 허스트 지수 계산 함수
-│   └── inputData_*.csv             # EWA/EWC/IGE, USDCAD 데이터
+│   ├── inputData_*.csv             # EWA/EWC/IGE, USDCAD 데이터
+│   └── reports/                    # 분석 리포트 및 차트
 │
 ├── chapter_3_implementing_mean_reversion_strategies/src/
+│   ├── run_chapter3_analysis.py    # [종합 분석] 볼린저 밴드, 칼만 필터
 │   ├── bollinger.py                # 볼린저 밴드 전략
 │   ├── KF_beta_EWA_EWC.py          # 칼만 필터 전략
 │   ├── PriceSpread.py              # 가격 스프레드 전략
 │   ├── LogPriceSpread.py           # 로그 가격 스프레드 전략
-│   └── Ratio.py                    # 비율 전략
+│   ├── Ratio.py                    # 비율 전략
+│   └── reports/                    # 분석 리포트 및 차트
 │
 ├── chapter_4_mean_reversion_of_stocks_and_etfs/src/
+│   ├── run_chapter4_analysis.py    # [종합 분석] 인덱스 차익거래, PEAD, Buy-on-Gap, 횡단면
 │   ├── indexArb.py                 # SPY 인덱스 차익거래
 │   ├── pead.py                     # 실적 발표 후 드리프트 (PEAD)
 │   ├── bog.py                      # Buy-on-Gap 전략
-│   └── andrewlo_2007_2012.py       # 선형 롱숏 모델
+│   ├── andrewlo_2007_2012.py       # 선형 롱숏 모델
+│   └── reports/                    # 분석 리포트 및 차트
 │
 ├── chapter_5_mean_reversion_of_currencies_and_futures/src/
+│   ├── run_chapter5_analysis.py    # [종합 분석] AUD/CAD 페어, 롤오버, 캘린더 스프레드
 │   ├── AUDCAD_daily.py             # AUD/CAD 페어 트레이딩
 │   ├── AUDCAD_unequal.py           # Johansen 기반 통화쌍 트레이딩
 │   ├── calendarSpdsMeanReversion.py # 캘린더 스프레드 평균회귀
-│   └── estimateFuturesReturns.py   # 선물 수익률 추정
+│   ├── estimateFuturesReturns.py   # 선물 수익률 추정
+│   └── reports/                    # 분석 리포트 및 차트
 │
 ├── chapter_6_interday_momentum_strategies/src/
+│   ├── run_chapter6_analysis.py    # [종합 분석] TU 모멘텀, 가설 검정, 횡단면 모멘텀
 │   ├── TU_mom.py                   # 채권선물 모멘텀
 │   ├── TU_mom_hypothesisTest.py    # 모멘텀 가설 검정
-│   └── kentdaniel.py               # 횡단면 모멘텀 전략
+│   ├── kentdaniel.py               # 횡단면 모멘텀 전략
+│   └── reports/                    # 분석 리포트 및 차트
 │
 ├── chapter_7_intraday_momentum_strategies/src/
+│   ├── run_chapter7_analysis.py    # [종합 분석] FSTX 시가 갭, VX-ES 롤 수익률
 │   ├── gapFutures_FSTX.py          # 갭 오프닝 전략
-│   └── VX_ES_rollreturn.py         # VIX 선물 vs ES 롤 수익률
+│   ├── VX_ES_rollreturn.py         # VIX 선물 vs ES 롤 수익률
+│   └── reports/                    # 분석 리포트 및 차트
 │
 └── chapter_8_risk_management/src/
+    ├── run_chapter8_analysis.py    # [종합 분석] 켈리 공식, 몬테카를로, CPPI
     ├── monteCarloOptimLeverage.py  # 몬테카를로 레버리지 최적화
-    └── calculateMaxDD.py           # 최대 낙폭(MDD) 계산
+    ├── calculateMaxDD.py           # 최대 낙폭(MDD) 계산
+    └── reports/                    # 분석 리포트 및 차트
 ```
 
 ### 가상환경 설정
@@ -86,6 +100,26 @@ python stationaryTests.py
 | `arch` | 분산비 검정, GARCH 모델 |
 | `matplotlib` | 시각화 |
 | `scipy` | 과학 계산, 최적화 |
+
+### 종합 분석 스크립트 (Analysis Scripts)
+
+각 챕터별 `run_chapterX_analysis.py` 스크립트는 책의 예제를 재현하고 백테스팅 결과를 리포트로 생성합니다. 실행 방법:
+
+```bash
+source .venv/bin/activate
+cd chapter_X_*/src
+python run_chapterX_analysis.py
+```
+
+| 챕터 | 대표 전략/분석 | 핵심 지표 | 결과 | 책 기대값 |
+|------|--------------|-----------|------|----------|
+| Ch2 | EWA-EWC 공적분 검정 | CADF p-value | 0.0284 | < 0.05 |
+| Ch3 | 칼만 필터 EWA-EWC | Sharpe Ratio | 3.31 | 2.4 |
+| Ch4 | 횡단면 평균 회귀 (O2C) | Sharpe Ratio | 4.94 | 4.7 |
+| Ch5 | AUD/CAD 페어 트레이딩 | Sharpe Ratio | 1.36 | 1.36 |
+| Ch6 | 가우시안 가설 검정 | 검정 통계량 | 2.77 | 2.77 |
+| Ch7 | FSTX 시가 갭 전략 | APR / Sharpe | 7.49% / 0.49 | 7.5% / 0.49 |
+| Ch8 | 몬테카를로 최적 레버리지 | f* / g(f*) | 25.51 / 0.0058 | 25.51 / 0.0058 |
 
 ---
 

@@ -97,6 +97,34 @@ ETF는 단일 기업보다 펀더멘털 변화가 완만하여 공적분 관계�
 
 ---
 
+## 6. 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter4_analysis.py`](src/run_chapter4_analysis.py)
+    *   SPY 인덱스 차익거래 전략 (부분집합 공적분)
+    *   실적 발표 후 드리프트 (PEAD) 전략
+    *   Buy-on-Gap 일중 전략 (롱/숏)
+    *   횡단면 선형 평균 회귀 (Khandani-Lo 모델)
+*   **상세 분석 리포트**: [📄 **Chapter 4 종합 분석 리포트 보기**](src/reports/chapter4_report.md)
+
+### 리포트 주요 결과
+
+| 전략 | APR | Sharpe | 특징 |
+|------|-----|--------|------|
+| SPY 인덱스 차익거래 | 2.89% | 1.08 | 부분집합 5종목, 반감기 4일 |
+| PEAD (실적 드리프트) | 3.38% | 0.47 | S&P 500 종목 실적 발표 후 1일 |
+| Buy-on-Gap (숏) | 46.56% | 1.27 | 갭다운 종목 매도, 당일 청산 |
+| 횡단면 (O2C) | 76.23% | 4.94 | 시가-종가 모델, 498종목 |
+
+### 생성된 차트
+*   `src/reports/figures/ch4_index_arbitrage.png` - 인덱스 차익거래 누적 수익률
+*   `src/reports/figures/ch4_pead.png` - PEAD 전략 누적 수익률
+*   `src/reports/figures/ch4_buy_on_gap.png` - Buy-on-Gap 전략 누적 수익률
+*   `src/reports/figures/ch4_cross_sectional.png` - 횡단면 평균 회귀 누적 수익률
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_3_implementing_mean_reversion_strategies/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_5_mean_reversion_of_currencies_and_futures/README.md)

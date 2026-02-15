@@ -104,6 +104,30 @@
 
 ---
 
+## 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter7_analysis.py`](src/run_chapter7_analysis.py)
+    *   예제 7.1: FSTX 시가 갭 전략 (90일 롤링 변동성, Z-score 0.1)
+    *   VX-ES 롤 수익률 전략 (VIX 선물 콘탱고 활용)
+*   **상세 분석 리포트**: [📄 **Chapter 7 종합 분석 리포트 보기**](src/reports/chapter7_report.md)
+
+### 리포트 주요 결과
+
+| 전략 | APR | Sharpe | Max DD | 책 기대값 |
+|------|-----|--------|--------|----------|
+| FSTX 시가 갭 | **7.49%** | **0.4949** | **-23.36%** | APR 7.5%, Sharpe 0.49, MDD -23.4% |
+| VX-ES 롤 수익률 | **29.39%** | **3.27** | **-5.68%** | 평가 구간 상이 |
+
+> FSTX 시가 갭 전략은 책의 기대값과 거의 완벽하게 일치하는 결과를 달성했습니다.
+
+### 생성된 차트
+*   `src/reports/figures/ch7_opening_gap.png` - FSTX 시가 갭 전략 누적 수익률
+*   `src/reports/figures/ch7_vx_es_rollreturn.png` - VX-ES 롤 수익률 전략 누적 수익률
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_6_interday_momentum_strategies/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_8_risk_management/README.md)

@@ -110,6 +110,33 @@
 
 ---
 
+## 8. 실습 및 분석 리포트 (Practice & Analysis Report)
+
+본 챕터의 내용을 바탕으로 Python 스크립트를 통해 데이터를 분석하고 전략을 백테스팅한 결과를 리포트로 생성했습니다.
+
+*   **분석 스크립트**: [`src/run_chapter6_analysis.py`](src/run_chapter6_analysis.py)
+    *   Box 6.1: 룩백/홀딩 기간별 상관관계 히트맵
+    *   예제 6.1: TU 시계열 모멘텀 전략 (250일 룩백, 25일 보유)
+    *   예제 6.1 확장: 가우시안/무작위 시장/무작위 진입 가설 검정
+    *   예제 6.2: 횡단면 모멘텀 전략 (Kent Daniel 모델, 498종목)
+*   **상세 분석 리포트**: [📄 **Chapter 6 종합 분석 리포트 보기**](src/reports/chapter6_report.md)
+
+### 리포트 주요 결과
+
+| 분석 | 핵심 지표 | 실행 결과 | 책 기대값 |
+|------|-----------|----------|----------|
+| 가우시안 가설 검정 | 검정 통계량 | **2.7697** | 2.77 |
+| TU 시계열 모멘텀 | Sharpe Ratio | **1.09** | ~1.3 |
+| 횡단면 모멘텀 | APR | **-7.41%** | 모멘텀 크래시 기간 |
+
+### 생성된 차트
+*   `src/reports/figures/ch6_correlation_heatmap.png` - 룩백/보유 기간별 상관관계 히트맵
+*   `src/reports/figures/ch6_tu_momentum.png` - TU 시계열 모멘텀 누적 수익률
+*   `src/reports/figures/ch6_hypothesis_test.png` - 가설 검정 분포 비교
+*   `src/reports/figures/ch6_cross_sectional_momentum.png` - 횡단면 모멘텀 누적 수익률
+
+---
+
 <div align="center">
 
 [< Previous](../chapter_5_mean_reversion_of_currencies_and_futures/README.md) | [Table of Contents](../README.md) | [Next >](../chapter_7_intraday_momentum_strategies/README.md)
