@@ -1,6 +1,6 @@
 # Chapter 5: 통화와 선물의 평균 회귀 (Mean Reversion of Currencies and Futures)
 
-> 분석 실행일: 2026-02-15 21:14:09
+> 분석 실행일: 2026-02-16 14:50:37
 
 ## 1. 개요 및 문제 정의
 
