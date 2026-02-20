@@ -31,26 +31,26 @@ format:
 
 ## 도입부: 완벽한 정상성은 필요 없다
 
-이전 장에서 가격 시계열이 **정상적(stationary)**인지, 따라서 평균 회귀 거래에 적합한지 결정하기 위한 통계적 검정을 설명했습니다. 이 가격 시계열은 단일 자산의 시장 가치일 수도 있지만, 그러한 정상 자산이 존재하는 경우는 드뭅니다. 또는 익숙한 롱-숏 주식 페어와 같은 **공적분(cointegrated)** 자산 포트폴리오의 시장 가치일 수 있습니다.
+이전 장에서 가격 시계열이 **정상적(stationary)** 인지, 따라서 평균 회귀 거래에 적합한지 결정하기 위한 통계적 검정을 설명했습니다. 이 가격 시계열은 단일 자산의 시장 가치일 수도 있지만, 그러한 정상 자산이 존재하는 경우는 드뭅니다. 또는 익숙한 롱-숏 주식 페어와 같은 **공적분(cointegrated)** 자산 포트폴리오의 시장 가치일 수 있습니다.
 
 여기서 중요한 점을 짚고 넘어가겠습니다. 여러분이 생각할 수 있는 것과 달리, 성공적인 평균 회귀 전략을 구현하기 위해 **반드시 진정한 정상성이나 공적분이 필요하지는 않습니다**. 마치 프로 수영 선수만 수영장에 들어갈 수 있는 게 아닌 것처럼요. 영리하게 접근하면, **단기 또는 계절적 평균 회귀**를 포착하고, 가격이 다음 균형 수준으로 이동하기 전에 포지션을 청산할 수 있습니다.
 
-> **계절적 평균 회귀(seasonal mean reversion)**란 무엇일까요? 가격 시계열이 하루 중 특정 시간대나 특정 조건에서만 평균으로 돌아오는 현상을 말합니다. 예를 들어, 주식 시장이 개장 직후 30분 동안은 과잉 반응한 가격이 원래 수준으로 돌아오는 경향이 있다면, 그것이 바로 계절적 평균 회귀입니다.
+> **계절적 평균 회귀(seasonal mean reversion)** 란 무엇일까요? 가격 시계열이 하루 중 특정 시간대나 특정 조건에서만 평균으로 돌아오는 현상을 말합니다. 예를 들어, 주식 시장이 개장 직후 30분 동안은 과잉 반응한 가격이 원래 수준으로 돌아오는 경향이 있다면, 그것이 바로 계절적 평균 회귀입니다.
 
-반대로, **모든 정상 시계열이 큰 수익으로 이어지는 것은 아닙니다**. 평균 회귀의 **반감기(half-life)**가 10년이라면 어떨까요? 10년 동안 포지션을 잡고 기다릴 트레이더는 거의 없겠죠!
+반대로, **모든 정상 시계열이 큰 수익으로 이어지는 것은 아닙니다**. 평균 회귀의 **반감기(half-life)** 가 10년이라면 어떨까요? 10년 동안 포지션을 잡고 기다릴 트레이더는 거의 없겠죠!
 
-우리는 또한 앞 장에서 자산의 가격이 평균에서 벗어난 정도에 **비례하여** 단순히 자산에 **스케일 인(scale in)**하는 간단한 선형 평균 회귀 전략을 설명했습니다. 이건 마치 수영장 물이 빠질수록 더 많은 물을 붓는 것과 같은데, 문제는 지속적인 무한소 리밸런싱과 무제한 구매력이 필요하다는 점입니다. 현실에서는 돈이 무한하지 않으니까요!
+우리는 또한 앞 장에서 자산의 가격이 평균에서 벗어난 정도에 **비례하여** 단순히 자산에 **스케일 인(scale in)** 하는 간단한 선형 평균 회귀 전략을 설명했습니다. 이건 마치 수영장 물이 빠질수록 더 많은 물을 붓는 것과 같은데, 문제는 지속적인 무한소 리밸런싱과 무제한 구매력이 필요하다는 점입니다. 현실에서는 돈이 무한하지 않으니까요!
 
 이 장에서는 **더 실용적이지만 여전히 간단한** 평균 회귀 전략들을 다룹니다:
 
 1. **볼린저 밴드(Bollinger Bands)** — 우리의 핵심 도구, 도로의 가드레일
-2. **여러 진입 및 청산 수준 사용(스케일링 인)**의 장단점
+2. **여러 진입 및 청산 수준 사용(스케일링 인)** 의 장단점
 3. **칼만 필터(Kalman Filter)** — GPS처럼 헤지 비율과 평균 가격을 실시간 업데이트
 4. **데이터 오류**가 평균 회귀 전략에 미치는 위험
 
 ### 백테스트에 대한 솔직한 고백
 
-이 책에서 어떤 전략의 백테스트를 제시할 때, **거래 비용은 포함하지 않습니다**. 또한 때때로 매개변수 최적화(예: 최적의 헤지 비율 찾기)와 백테스트에 **동일한 데이터**를 사용함으로써 **미래 예측 편향(look-ahead bias)**을 도입하는 더 큰 오류를 범하기도 합니다. 이것들은 모두 1장에서 경고한 함정입니다.
+이 책에서 어떤 전략의 백테스트를 제시할 때, **거래 비용은 포함하지 않습니다**. 또한 때때로 매개변수 최적화(예: 최적의 헤지 비율 찾기)와 백테스트에 **동일한 데이터**를 사용함으로써 **미래 예측 편향(look-ahead bias)** 을 도입하는 더 큰 오류를 범하기도 합니다. 이것들은 모두 1장에서 경고한 함정입니다.
 
 왜 그렇게 하느냐고요? 유일한 변명은 **프레젠테이션과 소스 코드를 이해하기 쉽게 만든다**는 것입니다. 마치 요리 교실에서 식재료 손질 과정을 생략하고 조리법만 보여주는 것과 같습니다. 독자 여러분이 이러한 프로토타입 전략의 자체 백테스트를 구현할 때는 **반드시** 이러한 함정을 정리하는 힘든 작업을 수행해야 합니다!
 
@@ -64,7 +64,7 @@ format:
 
 ### 가격 스프레드: 가장 기본적인 방법
 
-2장에서 평균 회귀 거래를 위한 포트폴리오를 구성할 때, 우리는 단순히 "단위" 포트폴리오의 시장 가치를 거래 신호로 사용했습니다. 이 시장 가치 또는 가격은 구성 가격 시계열의 **가중 합(weighted sum)**이며, 가중치는 선형 회귀 또는 요한센 검정의 고유벡터에서 찾은 **헤지 비율(hedge ratio)**입니다.
+2장에서 평균 회귀 거래를 위한 포트폴리오를 구성할 때, 우리는 단순히 "단위" 포트폴리오의 시장 가치를 거래 신호로 사용했습니다. 이 시장 가치 또는 가격은 구성 가격 시계열의 **가중 합(weighted sum)** 이며, 가중치는 선형 회귀 또는 요한센 검정의 고유벡터에서 찾은 **헤지 비율(hedge ratio)** 입니다.
 
 수식으로 표현하면:
 
@@ -76,21 +76,21 @@ $$y = h_1 y_1 + h_2 y_2 + \dots + h_n y_n \qquad (3.1)$$
 - **$y_1, y_2, \dots, y_n$**: 포트폴리오를 구성하는 각 자산의 가격
 - **$h_1, h_2, \dots, h_n$**: 각 자산의 헤지 비율 (= 각 주식을 몇 주씩 보유하느냐)
 
-이 $y$는 구조상 **정상 시계열(stationary time series)**이어야 합니다. 다시 말해, 시간이 지나도 평균으로 돌아오는 성질을 가져야 한다는 뜻이죠.
+이 $y$는 구조상 **정상 시계열(stationary time series)** 이어야 합니다. 다시 말해, 시간이 지나도 평균으로 돌아오는 성질을 가져야 한다는 뜻이죠.
 
-주식이 딱 두 개만 있는 특수한 경우, 이 공식은 많은 페어 트레이더에게 익숙한 **스프레드(spread)**로 축소됩니다:
+주식이 딱 두 개만 있는 특수한 경우, 이 공식은 많은 페어 트레이더에게 익숙한 **스프레드(spread)** 로 축소됩니다:
 
 $$y = y_1 - h y_2 \qquad (3.2)$$
 
-> 여기서 마이너스 기호를 삽입한 이유가 있습니다. 보통 한 주식은 **롱(매수)**하고 다른 주식은 **숏(매도)**하므로, 이렇게 정의하면 $h$가 양수가 됩니다. 직관적으로 이해하기 쉬워지죠!
+> 여기서 마이너스 기호를 삽입한 이유가 있습니다. 보통 한 주식은 **롱(매수)** 하고 다른 주식은 **숏(매도)** 하므로, 이렇게 정의하면 $h$가 양수가 됩니다. 직관적으로 이해하기 쉬워지죠!
 
 ### 로그 가격 스프레드: 자본 배분의 관점
 
-이번에는 가격 대신 **가격의 로그(logarithm)**가 공적분한다고 가정해봅시다:
+이번에는 가격 대신 **가격의 로그(logarithm)** 가 공적분한다고 가정해봅시다:
 
 $$\log(q) = h_1 \log(y_1) + h_2 \log(y_2) + \dots + h_n \log(y_n) \qquad (3.3)$$
 
-여기서 $q$는 무엇일까요? 포트폴리오의 시장 가치일 수도 있고 아닐 수도 있는, 어떤 정상 시계열에 주어진 이름일 뿐입니다. 그 속성을 파악하기 위해 **시간에 대한 1차 차분(first difference)**을 취해봅시다:
+여기서 $q$는 무엇일까요? 포트폴리오의 시장 가치일 수도 있고 아닐 수도 있는, 어떤 정상 시계열에 주어진 이름일 뿐입니다. 그 속성을 파악하기 위해 **시간에 대한 1차 차분(first difference)** 을 취해봅시다:
 
 $$\Delta \log(q) = h_1 \Delta \log(y_1) + h_2 \Delta \log(y_2) + \dots + h_n \Delta \log(y_n) \qquad (3.4)$$
 
@@ -106,13 +106,13 @@ $$h_1 \frac{\Delta y_1}{y_1} + h_2 \frac{\Delta y_2}{y_2} + \dots + h_n \frac{\D
 
 여기서 중요한 차이점이 있습니다:
 - **식 3.1의 가격 스프레드**에서 헤지 비율 $h$는 각 자산의 **주식 수**를 나타냈습니다.
-- **식 3.3의 로그 가격 스프레드**에서는 각 자산의 **시장 가치(달러 금액)**를 $h$로 설정할 수 있습니다.
+- **식 3.3의 로그 가격 스프레드**에서는 각 자산의 **시장 가치(달러 금액)** 를 $h$로 설정할 수 있습니다.
 
 비유로 설명하면, 가격 스프레드는 "삼성전자 10주, SK하이닉스 5주"처럼 **주식 수**로 포트폴리오를 정의하는 것이고, 로그 가격 스프레드는 "삼성전자에 100만 원, SK하이닉스에 50만 원"처럼 **금액**으로 포트폴리오를 정의하는 것입니다.
 
 따라서 $q$를 가격이 $y_1, y_2, \dots, y_n$이고 **일정한 자본 가중치**가 $h_1, h_2, \dots, h_n$인 자산 포트폴리오의 시장 가치로 해석할 수 있습니다. 이때 암묵적으로 **현금 구성 요소**가 포함되어 있습니다.
 
-왜 현금이 필요할까요? 자본 가중치 $h$가 일정하게 유지된다면, 자산 가격이 변할 때마다 포트폴리오를 **리밸런싱(rebalancing)**해야 합니다. 이 과정에서 일부 이익이나 손실을 실현하며 현금 잔고에 추가하거나 빼게 됩니다. 마치 여러분이 "삼성전자 60%, SK하이닉스 40%"라는 비율을 항상 유지하려면, 한쪽이 올라가면 일부를 팔고 다른 쪽을 사야 하는 것과 같습니다. 이 과정에서 현금이 오고 갑니다.
+왜 현금이 필요할까요? 자본 가중치 $h$가 일정하게 유지된다면, 자산 가격이 변할 때마다 포트폴리오를 **리밸런싱(rebalancing)** 해야 합니다. 이 과정에서 일부 이익이나 손실을 실현하며 현금 잔고에 추가하거나 빼게 됩니다. 마치 여러분이 "삼성전자 60%, SK하이닉스 40%"라는 비율을 항상 유지하려면, 한쪽이 올라가면 일부를 팔고 다른 쪽을 사야 하는 것과 같습니다. 이 과정에서 현금이 오고 갑니다.
 
 이 현금은 식 3.4에 나타나지 않습니다. 물론 시장 움직임의 결과로 $t - 1$에서 $t$로 시장 가치가 변하지 않기 때문입니다. 하지만 트레이더가 자본 가중치의 일정함을 유지하기 위해 포트폴리오를 리밸런싱하고 일부 이익이나 손실을 실현하며 현금 잔고에 추가하거나 빼면 $t$에서 그 값이 변할 것입니다. 따라서 이 포트폴리오의 시장 가치를 정상적(그러나 일정하지는 않음!)으로 유지하려면 트레이더에게 많은 작업이 필요합니다. 가격의 로그를 사용함으로써 필요해진 **포트폴리오를 지속적으로 리밸런싱**해야 하기 때문입니다.
 
@@ -122,11 +122,11 @@ $$h_1 \frac{\Delta y_1}{y_1} + h_2 \frac{\Delta y_2}{y_2} + \dots + h_n \frac{\D
 
 ### 가격 비율: 특수하지만 유용한 경우
 
-그런데 많은 트레이더가 페어의 신호로 선호하는 **가격 비율 $y_1/y_2$**는 어떨까요?
+그런데 많은 트레이더가 페어의 신호로 선호하는 **가격 비율 $y_1/y_2$** 는 어떨까요?
 
 두 가격 시계열만 있는 경우 식 3.1을 보면, **$h_1 = -h_2$이면** 실제로 $\log(y_1/y_2)$ 또는 $y_1/y_2$가 정상임을 알 수 있습니다. 그러나 이것은 **특수한 경우**입니다. 일반적으로 헤지 비율이 크기가 같거나, 정규화하면 정확히 $-1$과 같을 것으로 기대하지 않습니다. 따라서 비율 $y_1/y_2$가 **반드시 정상 시계열을 형성하는 것은 아닙니다**.
 
-그러나 비율 사용이 이점을 가지는 흥미로운 경우가 있습니다. 한 독자가 다음과 같은 예를 들었습니다 ([http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894](http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894)):
+그러나 비율 사용이 이점을 가지는 흥미로운 경우가 있습니다. 한 독자가 다음과 같은 예를 들었습니다 ([링크](http://epchan.blogspot.com/2012/02/ideas-from-psychologist.html?showComment=1329801874131#c3278677864367113894)):
 
 > 가격 A = \$10이고 가격 B = \$5라고 합시다. 비율은 2입니다. 얼마 후 가격 A가 \$100으로, 가격 B가 \$50으로 증가합니다.
 >
@@ -157,11 +157,11 @@ MXN.NOK가 진정으로 정상이 아니기 때문에 **비율 MXN.NOK를 사용
 
 ### 왜 이 예제가 중요한가?
 
-이론을 배웠으니, 이제 **실전에서 세 가지 방법을 비교**해봅시다. 마치 같은 요리를 세 가지 다른 레시피로 만들어보고 어떤 것이 가장 맛있는지 비교하는 것과 같습니다.
+이론을 배웠으니, 이제 **실전에서 세 가지 방법을 비교** 해봅시다. 마치 같은 요리를 세 가지 다른 레시피로 만들어보고 어떤 것이 가장 맛있는지 비교하는 것과 같습니다.
 
 ### 배경: GLD와 USO
 
-예제 2.5와 2.8의 선형 평균 회귀 전략을 ETF **GLD(금)**와 **USO(원유)**에 적용합니다. 세 가지 방법을 비교해봅니다.
+예제 2.5와 2.8의 선형 평균 회귀 전략을 ETF **GLD(금)** 와 **USO(원유)** 에 적용합니다. 세 가지 방법을 비교해봅니다.
 
 일부 트레이더는 유가가 오르면 금 가격도 오른다고 믿습니다. 그 논리는 다음과 같습니다:
 
@@ -172,23 +172,19 @@ MXN.NOK가 진정으로 정상이 아니기 때문에 **비율 MXN.NOK를 사용
 
 ### 방법 1: 가격 스프레드 (동적 헤지 비율 사용)
 
-먼저 **가격 스프레드를 신호**로 사용해볼 것입니다. 시간이 지남에 따라 ETF의 변화하는 수준에 적응하기 위해, **짧은 룩백 기간(사후에 근 최적인 20 거래일로 설정)**을 사용하여 매일 헤지 비율을 동적으로 재계산합니다. 헤지 비율 계산에는 jplv7 패키지의 *ols* 함수를 사용한 **선형 회귀**를 사용합니다. 물론 요한센 검정의 첫 번째 고유벡터를 대신 사용할 수도 있습니다.
+먼저 **가격 스프레드를 신호**로 사용해볼 것입니다. 시간이 지남에 따라 ETF의 변화하는 수준에 적응하기 위해, **짧은 룩백 기간(사후에 근 최적인 20 거래일로 설정)** 을 사용하여 매일 헤지 비율을 동적으로 재계산합니다. 헤지 비율 계산에는 jplv7 패키지의 *ols* 함수를 사용한 **선형 회귀**를 사용합니다. 물론 요한센 검정의 첫 번째 고유벡터를 대신 사용할 수도 있습니다.
 
 MATLAB 소스 코드는 *PriceSpread.m*으로 다운로드할 수 있습니다. GLD의 가격 시계열이 Tx1 배열 *x*에, USO는 Tx1 배열 *y*에 포함되어 있다고 가정합니다. "스프레드" USO-hedgeRatio*GLD는 단위 포트폴리오의 가격과 같으며, 프로그램에서 *yport*로 표시합니다.
 
-```
+```matlab
 % lookback period for calculating the dynamically changing
- % hedge ratio
+% hedge ratio
 lookback=20;
 hedgeRatio=NaN(size(x, 1), 1);
 for t=lookback:size(hedgeRatio, 1)
     regression_result=ols(y(t-lookback+1:t), ...
-     [x(t-lookback+1:t) ones(lookback, 1)]);
+        [x(t-lookback+1:t) ones(lookback, 1)]);
     hedgeRatio(t)=regression_result.beta(1);
-                                                     (계속)
-```
-
-```
 end
 y2=[x y];
 yport=sum([-hedgeRatio ones(size(hedgeRatio))].*y2, 2);
@@ -208,35 +204,34 @@ yport=sum([-hedgeRatio ones(size(hedgeRatio))].*y2, 2);
 
 이제 수익성 있는 선형 평균 회귀 전략을 만들 수 있는지 살펴봅시다. 우리가 소유해야 하는 단위 포트폴리오의 단위(주식) 수는 **음의 Z-점수**로 설정됩니다. Tx2 *positions* 배열은 투자해야 하는 각 구성 ETF의 시장 가치(달러)를 나타냅니다.
 
-```
+```matlab
 numUnits=-(spread-movingAvg(spread, lookback)) ...
- ./movingStd(spread, lookback);
-positions=repmat(numUnits, [1 size(y2, 2)]).*[hedgeRatio ...
- -ones(size(hedgeRatio))].*y2; pnl=sum(lag(positions, ...
- 1).*(y2-lag(y2, 1))./lag(y2, 1), 2); % daily P&L of the
- % strategy
-ret=pnl./sum(abs(lag(positions, 1)), 2); % return is P&L
- % divided by gross market value of portfolio
+    ./movingStd(spread, lookback);
+positions=repmat(numUnits, [1 size(y2, 2)]) ...
+    .*[hedgeRatio -ones(size(hedgeRatio))].*y2;
+pnl=sum(lag(positions, 1).*(y2-lag(y2, 1))./lag(y2, 1), 2);
+% daily P&L of the strategy
+ret=pnl./sum(abs(lag(positions, 1)), 2);
+% return is P&L divided by gross market value of portfolio
 ```
 
-**결과**: GLD와 USO가 결코 공적분하지 않음에도 불구하고, 동적 헤지 비율이 있는 가격 스프레드를 사용하여 **약 10.9%의 연간 수익률(APR)**과 **약 0.59의 샤프 비율**을 얻습니다.
+**결과**: GLD와 USO가 결코 공적분하지 않음에도 불구하고, 동적 헤지 비율이 있는 가격 스프레드를 사용하여 **약 10.9%의 연간 수익률(APR)** 과 **약 0.59의 샤프 비율**을 얻습니다.
 
 ### 방법 2: 로그 가격 스프레드
 
 다음으로 **로그 가격** 사용이 어떤 차이를 만드는지 살펴봅시다. 소스 코드는 *LogPriceSpread.m*에 있지만, *PriceSpread.m*과 다른 두 줄만 보겠습니다:
 
-```
+```matlab
 regression_result=ols(log(y(t-lookback+1:t)), ...
-   [log(x(t-lookback+1:t)) ones(lookback, 1)]);
-and
-  yport=sum([-hedgeRatio ones(size(hedgeRatio))].*log(y2), ...
-   2); % The net market value of the portfolio is same as
-    % the "spread"
+    [log(x(t-lookback+1:t)) ones(lookback, 1)]);
+% and
+yport=sum([-hedgeRatio ones(size(hedgeRatio))].*log(y2), 2);
+% The net market value of the portfolio is same as the "spread"
 ```
 
 차이점이 보이시나요? `y`와 `x` 대신 `log(y)`와 `log(x)`를 사용합니다.
 
-**결과**: **APR 9%**와 **샤프 비율 0.5**는 실제로 가격 스프레드 전략보다 **낮습니다**. 게다가 이것은 각 ETF에 대한 자본 배분을 유지하기 위해 **매일 포트폴리오를 리밸런싱하는 것과 관련된 추가 거래 비용**을 고려하기 **전**의 결과입니다!
+**결과**: **APR 9%** 와 **샤프 비율 0.5**는 실제로 가격 스프레드 전략보다 **낮습니다**. 게다가 이것은 각 ETF에 대한 자본 배분을 유지하기 위해 **매일 포트폴리오를 리밸런싱하는 것과 관련된 추가 거래 비용**을 고려하기 **전**의 결과입니다!
 
 ### 방법 3: 비율
 
@@ -248,19 +243,22 @@ and
 
 가격 스프레드나 적응적 헤지 비율과 비교할 때 비율이 **실제로 그다지 정상적으로 보이지 않음**을 알 수 있습니다. 따라서 평균 회귀 전략이 **음의 APR로 저조하게 수행되더라도 놀라지 않을 것**입니다.
 
-```
+```matlab
 lookback=20; % Lookback is set arbitrarily
 ratio=y./x;
 ratio(1:lookback)=[]; % Removed to have same test set as
- % price spread and log price spread strategies
+% price spread and log price spread strategies
 x(1:lookback)=[];
 y(1:lookback)=[];
+
 % Apply a simple linear mean reversion strategy to GLD-USO
-numUnits=-(ratio-movingAvg(ratio, lookback))...
- ./movingStd(ratio, lookback); positions=repmat(numUnits, ...
- [1 2]).*[-ones(size(x, 1), 1) ones(size(x, 1), 1)];
- pnl=sum(lag(positions, 1).*([x y]-lag([x y], 1)). ...
- /lag([x y], 1), 2); ret=pnl./sum(abs(lag(positions, 1)), 2);
+numUnits=-(ratio-movingAvg(ratio, lookback)) ...
+    ./movingStd(ratio, lookback);
+positions=repmat(numUnits, [1 2]) ...
+    .*[-ones(size(x, 1), 1) ones(size(x, 1), 1)];
+pnl=sum(lag(positions, 1).*([x y]-lag([x y], 1)) ...
+    ./lag([x y], 1), 2);
+ret=pnl./sum(abs(lag(positions, 1)), 2);
 ```
 
 ### 세 가지 방법 비교 요약
@@ -285,7 +283,7 @@ numUnits=-(ratio-movingAvg(ratio, lookback))...
 
 ### 볼린저 밴드의 작동 원리: 가드레일 비유
 
-여기서 **볼린저 밴드(Bollinger Bands)**가 등장합니다. 볼린저 밴드는 도로의 **가드레일**과 같습니다.
+여기서 **볼린저 밴드(Bollinger Bands)** 가 등장합니다. 볼린저 밴드는 도로의 **가드레일**과 같습니다.
 
 - **중앙선(이동 평균)** = 도로의 **중앙 차선**
 - **상단 밴드** = 오른쪽 **가드레일** (가격이 여기 닿으면 "너무 올랐다!" → 숏 진입 신호등이 초록불!)
@@ -322,19 +320,19 @@ numUnits=-(ratio-movingAvg(ratio, lookback))...
 
 진입 신호 *longsEntry*와 *shortsEntry*는 Tx1 논리 배열이며, 청산 신호 *longsExit*와 *shortsExit*도 마찬가지입니다.
 
-```
+```matlab
 % Bollinger band strategy
 entryZscore=1;
 exitZscore=0;
-zScore=(yport-movingAvg(yport, lookback))./movingStd(yport, ...
- lookback);
-longsEntry=zScore < -entryZscore; % a long position means we
- % should buy EWC
+zScore=(yport-movingAvg(yport, lookback)) ...
+    ./movingStd(yport, lookback);
+longsEntry=zScore < -entryZscore;  % a long position means we
+                                   % should buy EWC
 longsExit=zScore >= -exitZscore;
 shortsEntry=zScore > entryZscore;
 shortsExit=zScore <= exitZscore;
 numUnitsLong=NaN(length(yport), 1);
-                                                      (계속)
+% (계속)
 ```
 
 이 코드를 교통 신호등 비유로 풀어보겠습니다:
@@ -348,23 +346,23 @@ numUnitsLong=NaN(length(yport), 1);
 
 롱 측의 단위 포트폴리오 단위 수인 *numUnitsLong*(Tx1 배열)을 초기화한 다음, 롱 진입 신호가 있으면 값 중 하나를 1로, 롱 청산 신호가 있으면 0으로 설정합니다. 숏 측의 단위 수도 마찬가지입니다.
 
-```
+```matlab
 numUnitsShort=NaN(length(yport), 1);
 numUnitsLong(1)=0;
 numUnitsLong(longsEntry)=1;
 numUnitsLong(longsExit)=0;
-numUnitsLong =fillMissingData(numUnitsLong);
+numUnitsLong=fillMissingData(numUnitsLong);
 numUnitsShort(1)=0;
 numUnitsShort(shortsEntry)=-1;
 numUnitsShort(shortsExit)=0;
-numUnitsShort =fillMissingData(numUnitsShort);
-numUnits= numUnitsLong + numUnitsShort;
+numUnitsShort=fillMissingData(numUnitsShort);
+numUnits=numUnitsLong + numUnitsShort;
 ```
 
 이 코드의 핵심 논리를 단계별로 설명합니다:
 
 1. **NaN으로 초기화**: 모든 날을 "아직 결정 안 됨"으로 설정
-2. **진입 신호가 있으면 1(롱) 또는 -1(숏)**로 설정
+2. **진입 신호가 있으면 1(롱) 또는 -1(숏)** 로 설정
 3. **청산 신호가 있으면 0**으로 설정
 4. **fillMissingData**: 진입이나 청산 신호가 없는 날에는 **전날의 포지션을 그대로 이월**합니다. (*fillMissingData*는 배열의 두 번째 행부터 시작하여 셀의 NaN 값을 이전 행의 해당 셀 값으로 덮어씁니다. 저자의 웹사이트에서 다운로드할 수 있습니다.)
 5. **numUnits = 롱 + 숏**: *numUnitsLong*과 *numUnitsShort*가 계산되면, 이들을 결합하여 *numUnits*로 표시되는 순 단위 수를 찾을 수 있습니다. 프로그램의 나머지는 예제 3.1의 *PriceSpread.m*과 동일합니다.
@@ -391,7 +389,7 @@ numUnits= numUnitsLong + numUnitsShort;
 
 ### 왜 이 내용이 중요한가?
 
-많은 트레이더가 직관적으로 "가격이 더 내려가면 더 많이 사자"라고 생각합니다. 이것이 바로 **스케일링 인(scaling-in)**, 또는 **평균 매입(averaging-in)**입니다. 이 전략이 정말 좋을까요? 놀라운 연구 결과가 있습니다.
+많은 트레이더가 직관적으로 "가격이 더 내려가면 더 많이 사자"라고 생각합니다. 이것이 바로 **스케일링 인(scaling-in)**, 또는 **평균 매입(averaging-in)** 입니다. 이 전략이 정말 좋을까요? 놀라운 연구 결과가 있습니다.
 
 ### 스케일링 인의 직관적 매력
 
@@ -406,7 +404,7 @@ numUnits= numUnitsLong + numUnitsShort;
 
 ### 쇤베르크와 코윈의 충격적 발견
 
-이 모든 것이 매우 상식적으로 보였습니다. **쇤베르크와 코윈(Schoenberg and Corwin)의 연구**가 나오기 전까지는요. 그들은 **두 개 이상의 볼린저 밴드에서 진입하거나 청산하는 것이 결코 최적이 아니라는 것을 증명**했습니다 (Schoenberg and Corwin, 2010). 즉, 백테스트에서 **더 높은 평균 수익률을 생성하는 단일 진입/청산 수준을 항상 찾을 수 있다**는 것입니다. 그들은 이 최적의 단일 진입 방법을 **"올인(all-in)"**이라고 부릅니다.
+이 모든 것이 매우 상식적으로 보였습니다. **쇤베르크와 코윈(Schoenberg and Corwin)의 연구**가 나오기 전까지는요. 그들은 **두 개 이상의 볼린저 밴드에서 진입하거나 청산하는 것이 결코 최적이 아니라는 것을 증명**했습니다 (Schoenberg and Corwin, 2010). 즉, 백테스트에서 **더 높은 평균 수익률을 생성하는 단일 진입/청산 수준을 항상 찾을 수 있다**는 것입니다. 그들은 이 최적의 단일 진입 방법을 **"올인(all-in)"** 이라고 부릅니다.
 
 ### 수학적 증명: 세 가지 시나리오 비교
 
@@ -469,13 +467,13 @@ $$2(F-L_1)$$
 
 ### 이동 룩백의 문제점
 
-지금까지 논의한 모든 평균 회귀 전략에서 우리는 **이동 룩백 기간(moving lookback window)**을 사용했습니다. 이것은 룩백 기간이 짧으면 시간이 앞으로 이동함에 따라 가장 이른 봉의 삭제와 최신 봉의 포함이 헤지 비율에 **갑작스럽고 인위적인 영향**을 미칠 수 있다는 단점이 있습니다. 이동 평균이나 이동 표준 편차를 사용하여 가격 시계열의 현재 평균과 표준 편차를 계산할 때도 같은 문제에 직면합니다.
+지금까지 논의한 모든 평균 회귀 전략에서 우리는 **이동 룩백 기간(moving lookback window)** 을 사용했습니다. 이것은 룩백 기간이 짧으면 시간이 앞으로 이동함에 따라 가장 이른 봉의 삭제와 최신 봉의 포함이 헤지 비율에 **갑작스럽고 인위적인 영향**을 미칠 수 있다는 단점이 있습니다. 이동 평균이나 이동 표준 편차를 사용하여 가격 시계열의 현재 평균과 표준 편차를 계산할 때도 같은 문제에 직면합니다.
 
-모든 경우에, **임의의 절단점 없이** 최신 데이터에 더 많은 가중치를 주고 이전 데이터에 더 적은 가중치를 주는 **가중 방식**을 사용하여 추정을 개선할 수 있습니다. 익숙한 **지수이동평균(EMA)**이 그러한 가중 방식 중 하나이지만, 가중치의 지수적 감소가 왜 최적인지도 명확하지 않습니다.
+모든 경우에, **임의의 절단점 없이** 최신 데이터에 더 많은 가중치를 주고 이전 데이터에 더 적은 가중치를 주는 **가중 방식**을 사용하여 추정을 개선할 수 있습니다. 익숙한 **지수이동평균(EMA)** 이 그러한 가중 방식 중 하나이지만, 가중치의 지수적 감소가 왜 최적인지도 명확하지 않습니다.
 
 ### 칼만 필터 등장: GPS처럼 실시간 보정
 
-여기서 **칼만 필터(Kalman Filter)**가 등장합니다 (Montana, Triantafyllopoulos, and Tsagaris, 2009). 가중 방식을 임의로 선택하는 문제를 피합니다.
+여기서 **칼만 필터(Kalman Filter)** 가 등장합니다 (Montana, Triantafyllopoulos, and Tsagaris, 2009). 가중 방식을 임의로 선택하는 문제를 피합니다.
 
 칼만 필터를 **GPS 내비게이션**에 비유해봅시다:
 
@@ -588,7 +586,7 @@ $$R(t| t) = R(t| t - 1) - K(t) * x(t) * R(t| t - 1) \qquad \text{("상태 공분
 
 > "새 관찰 덕분에 불확실성이 줄어든다"
 
-여기서 $K(t)$는 **칼만 이득(Kalman gain)**이라고 하며:
+여기서 $K(t)$는 **칼만 이득(Kalman gain)** 이라고 하며:
 
 $$K(t) = \frac{R(t \mid t - 1) * x(t)}{Q(t)} \qquad (3.13)$$
 
@@ -598,7 +596,7 @@ $$K(t) = \frac{R(t \mid t - 1) * x(t)}{Q(t)} \qquad (3.13)$$
 
 이러한 재귀를 시작하기 위해 $\hat{\beta}(1 | 0) = 0, R(0 | 0) = 0$을 가정합니다.
 
-$V_\omega$와 $V_e$는 어떻게 설정할까요? Rajamani와 Rawlings(2007, 2009)가 개발한 **자기공분산 최소자승법(autocovariance least squares)**이라는 데이터에서 이러한 분산을 추정하는 방법이 있습니다. 무료 Matlab/Octave 패키지도 있습니다 ([http://jbrwww.che.wisc.edu/software/als](http://jbrwww.che.wisc.edu/software/als)).
+$V_\omega$와 $V_e$는 어떻게 설정할까요? Rajamani와 Rawlings(2007, 2009)가 개발한 **자기공분산 최소자승법(autocovariance least squares)** 이라는 데이터에서 이러한 분산을 추정하는 방법이 있습니다. 무료 Matlab/Octave 패키지도 있습니다 ([http://jbrwww.che.wisc.edu/software/als](http://jbrwww.che.wisc.edu/software/als)).
 
 그러나 단순화를 위해 Montana를 따라 다음과 같이 가정합니다:
 
@@ -622,55 +620,52 @@ $\delta$의 의미를 직관적으로 이해해봅시다:
 
 ### 칼만 필터 구현 코드
 
-```
+```matlab
 % Augment x with ones to accommodate possible offset in the
-   % regression
-% between y vs x.
+% regression between y vs x.
 x=[x ones(size(x))];
 delta=0.0001; % delta=0 allows no change (like traditional
- % linear regression).
-yhat=NaN(size(y)); % measurement prediction
-e=NaN(size(y)); % measurement prediction error
-Q=NaN(size(y)); % measurement prediction error variance
+              % linear regression).
+yhat=NaN(size(y));  % measurement prediction
+e=NaN(size(y));     % measurement prediction error
+Q=NaN(size(y));     % measurement prediction error variance
+
 % For clarity, we denote R(t|t) by P(t).
 % initialize P and beta.
 P=zeros(2);
 beta=NaN(2, size(x, 1));
 Vw=delta/(1-delta)*diag(ones(2, 1));
 Ve=0.001;
+
 % Initialize beta(:, 1) to zero
 beta(:, 1)=0;
 ```
 
 이 초기화 코드를 한 줄씩 풀어봅시다:
 
-- `x=[x ones(size(x))]`: x에 1로 된 열을 추가하여 **절편(offset)**을 허용합니다.
+- `x=[x ones(size(x))]`: x에 1로 된 열을 추가하여 **절편(offset)** 을 허용합니다.
 - `delta=0.0001`: 헤지 비율이 **매우 천천히** 변한다고 가정합니다.
 - `P=zeros(2)`: 초기 상태 공분산을 0으로 설정합니다.
 - `Vw`와 `Ve`: 상태 전이 노이즈와 측정 노이즈의 분산입니다.
 
 ### 칼만 필터 메인 루프
 
-```
+```matlab
 for t=1:length(y)
     if (t > 1)
-         beta(:, t)=beta(:, t-1); % state prediction.
-          % Equation 3.7
-         R=P+Vw; % state covariance prediction. Equation 3.8
+        beta(:, t)=beta(:, t-1);       % state prediction. Equation 3.7
+        R=P+Vw;                         % state covariance prediction. Equation 3.8
     end
-    yhat(t)=x(t, :)*beta(:, t); % measurement prediction.
-     % Equation 3.9
-    Q(t)=x(t, :)*R*x(t, :)'+Ve; % measurement variance
-     % prediction. Equation 3.10
-    % Observe y(t)
-    e(t)=y(t)-yhat(t); % measurement prediction error
-    K=R*x(t, :)'/Q(t); % Kalman gain
-    beta(:, t)=beta(:, t)+K*e(t); % State update.
-     % Equation 3.11
-    P=R-K*x(t, :)*R; % State covariance update. Euqation 3.12
-```
+    yhat(t)=x(t, :)*beta(:, t);        % measurement prediction. Equation 3.9
+    Q(t)=x(t, :)*R*x(t, :)'+Ve;        % measurement variance prediction. Equation 3.10
 
-End
+    % Observe y(t)
+    e(t)=y(t)-yhat(t);                 % measurement prediction error
+    K=R*x(t, :)'/Q(t);                 % Kalman gain
+    beta(:, t)=beta(:, t)+K*e(t);      % State update. Equation 3.11
+    P=R-K*x(t, :)*R;                   % State covariance update. Equation 3.12
+end
+```
 
 매일 벌어지는 일을 GPS 비유로 설명하면:
 
@@ -703,10 +698,9 @@ End
 
 ### 진입 및 청산 신호 코드
 
-```
+```matlab
 y2=[x(:, 1) y];
-longsEntry=e < -sqrt(Q); % a long position means we should
- % buy EWC
+longsEntry=e < -sqrt(Q);   % a long position means we should buy EWC
 longsExit=e > -sqrt(Q);
 shortsEntry=e > sqrt(Q);
 shortsExit=e < sqrt(Q);
@@ -772,7 +766,7 @@ $$R(t \mid t) = (1 - K(t))R(t \mid t - 1) \qquad (3.19)$$
 
 ### 마켓 메이커의 관점
 
-왜 이 방정식들을 강조할 가치가 있을까요? **유안 싱클레어(Euan Sinclair)**가 지적했듯이, 이것이 **마켓 메이커가 자산의 평균 가격 추정치를 업데이트하는 데 선호하는 모델**이기 때문입니다 (Sinclair, 2010).
+왜 이 방정식들을 강조할 가치가 있을까요? **유안 싱클레어(Euan Sinclair)** 가 지적했듯이, 이것이 **마켓 메이커가 자산의 평균 가격 추정치를 업데이트하는 데 선호하는 모델**이기 때문입니다 (Sinclair, 2010).
 
 마켓 메이커를 생각해봅시다. 그들은 항상 "이 자산의 진짜 가치는 얼마인가?"를 알아야 합니다. 왜냐하면 그 추정치를 기반으로 매수/매도 호가를 제시하기 때문입니다.
 
@@ -807,7 +801,7 @@ $T_{max}$는 무엇이어야 할까요? 예를 들어 **전날 총 거래량의 
 
 ### 백테스팅에서의 데이터 오류: 거짓 이익의 함정
 
-백테스팅에 사용되는 과거 데이터에 오류 또는 **이상치(outliers)**가 있으면, 이러한 오류는 일반적으로 평균 회귀 전략의 백테스트 성과를 **부풀립니다**.
+백테스팅에 사용되는 과거 데이터에 오류 또는 **이상치(outliers)** 가 있으면, 이러한 오류는 일반적으로 평균 회귀 전략의 백테스트 성과를 **부풀립니다**.
 
 구체적인 예를 들어봅시다:
 
