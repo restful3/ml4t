@@ -596,7 +596,7 @@ $$K(t) = \frac{R(t \mid t - 1) * x(t)}{Q(t)} \qquad (3.13)$$
 
 이러한 재귀를 시작하기 위해 $\hat{\beta}(1 | 0) = 0, R(0 | 0) = 0$을 가정합니다.
 
-$V_\omega$와 $V_e$는 어떻게 설정할까요? Rajamani와 Rawlings(2007, 2009)가 개발한 **자기공분산 최소자승법(autocovariance least squares)** 이라는 데이터에서 이러한 분산을 추정하는 방법이 있습니다. 무료 Matlab/Octave 패키지도 있습니다 ([http://jbrwww.che.wisc.edu/software/als](http://jbrwww.che.wisc.edu/software/als)).
+$V_\omega$와 $V_e$는 어떻게 설정할까요? Rajamani와 Rawlings(2007, 2009)가 개발한 **자기공분산 최소자승법(autocovariance least squares)** 이라는 데이터에서 이러한 분산을 추정하는 방법이 있습니다. 무료 Matlab/Octave 패키지도 있습니다 ([링크](http://jbrwww.che.wisc.edu/software/als)).
 
 그러나 단순화를 위해 Montana를 따라 다음과 같이 가정합니다:
 

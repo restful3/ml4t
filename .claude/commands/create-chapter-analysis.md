@@ -61,7 +61,20 @@ class ChapterXAnalyzer:
     """Chapter X: [챕터 제목] 종합 분석"""
 
     def __init__(self, data_dir, report_dir):
+        self._setup_korean_font()
         ...
+
+    def _setup_korean_font(self):
+        """matplotlib 한국어 폰트 설정 (차트에 한글 사용 시 필수)"""
+        import matplotlib.font_manager as fm
+        candidates = ['NanumGothic', 'Noto Sans CJK KR', 'Noto Sans KR',
+                      'Malgun Gothic', 'AppleGothic']
+        for name in candidates:
+            if any(name in f.name for f in fm.fontManager.ttflist):
+                plt.rcParams['font.family'] = name
+                plt.rcParams['axes.unicode_minus'] = False
+                return
+        print("  ⚠️ 한국어 폰트를 찾을 수 없습니다. 차트 레이블은 영문으로 표시됩니다.")
 
     def load_data(self):
         """데이터 로드 및 전처리"""
@@ -98,6 +111,7 @@ if __name__ == "__main__":
 - 코드 주석은 한글로 작성
 - 콘솔 출력에 이모지와 구분선 사용하여 진행 상황 표시
 - 차트는 `matplotlib`으로 생성하여 `reports/figures/` 에 PNG로 저장
+- 차트에 한국어 텍스트(title, label, legend 등)를 사용할 경우 반드시 `_setup_korean_font()` 호출하여 CJK 폰트 설정할 것 (미설정 시 한글이 네모로 렌더링됨)
 
 ### Step 5: 리포트 형식
 
@@ -124,6 +138,7 @@ if __name__ == "__main__":
    - 전략 원리 (Python 코드 블록)
    - 성과 지표 (APR, Sharpe Ratio, MDD 등)
    - 차트 (`figures/` 폴더 참조)
+   - 차트 title/axis label은 영문 사용 권장, legend는 한/영 혼용 가능 (한국어 사용 시 `_setup_korean_font()` 필수)
 
 6. **결론 및 권고사항**
    - 핵심 발견 요약 테이블
