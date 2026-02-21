@@ -20,3 +20,5 @@ patsy>=0.5.3             # Formula interface for statsmodels
 # Optional but recommended
 jupyter>=1.0.0           # For running notebooks
 ipython>=8.0.0           # Enhanced interactive Python
+ipykernel>=6.0.0         # Jupyter kernel registration
+nbconvert>=7.0.0         # Notebook execution and conversion
