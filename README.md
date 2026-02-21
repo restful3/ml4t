@@ -48,7 +48,7 @@
 #### **2026년 2월 21일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=me3574c20b0fda420870ef6a5a519f9fa)
 
 * 발표자 - 태호
-* **Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**[강의자료](https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Algorithmic%20Trading%20-%20Winning%20Strategies%20and%20Their%20Rationale%202013/chapter_3_implementing_mean_reversion_strategies/Ch03_Implementing_Mean_Reversion_Strategies_teo.pdf)
+* [**Chapter 3. 평균 회귀 전략 구현 (Implementing Mean Reversion Strategies)**](https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Algorithmic%20Trading%20-%20Winning%20Strategies%20and%20Their%20Rationale%202013/chapter_3_implementing_mean_reversion_strategies/Ch03_Implementing_Mean_Reversion_Strategies_teo.pdf)
     * 트레이딩 신호 산출 (가격 스프레드 vs 로그 가격 스프레드 vs 비율)
     * 볼린저 밴드 활용 및 실무적 전략 구현
     * 칼만 필터(Kalman Filter)를 통한 동적 최적화
