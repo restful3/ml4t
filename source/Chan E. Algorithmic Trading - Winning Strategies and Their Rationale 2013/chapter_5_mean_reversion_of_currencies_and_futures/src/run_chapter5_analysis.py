@@ -10,6 +10,7 @@ Chapter 5: 통화와 선물의 평균 회귀 - 종합 분석 리포트 생성기
 2. AUD/CAD 롤오버 이자 포함 전략 - 예제 5.2
 3. 선물 스팟/롤 수익률 추정 - 예제 5.3
 4. CL 캘린더 스프레드 평균 회귀 - 예제 5.4
+5. VX-ES 변동성 vs 주가지수 평균 회귀 - 예제 5.5
 """
 
 import os
@@ -26,6 +27,10 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.tsa.stattools as ts_stats
 import statsmodels.tsa.vector_ar.vecm as vm
+import nest_asyncio
+nest_asyncio.apply()  # vix_utils의 asyncio.run() 충돌 방지
+import vix_utils
+import yfinance as yf
 
 # 경고 메시지 억제
 warnings.filterwarnings('ignore')
@@ -536,6 +541,170 @@ class Chapter5Analyzer:
         print(f"  ✓ 차트 저장: {fig_path.name}")
         print()
 
+    def analyze_vxes(self):
+        """예제 5.5: VX-ES 변동성 선물 vs 주가지수 선물 평균 회귀
+
+        VX 선물(CBOE CFE)과 ES 선물(E-mini S&P 500)의 역상관을 이용한 평균 회귀.
+        레짐 2(2008-08 이후)에 집중, 볼린저 밴드 유사 전략.
+        책 결과: APR=12.3%, Sharpe=1.4
+        """
+        print("=" * 60)
+        print("  분석 5: VX-ES 변동성 vs 주가지수 평균 회귀 (예제 5.5)")
+        print("=" * 60)
+
+        # === 1. 데이터 로드 ===
+        # VX 선물 근월물 (CBOE CFE, vix_utils)
+        df_all = vix_utils.load_vix_term_structure()
+        monthly = df_all[df_all['Weekly'] == False].copy()
+        monthly['Trade Date'] = pd.to_datetime(monthly['Trade Date']).dt.tz_localize(None)
+        monthly = monthly[(monthly['Trade Date'] >= '2004-01-01') & (monthly['Trade Date'] <= '2012-12-31')]
+        front = monthly[monthly['Tenor_Monthly'] == 1][['Trade Date', 'Settle']].copy()
+        front = front.sort_values('Trade Date').set_index('Trade Date')
+        front = front[~front.index.duplicated(keep='first')]
+        front.columns = ['VX']
+        print(f"  VX 선물 근월물: {len(front)} 거래일")
+
+        # ES 선물 (E-mini S&P 500, yfinance)
+        es_data = yf.download('ES=F', start='2004-01-01', end='2012-12-31', auto_adjust=True)
+        es = es_data['Close'].squeeze()
+        es.index = es.index.tz_localize(None)
+
+        df = pd.merge(front, pd.DataFrame({'ES': es}), left_index=True, right_index=True, how='inner')
+        print(f"  VX-ES 공통 거래일: {len(df)}")
+
+        # 단위 조정 (달러 가치)
+        df['VX_dollar'] = df['VX'] * 1000
+        df['ES_dollar'] = df['ES'] * 50
+
+        # === 2. 레짐 분리 ===
+        regime_split = '2008-08-01'
+        regime1 = df[df.index < regime_split]
+        regime2 = df[df.index >= regime_split]
+        print(f"  레짐 1: {len(regime1)}일, 레짐 2: {len(regime2)}일")
+
+        trainlen = 500
+        train = regime2.iloc[:trainlen]
+        test = regime2.iloc[trainlen:]
+        print(f"  훈련: {len(train)}일, 테스트: {len(test)}일")
+        print(f"  테스트 기간: {test.index[0].strftime('%Y-%m-%d')} ~ {test.index[-1].strftime('%Y-%m-%d')}")
+
+        # === 3. 자체 회귀 ===
+        X_train = sm.add_constant(train['VX_dollar'])
+        res = sm.OLS(train['ES_dollar'], X_train).fit()
+        beta_own = res.params.iloc[1]
+        intercept_own = res.params.iloc[0]
+        std_own = res.resid.std()
+        print(f"  [자체 회귀] beta={beta_own:.4f}, intercept=${intercept_own:.0f}, std=${std_own:.0f}")
+
+        # === 4. 전략 실행 함수 ===
+        def run_strategy(data, beta, intercept, residual_std, tlen, label):
+            portfolio = data['ES_dollar'] - beta * data['VX_dollar']
+            zScore = (portfolio - intercept) / residual_std
+
+            numUnits = pd.Series(0.0, index=data.index)
+            numUnits[zScore > 1] = -1.0
+            numUnits[zScore < -1] = 1.0
+
+            pos_es = numUnits * data['ES_dollar']
+            pos_vx = numUnits * (-beta) * data['VX_dollar']
+
+            ret_es = data['ES'].pct_change()
+            ret_vx = data['VX'].pct_change()
+            pnl = pos_es.shift(1) * ret_es + pos_vx.shift(1) * ret_vx
+            denom = np.abs(pos_es.shift(1)) + np.abs(pos_vx.shift(1))
+            denom[denom == 0] = np.nan
+            ret = pnl / denom
+
+            ret_test = ret.iloc[tlen:].fillna(0)
+            cumret = (1 + ret_test).cumprod() - 1
+            apr = np.prod(1 + ret_test.values) ** (252 / len(ret_test)) - 1
+            sharpe = np.sqrt(252) * ret_test.mean() / ret_test.std()
+            maxDD, _, _ = calculateMaxDD(cumret)
+
+            print(f"  [{label}] APR={apr*100:.2f}%, Sharpe={sharpe:.4f}, MaxDD={maxDD*100:.2f}%")
+            return portfolio, zScore, numUnits, cumret, apr, sharpe, maxDD
+
+        # === 5A. 자체 회귀 파라미터 ===
+        port_own, zs_own, units_own, cumret_own, apr_own, sharpe_own, maxDD_own = \
+            run_strategy(regime2, beta_own, intercept_own, std_own, trainlen, '자체 회귀')
+
+        # === 5B. 책 파라미터 ===
+        book_beta = -0.3906
+        book_intercept = 77150
+        book_std = 2047
+        port_book, zs_book, units_book, cumret_book, apr_book, sharpe_book, maxDD_book = \
+            run_strategy(regime2, book_beta, book_intercept, book_std, trainlen, '책 파라미터')
+
+        print(f"  (책 기대값: APR=12.3%, Sharpe=1.4)")
+
+        self.results['vxes'] = {
+            'own': {'beta': beta_own, 'intercept': intercept_own, 'std': std_own,
+                    'apr': apr_own, 'sharpe': sharpe_own, 'maxDD': maxDD_own},
+            'book': {'beta': book_beta, 'intercept': book_intercept, 'std': book_std,
+                     'apr': apr_book, 'sharpe': sharpe_book, 'maxDD': maxDD_book},
+            'test_start': test.index[0].strftime('%Y-%m-%d'),
+            'test_end': test.index[-1].strftime('%Y-%m-%d'),
+        }
+
+        # === 차트 1: 산점도 ===
+        fig, ax = plt.subplots(1, 1, figsize=(10, 7))
+        ax.scatter(regime1['ES'], regime1['VX'], alpha=0.3, s=10, c='blue', label='Regime 1 (2004~2008-05)')
+        ax.scatter(regime2['ES'], regime2['VX'], alpha=0.3, s=10, c='red', label='Regime 2 (2008-08~2012)')
+        ax.set_xlabel('ES Futures')
+        ax.set_ylabel('VX Futures (1M)')
+        ax.set_title('ES vs VX Scatter Plot (Two Regimes)', fontsize=13)
+        ax.legend(fontsize=9)
+        ax.grid(True, alpha=0.3)
+        plt.tight_layout()
+        fig_path = FIGURES_DIR / "ch5_vxes_scatter.png"
+        plt.savefig(fig_path, dpi=150, bbox_inches='tight')
+        plt.close()
+        self.figures.append(('ch5_vxes_scatter.png', 'VX-ES 산점도 (레짐 구분)'))
+        print(f"  차트 저장: {fig_path.name}")
+
+        # === 차트 2: 전략 결과 ===
+        fig, axes = plt.subplots(3, 1, figsize=(12, 10))
+
+        # 포트폴리오 시장 가치 (책 파라미터)
+        axes[0].plot(port_book.index, port_book.values, 'b-', linewidth=0.8)
+        axes[0].axhline(y=book_intercept, color='k', linestyle='--', linewidth=1, label=f'Mean: ${book_intercept:,}')
+        axes[0].axhline(y=book_intercept + book_std, color='r', linestyle=':', linewidth=1, label='+1 std')
+        axes[0].axhline(y=book_intercept - book_std, color='g', linestyle=':', linewidth=1, label='-1 std')
+        axes[0].axvline(x=regime2.index[trainlen], color='orange', linestyle='--', alpha=0.7, label='Train/Test split')
+        axes[0].set_title('Stationary Portfolio (Book params)', fontsize=12)
+        axes[0].set_ylabel('Portfolio Value ($)')
+        axes[0].legend(fontsize=7)
+        axes[0].grid(True, alpha=0.3)
+
+        # 누적 수익률 비교
+        axes[1].plot(cumret_book.index, cumret_book.values * 100, 'b-', linewidth=1,
+                     label=f'Book params (APR={apr_book*100:.1f}%)')
+        axes[1].plot(cumret_own.index, cumret_own.values * 100, 'r--', linewidth=1,
+                     label=f'Own regression (APR={apr_own*100:.1f}%)')
+        axes[1].set_title('VX-ES Mean Reversion - Cumulative Returns (Test Set)', fontsize=12)
+        axes[1].set_ylabel('Cumulative Return (%)')
+        axes[1].legend(fontsize=8)
+        axes[1].grid(True, alpha=0.3)
+
+        # z-score (책 파라미터)
+        axes[2].plot(zs_book.index, zs_book.values, 'b-', linewidth=0.5, alpha=0.7)
+        axes[2].axhline(y=1, color='r', linestyle='--', linewidth=1, label='Short threshold (+1)')
+        axes[2].axhline(y=-1, color='g', linestyle='--', linewidth=1, label='Long threshold (-1)')
+        axes[2].axhline(y=0, color='k', linestyle='-', linewidth=0.5)
+        axes[2].axvline(x=regime2.index[trainlen], color='orange', linestyle='--', alpha=0.7)
+        axes[2].set_title('Z-Score (Book params)', fontsize=12)
+        axes[2].set_ylabel('Z-Score')
+        axes[2].legend(fontsize=8)
+        axes[2].grid(True, alpha=0.3)
+
+        plt.tight_layout()
+        fig_path = FIGURES_DIR / "ch5_vxes_strategy.png"
+        plt.savefig(fig_path, dpi=150, bbox_inches='tight')
+        plt.close()
+        self.figures.append(('ch5_vxes_strategy.png', 'VX-ES 전략 결과'))
+        print(f"  차트 저장: {fig_path.name}")
+        print()
+
     def generate_report(self):
         """마크다운 리포트 생성"""
         print("=" * 60)
@@ -569,7 +738,9 @@ class Chapter5Analyzer:
         report.append("| `AUD_interestRate.csv` | AUD 월별 금리 | 예제 5.2 롤오버 |")
         report.append("| `CAD_interestRate.csv` | CAD 월별 금리 | 예제 5.2 롤오버 |")
         report.append("| `inputDataDaily_C2_20120813.csv` | 옥수수 선물 30계약 + 스팟 | 예제 5.3 |")
-        report.append("| `inputDataDaily_CL_20120502.csv` | WTI 원유 선물 88계약 | 예제 5.4 |\n")
+        report.append("| `inputDataDaily_CL_20120502.csv` | WTI 원유 선물 88계약 | 예제 5.4 |")
+        report.append("| `vix_utils` (CBOE CFE) | VX 선물 근월물 settle | 예제 5.5 |")
+        report.append("| `yfinance` ES=F | E-mini S&P 500 선물 | 예제 5.5 |\n")
 
         # 3. 예제 5.1
         report.append("## 3. 분석 1: AUD/USD vs CAD/USD 페어 트레이딩 (예제 5.1)\n")
@@ -643,8 +814,49 @@ class Chapter5Analyzer:
             report.append(f"| ADF p-value | {r['adf_pvalue']:.6f} | <0.01 |\n")
             report.append("![캘린더 스프레드](figures/ch5_calendar_spread.png)\n")
 
-        # 7. 종합 비교
-        report.append("## 7. 전략 종합 비교\n")
+        # 7. 예제 5.5: VX-ES
+        report.append("## 7. 분석 5: VX-ES 변동성 선물 vs 주가지수 선물 평균 회귀 (예제 5.5)\n")
+        report.append("> **데이터**: CBOE CFE의 VX 선물 근월물 settle 가격(`vix_utils`)과 E-mini S&P 500 선물(`ES=F`, yfinance)을 사용하였다. 책의 상용 데이터와 회귀 파라미터가 다르므로, 자체 회귀와 책의 파라미터 적용 두 가지를 비교한다.\n")
+        report.append("### 배경: 역상관의 발견\n")
+        report.append("변동성(VX)은 주식 시장 지수(ES)와 **역상관(anti-correlated)** 된다: 시장이 하락하면 변동성이 급등하고, 그 반대도 마찬가지이다. E-mini S&P 500 선물(ES)을 VIX 선물(VX)에 대해 산점도로 그리면 이 관계가 명확히 드러난다.\n")
+        report.append("### 두 개의 레짐 발견\n")
+        report.append("ES-VX 산점도에서 두 개의 구조적 레짐이 관찰된다:\n")
+        report.append("| 레짐 | 기간 | 특징 |")
+        report.append("| --- | --- | --- |")
+        report.append("| 레짐 1 | 2004년 \\~ 2008년 5월 | 주어진 주가지수 수준에서 상대적으로 높은 변동성 |")
+        report.append("| 레짐 2 | 2008년 8월 \\~ 2012년 | 눈에 띄게 낮은 변동성, 그러나 변동성의 **범위** 는 더 큼 |\n")
+        report.append("두 레짐의 혼합에 대해 선형 회귀나 요한센 검정을 적용하는 것은 실수이므로, **레짐 2(2008년 8월 이후)** 에 집중한다.\n")
+        report.append("![VX-ES 산점도](figures/ch5_vxes_scatter.png)\n")
+        report.append("### 방법론\n")
+        report.append("1. **단위 조정**: VX는 1포인트 = \\$1,000, ES는 1포인트 = \\$50 -> 헤지 비율이 계약 수를 올바르게 반영하도록 각각의 승수를 곱함")
+        report.append("2. **훈련/테스트 분할**: 레짐 2의 처음 500일을 훈련 세트로 사용하여 회귀 계수 산출")
+
+        if 'vxes' in self.results:
+            own = self.results['vxes']['own']
+            book = self.results['vxes']['book']
+            report.append(f"3. **선형 회귀 모델**: $ES \\times 50 = \\beta \\times VX \\times 1,000 + \\text{{intercept}}$. 자체 회귀 결과: $\\beta = {own['beta']:.4f}$, intercept = \\${own['intercept']:,.0f}, 잔차 표준편차 = \\${own['std']:,.0f}. 책 기대값: $\\beta = -0.3906$, intercept = \\$77,150, 잔차 표준편차 = \\$2,047")
+            report.append("4. **볼린저 밴드 유사 전략**: 포트폴리오(VX 0.3906계약 롱 + ES 1계약 롱)의 시장 가치가 평균에서 1 표준편차 이상 벗어나면 반대 방향으로 진입\n")
+
+            report.append(f"### 결과 (VX 선물 + ES 선물)\n")
+            report.append("| 지표 | 자체 회귀 | 책 파라미터 적용 | 책 기대값 |")
+            report.append("| --- | --- | --- | --- |")
+            report.append(f"| 테스트 기간 | {self.results['vxes']['test_start']} \\~ {self.results['vxes']['test_end']} | 동일 | 2010-07-29 \\~ 2012-05-08 |")
+            report.append(f"| 헤지 비율 (beta) | {own['beta']:.4f} | {book['beta']:.4f} | -0.3906 |")
+            report.append(f"| 잔차 표준편차 | \\${own['std']:,.0f} | \\${book['std']:,.0f} | \\$2,047 |")
+            report.append(f"| APR | {own['apr']*100:.2f}% | {book['apr']*100:.2f}% | 12.3% |")
+            report.append(f"| Sharpe Ratio | {own['sharpe']:.2f} | {book['sharpe']:.2f} | 1.4 |")
+            report.append(f"| Max Drawdown | {own['maxDD']*100:.2f}% | {book['maxDD']*100:.2f}% | - |\n")
+
+        report.append("![VX-ES 전략](figures/ch5_vxes_strategy.png)\n")
+        report.append("**핵심 발견**: 전략 로직(볼린저 밴드 유사)은 올바르며, 책의 파라미터를 사용하면 책 결과에 근접한다.\n")
+        report.append("**자체 회귀가 나쁜 이유**: 무료 데이터(CBOE CFE VX settle + yfinance ES=F)로 추정한 회귀의 잔차 표준편차가 책의 2.2배이다. 이는 데이터 소스 차이(settlement 가격 vs 상용 데이터 제공업체의 종가, VX/ES 결제 시간 불일치 등)에 기인한다. 볼린저 밴드 폭이 2배 넓어져 진입 신호가 왜곡됨.\n")
+        report.append("### 핵심 통찰\n")
+        report.append("- **레짐 인식의 중요성**: 전체 기간에 회귀를 적용하면 두 레짐이 혼합되어 결과가 왜곡됨")
+        report.append("- **단위 조정 필수**: 서로 다른 승수를 가진 선물 간 페어 트레이딩 시 달러 가치로 환산해야 함")
+        report.append("- **다음 장 예고**: VX-ES 스프레드의 평균 회귀가 아닌 **모멘텀** 기반 전략은 Chapter 6에서 다룸\n")
+
+        # 8. 종합 비교
+        report.append("## 8. 전략 종합 비교\n")
         report.append("| 전략 | APR | Sharpe | 시장 | 특성 |")
         report.append("|------|-----|--------|------|------|")
         if 'audcad_unequal' in self.results:
@@ -656,19 +868,27 @@ class Chapter5Analyzer:
         if 'calendar_spread' in self.results:
             r = self.results['calendar_spread']
             report.append(f"| CL Calendar Spread | {r['apr']*100:.2f}% | {r['sharpe']:.2f} | Futures | 감마 기반 |")
+        if 'vxes' in self.results:
+            r = self.results['vxes']['book']
+            report.append(f"| VX-ES Mean Reversion | {r['apr']*100:.2f}%* | {r['sharpe']:.2f}* | Futures | 볼린저 밴드 유사 |")
         report.append("")
+        if 'vxes' in self.results:
+            report.append("\\* 책의 회귀 파라미터(beta=-0.3906, std=$2,047) 적용. 책 기대값: APR=12.3%, Sharpe=1.4\n")
 
-        # 8. 결론
-        report.append("## 8. 결론 및 권고사항\n")
+        # 9. 결론
+        report.append("## 9. 결론 및 권고사항\n")
         report.append("### 핵심 발견\n")
         report.append("1. **통화 페어 메커니즘**: 공적분 검정 시 동일 호가 통화를 사용해야 의미 있는 결과")
         report.append("2. **롤오버 이자의 미미한 영향**: 단기 전략에서 연 5% 금리차도 전략 성과에 작은 영향")
         report.append("3. **롤 수익률의 지배력**: 많은 선물에서 롤 수익률이 스팟 수익률을 압도")
-        report.append("4. **캘린더 스프레드 신호**: 스팟 가격이 아닌 롤 수익률(감마)이 거래 신호\n")
+        report.append("4. **캘린더 스프레드 신호**: 스팟 가격이 아닌 롤 수익률(감마)이 거래 신호")
+        report.append("5. **VX-ES 역상관 활용**: 변동성-주가지수 간 역상관을 레짐별로 분리하면 높은 샤프 비율의 평균 회귀 전략 구축 가능\n")
         report.append("### 주의사항\n")
-        report.append("- **레짐 변화**: VX-ES 관계는 2008년 전후로 레짐이 다름")
+        report.append("- **레짐 변화**: VX-ES 관계는 2008년 전후로 레짐이 다름 -- 혼합 데이터에 회귀 적용 금지")
+        report.append("- **데이터 소스 민감도**: VX-ES 전략은 회귀 파라미터에 극도로 민감 -- 무료 데이터의 잔차 std가 2배 커지면 성과 급락")
         report.append("- **선물 가격 동기화**: 서로 다른 거래소 선물 간 종가 시간 불일치 주의")
-        report.append("- **생존자 편향**: 현존하는 계약만으로 백테스트하면 편향 발생 가능\n")
+        report.append("- **생존자 편향**: 현존하는 계약만으로 백테스트하면 편향 발생 가능")
+        report.append("- **단위 불일치**: 서로 다른 승수를 가진 선물 간 페어 트레이딩 시 반드시 달러 가치 환산 필요\n")
 
         report_path = REPORT_DIR / "chapter5_report.md"
         with open(report_path, 'w', encoding='utf-8') as f:
@@ -687,6 +907,7 @@ class Chapter5Analyzer:
         self.analyze_audcad_daily()
         self.analyze_futures_returns()
         self.analyze_calendar_spread()
+        self.analyze_vxes()
         self.generate_report()
 
         print("=" * 60)

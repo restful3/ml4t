@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/restful3/workspace/ml4t/source/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_5_mean_reversion_of_currencies_and_futures/**)",
+      "Read(//media/restful3/data/workspace/ml4t/source/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_5_mean_reversion_of_currencies_and_futures/**)",
+      "Bash(uv tool install notebooklm-mcp-cli)",
+      "Bash(nlm setup list)",
+      "Bash(nlm --help)",
+      "Bash(nlm setup --help)",
+      "Bash(nlm setup add --help)",
+      "Bash(nlm setup add claude-code)",
+      "Read(//home/restful3/.claude/**)",
+      "Read(//home/restful3/.claude/plugins/local/**)",
+      "Read(//home/restful3/**)",
+      "mcp__notebooklm-mcp__notebook_create",
+      "mcp__notebooklm-mcp__studio_status",
+      "mcp__notebooklm-mcp__download_artifact"
+    ],
+    "additionalDirectories": [
+      "/home/restful3/workspace/ml4t/source/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_5_mean_reversion_of_currencies_and_futures",
+      "/media/restful3/data/workspace/ml4t/source/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_5_mean_reversion_of_currencies_and_futures"
+    ]
+  }
+}
