@@ -92,7 +92,7 @@
 
 #### **2026년 3월 28일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m1bed326e057a1b2c8277b04560d6c89f)
 
-* 발표자 - TBD
+* 발표자 - 태호
 * **Chapter 8. 리스크 관리 (Risk Management)**
     * 최적 레버리지 산출(켈리 공식) 및 시뮬레이션
     * 최대 낙폭(MDD) 관리와 CPPI 전략
