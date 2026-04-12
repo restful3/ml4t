@@ -44,7 +44,7 @@
 
 #### **2026년 5월 16일**: Webex (TBD)
 
-* 발표자 - 정세훈
+* 발표자 - 세훈
 * **Chapter 3. 백테스팅 (Backtesting)**
     * 백테스팅 플랫폼 비교 (Excel, MATLAB, Python, R)
     * 주요 함정: Look-ahead bias, Data-snooping bias, Survivorship bias
