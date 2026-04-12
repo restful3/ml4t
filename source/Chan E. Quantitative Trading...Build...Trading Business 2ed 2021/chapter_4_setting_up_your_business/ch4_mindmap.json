@@ -1,0 +1,158 @@
+{
+  "name": "Setting Up Your Trading Business",
+  "children": [
+    {
+      "name": "Business Structure",
+      "children": [
+        {
+          "name": "Retail Brokerage",
+          "children": [
+            {
+              "name": "Complete Independence"
+            },
+            {
+              "name": "Limited Leverage (Reg T)"
+            },
+            {
+              "name": "SIPC Insured"
+            },
+            {
+              "name": "Unlimited Liability (unless LLC/S-Corp)"
+            },
+            {
+              "name": "Trade Secret Protection"
+            }
+          ]
+        },
+        {
+          "name": "Proprietary Trading Firm",
+          "children": [
+            {
+              "name": "Higher Leverage"
+            },
+            {
+              "name": "FINRA Series 7 Required"
+            },
+            {
+              "name": "Training and Mentoring"
+            },
+            {
+              "name": "Risk Management Rules"
+            },
+            {
+              "name": "Profit Sharing/Fees"
+            },
+            {
+              "name": "Risk of Piggybacking"
+            }
+          ]
+        },
+        {
+          "name": "Legal Protection",
+          "children": [
+            {
+              "name": "Incorporate (LLC or S-Corp)"
+            },
+            {
+              "name": "Limit Personal Liability"
+            },
+            {
+              "name": "Trader Tax Status"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Choosing a Firm",
+      "children": [
+        {
+          "name": "Cost Factors",
+          "children": [
+            {
+              "name": "Commission Rates"
+            },
+            {
+              "name": "Execution Speed"
+            },
+            {
+              "name": "Dark-pool Liquidity Access"
+            }
+          ]
+        },
+        {
+          "name": "Technical Features",
+          "children": [
+            {
+              "name": "API Availability"
+            },
+            {
+              "name": "Paper Trading Accounts"
+            },
+            {
+              "name": "Historical Simulators"
+            }
+          ]
+        },
+        {
+          "name": "Due Diligence",
+          "children": [
+            {
+              "name": "Financial Strength"
+            },
+            {
+              "name": "BrokerCheck (FINRA)"
+            },
+            {
+              "name": "Online Reputation (EliteTrader)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical Infrastructure",
+      "children": [
+        {
+          "name": "Basic Essentials",
+          "children": [
+            {
+              "name": "Personal Computer"
+            },
+            {
+              "name": "High-speed Internet"
+            },
+            {
+              "name": "Uninterruptible Power Supply (UPS)"
+            }
+          ]
+        },
+        {
+          "name": "Information Tools",
+          "children": [
+            {
+              "name": "Professional Newsfeeds"
+            },
+            {
+              "name": "Financial TV (CNBC/Bloomberg)"
+            },
+            {
+              "name": "Multiple Monitors"
+            }
+          ]
+        },
+        {
+          "name": "Advanced Upgrades",
+          "children": [
+            {
+              "name": "Virtual Private Server (VPS)"
+            },
+            {
+              "name": "Low-latency Connections"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

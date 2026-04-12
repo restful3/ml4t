@@ -1,0 +1,167 @@
+{
+  "name": "Quantitative Trading",
+  "children": [
+    {
+      "name": "Definition and Scope",
+      "children": [
+        {
+          "name": "Algorithmic Trading"
+        },
+        {
+          "name": "Computer-driven decisions"
+        },
+        {
+          "name": "Historical data testing"
+        },
+        {
+          "name": "Technical & Fundamental inputs"
+        }
+      ]
+    },
+    {
+      "name": "The Quantitative Trader",
+      "children": [
+        {
+          "name": "Institutional vs Independent"
+        },
+        {
+          "name": "Required Background (Math/Stats/CS)"
+        },
+        {
+          "name": "Ideal Mindset (Fear/Greed Balance)"
+        },
+        {
+          "name": "Independent Trader Freedom"
+        }
+      ]
+    },
+    {
+      "name": "Business Case",
+      "children": [
+        {
+          "name": "Scalability & Leverage"
+        },
+        {
+          "name": "Automation & Time Efficiency"
+        },
+        {
+          "name": "No Marketing Required"
+        },
+        {
+          "name": "Low Entry Capital"
+        }
+      ]
+    },
+    {
+      "name": "Finding Strategy Ideas",
+      "children": [
+        {
+          "name": "Academic Papers (SSRN/NBER)"
+        },
+        {
+          "name": "Financial Blogs & Podcasts"
+        },
+        {
+          "name": "Trader Forums (Elite Trader)"
+        },
+        {
+          "name": "Twitter & Social Media"
+        }
+      ]
+    },
+    {
+      "name": "Backtesting",
+      "children": [
+        {
+          "name": "Platforms (Excel/MATLAB/Python/R)"
+        },
+        {
+          "name": "Historical Databases (Yahoo/Sharadar)"
+        },
+        {
+          "name": "Pitfalls (Look-ahead/Data-snooping)"
+        },
+        {
+          "name": "Survivorship Bias"
+        },
+        {
+          "name": "Transaction Costs impact"
+        }
+      ]
+    },
+    {
+      "name": "Performance Measurement",
+      "children": [
+        {
+          "name": "Sharpe Ratio"
+        },
+        {
+          "name": "Maximum Drawdown"
+        },
+        {
+          "name": "Drawdown Duration"
+        },
+        {
+          "name": "MAR Ratio"
+        }
+      ]
+    },
+    {
+      "name": "Execution Systems",
+      "children": [
+        {
+          "name": "Semi-automated (Basket Traders)"
+        },
+        {
+          "name": "Fully-automated (API/FIX)"
+        },
+        {
+          "name": "Minimizing Slippage"
+        },
+        {
+          "name": "Paper Trading validation"
+        }
+      ]
+    },
+    {
+      "name": "Risk Management",
+      "children": [
+        {
+          "name": "Kelly Formula (Optimal Leverage)"
+        },
+        {
+          "name": "Capital Allocation"
+        },
+        {
+          "name": "Half-Kelly Betting"
+        },
+        {
+          "name": "Psychological Preparedness"
+        }
+      ]
+    },
+    {
+      "name": "Special Strategies",
+      "children": [
+        {
+          "name": "Mean-Reverting vs Momentum"
+        },
+        {
+          "name": "Stationarity & Cointegration"
+        },
+        {
+          "name": "Factor Models (Fama-French)"
+        },
+        {
+          "name": "Seasonal Trading"
+        },
+        {
+          "name": "High-Frequency Trading"
+        },
+        {
+          "name": "CPO (Machine Learning)"
+        }
+      ]
+    }
+  ]
+}

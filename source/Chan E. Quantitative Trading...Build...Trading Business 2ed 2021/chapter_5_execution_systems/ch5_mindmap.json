@@ -1,0 +1,131 @@
+{
+  "name": "Execution Systems",
+  "children": [
+    {
+      "name": "Automated Trading Systems (ATS)",
+      "children": [
+        {
+          "name": "Functions",
+          "children": [
+            {
+              "name": "Data retrieval"
+            },
+            {
+              "name": "Algorithm execution"
+            },
+            {
+              "name": "Order submission"
+            }
+          ]
+        },
+        {
+          "name": "Semiautomated",
+          "children": [
+            {
+              "name": "Manual upload to basket/spread trader"
+            },
+            {
+              "name": "Suitable for low-frequency"
+            },
+            {
+              "name": "Software: Excel, MATLAB, Python, R"
+            },
+            {
+              "name": "Benefit: Sanity-checking orders"
+            }
+          ]
+        },
+        {
+          "name": "Fully Automated",
+          "children": [
+            {
+              "name": "Continuous loops/API integration"
+            },
+            {
+              "name": "Essential for high-frequency"
+            },
+            {
+              "name": "Platforms: QuantConnect, Blueshift"
+            },
+            {
+              "name": "Languages: Java, C#, C++, Python"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Minimizing Transaction Costs",
+      "children": [
+        {
+          "name": "Avoid low-priced stocks (<$5)"
+        },
+        {
+          "name": "Limit size to 1% of average daily volume"
+        },
+        {
+          "name": "Scale weights to fourth root of market cap"
+        },
+        {
+          "name": "Reduce market impact vs slippage"
+        }
+      ]
+    },
+    {
+      "name": "Hiring Consultants",
+      "children": [
+        {
+          "name": "Cost: $50-$100 per hour"
+        },
+        {
+          "name": "Platforms: Upwork, EliteTrader"
+        },
+        {
+          "name": "Confidentiality: NDAs and compartmentalization"
+        }
+      ]
+    },
+    {
+      "name": "Paper Trading",
+      "children": [
+        {
+          "name": "Bug detection"
+        },
+        {
+          "name": "Look-ahead bias identification"
+        },
+        {
+          "name": "Operational schedule planning"
+        },
+        {
+          "name": "Intuition on P&L volatility"
+        }
+      ]
+    },
+    {
+      "name": "Performance Divergence",
+      "children": [
+        {
+          "name": "Software bugs"
+        },
+        {
+          "name": "Data-snooping bias"
+        },
+        {
+          "name": "Regime Shifts",
+          "children": [
+            {
+              "name": "Decimalization"
+            },
+            {
+              "name": "Uptick rules"
+            },
+            {
+              "name": "Hard to borrow constraints"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

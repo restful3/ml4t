@@ -1,0 +1,3257 @@
+[
+    {
+        "type": "text",
+        "text": "CHAPTER 3 Backtesting ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            127,
+            323,
+            190
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "A key difference between a traditional investment management process and a quantitative investment process is the possibility of backtesting a quantitative investment strategy to see how it would have performed in the past. Even if you found a strategy described in complete detail with all the historical performance data available, you would still need to backtest it yourself. This exercise serves several purposes. If nothing else, this replication of the research will ensure that you have understood the strategy completely and have reproduced it exactly for implementation as a trading system. Just as in any medical or scientific research, replicating others' results also ensures that the original research did not commit any of the common errors plaguing this process. But more than just performing due diligence, doing the backtest yourself allows you to experiment with variations of the original strategy, thereby refining and improving the strategy. ",
+        "bbox": [
+            122,
+            208,
+            872,
+            523
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "In this chapter, I will describe the common platforms that can be used for backtesting, various sources of historical data useful for backtesting, a minimal set of standard performance measures that a backtest should provide, common pitfalls to avoid, and simple refinements and improvements to strategies. A few fully developed backtesting examples will also be presented to illustrate the principles and techniques described. ",
+        "bbox": [
+            122,
+            530,
+            861,
+            678
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "COMMON BACKTESTING PLATFORMS ",
+        "text_level": 1,
+        "bbox": [
+            127,
+            704,
+            771,
+            733
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Numerous commercial platforms are designed for backtesting, some of them costing tens of thousands of dollars. In keeping with the focus on startups in this book, I start with those with which I am familiar and that are free or can be purchased economically and are widely used. ",
+        "bbox": [
+            122,
+            747,
+            861,
+            853
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Excel ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            871,
+            197,
+            893
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "This is the most basic and most common tool for traders, whether retail or institutional. You can enhance its power further if you can write Visual Basic macros. The beauty of Excel is “What you see is what you get”—or WYSIWYG (wi-zē-wig) in computing parlance. Data and program are all in one place so that nothing is hidden. Also, a common backtesting pitfall called look-ahead bias, which will be explained later, is unlikely to occur in Excel (unless you use macros, which renders it no longer WYSIWYG) because you can easily align the dates with the various data columns and signals on a spreadsheet. Another advantage of Excel is that backtesting and live trade generation can often be done from the same spreadsheet, eliminating any duplication of programming efforts. The major disadvantage of Excel is that it can be used to backtest only fairly simple models. But, as I explained in the previous chapter, simple models are often the best! ",
+        "bbox": [
+            122,
+            88,
+            870,
+            404
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            421,
+            240,
+            444
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "MATLAB (www.mathworks.com) used to be one of the most common backtesting platforms used by quantitative analysts and traders in large institutions. It has been taken over by Python (which I will describe as follows), but I still find it to be the most productive language for quants (as opposed to professional software developers). It is easier to use than Python, it is faster, and it has full customer support from the vendor. It is ideal for testing strategies that involve a large portfolio of stocks. (Imagine backtesting a strategy involving 1,500 symbols on Excel—it is possible, but quite painful.) It has numerous advanced statistical and mathematical modules built in, so traders do not have to reinvent the wheel if their trading algorithms involve some sophisticated but common mathematical concepts. (A good example is principal component analysis—often used in factor models in statistical arbitrage trading, and a hassle to implement in other programming languages. See Example 7.4.) Supplementary toolboxes (which cost about $\\$ 50$ each) such as Statistics and Machine Learning, Econometrics, and Financial toolboxes are particularly useful to quant traders. ",
+        "bbox": [
+            122,
+            457,
+            867,
+            833
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "There is also a large number of third-party freeware available for download from the internet, many of them very useful for quantitative trading purposes (an example is the cointegration package used in Example 7.2). Finally, MATLAB is very useful in retrieving financial information from various websites. Example 3.1 shows how this can be done. ",
+        "bbox": [
+            124,
+            840,
+            823,
+            905
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            124,
+            89,
+            857,
+            152
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Despite the seeming sophistication of the platform, it is actually very easy to learn (at least for basic usage), and it is very quick to write a complete backtest program using this language. It is also inexpensive: the home version costs about the same as Microsoft Office. ",
+        "bbox": [
+            122,
+            161,
+            866,
+            266
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "You can use MATLAB for live trading, too, if you purchase its Trading Toolbox, or if you purchase a third-party toolkit, such as that from undocumentedmatlab.com. ",
+        "bbox": [
+            122,
+            275,
+            875,
+            339
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "I will include MATLAB codes for all the backtesting examples in this book as well as provide a quick survey of the MATLAB language itself in the appendix. ",
+        "bbox": [
+            122,
+            347,
+            874,
+            411
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Example 3.1: Using MATLAB to Retrieve Yahoo! Finance Data ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            808,
+            174
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "MATLAB is not only useful for numerical computations but also for text parsing. Following is an example of using MATLAB to retrieve a stock's historical price information from Yahoo! Finance. First, copy the file getMarketDataViaYahoo.m from github.com/Lenskiy/market-data-functions and save it to your local folder. Then save the following code as example3_1.m to your local folder, too: ",
+        "bbox": [
+            140,
+            193,
+            843,
+            340
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "% Example 3.1: Download data from Yahoo   \ninitDate $=$ '1-Sep-2020';   \nsymbol $=$ 'AAPL';   \naaplusd_yahoo_raw $=$ getMarketDataViaYahoo(symbol, initDate); aaplusd_yahoo $=$ timeseries([aaplusd_yahoo_raw.Close,   \naaplusd_yahoo_raw.High, aaplusd_yahoo_raw.Low],   \ndatestr(aaplusd_yahoo_raw(:,1).Date));   \naaplusd_yahoo.DataInfo.Units $=$ 'USD';   \naaplusd_yahoo.Name $=$ symbol;   \naaplusd_yahoo.TimeInfo.Format $=$ \"dd-mm-yyyy\"; figure,   \nplot(aaplusd_yahoo);   \nlegend({'Close', 'High', 'Low'},'Location', 'northwest'); disp(aaplusd_yahoo_raw.Close)   \nThis program file example3_1.m is available for download from   \nepchan.com/book, with “sharperatio” as both username and   \npassword. You can easily modify this code to download as many   \ntickers as you like. This program requires the   \ngetMarketDataViaYahoo function to work. That .m file can be   \ndownloaded from   \nwww.mathworks.com/matlabcentral/fileexchange/68361-yahoo  \nfinance-and-quandl-data-downloader. (You should save it in the   \nsame folder as example3_1.m.) ",
+        "bbox": [
+            140,
+            375,
+            851,
+            545
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            142,
+            564,
+            815,
+            631
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            665,
+            846,
+            857
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "Python ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            89,
+            218,
+            114
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "Python has now taken over MATLAB to become the de facto backtesting language, especially after the numpy and pandas packages became available. With these packages, you can manipulate arrays and time series data just like you do in MATLAB. Python benefits from a large number of third-party packages for specific applications. There is Scikit-learn for machine learning, plotly for interactive data visualization, and seaborn for plotting, just to name a few most commonly used ones. While Python has almost any packages that you need for finance and trading, it is not without flaws: ",
+        "bbox": [
+            122,
+            125,
+            872,
+            333
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "1. Version conflicts abound. Even with my team of professional software developers (one of them has sold his software firm for many millions), we spent endless hours integrating different Python packages into a production system. An addition of any new Python package threatens to tear down the whole edifice. Even the following sample program example3_1.py took more than an hour to get it running on my computer, as opposed to my colleague's computer. ",
+        "bbox": [
+            150,
+            352,
+            854,
+            518
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "2. It is slow—quite slow, compared to MATLAB. Don't take my word for it: read this academic study by Aruoba et. al. (2018): “Python is too slow… MATLAB and R have considerably improved their performance, in the case of MATLAB to make it competitive, for example, with Rcpp.” ",
+        "bbox": [
+            145,
+            527,
+            857,
+            633
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "3. There is no customer support, as it is free. You will have to wait for the kindness of strangers on stackoverflow.com to answer your questions. Meanwhile, MATLAB has professional programmers and PhDs on frontline support. ",
+        "bbox": [
+            143,
+            641,
+            864,
+            727
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "4. The Integrated Development Environments (IDEs) of Python are inferior to MATLAB's. This is still the case, despite the proliferation of free platforms such as Microsoft's Visual Studio Code. You get what you pay for. ",
+        "bbox": [
+            145,
+            734,
+            862,
+            819
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "5. Despite the large number of free packages, there is still a lack of good statistics and econometrics packages, unlike R. Python's statmodels are no match for R packages such as mnormt, ",
+        "bbox": [
+            147,
+            827,
+            877,
+            891
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "copula, fGarch, rugarch, or MASS. Python is also no match for MATLAB's Statistics and Machine Learning and Econometrics Toolboxes. ",
+        "bbox": [
+            171,
+            89,
+            849,
+            152
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "But if you are a Python fan or if you want to jump on the Python bandwagon because everyone else is using it, don't let me stop you. To learn more about using Python in finance, start with Wes McKinney's Python for Data Analysis (McKinney, 2017). McKinney is, of course, the inventor of pandas, a most useful package for quant traders and a veteran of the giant quant fund Two Sigma. ",
+        "bbox": [
+            122,
+            170,
+            864,
+            297
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Here is Example 3.1 coded in Python: ",
+        "bbox": [
+            122,
+            305,
+            531,
+            329
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Example 3.1: Using Python to Retrieve Yahoo! Finance Data ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            358,
+            781,
+            420
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Following is an example of using Python to retrieve a stock's historical price information from Yahoo! Finance. First, run pip install pandas_datareader on your Anaconda prompt. Then save the following code as example3_1.py to your local folder: ",
+        "bbox": [
+            142,
+            439,
+            843,
+            525
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "% Example 3.1: Download data from Yahoo from pandas_datareader import data as pdr def test_yfinance(): ",
+        "bbox": [
+            142,
+            558,
+            629,
+            609
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "for symbol in [‘AAPL’, 'MSFT', 'VFINX','BTC-USD']: print(\">>\", symbol, end $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ ' … ') data $=$ pdr.get_data_yahoo(symbol,start $=$ '2020-09-25',   \nend='2020-10-02') print(data)   \nif __name __ $= =$ \"__main_ \" . test_yfinance() ",
+        "bbox": [
+            140,
+            609,
+            849,
+            729
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "This program file example3_1.py is available for download from epchan.com/book, with “sharperatio” as both username and password. You can easily modify this code to download as many tickers as you like. ",
+        "bbox": [
+            140,
+            765,
+            838,
+            849
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "R ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            92,
+            145,
+            111
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "I have used R as the language for teaching my Financial Risk Analytics course at Northwestern University's Master's in Data Science program, which covered everything from time series analysis to copulas. It is a great language if you want to use classical statistical and econometric analyses for your trading (and there is nothing wrong with that!). That is because many academic statisticians and econometricians have implemented their algorithms in R. There aren't as many implementations of machine-learning algorithms as Python or MATLAB. ",
+        "bbox": [
+            122,
+            125,
+            875,
+            313
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "However, I recommend you do not use machine learning if you are creating a new trading strategy, and use ML only for improving your strategy (for reasons explained in Chapter 2 and in more depth at predictnow.ai/finml). Hence, R is a good language for this initial step of strategy exploration, though not as good as MATLAB since its IDE (RStudio) is also free, and, dare I say, primitive. Naturally, like Python, it also comes with zero support. If you want to learn R, there is an elegant and very readable little book by Jonathan Regenstein (Regenstein, 2018) called Reproducible Finance with $R$ . ",
+        "bbox": [
+            122,
+            321,
+            874,
+            511
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "Example 3.1: Using R to Retrieve Yahoo! Finance Data ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            813,
+            172
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "Following is an example of using R to retrieve a stock's historical price information from Yahoo! Finance. This program file example3_1.R is available for download from epchan.com/book, with “sharperatio” as both username and password. Just save it to your local folder and run in RStudio. (Installation of required packages is included. Once they are installed, you can comment out the install.packages lines.) ",
+        "bbox": [
+            142,
+            193,
+            841,
+            340
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "# tidyverse contains the packages tidyr, ggplot   \n# readr, purrr and tibble   \ninstall.packages(\"tidyverse\")   \ninstall.packages(\"lubridate\")   \ninstall.packages(\"readxl\")   \ninstall.packages(\"highcharter\")   \ninstall.packages(\"tidyquant\")   \ninstall.packages(\"timetk\")   \ninstall.packages(\"tibbletime\")   \ninstall.packages(\"quantmod\")   \ninstall.packages(\"PerformanceAnalytics\")   \ninstall.packages(\"scales\")   \nlibrary(tidyverse)   \nlibrary(lubridate)   \nlibrary(readxl)   \nlibrary(highcharter)   \nlibrary(tidyquant)   \nlibrary(timetk)   \nlibrary(tibbletime)   \nlibrary(quantmod)   \nlibrary(PerformanceAnalytics)   \nlibrary(scales)   \nsymbols <- c(\"SPY\",\"EFA\", \"IJS\", \"EEM\",\"AGG\")   \nprices <- getSymbols(symbols, src $=$ 'yahoo', $\\pounds \\mathrm { r o m } \\ = \\ \" \\ 2 0 1 2 - 1 2 - 3 1 \" $ , to $=$ \"2017-12-31\", auto.assign $=$ TRUE, warnings $=$ FALSE) ",
+        "bbox": [
+            142,
+            375,
+            692,
+            895
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "You can easily modify this code to download as many tickers as you like. ",
+        "bbox": [
+            140,
+            142,
+            826,
+            185
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "QuantConnect ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            229,
+            316,
+            255
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "QuantConnect is a web-based algorithmic trading platform providing research, backtesting, and live trading tools to support strategy creation in $\\mathbf { C } \\#$ or Python. It also provides some 400TB of financial and alternative data. The open-source engine (called LEAN) takes into account trade fills, slippage, margin, transaction costs, and bid– ask spread to provide realistic backtest results. As of this writing, the platform supports seven asset classes; equities, equity-options, forex, CFD, crypto, futures, and future-options. QuantConnect allows users to seamlessly transition from backtesting to live trading with no code changes. This is important to ensure that what you backtested is exactly what you will be trading. ",
+        "bbox": [
+            122,
+            265,
+            872,
+            496
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "Blueshift ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            513,
+            245,
+            537
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "Blueshift is an integrated platform for research, backtest, and trading offered by QuantInsti. As of this writing, it offers live trading in the United States, India, and FX markets, and it includes minute-level data free-of-cost across these markets. (I am sure that by the time you are reading this, it will be offering many more markets.) You can develop your investment or trading strategy in either a Python programming environment or a visual (nonprogramming interface) builder. Moving a strategy from backtesting to live trading is a turnkey operation, ensuring that what you backtested is exactly what you will be trading. ",
+        "bbox": [
+            122,
+            549,
+            872,
+            760
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "FINDING AND USING HISTORICAL DATABASES ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            785,
+            692,
+            844
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "If you have a strategy in mind that requires a specific type of historical data, the first thing to do is to search for that type of data. ",
+        "bbox": [
+            124,
+            859,
+            851,
+            904
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "discarded",
+        "text": "print(SPY) ",
+        "bbox": [
+            140,
+            90,
+            258,
+            106
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "You will be surprised how many free or low-cost historical databases are available on the internet for many types of data. (For example, try the search phrase “free historical intraday futures data.”) Table 3.1 includes a number of the databases that I have found useful over the years, most of them either free or very low cost. I have deliberately left out the expensive databases from Bloomberg, Dow Jones, FactSet, Thomson Reuters, or Tick Data. Though they have almost every type of data imaginable for purchase, these data vendors cater mostly to more established institutions and are typically not in the price range of individuals or startup institutions. ",
+        "bbox": [
+            122,
+            89,
+            862,
+            299
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "table",
+        "img_path": "images/b122fb4ea3d024852b621fdbf964c3594f7085b824c39f15400e6a97a98fc654.jpg",
+        "table_caption": [
+            "TABLE 3.1 Historical Databases for Backtesting "
+        ],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Source</td><td rowspan=1 colspan=1>Pros</td><td rowspan=1 colspan=1>Cons</td></tr><tr><td rowspan=1 colspan=3>Daily Stock Data</td></tr><tr><td rowspan=1 colspan=1>finance.yahoo.com</td><td rowspan=2 colspan=1>Free. Split/dividendadjusted.</td><td rowspan=2 colspan=1>Has survivorshipbias. Candownload only onesymbol at a time.</td></tr><tr><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Sharadar.com</td><td rowspan=1 colspan=1>Survivorship bias free.</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Algoseek.com</td><td rowspan=1 colspan=1>Rent, don&#x27;t buy, tick data!Enriched with identifiersand tags.</td><td rowspan=1 colspan=1>Moderately priced.</td></tr><tr><td rowspan=1 colspan=1>CSIdata.com</td><td rowspan=1 colspan=1>Low cost. Source of Yahoo!and Google&#x27;s historical data.Software enables downloadof multiple symbols.</td><td rowspan=1 colspan=1>Has survivorshipbias, thoughdelisted stocks&#x27;history can bepurchased.</td></tr><tr><td rowspan=1 colspan=1>CRSP.com</td><td rowspan=1 colspan=1>Survivorship bias free.</td><td rowspan=1 colspan=1>Expensive.Updated only oncea month.</td></tr><tr><td rowspan=1 colspan=3>Daily Futures Data</td></tr><tr><td rowspan=1 colspan=1>Algoseek.com</td><td rowspan=1 colspan=1>(See above.)</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>CSIdata.com</td><td rowspan=1 colspan=1>(See above.)</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=3>Intraday Stock / Futures Data</td></tr><tr><td rowspan=1 colspan=1>Algoseek.com</td><td rowspan=1 colspan=1>(See above.)</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Tickdata.com</td><td rowspan=1 colspan=1>Institutional quality.</td><td rowspan=1 colspan=1>Expensive.</td></tr><tr><td rowspan=1 colspan=3>Daily / Intraday Forex Data</td></tr><tr><td rowspan=1 colspan=1>InteractiveBrokers</td><td rowspan=1 colspan=1>Free if you have an account.</td><td rowspan=1 colspan=1></td></tr></table>",
+        "bbox": [
+            124,
+            119,
+            874,
+            792
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "While finding sources of data on the internet is even easier than finding prospective strategies, there are a number of issues and pitfalls with many of these databases that I will discuss later in this section. These issues apply mostly to stock and exchange-traded fund (ETF) data only. Here are the most important ones. ",
+        "bbox": [
+            122,
+            794,
+            877,
+            901
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Are the Data Split and Dividend Adjusted? ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            88,
+            678,
+            114
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "When a company had its stocks split $N$ to 1 with an ex-date of $T ,$ , all the prices before $T$ need to be multiplied by $1 / N . N$ is usually 2, but can be a fraction like 0.5 as well. When $N$ is smaller than 1, it is called a reverse split. Similarly, when a company issued a dividend $\\$ 2$ per share with an ex-date of $T ,$ , all the prices before $T$ need to be multiplied by the number $( \\mathrm { C l o s e } ( T - 1 ) - d ) / \\mathrm { C l o s e } ( T - 1 )$ , where $\\mathrm { C l o s e } ( T - { \\bf 1 } )$ is the closing price of the trading day before $T .$ Notice that I adjust the historical prices by a multiplier instead of subtracting $\\$ 2$ so that the historical daily returns will remain the same pre- and post-adjustment. This is the way Yahoo! Finance adjusts its historical data, and is the most common way. (If you adjust by subtracting $\\$ 2$ instead, the historical daily changes in prices will be the same pre- and postadjustment, but not the daily returns.) If the historical data are not adjusted, you will find a drop in price at the ex-date's market open from previous day's close (apart from normal market fluctuation), which may trigger an erroneous trading signal. ",
+        "bbox": [
+            122,
+            125,
+            874,
+            481
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "I recommend getting historical data that are already split and dividend adjusted, because otherwise you would have to find a separate historical database of splits and dividends and apply the adjustments yourself—a somewhat tedious and error-prone task, which I will describe in the following example. ",
+        "bbox": [
+            122,
+            488,
+            831,
+            594
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "Example 3.2: Adjusting for Splits and Dividends ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            759,
+            172
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "Here we look at IGE, an ETF that has had both splits and dividends in its history. It had a 2:1 split on June 9, 2005 (the exdate). Let's look at the unadjusted prices around that date (you can download the historical prices of IGE from Yahoo! Finance into an Excel spreadsheet): ",
+        "bbox": [
+            142,
+            191,
+            849,
+            299
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "table",
+        "img_path": "images/4822dfcb56dbe106e18901cf1c36139336a1898e1e8a259bf3baa1bbd05484b3.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Date</td><td rowspan=1 colspan=1>Open High</td><td rowspan=1 colspan=1>Open High</td><td rowspan=1 colspan=1>Low</td><td rowspan=1 colspan=1>Close</td></tr><tr><td rowspan=1 colspan=1>6/10/2005 73.98</td><td rowspan=1 colspan=1>73.98</td><td rowspan=1 colspan=1>74.08</td><td rowspan=1 colspan=1>73.31</td><td rowspan=1 colspan=1>74</td></tr><tr><td rowspan=1 colspan=1>6/9/2005</td><td rowspan=1 colspan=1>72.45</td><td rowspan=1 colspan=1>73.74</td><td rowspan=1 colspan=1>72.23</td><td rowspan=1 colspan=1>73.74</td></tr><tr><td rowspan=1 colspan=1>6/8/2005</td><td rowspan=1 colspan=1>144.13</td><td rowspan=1 colspan=1>146.44</td><td rowspan=1 colspan=1>143.75</td><td rowspan=1 colspan=1>144.48</td></tr><tr><td rowspan=1 colspan=1>6/7/2005</td><td rowspan=1 colspan=1>145</td><td rowspan=1 colspan=1>146.07 144.11</td><td rowspan=1 colspan=1>146.07 144.11</td><td rowspan=1 colspan=1>144.11</td></tr></table>",
+        "bbox": [
+            272,
+            306,
+            725,
+            445
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "We need to adjust the prices prior to $6 / 9 / 2 0 0 5$ due to this split. This is easy: $N = 2$ here, and all we need to do is to multiply those prices by $^ 1 / { } _ { 2 }$ . The following table shows the adjusted prices: ",
+        "bbox": [
+            142,
+            453,
+            848,
+            522
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "table",
+        "img_path": "images/aee0358a7748de6b2f97a2b353863c8b1378c481c85c94230ef746ea70f81d4c.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Date</td><td rowspan=1 colspan=1>OpenI</td><td rowspan=1 colspan=1>High</td><td rowspan=1 colspan=1>Low</td><td rowspan=1 colspan=1>Close</td></tr><tr><td rowspan=1 colspan=1>6/10/2005 73.98</td><td rowspan=1 colspan=1>73.98</td><td rowspan=1 colspan=1>74.08</td><td rowspan=1 colspan=1>73.31</td><td rowspan=1 colspan=1>74</td></tr><tr><td rowspan=1 colspan=1>6/9/2005</td><td rowspan=1 colspan=1>72.45</td><td rowspan=1 colspan=1>73.74</td><td rowspan=1 colspan=1>72.23</td><td rowspan=1 colspan=1>73.74</td></tr><tr><td rowspan=1 colspan=1>6/8/2005</td><td rowspan=1 colspan=1>72.065</td><td rowspan=1 colspan=1>73.22</td><td rowspan=1 colspan=1>71.875</td><td rowspan=1 colspan=1>72.24</td></tr><tr><td rowspan=1 colspan=1>6/7/2005</td><td rowspan=1 colspan=1>72.5</td><td rowspan=1 colspan=1>73.035</td><td rowspan=1 colspan=1>72.055</td><td rowspan=1 colspan=1>72.055</td></tr></table>",
+        "bbox": [
+            266,
+            532,
+            730,
+            672
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "Now, the astute reader will notice that the adjusted close prices here do not match the adjusted close prices displayed in the Yahoo! Finance table. The reason for this is that there have been dividends distributed after 6/9/2005, so the Yahoo! prices have been adjusted for all those as well. Since each adjustment is a multiplier, the aggregate adjustment is just the product of all the individual multipliers. Here are the dividends from $6 / 9 / 2 0 0 5$ to November 2007, together with the unadjusted closing prices of the previous trading days and the resulting individual multipliers: ",
+        "bbox": [
+            140,
+            680,
+            843,
+            891
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "table",
+        "img_path": "images/6756889014ee654c62002ca00976ecb1e3b0524a6544f7dadacf081e32cc2d19.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Ex-Date</td><td rowspan=1 colspan=1>Dividend</td><td rowspan=1 colspan=1>Prev Close</td><td rowspan=1 colspan=1>Multiplier</td></tr><tr><td rowspan=1 colspan=1>9/26/2007</td><td rowspan=1 colspan=1>0.177</td><td rowspan=1 colspan=1>128.08</td><td rowspan=1 colspan=1>0.998618</td></tr><tr><td rowspan=1 colspan=1>6/29/2007</td><td rowspan=1 colspan=1>0.3</td><td rowspan=1 colspan=1>119.44</td><td rowspan=1 colspan=1>0.997488</td></tr><tr><td rowspan=1 colspan=1>12/21/2006</td><td rowspan=1 colspan=1>0.322</td><td rowspan=1 colspan=1>102.61</td><td rowspan=1 colspan=1>0.996862</td></tr><tr><td rowspan=1 colspan=1>9/27/2006</td><td rowspan=1 colspan=1>0.258</td><td rowspan=1 colspan=1>91.53</td><td rowspan=1 colspan=1>0.997181</td></tr><tr><td rowspan=1 colspan=1>6/23/2006</td><td rowspan=1 colspan=1>0.32</td><td rowspan=1 colspan=1>92.2</td><td rowspan=1 colspan=1>0.996529</td></tr><tr><td rowspan=1 colspan=1>3/27/2006</td><td rowspan=1 colspan=1>0.253</td><td rowspan=1 colspan=1>94.79</td><td rowspan=1 colspan=1>0.997331</td></tr><tr><td rowspan=1 colspan=1>12/23/2005 0.236</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>89.87</td><td rowspan=1 colspan=1>0.997374</td></tr><tr><td rowspan=1 colspan=1>9/26/2005</td><td rowspan=1 colspan=1>0.184</td><td rowspan=1 colspan=1>89</td><td rowspan=1 colspan=1>0.997933</td></tr><tr><td rowspan=1 colspan=1>6/21/2005</td><td rowspan=1 colspan=1>0.217</td><td rowspan=1 colspan=1>77.9</td><td rowspan=1 colspan=1>0.997214</td></tr></table>",
+        "bbox": [
+            225,
+            88,
+            772,
+            366
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "(Check out the multipliers yourself on Excel using the formula I gave above to see if they agree with my values here.) So the aggregate multiplier for the dividends is simply $0 . 9 9 8 6 1 8 \\times$ $0 . 9 9 7 4 8 8 \\times \\ldots \\times 0 . 9 9 7 2 1 4 = 0 . 9 7 6 7 7 3$ . This multiplier should be applied to all the unadjusted prices on or after $6 / 9 / 2 0 0 5$ . The aggregate multiplier for the dividends and the split is $0 . 9 7 6 7 7 3 \\times$ $0 . 5 = 0 . 4 8 8 3 8 6$ , which should be applied to all the unadjusted prices before 6/9/2005. So let's look at the resulting adjusted prices after applying these multipliers: ",
+        "bbox": [
+            140,
+            373,
+            841,
+            564
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "table",
+        "img_path": "images/65baa32993c0e3e1619940de5e27331ff204bdd37a2df089f9d5d5db255800d9.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Date</td><td rowspan=1 colspan=1>Open High I</td><td rowspan=1 colspan=1>Open High I</td><td rowspan=1 colspan=1>Low</td><td rowspan=1 colspan=1>Close</td></tr><tr><td rowspan=1 colspan=1>6/10/2005</td><td rowspan=1 colspan=1>72.26163</td><td rowspan=1 colspan=1>72.35931</td><td rowspan=1 colspan=1>71.6072</td><td rowspan=1 colspan=1>72.28117</td></tr><tr><td rowspan=1 colspan=1>6/9/2005</td><td rowspan=1 colspan=1>70.76717</td><td rowspan=1 colspan=1>72.02721</td><td rowspan=1 colspan=1>70.55228</td><td rowspan=1 colspan=1>72.02721</td></tr><tr><td rowspan=1 colspan=1>6/8/2005</td><td rowspan=1 colspan=1>70.39111</td><td rowspan=1 colspan=1>71.51929</td><td rowspan=1 colspan=1>70.20553</td><td rowspan=1 colspan=1>70.56205</td></tr><tr><td rowspan=1 colspan=1>6/7/2005</td><td rowspan=1 colspan=1>70.81601</td><td rowspan=1 colspan=1>71.33858</td><td rowspan=1 colspan=1>70.38135</td><td rowspan=1 colspan=1>70.38135</td></tr></table>",
+        "bbox": [
+            214,
+            570,
+            784,
+            710
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "Now compare with the table from Yahoo! around November 1, 2007. ",
+        "bbox": [
+            143,
+            718,
+            818,
+            762
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "table",
+        "img_path": "images/c1fed6dec1a24f5a3573d094eb0cb7f7bd04ddae3d3bb3a0be9eaf822d258a18.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td colspan=\"1\" rowspan=\"1\">Date</td><td colspan=\"1\" rowspan=\"1\">Open High</td><td colspan=\"1\" rowspan=\"1\">Open High</td><td colspan=\"1\" rowspan=\"1\">Low</td><td colspan=\"1\" rowspan=\"1\">Close</td><td colspan=\"1\" rowspan=\"1\">Volume Adj Close</td><td colspan=\"1\" rowspan=\"1\">Volume Adj Close</td></tr><tr><td colspan=\"1\" rowspan=\"1\">6/10/2005 73.98</td><td colspan=\"1\" rowspan=\"1\">73.98</td><td colspan=\"1\" rowspan=\"1\">74.08</td><td colspan=\"1\" rowspan=\"1\">73.31</td><td colspan=\"1\" rowspan=\"1\">74</td><td colspan=\"1\" rowspan=\"1\">179300</td><td colspan=\"1\" rowspan=\"1\">72.28</td></tr><tr><td colspan=\"1\" rowspan=\"1\">6/9/2005</td><td colspan=\"1\" rowspan=\"1\">72.45</td><td colspan=\"1\" rowspan=\"1\">73.74</td><td colspan=\"1\" rowspan=\"1\">72.23</td><td colspan=\"1\" rowspan=\"1\">73.74</td><td colspan=\"1\" rowspan=\"1\">853200</td><td colspan=\"1\" rowspan=\"1\">72.03</td></tr><tr><td colspan=\"1\" rowspan=\"1\">6/8/2005</td><td colspan=\"1\" rowspan=\"1\">144.13</td><td colspan=\"1\" rowspan=\"1\">146.44</td><td colspan=\"1\" rowspan=\"1\">143.75</td><td colspan=\"1\" rowspan=\"1\">144.48</td><td colspan=\"1\" rowspan=\"1\">144.48 109600</td><td colspan=\"1\" rowspan=\"1\">70.56</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Date</td><td colspan=\"1\" rowspan=\"1\">Open</td><td colspan=\"1\" rowspan=\"1\">High</td><td colspan=\"1\" rowspan=\"1\">Low</td><td colspan=\"1\" rowspan=\"1\">Close</td><td colspan=\"1\" rowspan=\"1\">Volume</td><td colspan=\"1\" rowspan=\"1\">Adj Close</td></tr><tr><td colspan=\"1\" rowspan=\"1\">6/7/2005</td><td colspan=\"1\" rowspan=\"1\">145</td><td colspan=\"1\" rowspan=\"1\">146.07</td><td colspan=\"1\" rowspan=\"1\">144.11</td><td colspan=\"1\" rowspan=\"1\">144.11</td><td colspan=\"1\" rowspan=\"1\">58000</td><td colspan=\"1\" rowspan=\"1\">70.38</td></tr></table>",
+        "bbox": [
+            155,
+            770,
+            843,
+            882
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "table",
+        "img_path": "",
+        "table_caption": [],
+        "table_footnote": [],
+        "bbox": [
+            150,
+            89,
+            846,
+            146
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "You can see that the adjusted closing prices from our calculations and from Yahoo! are the same (after rounding to two decimal places). But, of course, when you are reading this, IGE will likely have distributed more dividends and may have even split further, so your Yahoo! table won't look like the one above. It is a good exercise to check that you can make further adjustments based on those dividends and splits that result in the same adjusted prices as your current Yahoo! table. ",
+        "bbox": [
+            140,
+            154,
+            854,
+            323
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "Are the Data Survivorship-Bias Free? ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            367,
+            614,
+            392
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "We already covered this issue in Chapter 2. Unfortunately, databases that are free from survivorship bias are quite expensive and may not be affordable for a startup business. One way to overcome this problem is to start collecting point-in-time data yourself for the benefit of your future backtest. If you save the prices each day of all the stocks in your universe to a file, then you will have a point-intime or survivorship-bias-free database to use in the future. Another way to lessen the impact of survivorship bias is to backtest your strategies on more recent data so that the results are not distorted by too many missing stocks. ",
+        "bbox": [
+            122,
+            404,
+            870,
+            613
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "Example 3.3: An Example of How Survivorship Bias Can Artificially Inflate a Strategy's Performance ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            834,
+            205
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "Here is a toy “buy low-priced stocks” strategy. (Warning: This toy strategy is hazardous to your financial health!) Let's say from a universe of the 1,000 largest stocks (based on market capitalization), we pick 10 that have the lowest closing prices at the beginning of the year and hold them (with equal initial capital) for one year. Let's look at what we would have picked if we had a good, survivorship-bias-free database: ",
+        "bbox": [
+            140,
+            223,
+            843,
+            371
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "table",
+        "img_path": "images/5442da700094447d185552afea1836066067f4d4428bb609f61e0c0314e70bcb.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>SYMBOL</td><td rowspan=1 colspan=1>SYMBOL Closing Price on11/2/2001</td><td rowspan=1 colspan=1>Closing Price on1/2/2002</td><td rowspan=1 colspan=1>TerminalPrice</td></tr><tr><td rowspan=1 colspan=1>ETYS</td><td rowspan=1 colspan=1>0.2188</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.125</td></tr><tr><td rowspan=1 colspan=1>MDM</td><td rowspan=1 colspan=1>0.3125</td><td rowspan=1 colspan=1>0.49</td><td rowspan=1 colspan=1>0.49</td></tr><tr><td rowspan=1 colspan=1>INTW</td><td rowspan=1 colspan=1>0.4063</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.11</td></tr><tr><td rowspan=1 colspan=1>FDHG</td><td rowspan=1 colspan=1>0.5</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.33</td></tr><tr><td rowspan=1 colspan=1>OGNC</td><td rowspan=1 colspan=1>0.6875</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.2</td></tr><tr><td rowspan=1 colspan=1>MPLX</td><td rowspan=1 colspan=1>0.7188</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.8</td></tr><tr><td rowspan=1 colspan=1>GTS</td><td rowspan=1 colspan=1>0.75</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.35</td></tr><tr><td rowspan=1 colspan=1>BUYX</td><td rowspan=1 colspan=1>0.75</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.17</td></tr><tr><td rowspan=1 colspan=1>PSIX</td><td rowspan=1 colspan=1>0.75</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.2188</td></tr><tr><td rowspan=1 colspan=1>RTHM</td><td rowspan=1 colspan=1>0.8125</td><td rowspan=1 colspan=1>NaN</td><td rowspan=1 colspan=1>0.3000</td></tr></table>",
+        "bbox": [
+            142,
+            378,
+            852,
+            704
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "All but MDM were delisted sometime between $\\mathbf { 1 } / 2 / 2 0 0 \\mathbf { 1 }$ and $\\mathbf { 1 } / 2 / 2 0 0 2$ (after all, the dot-com bubble was seriously bursting then!). The NaNs indicate those with nonexistent closing prices on 1/2/2002. The Terminal Price column indicates the last prices at which the stocks were traded on or before $\\mathbf { 1 } / 2 / 2 0 0 2$ . The total return on this portfolio in that year was $- 4 2$ percent. ",
+        "bbox": [
+            142,
+            712,
+            849,
+            840
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "Now, let's look at what we would have picked if our database had survivorship bias and actually missed all those stocks that were delisted that year. We would then have picked the following list instead: ",
+        "bbox": [
+            142,
+            847,
+            846,
+            891
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            89,
+            830,
+            132
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "table",
+        "img_path": "images/bb83dde0af7b63479a99b491e1ac1897a77c4c405bbed3bf6eb9881ba4cbd758.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>SYMBOL</td><td rowspan=1 colspan=1>SYMBOL Closing Price on1/2/2001</td><td rowspan=1 colspan=1>Closing Price on1/2/2002</td></tr><tr><td rowspan=1 colspan=1>MDM</td><td rowspan=1 colspan=1>0.3125</td><td rowspan=1 colspan=1>0.49</td></tr><tr><td rowspan=1 colspan=1>ENGA</td><td rowspan=1 colspan=1>0.8438</td><td rowspan=1 colspan=1>0.44</td></tr><tr><td rowspan=1 colspan=1>NEOF</td><td rowspan=1 colspan=1>0.875</td><td rowspan=1 colspan=1>27.9</td></tr><tr><td rowspan=1 colspan=1>ENP</td><td rowspan=1 colspan=1>0.875</td><td rowspan=1 colspan=1>0.05</td></tr><tr><td rowspan=1 colspan=1>MVL</td><td rowspan=1 colspan=1>0.9583</td><td rowspan=1 colspan=1>2.5</td></tr><tr><td rowspan=1 colspan=1>URBN</td><td rowspan=1 colspan=1>1.0156</td><td rowspan=1 colspan=1>3.0688</td></tr><tr><td rowspan=1 colspan=1>FNV</td><td rowspan=1 colspan=1>1.0625</td><td rowspan=1 colspan=1>0.81</td></tr><tr><td rowspan=1 colspan=1>APT</td><td rowspan=1 colspan=1>1.125</td><td rowspan=1 colspan=1>0.88</td></tr><tr><td rowspan=1 colspan=1>FLIR</td><td rowspan=1 colspan=1>1.2813</td><td rowspan=1 colspan=1>9.475</td></tr><tr><td rowspan=1 colspan=1>RAZF</td><td rowspan=1 colspan=1>1.3438</td><td rowspan=1 colspan=1>0.25</td></tr></table>",
+        "bbox": [
+            142,
+            138,
+            854,
+            465
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "Notice that since we select only those stocks that “survived” until at least $1 / 2 / 2 0 0 2$ , they all have closing prices on that day. The total return on this portfolio was 388 percent! ",
+        "bbox": [
+            142,
+            473,
+            848,
+            537
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "In this example, $- 4 2$ percent was the actual return a trader would experience following this strategy, whereas 388 percent is a fictitious return that was due to survivorship bias in our database. ",
+        "bbox": [
+            142,
+            546,
+            854,
+            609
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "Does Your Strategy Use High and Low Data? ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            654,
+            710,
+            680
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "For almost all daily stock data, the high and low prices are far noisier than the open and close prices. What this means is that even when you had placed a buy limit order below the recorded high of a day, it might not have been filled, and vice versa for a sell limit order. (This could be due to the fact that a very small order was transacted at the high, or the execution could have occurred on a market to which your order was not routed. Sometimes, the high or low is simply due to an incorrectly reported tick that was not filtered out.) Hence, a backtest that relies on high and low data is less reliable than one that relies on the open and close. ",
+        "bbox": [
+            122,
+            689,
+            874,
+            898
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "Actually, sometimes even a market on open (MOO) or market on close (MOC) order might not be filled at the historical open and close prices shown in your data. This is due to the fact that the historical prices shown may be due to the primary exchange (e.g., New York Stock Exchange [NYSE]), or it may be a composite price including all the regional exchanges. Depending on where your order was routed, it may be filled at a different price from the historical opening or closing price shown in your dataset. Nevertheless, the discrepancies of the open and close prices usually have less impact on backtest performance than the errors in the high and low prices, since the latter almost always inflate your backtest returns. ",
+        "bbox": [
+            122,
+            89,
+            872,
+            319
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "After retrieving the data from a database, it is often advisable to do a quick error check. The simplest way to do this is to calculate the daily returns based on the data. If you have open, high, low, and close prices, you can calculate the various combinations of daily returns such as from the previous high to today's close as well. You can then examine closely those days with returns that are, say, four standard deviations away from the average. Typically, an extreme return should be accompanied by a news announcement, or should occur on a day when the market index also experienced extreme returns. If not, then your data are suspect. ",
+        "bbox": [
+            122,
+            329,
+            875,
+            537
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "PERFORMANCE MEASUREMENT ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            563,
+            678,
+            593
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "Quantitative traders use a good variety of performance measures. Which set of numbers to use is sometimes a matter of personal preference, but with ease of comparisons across different strategies and traders in mind, I would argue that the Sharpe ratio, maximum drawdown, and MAR ratio are the most important. Notice that I did not include compound annualized growth rate (CAGR), the measure most commonly quoted by investors, because if you use this measure, you have to tell people a number of things about what denominator you use to calculate returns. For example, in a long– short strategy, did you use just one side of capital or both sides in the denominator? Is the return a leveraged one (the denominator is based on account equity), or is it unleveraged (the denominator is based on market value of the portfolio)? If the equity or market value changes daily, do you use a moving average as the denominator, or just the value at the end of each day or each month? Most (but not all) of these problems associated with comparing returns can be avoided by quoting Sharpe ratio, maximum drawdown, and MAR ratio instead as the standard performance measures. MAR ratio is just the ratio of the CAGR and the maximum drawdown, and it is somewhat independent of leverage. The reason why it isn't completely independent is because doubling the leverage does not exactly double the CAGR in the presence of volatility (Chan, 2017). ",
+        "bbox": [
+            122,
+            607,
+            869,
+            901
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            88,
+            844,
+            257
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "I introduced the concepts of the Sharpe ratio, maximum drawdown, and maximum drawdown duration in Chapter 2. Here, I will just note a number of subtleties associated with calculating the Sharpe ratio, and give some computational examples in both Excel and MATLAB. ",
+        "bbox": [
+            122,
+            265,
+            857,
+            371
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "There is one subtlety that often confounds even seasoned portfolio managers when they calculate Sharpe ratios: should we or shouldn't we subtract the risk-free rate from the returns of a dollar-neutral portfolio? The answer is no. A dollar-neutral portfolio is selffinancing, meaning the cash you get from selling short pays for the purchase of the long securities, so the financing cost (due to the spread between the credit and debit interest rates) is small and can be neglected for many backtesting purposes. Meanwhile, the margin balance you have to maintain earns a credit interest close to the riskfree rate, $r _ { F } .$ So let's say the strategy return (the portfolio return minus the contribution from the credit interest) is $R$ , and the riskfree rate is $r _ { F } .$ . Then the excess return used in calculating the Sharpe ratio is $R + r _ { F } - r _ { F } = R$ . So, essentially, you can ignore the risk-free rate in the whole calculation and just focus on the returns due to your stock positions. ",
+        "bbox": [
+            122,
+            378,
+            866,
+            705
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "Similarly, if you have a long-only day-trading strategy that does not hold positions overnight, you again have no need to subtract the riskfree rate from the strategy return in order to obtain the excess returns, since you do not have financing costs in this case, either. In general, you need to subtract the risk-free rate from your strategy returns in calculating the Sharpe ratio only if your strategy incurs financing cost. ",
+        "bbox": [
+            122,
+            712,
+            870,
+            859
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "To further facilitate comparison across strategies, most traders annualize the Sharpe ratio. Most people know how to annualize the average returns. For example, if you have been using monthly returns, then the average annual return is just 12 times the average monthly return. ",
+        "bbox": [
+            122,
+            89,
+            854,
+            195
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "However, annualizing the standard deviation of returns is a bit trickier. Here, based on the assumption that the monthly returns are serially uncorrelated (Sharpe, 1994), the annual standard deviation of returns is $\\sqrt { 1 2 }$ times the monthly standard deviation. Hence, overall, the annualized Sharpe ratio would be $\\sqrt { 1 2 }$ times the monthly Sharpe ratio. ",
+        "bbox": [
+            122,
+            203,
+            872,
+            339
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "In general, if you calculate your average and standard deviation of returns based on a certain trading period $T ,$ whether $T$ is a month, a day, or an hour, and you want to annualize these quantities, you have to first find out how many such trading periods there are in a year (call it $N _ { T } )$ . Then ",
+        "bbox": [
+            122,
+            347,
+            874,
+            454
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "equation",
+        "img_path": "images/a010628d47dd7cca9ef624b0b436bdc1468c590647e59f742681186c3882a7ca.jpg",
+        "text": "$$\n\\mathrm { ~ u a l i z e d ~ S h a r p e ~ R a t i o } = \\sqrt { N _ { T } } \\times \\mathrm { S h a r p e ~ R a t i o ~ B a s e d o r }\n$$",
+        "text_format": "latex",
+        "bbox": [
+            125,
+            473,
+            869,
+            513
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "For example, if your strategy holds positions only during the NYSE market hours (9:30–16:00 ET), and the average hourly returns is $R$ , and the standard deviation of the hourly returns is $s _ { : }$ , then the annualized Sharpe ratio is ${ \\sqrt { 1 6 3 8 } } \\times R / s .$ This is because $N _ { T } = ( 2 5 2$ trading days) $\\times$ (6.5 trading hours per trading day) $^ { = 1 , 6 3 8 }$ . (A common mistake is to compute $N _ { T }$ as $2 5 2 \\times 2 4 = 6 { , } 0 4 8 { . } )$ ",
+        "bbox": [
+            122,
+            518,
+            862,
+            651
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "Example 3.4: Calculating Sharpe Ratio for Long-Only Versus Market-Neutral Strategies ",
+        "text_level": 1,
+        "bbox": [
+            140,
+            112,
+            836,
+            207
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "Let's calculate the Sharpe ratio of a trivial long-only strategy for IGE: buying and holding a share since the close of November 26, 2001, and selling it at close of November 14, 2007. Assume the average risk-free rate during this period is 4 percent per annum in this example. You can download the daily prices from Yahoo! Finance, specifying the date range desired, and store them as an Excel file (or the comma-separated file for use in the R code), which you can call IGE.xls. The next steps can be done in either Excel or MATLAB: ",
+        "bbox": [
+            140,
+            223,
+            841,
+            411
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "Using Excel ",
+        "text_level": 1,
+        "bbox": [
+            143,
+            430,
+            300,
+            455
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "1. The file should have columns A–G already from the download. ",
+        "bbox": [
+            168,
+            473,
+            750,
+            516
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "2. Sort all the columns in ascending order of Date (use the Data-Sort function, choose the “Expand the selection” radio button, and choose the “Ascending” as well as the “My data has Header row” radio buttons). ",
+        "bbox": [
+            165,
+            525,
+            839,
+            609
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "3. In cell H3, type $\\scriptstyle \\mathbf { \\tilde { \\Sigma } } = ( \\mathbf { G } _ { 3 } - \\mathbf { G } _ { 2 } ) / \\mathbf { G } _ { 2 } \\mathbf { \\Sigma } ^ { \\prime \\prime }$ . This is the daily return. ",
+        "bbox": [
+            161,
+            617,
+            797,
+            641
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "4. Double-clicking the little black dot at the lower right corner of the cell H3 will populate the entire column H with daily returns of IGE. ",
+        "bbox": [
+            163,
+            647,
+            836,
+            712
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "5. For clarity, you can type “Dailyret” in the header cell H1. ",
+        "bbox": [
+            161,
+            719,
+            799,
+            743
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "6. In cell I3, type $\\overset { \\scriptscriptstyle \\infty } { = } \\mathrm { H } _ { 3 } { - } 0 . 0 4 / 2 5 2$ ,” which is the excess daily return, assuming a 4 percent per annum risk-free rate and 252 trading days in a year. ",
+        "bbox": [
+            163,
+            751,
+            826,
+            814
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "7. Double-clicking the little black dot at the lower right corner of cell I3 will populate the entire column I with excess daily returns. ",
+        "bbox": [
+            165,
+            821,
+            836,
+            886
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "8. For clarity, type “Excess Dailyret” in the header cell I1. ",
+        "bbox": [
+            151,
+            89,
+            781,
+            113
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "9. In cell I1506 (the last row in the next column), type “ $\\stackrel { \\cdot } { = }$ SQRT(252)\\*AVERAGE(I3:I1506)/STDEV(I3:I1506)”. ",
+        "bbox": [
+            160,
+            119,
+            797,
+            166
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "10. The number displayed in cell I1506, which should be “0.789317538,” is the Sharpe ratio of this buy-and-hold strategy. ",
+        "bbox": [
+            153,
+            172,
+            794,
+            238
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "The finished spreadsheet is available at my website at epchan.com/book/example3_4.xls. ",
+        "bbox": [
+            142,
+            256,
+            723,
+            299
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "Using MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            315,
+            343,
+            340
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "% make sure previously defined variables are erased. clear;   \n% read a spreadsheet named \"IGE.xls\" into MATLAB. [num, txt] $=$ xlsread(\\`IGE');   \n$\\%$ the first column (starting from the second row) % contains the trading days in format mm/dd/yyyy. tday $=$ txt(2:end, 1);   \n% convert the format into yyyymmdd.   \ntday $=$ datestr(datenum(tday, \\`mm/dd/yyyy'), \\`yyyymmdd'); $\\%$ convert the date strings first into cell arrays and % then into numeric format.   \ntday $=$ str2double(cellstr(tday));   \n% the last column contains the adjusted close prices. cls $=$ num(:, end);   \n% sort tday into ascending order.   \n[tday sortIndex] $=$ sort(tday, \\`ascend');   \n% sort cls into ascending order of dates.   \n$_ { \\mathsf { C } } 1 { \\mathsf { s } } { = } { \\mathsf { C } } 1 { \\mathsf { s } }$ (sortIndex);   \n% daily returns   \ndailyret $=$ (cls(2:end)-cls(1:end-1))./cls(1:end-1); % excess daily returns assuming risk-free rate of 4% % per annum and 252 trading days in a year   \nexcessRet $=$ dailyret - 0.04/252;   \n% the output should be 0.7893   \nsharpeRatio $=$ sqrt(252)\\*mean(excessRet)/std(excessRet) ",
+        "bbox": [
+            135,
+            372,
+            779,
+            797
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "This MATLAB code is also available for download at my website (epchan.com/book/example3_4.m). ",
+        "bbox": [
+            140,
+            830,
+            834,
+            876
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "Using Python ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            89,
+            323,
+            114
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "This is the code that can be run in a Jupyter notebook. The code is available for download at epchan.com/book/example3_4.ipynb ",
+        "bbox": [
+            140,
+            125,
+            859,
+            167
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "Calculating Sharpe Ratio for Long-Only Vs Market Neutral   \nStrategies   \nimport numpy as np   \nimport pandas as pd   \nimport matplotlib.pyplot as plt   \nFirst part of example   \ndf=pd.read_excel('IGE.xls')   \ndf.sort_values(by $=$ 'Date', inplace $=$ True)   \ndailyret $=$ df.loc[:, 'Adj Close'].pct_change() # daily returns   \nexcessRet $=$ dailyret-0.04/252 # excess daily returns $=$   \nstrategy returns - financing cost, assuming risk-free rate   \nof   \nsharpeRatio $=$ np.sqrt(252)\\*np.mean(excessRet)/np.std(excessRet   \n)   \nsharpeRatio   \n0.789580250130583 ",
+        "bbox": [
+            140,
+            199,
+            854,
+            472
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "Using R ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            507,
+            250,
+            531
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "The code is available for download at epchan.com/book/example3_4.R ",
+        "bbox": [
+            142,
+            542,
+            544,
+            587
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "Now let's calculate the Sharpe ratio of a long–short marketneutral strategy. In fact, it is a very trivial twist of the buy-andhold strategy above: at the time we bought IGE, let's suppose we just shorted an equal dollar amount of Standard & Poor's depositary receipts (SPY) as a hedge, and closed both positions at the same time in November 2007. You can also download SPY from Yahoo! Finance and store it in a file SPY.xls. You can go through very similar steps as previously covered in both Excel and MATLAB, and I will leave it as an exercise for the reader to perform the exact steps: ",
+        "bbox": [
+            142,
+            853,
+            821,
+            898
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "discarded",
+        "text": "library('zoo') data1 <- read.csv(\"IGE.csv\") # Comma delimited data_sort <- data1[order(as.Date(data1[,1], '%m/%d/%Y')),] # sort in ascending order of dates (1st column of data) adjcls <- data_sort[,ncol('Adj.Close')] adjcls[ is.nan(adjcls) ] <- NA mycls <- na.fill(adjcls, type $=$ \"locf\", nan $\\Longrightarrow { \\mathrm { N } } \\mathbb { A }$ , $\\mathtt { f i l l } = \\mathtt { N A } )$ dailyret <- diff(mycls)/mycls[1:(length(mycls)-1)] excessRet <- dailyret - 0.04/252 sharpeRatio <- sqrt(252)\\*mean(excessRet, na.rm $=$ TRUE)/sd(excessRet, na.rm $=$ TRUE) sharpeRatio ",
+        "bbox": [
+            140,
+            617,
+            852,
+            821
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            89,
+            851,
+            258
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "Using Excel ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            275,
+            302,
+            300
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "1. Sort the columns in SPY.xls in ascending order of date. ",
+        "bbox": [
+            161,
+            319,
+            784,
+            342
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "2. Copy column G (Adj Close) in SPY.xls and paste it onto column J of IGE.xls. ",
+        "bbox": [
+            165,
+            348,
+            789,
+            391
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "3. Check that column J has the same number of rows as columns A–I. If not, you have a different set of dates—make sure you download the matching date range from Yahoo!. ",
+        "bbox": [
+            165,
+            400,
+            843,
+            464
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "4. Perform the same steps as previously covered to calculate the daily returns in column K. ",
+        "bbox": [
+            163,
+            472,
+            854,
+            515
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "5. For clarity, type “dailyretSPY” as the header in column K. ",
+        "bbox": [
+            163,
+            522,
+            812,
+            546
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "6. In column L, compute the net returns for the hedged strategy as the difference between column H and K divided by 2. (Divide by 2 because we now have twice the capital.) ",
+        "bbox": [
+            163,
+            554,
+            856,
+            617
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "7. In cell L1506, compute the Sharpe ratio of this hedged strategy. You should get “0.783681.” ",
+        "bbox": [
+            163,
+            626,
+            779,
+            670
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "Using MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            685,
+            344,
+            710
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "% Assume this is a continuation of the above MATLAB %code. ",
+        "bbox": [
+            142,
+            743,
+            743,
+            776
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "% Insert your own code here to retrieve data from % SPY.xls just as done previously. ",
+        "bbox": [
+            140,
+            779,
+            725,
+            810
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "% Name the array that contains the daily returns of % SPY \"dailyretSPY\". ",
+        "bbox": [
+            145,
+            813,
+            745,
+            844
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "% net daily returns ",
+        "bbox": [
+            143,
+            847,
+            369,
+            862
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "(divide by 2 because we now have twice as much capital.) netRet $=$ (dailyret - dailyretSPY)/2; ",
+        "bbox": [
+            137,
+            863,
+            802,
+            897
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "% the output should be 0.7837. sharpeRatio $=$ sqrt(252)\\*mean(netRet)/std(netRet) ",
+        "bbox": [
+            140,
+            89,
+            683,
+            123
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "Using PYTHON ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            159,
+            343,
+            184
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "Second part of example   \ndf2=pd.read_excel('SPY.xls')   \ndf=pd.merge(df, df2, on $=$ 'Date', suffixes $=$ ('_IGE', '_SPY'))   \ndf['Date'] $=$ pd.to_datetime(df['Date'])   \ndf.set_index('Date', inplace $=$ True)   \ndf.sort_index(inplace $=$ True)   \ndailyret $=$ df[['Adj Close_IGE', 'Adj Close_SPY']].pct_change()   \n# daily returns   \ndailyret.rename(columns $=$ {\"Adj Close_IGE\": \"IGE\", \"Adj   \nClose_SPY\": \"SPY\"}, inplace $=$ True)   \nnetRet $=$ (dailyret['IGE']-dailyret['SPY'])/2   \nsharpeRatio $=$ np.sqrt(252)\\*np.mean(netRet)/np.std(netRet)   \nsharpeRatio   \n0.7839419359681374 ",
+        "bbox": [
+            140,
+            215,
+            849,
+            454
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "Using R ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            491,
+            250,
+            516
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "This code can be downloaded as example3_4.R: ",
+        "bbox": [
+            142,
+            526,
+            663,
+            549
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "# 2nd part of example 3.4   \ndata2 <- read.delim(\"SPY.txt\") # Tab-delimited   \ndata_sort <- data2[order(as.Date(data2[,1], '%m/%d/%Y')),] #   \nsort in ascending order of dates (1st column of data)   \nadjcls <- data_sort[,ncol('Adj.Close')]   \nadjcls[ is.nan(adjcls) ] <- NA   \nmycls <- na.fill(adjcls, type $=$ \"locf\", nan $\\Longrightarrow { \\mathrm { N } } \\mathbb { A }$ , $\\mathtt { f i l l } = \\mathtt { N A } )$ )   \ndailyretSPY <- diff(mycls)/mycls[1:(length(mycls)-1)]   \nexcessRet <- (dailyret - dailyretSPY)/2   \ninformationRatio <- sqrt(252)\\*mean(excessRet, na.rm $=$   \nTRUE)/sd(excessRet, na.rm $=$ TRUE)   \ninformationRatio ",
+        "bbox": [
+            140,
+            579,
+            852,
+            784
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "Example 3.5: Calculating Maximum Drawdown and Maximum Drawdown Duration ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            746,
+            204
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "We shall continue the preceding long–short market-neutral example in order to illustrate the calculation of maximum drawdown and maximum drawdown duration. The first step in this calculation is to calculate the “high watermark” at the close of each day, which is the maximum cumulative return of the strategy up to that time. (Using the cumulative return curve to calculate high watermark and drawdown is equivalent to using the equity curve, since equity is nothing more than initial investment times 1 plus the cumulative return.) From the high watermark, we can calculate the drawdown, the maximum drawdown, and maximum drawdown duration: ",
+        "bbox": [
+            142,
+            223,
+            857,
+            454
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "Using Excel ",
+        "text_level": 1,
+        "bbox": [
+            143,
+            472,
+            300,
+            497
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "1. In cell M3, type $\\overline { { ^ { 6 6 } } } = \\mathbf { L } 3 ^ { \\prime 3 }$ . ",
+        "bbox": [
+            168,
+            515,
+            437,
+            539
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "2. In cell M4, type $^ { ^ { \\alpha } } = \\left( 1 + \\mathrm { M } _ { 3 } \\right) ^ { * } \\left( 1 + \\mathrm { L } 4 \\right) - 1 ^ { , , }$ . This is the cumulative compounded return of the strategy up to that day. Populate the entire column M with the cumulative compounded returns of the strategy and erase the last cell of the column. Name this column Cumret. ",
+        "bbox": [
+            165,
+            547,
+            838,
+            654
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "3. In cell N3, type $\\mathbf { \\mu ^ { * } } \\mathbf { = } \\mathbf { M } 3 \\mathbf { \\ ' }$ . ",
+        "bbox": [
+            165,
+            662,
+            442,
+            685
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "4. In cell N4, type $\\scriptstyle { \\bf \\Lambda ^ { \\left. 6 \\right. } = M A X ( N 3 , M 4 ) ^ { \\prime 3 } }$ . This is the high watermark up to that day. Populate the entire column N with the running high watermark of the strategy and erase the last cell of the column. Name this column High watermark. ",
+        "bbox": [
+            163,
+            693,
+            854,
+            777
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "5. In cell O3, type $\\bf \\tilde { \\Sigma } ^ { \\epsilon } = ( 1 + M _ { 3 } ) / ( 1 + N _ { 3 } ) - 1 ^ { 3 }$ . This is the drawdown at that day's close. Populate the entire column O with the drawdowns of the strategy. ",
+        "bbox": [
+            165,
+            785,
+            834,
+            849
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "6. In cell O1506, type $\\scriptstyle \\mathbf { \\Lambda } ^ { \\scriptscriptstyle ( \\mathfrak { c } } = \\mathbf { M } \\mathbf { A } \\mathbf { X } ( \\mathbf { O } 3 { : } \\mathbf { O } 1 5 0 5 ) ^ { \\mathfrak { T } }$ . This is the maximum drawdown of the strategy. It should have a value of about 0.1053, that is, a maximum drawdown of 10.53 percent. ",
+        "bbox": [
+            165,
+            857,
+            834,
+            901
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            187,
+            90,
+            795,
+            132
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "7. In cell P3, type $\\scriptstyle { \\mathbf { \\varepsilon } } ^ { \\dag } = \\operatorname { I F } ( { \\mathbf { O 3 = 0 } }$ , 0, $\\mathbf { P 2 + 1 } ) ^ { \\mathfrak { s } }$ . This is the duration of the current drawdown. Populate the entire column R with the drawdown durations of the strategy and erase the last cell of the column. ",
+        "bbox": [
+            165,
+            140,
+            852,
+            224
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "8. In cell P1506, type $\\scriptstyle \\mathbf { \\Lambda } ^ { \\scriptscriptstyle ( \\iota ^ { \\angle } } = \\mathbf { M A X } ( \\mathbf { P } 3 { : } \\mathbf { P } 1 5 0 5 ) ^ { \\flat }$ . This is the maximum drawdown duration of the strategy. It should have a value of 497, that is, a maximum drawdown duration of 497 trading days. ",
+        "bbox": [
+            163,
+            233,
+            852,
+            318
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "Using MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            335,
+            343,
+            361
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "% Assume this is a continuation of the above MATLAB % code. ",
+        "bbox": [
+            140,
+            392,
+            743,
+            425
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "% cumulative compounded returns   \ncumret $=$ cumprod( $^ { 1 + }$ netRet)-1;plot(cumret);   \n[maxDrawdown maxDrawdownDuration] $= .$ …   \ncalculateMaxDD(cumret);   \n% maximum drawdown. Output should be -0.0953   \nmaxDrawdown   \n% maximum drawdown duration. Output should be 497. maxDrawdownDuration ",
+        "bbox": [
+            142,
+            426,
+            735,
+            563
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "Notice the code fragment above calls a function “calculateMaxDrawdown,” which I display below. ",
+        "text_level": 1,
+        "bbox": [
+            143,
+            595,
+            678,
+            638
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "function [maxDD maxDDD] $=$ calculateMaxDD(cumret)   \n% [maxDD maxDDD] $=$ calculateMaxDD(cumret)   \n% calculation of maximum drawdown and maximum drawdown % duration based on cumulative compounded returns. % initialize high watermarks to zero.   \nhighwatermark $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ zeros(size(cumret));   \n$\\%$ initialize drawdowns to zero.   \ndrawdown $=$ zeros(size(cumret));   \n$\\%$ initialize drawdown duration to zero.   \ndrawdownduration $=$ zeros(size(cumret));   \nfor ${ \\tt = } 2$ :length(cumret)   \nhighwatermark $( \\ t ) = \\dots$   \nmax(highwatermark(t-1), cumret(t));   \n$\\%$ drawdown on each day   \ndrawdown $( \\ t ) = ( 1 +$ cumret(t))/( $^ { 1 + }$ highwatermark(t))-1; if (drawdown(t) $\\scriptstyle = = 0$ ) drawdownduration $( \\ t ) = 0$ ; else drawdownduration(t) $=$ drawdownduration(t-1) $^ { + 1 }$ ; end   \nend   \nmaxDD $=$ max(drawdown); % maximum drawdown   \n% maximum drawdown duration   \nmaxDDD $=$ max(drawdownduration); ",
+        "bbox": [
+            140,
+            669,
+            781,
+            909
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            138,
+            88,
+            745,
+            261
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "The file that contains this function is available as epchan.com/book/calculateMaxDD.m. You can see in Figure 3.1 where the maximum drawdown and maximum drawdown duration occurred in this plot of the cumulative returns. ",
+        "bbox": [
+            140,
+            291,
+            841,
+            377
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "image",
+        "img_path": "images/665adfc91592cfd3caadf7b3a733eba5b23c42d990e90b02b0413b5012e18bec.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            138,
+            388,
+            848,
+            763
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "FIGURE 3.1 Maximum drawdown and maximum drawdown duration for Example 3.4. ",
+        "bbox": [
+            142,
+            776,
+            815,
+            820
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "Using Python ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            837,
+            323,
+            862
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "You will need to download the following calculateMaxDD.py code to your folder first: ",
+        "text_level": 1,
+        "bbox": [
+            138,
+            89,
+            856,
+            132
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "import numpy as np   \ndef calculateMaxDD(cumret):   \n# ====== === # calculation of maximum drawdown and maximum drawdown   \nduration based on   \n# cumulative COMPOUNDED returns. cumret must be a compounded cumulative return.   \n# i is the index of the day with maxDD. ",
+        "bbox": [
+            140,
+            165,
+            852,
+            300
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "highwatermark $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ np.zeros(cumret.shape) drawdown $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ np.zeros(cumret.shape) drawdownduration $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ np.zeros(cumret.shape) for t in np.arange(1, cumret.shape[0]): highwatermark[t] $=$ np.maximum(highwatermark[t-1], cumret[t]) drawdown[t] $=$ (1+cumret[t])/( $^ { 1 + }$ highwatermark[t])-1 if drawdown $[ \\ t ] = = 0$ : drawdownduration $[ \\ t ] = 0$ else: drawdownduration[t] $=$ drawdownduration[t-1]+1 ",
+        "bbox": [
+            142,
+            318,
+            803,
+            503
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "maxDD, $\\mathtt { i } = \\mathtt { n p }$ .min(drawdown), np.argmin(drawdown) # drawdown $<$ 0 always maxDDD $=$ np.max(drawdownduration) return maxDD, maxDDD, i ",
+        "bbox": [
+            142,
+            521,
+            766,
+            590
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "Then you can run the rest of Jupyter notebook: ",
+        "bbox": [
+            142,
+            604,
+            651,
+            627
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "cumret $=$ np.cumprod(1+netRet)-1   \nplt.plot(cumret)   \nfrom calculateMaxDD import calculateMaxDD   \nmaxDrawdown, maxDrawdownDuration,   \nstartDrawdownDay $=$ calculateMaxDD(cumret.values)   \nmaxDrawdown   \n-0.09529268047208683   \nmaxDrawdownDuration   \n497.0   \nstartDrawdownDay   \n1223 ",
+        "bbox": [
+            142,
+            657,
+            683,
+            844
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "Using R ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            864,
+            250,
+            890
+        ],
+        "page_idx": 28
+    },
+    {
+        "type": "text",
+        "text": "You first need to download the function calculateMaxDD.R to your folder. ",
+        "bbox": [
+            140,
+            89,
+            810,
+            132
+        ],
+        "page_idx": 29
+    },
+    {
+        "type": "text",
+        "text": "# calculateMaxDD.R   \ncalculateMaxDD <- function(cumret) { # Assume compounded cumulative return as input highwatermark <- rep(0, length(cumret)) highwatermark drawdown <- rep(0, length(cumret)) drawdownduration $< -$ rep(0, length(cumret)) for (t in 2:length(cumret)) { highwatermark[t] $< -$ max(highwatermark[t-1], cumret[t]) drawdown[t] $< -$ ( $^ { 1 + }$ cumret[t])/(1+highwatermark[t])-1 if (drawdown[t] $\\scriptstyle = = 0$ ) { drawdownduration $[ \\ t ] = 0$   \n} else { drawdownduration[t] $=$ drawdownduration[t-1]+1   \n}   \n}   \nmaxDD <- min(drawdown)   \nmaxDDD $< -$ max(drawdownduration)   \nreturn(c(maxDD, maxDDD))   \n} ",
+        "bbox": [
+            140,
+            164,
+            714,
+            284
+        ],
+        "page_idx": 29
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            143,
+            300,
+            805,
+            537
+        ],
+        "page_idx": 29
+    },
+    {
+        "type": "text",
+        "text": "Then you can run the following code, which is the third part of example3_4.R: ",
+        "bbox": [
+            142,
+            570,
+            820,
+            614
+        ],
+        "page_idx": 29
+    },
+    {
+        "type": "text",
+        "text": "# 3rd part of example 3.4   \nsource('calculateMaxDD.R')   \ncumret <- cumprod( $^ { 1 + }$ excessRet[!is.nan(excessRet)])-1   \nplot(cumret)   \noutput <- calculateMaxDD(cumret)   \nmaxDD <- output[1]   \nmaxDD   \nmaxDDD <- output[2]   \nmaxDDD ",
+        "bbox": [
+            140,
+            645,
+            756,
+            797
+        ],
+        "page_idx": 29
+    },
+    {
+        "type": "text",
+        "text": "COMMON BACKTESTING PITFALLS TO AVOID ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            90,
+            781,
+            150
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "Backtesting is the process of creating the historical trades given the historical information available at that time, and then finding out what the subsequent performance of those trades is. This process seems easy, given that the trades were made using a computer algorithm in our case, but there are numerous ways in which it can go wrong. Usually, an erroneous backtest would produce a historical performance that is better than what we would have obtained in actual trading. We have already seen how survivorship bias in the data used for backtesting can result in inflated performance. There are, however, other common pitfalls related to how the backtest program is written, or more fundamentally, to how you construct your trading strategy. I will describe two of the most common ones here, with tips on how to avoid them. ",
+        "bbox": [
+            122,
+            164,
+            862,
+            436
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "Look-Ahead Bias ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            454,
+            351,
+            479
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "This error refers to the situation when you are using information that was available only at a time ahead of the instant the trade was made. For example, if your trade entry rule reads: “Buy when the stock is within 1 percent of the day's low,” you have introduced a look-ahead bias in your strategy, because you could not possibly have known what the day's low was until the market closed that day. Another example: Suppose a model involves a linear regression fit of two price series. If you use the regression coefficients obtained from the entire data set to determine your daily trading signals, you have again introduced look-ahead bias. ",
+        "bbox": [
+            122,
+            489,
+            867,
+            699
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "How do we avoid look-ahead bias? Use lagged historical data for calculating signals at every opportunity. Lagging a series of data means that you calculate all the quantities like moving averages, highs and lows, or even volume, based on data up to the close of the previous trading period only. (Of course, you needn't lag the data if your strategy enters only at the close of the period.) ",
+        "bbox": [
+            124,
+            708,
+            857,
+            834
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "Look-ahead bias is easier to avoid using Excel or other WYSIWYG programs than using MATLAB, Python, or R. This is because it is easy to align all the different columns of data in Excel and ensure that the formula in each cell is computed based on the rows above the current row. It would be visually obvious when one is using current day's data in generating signals, given the cell-highlighting functionality in Excel. (Double-clicking a cell with a formula will highlight the cells of data this formula utilizes.) With MATLAB, Python, or R, you have to be more careful and remember to run a lag function on certain series used for signal generation. ",
+        "bbox": [
+            124,
+            842,
+            838,
+            906
+        ],
+        "page_idx": 30
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            88,
+            864,
+            237
+        ],
+        "page_idx": 31
+    },
+    {
+        "type": "text",
+        "text": "Even with all the care and caution that goes into creating a backtest program without look-ahead bias, sometimes we may still let some of it slip in. Some look-ahead bias is quite subtle in nature and not easy to avoid, especially if you are using MATLAB, Python, or R. It is best to do a final checkup of your backtest program using this method: Run the program using all your historical data; generate and save the resulting position file to file A (a position file is the file that contains all the recommended positions generated by the program on each day). Now truncate your historical data so that the most recent portion (say $N$ days) is removed. So if the last day in the original data is $T ,$ then the last day in the truncated data should be $T - N . N$ could be 10 days to 100 days. Now run the backtest program again using the truncated data and save the resulting positions into a new file B. Truncate the most recent $N$ rows of the positions file A so that both A and B have the same number of rows (days) in them, and the last day in both file A and B should be $T - N .$ Finally, check if A and B are identical in their positions. If not, you have a look-ahead bias in your backtest program that you must find and correct, because the discrepancies in positions mean that you are inadvertently using the truncated part of the historical data (the part that lies ahead of day $T$ $- N )$ in determining the positions in file A. I will illustrate this somewhat convoluted procedure at the end of Example 3.6. ",
+        "bbox": [
+            122,
+            243,
+            874,
+            707
+        ],
+        "page_idx": 31
+    },
+    {
+        "type": "text",
+        "text": "Data-Snooping Bias ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            722,
+            387,
+            747
+        ],
+        "page_idx": 31
+    },
+    {
+        "type": "text",
+        "text": "In Chapter 2, I mentioned data-snooping bias—the danger that backtest performance is inflated relative to the future performance of the strategy because we have overoptimized the parameters of the model based on transient noise in the historical data. Data snooping bias is pervasive in the business of predictive statistical models of historical data, but is especially serious in finance because of the limited amount of independent data we have. High-frequency data, while in abundant supply, is useful only for high-frequency models. And while we have stock market data stretching back to the early parts of the twentieth century, only data within the past 10 years are really suitable for building predictive model. Furthermore, as discussed in Chapter 2, regime shifts may render even data that are just a few years old obsolete for backtesting purposes. The less independent data you have, the fewer adjustable parameters you should employ in your trading model. ",
+        "bbox": [
+            122,
+            757,
+            874,
+            905
+        ],
+        "page_idx": 31
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            88,
+            861,
+            257
+        ],
+        "page_idx": 32
+    },
+    {
+        "type": "text",
+        "text": "As a rule of thumb, I would not employ more than five parameters, including quantities such as entry and exit thresholds, holding period, or the lookback period, in computing moving averages. Furthermore, not all data-snooping bias is due to the optimization of parameters. Numerous choices one makes in creating a trading model can be affected by repeated backtesting on the same data set— decisions such as whether to enter at the open or close, whether to hold the positions overnight, whether to trade large-cap or mid-cap stocks. Often, these qualitative decisions are made to optimize the backtest performance, but they may not be optimal going forward. Bailey et al. developed a metric called “Deflated Sharpe Ratio” to take into account how many times you have tweaked a backtest to obtain that amazing Sharpe ratio. The more tweaks you have done, the more deflated your true (i.e., expected live trading) Sharpe ratio will be relative to your backtest Sharpe ratio. The formula is a bit complicated to display here, so see Bailey (2014). ",
+        "bbox": [
+            122,
+            266,
+            874,
+            602
+        ],
+        "page_idx": 32
+    },
+    {
+        "type": "text",
+        "text": "It is almost impossible to completely eliminate data-snooping bias as long as we are building data-driven models. However, there are ways to mitigate the bias. ",
+        "bbox": [
+            122,
+            608,
+            869,
+            671
+        ],
+        "page_idx": 32
+    },
+    {
+        "type": "text",
+        "text": "Sample Size The most basic safeguard against data-snooping bias is to ensure that you have a sufficient amount of backtest data relative to the number of free parameters you want to optimize. There are some rigorous mathematical results by Bailey et al. (Bailey, 2012) on this minimum backtest length. The idea is that any backtest's Sharpe ratio is only an estimate of the strategy's true (i.e., expected live trading) Sharpe ratio if the amount of data used is finite. If we want to be confident (statistically speaking) that your strategy's “true” Sharpe ratio will be equal to or greater than some desired number, you will need to ensure that the backtest length is equal to or greater than some minimum, and you will also need to ensure that the backtest Sharpe ratio is higher than the desired true Sharpe ratio. There are a few useful estimates: ",
+        "bbox": [
+            122,
+            689,
+            870,
+            900
+        ],
+        "page_idx": 32
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            124,
+            89,
+            856,
+            152
+        ],
+        "page_idx": 33
+    },
+    {
+        "type": "text",
+        "text": "1. If you want to be statistically confident (at the 95 percent level) that your true Sharpe ratio is equal to or greater than 0, you need a backtest Sharpe ratio of 1 and a sample size of 681 data points (e.g., 2.71 years of daily data).   \n2. The higher the backtest Sharpe ratio, the smaller the sample size is needed. If your backtest Sharpe ratio is 2 or more, then you need only 174 data points (0.69 years of daily data) to be confident that your true Sharpe ratio is equal to or greater than 0.   \n3. If you want to be confident that your true Sharpe ratio is equal to or greater than 1, then you need a backtest Sharpe ratio of at least 1.5 and a sample size of 2,739 (10.87 years of daily data). ",
+        "bbox": [
+            142,
+            170,
+            870,
+            443
+        ],
+        "page_idx": 33
+    },
+    {
+        "type": "text",
+        "text": "Note that these results not only apply to backtest, but also to out-ofsample (paper trading) length. I will discuss out-of-sample testing next. ",
+        "bbox": [
+            124,
+            459,
+            859,
+            522
+        ],
+        "page_idx": 33
+    },
+    {
+        "type": "text",
+        "text": "Out-of-Sample Testing Divide your historical data into two parts. Save the second (more recent) part of the data for out-ofsample testing. When you build the model, optimize the parameters as well as other qualitative decisions on the first portion (called the training set), but test the resulting model on the second portion (called the test set). The minimum size of the out-of-sample test set is determined by the same mathematical result in the previous section. It is clearly advantageous to have a strategy with a high backtest Sharpe ratio, because you will need to paper trade for a shorter time to determine whether that great backtest result is real! ",
+        "bbox": [
+            122,
+            540,
+            857,
+            750
+        ],
+        "page_idx": 33
+    },
+    {
+        "type": "text",
+        "text": "Ideally, the set of optimal parameters and decisions for the first part of the backtest period is also the optimal set for the second period, but things are rarely this perfect. The performance on the second part of the data should at least be reasonable. Otherwise, the model has data-snooping bias built into it, and one way to cure it is to simplify the model and eliminate some parameters. ",
+        "bbox": [
+            122,
+            757,
+            861,
+            885
+        ],
+        "page_idx": 33
+    },
+    {
+        "type": "text",
+        "text": "A more rigorous (albeit more computationally intensive) method of out-of-sample testing is to use moving optimization of the parameters. In this case, the parameters themselves are constantly adapting to the changing historical data, and data-snooping bias with respect to parameters is eliminated. (See the sidebar on parameterless trading models.) ",
+        "bbox": [
+            122,
+            88,
+            874,
+            217
+        ],
+        "page_idx": 34
+    },
+    {
+        "type": "text",
+        "text": "PARAMETERLESS TRADING MODELS 1 ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            116,
+            795,
+            147
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "A portfolio manager whom I used to work for liked to proudly proclaim that his trading models have “no free parameters.” In keeping with the tradition of secrecy in our industry, he would not divulge his technique further. ",
+        "bbox": [
+            142,
+            179,
+            823,
+            263
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "Lately, I have begun to understand what a trading model with no free parameters means. It doesn't mean that it does not contain, for example, any lookback period for calculating trends, or thresholds for entry or exit. I think that would be impossible. It just means that all such parameters are dynamically optimized in a moving lookback window. This way, if you ask, “Does the model have a fixed profit cap?” the trader can honestly reply: “No, profit cap is not an input parameter. It is determined by the model itself.” ",
+        "bbox": [
+            142,
+            272,
+            854,
+            459
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "The advantage of a parameterless trading model is that it minimizes the danger of overfitting the model to multiple input parameters (the so-called “data-snooping bias”). So the backtest performance should be much closer to the actual forward performance. ",
+        "bbox": [
+            142,
+            469,
+            839,
+            574
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "(Note that parameter optimization does not necessarily mean picking one best set of parameters that give the best backtest performance. Often, it is better to make a trading decision based on some kind of averages over different sets of parameters.) ",
+        "bbox": [
+            142,
+            583,
+            841,
+            667
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "A much more intelligent way to optimize parameters than just using a moving lookback period parameter optimization or averaging over different parameter values is a novel technique we developed called Conditional Parameter Optimization $( C P O )$ . It makes use of machine learning to determine the optimal parameters to use for each trade or each day. We will discuss that Example 7.1. ",
+        "bbox": [
+            142,
+            675,
+            854,
+            824
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "The ultimate out-of-sample testing is familiar to many traders, and it is called paper trading. Running the model on actual unseen data is the most reliable way to test it (short of actually trading it). Paper trading not only allows you to perform a truly honest out-of-sample test; it often allows you to discover look-ahead errors in your programs, as well as making you aware of various operational issues. I will discuss paper trading in Chapter 5. ",
+        "bbox": [
+            122,
+            858,
+            870,
+            904
+        ],
+        "page_idx": 35
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            89,
+            864,
+            195
+        ],
+        "page_idx": 36
+    },
+    {
+        "type": "text",
+        "text": "If the strategy that you are testing comes from a published source, and you are just conducting a backtest to verify that the results are correct, then the entire period between the time of publication and the time that you tested the strategy is a genuine out-of-sample period. As long as you do not optimize the parameters of the published model on the out-of-sample period, this period is as good as paper trading the strategy. ",
+        "bbox": [
+            122,
+            204,
+            857,
+            352
+        ],
+        "page_idx": 36
+    },
+    {
+        "type": "text",
+        "text": "Example 3.6: Pair Trading of GLD and GDX ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            852,
+            143
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "This example will illustrate how to separate the data into a training set and a test set. We will backtest a pair-trading strategy and optimize its parameters on the training set and look at the effect on the test set. ",
+        "bbox": [
+            142,
+            161,
+            854,
+            246
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "GLD versus GDX is a good candidate for pair trading because GLD reflects the spot price of gold, and GDX is a basket of goldmining stocks. It makes intuitive sense that their prices should move in tandem. I have discussed this pair of ETFs extensively on my blog in connection with cointegration analysis (see, e.g., Chan, 2006b). Here, however, I will defer until Chapter 7 the cointegration analysis on the training set, which demonstrates that the spread formed by long GLD and short GDX is mean reverting. Instead, we will perform a regression analysis on the training set to determine the hedge ratio between GLD and GDX, and then define entry and exit thresholds for a pair-trading strategy. We will see how optimizing these thresholds on the training set changes the performance on the test set. (This program is available as on epchan.com/book/example3_6.m. The data files are available as GDX.xls and GLD.xls. This program uses a lag1 function, which will lag the time series by one time period. It is included at epchan.com/book as well. It also uses a function “ols” for linear regression, which is part of a free package downloaded from spatial-econometrics.com. ",
+        "bbox": [
+            142,
+            253,
+            854,
+            654
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "Using MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            669,
+            343,
+            694
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "clear; % make sure previously defined variables are erased. ",
+        "bbox": [
+            138,
+            726,
+            836,
+            743
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "[num, txt] $=$ xlsread('GLD'); % read a spreadsheet named \"GLD.xls\" into MATLAB. ",
+        "bbox": [
+            143,
+            760,
+            769,
+            792
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "tday1 $=$ txt(2:end, 1); % the first column (starting from the second row) is the trading days in format mm/dd/yyyy. ",
+        "bbox": [
+            138,
+            811,
+            833,
+            845
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "tday1 $=$ datestr(datenum(tday1, 'mm/dd/yyyy'), 'yyyymmdd'); % convert the format into yyyymmdd 20041118-20071130. ",
+        "bbox": [
+            137,
+            862,
+            831,
+            897
+        ],
+        "page_idx": 37
+    },
+    {
+        "type": "text",
+        "text": "tday1 $=$ str2double(cellstr(tday1)); % convert the date strings first into cell arrays and then into numeric format.   \nadjcls1 $=$ num(:, end); % the last column contains the adjusted close prices.   \n[num, txt] $=$ xlsread('GDX'); % read a spreadsheet named   \n\"GDX.xls\" into MATLAB.   \ntday2 $=$ txt(2:end, 1); % the first column (starting from the second row) is the trading days in format mm/dd/yyyy.   \ntday2 $=$ datestr(datenum(tday2, 'mm/dd/yyyy'), 'yyyymmdd'); % convert the format into yyyymmdd 20060523-20071130.   \ntday2 $=$ str2double(cellstr(tday2)); % convert the date strings first into cell arrays and then into numeric format.   \nadjcls2 $=$ num(:, end); % the last column contains the adjusted close prices.   \n[tday, idx1, idx2] $=$ intersect(tday1, tday2); % find the   \nintersection of the two data sets, and sort them in   \nascending order   \ncl1=adjcls1(idx1);   \ncl2=adjcls2(idx2);   \ntrainset $^ { = 1 }$ :252; % define indices for training set   \ntestset $=$ trainset(end) $^ { + 1 }$ :length(tday); % define indices for test set   \n% determines the hedge ratio on the trainset   \nresults $=$ ols(cl1(trainset), cl2(trainset)); $\\%$ use regression function   \nhedgeRatio $=$ results.beta; % 1.6368   \nspread $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ cl1-hedgeRatio\\*cl2; % spread $=$ GLD - hedgeRatio\\*GDX plot(spread(trainset));   \nfigure;   \nplot(spread(testset)); figure;   \nspreadMean $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ mean(spread(trainset)); % mean of spread on trainset   \nspreadStd $=$ std(spread(trainset)); % standard deviation of spread on trainset   \nzscore $=$ (spread - spreadMean)./spreadStd; % z-score of spread longs $=$ zscore $< = - 2$ ; $\\%$ buy spread when its value drops below 2 standard deviations.   \nshorts=zscore> $^ { \\cdot = 2 }$ ; % short spread when its value rises above 2 standard deviations.   \nexitLongs $=$ zscore> $\\mathrel { - } 1$ ; $\\%$ exit any spread position when its value is within 1 standard deviation of its mean.   \nexitShorts $=$ zscore $< = 1$ ; $\\%$ exit any spread position when its value is within 1 standard deviation of its mean.   \npositionsL $=$ zeros(length(tday), 2); % initialize long   \npositions array   \npositionsS $=$ zeros(length(tday), 2); % initialize long   \npositions array   \npositionsS(shorts, :) $=$ repmat([-1 1], [length(find(shorts)) 1]); % long entries   \npositionsL(longs, :) $=$ repmat([1 -1], [length(find(longs)) 1]); % short entries   \npositionsL(exitLongs, :) $=$ zeros(length(find(exitLongs)), 2); % exit positions   \npositionsS(exitShorts, :) $=$ zeros(length(find(exitShorts)), 2); % exit positions   \npositions $=$ positionsL+positionsS;   \npositions $=$ fillMissingData(positions); % ensure existing positions are carried forward unless there is an exit signal cl=[cl1 cl2]; % combine the 2 price series   \ndailyret $=$ (cl - lag1(cl))./lag1(cl);   \npnl=sum(lag1(positions).\\*dailyret, 2); sharpeTrainset $=$ sqrt(252)\\*mean(pnl(trainset(2:end)))./std(pnl (trainset(2:end))) % the Sharpe ratio on the training set should be about 2.3   \nsharpeTestset $=$ sqrt(252)\\*mean(pnl(testset))./std(pnl(testset) ) % the Sharpe ratio on the test set should be about 1.5 % sharpeTrainset $=$   \n%   \n% 2.0822   \n%   \n%   \n% sharpeTestset =   \n%% 1.4887   \nplot(cumsum(pnl(testset)));   \nsave example3_6_positions positions; % save positions file for checking look-ahead bias. ",
+        "bbox": [
+            137,
+            103,
+            859,
+            906
+        ],
+        "page_idx": 38
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            137,
+            61,
+            854,
+            907
+        ],
+        "page_idx": 39
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            137,
+            89,
+            857,
+            452
+        ],
+        "page_idx": 40
+    },
+    {
+        "type": "text",
+        "text": "In file lag1.m: ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            479,
+            292,
+            502
+        ],
+        "page_idx": 40
+    },
+    {
+        "type": "text",
+        "text": "function y=lag1(x)   \n% y=lag(x)   \nif (isnumeric(x))   \n$\\%$ populate the first entry with NaN   \n$y =$ [NaN(1,size(x,2));x(1:end-1, :)];elseif (ischar(x)) $\\%$ populate the first entry with \"   \n$y =$ [repmat(\",[1 size(x,2)]);x(1:end-1, :)];else   \nerror(\\`Can only be numeric or char array');   \nend ",
+        "bbox": [
+            142,
+            532,
+            766,
+            685
+        ],
+        "page_idx": 40
+    },
+    {
+        "type": "text",
+        "text": "So this pair-trading strategy has excellent Sharpe ratios on both the training set and the test set. Therefore, this strategy can be considered free of data-snooping bias. However, there may be room for improvement. Let's see what happens if we change the entry thresholds to 1 standard deviation and exit threshold to 0.5 standard deviation. In this case, the Sharpe ratio on the training set increases to 2.9 and the Sharpe ratio on the test set increases to 3.0. So, clearly, this set of thresholds is better. ",
+        "bbox": [
+            140,
+            718,
+            846,
+            887
+        ],
+        "page_idx": 40
+    },
+    {
+        "type": "text",
+        "text": "Often, however, optimizing the parameters on the training set may decrease the performance on the test set. In this situation, you should choose a set of parameters that result in good (but may not be the best) performance on both training and test sets. ",
+        "bbox": [
+            140,
+            89,
+            834,
+            174
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "I have not incorporated transaction costs (which I discuss in the next section) into this analysis. You can try to add that as an exercise. Since this strategy doesn't trade very frequently, transaction costs do not have a big impact on the resulting Sharpe ratio. ",
+        "bbox": [
+            142,
+            183,
+            838,
+            287
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "To see why this strategy works, just take a look at Figure 7.4 of the spread, which I will discuss in connection with stationarity and cointegration in Chapter 2. You can see that the spread behaves in a highly mean-reverting manner. Hence, buying low and selling high over and over again works well here. ",
+        "bbox": [
+            142,
+            296,
+            830,
+            401
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "One last check, though, that we should perform before calling this a success: We need to check for any look-ahead bias in the backtest program. Add the following code fragment to the previous MATLAB code after the line “cl2 $=$ adjcls2(idx2);” ",
+        "bbox": [
+            142,
+            410,
+            854,
+            494
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "% number of most recent trading days to cut off cutoff $= 6 0$ ;% remove the last cutoff number of days.   \ntday(end-cutoff $^ { + 1 }$ :end, :) $= [ ~ ]$ ;   \ncl1(end-cutoff $^ { + 1 }$ :end, :) $= [ ~ ]$ ;   \ncl2(end-cutoff $^ { + 1 }$ :end, :) $= [ ~ ]$ ;   \nAdd the following code fragment to the very end of the previous   \nMATLAB program, replacing the line “save   \nexample3_6_positions positions.” ",
+        "bbox": [
+            143,
+            525,
+            730,
+            611
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            142,
+            642,
+            833,
+            707
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "% step two of look-forward-bias check oldoutput $=$ load(\\`example3_6_positions'); oldoutput.positions(end-cutoff+1:end, :) ${ \\mathfrak { s } } = [ { \\mathfrak { z } } ]$ ; if (any(positions\\~ $=$ oldoutput.positions)) fprintf(1, \\`Program has look-forward-bias!\\n'); end ",
+        "bbox": [
+            142,
+            737,
+            696,
+            839
+        ],
+        "page_idx": 41
+    },
+    {
+        "type": "text",
+        "text": "Save this new program into file “example3_6_1.m” and run it. You will find that the sentence “Program has look-forward-bias” is not printed out—this indicates that our algorithm passed our test. ",
+        "bbox": [
+            140,
+            89,
+            838,
+            172
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "Using Python ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            191,
+            321,
+            218
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "You can download the Python code in the Jupyter notebook example3_6.ipynb. ",
+        "bbox": [
+            143,
+            227,
+            789,
+            270
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "Pair Trading of GLD and GDX ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            286,
+            527,
+            313
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "import numpy as np   \nimport pandas as pd   \nimport matplotlib.pyplot as plt   \nimport statsmodels.api as sm   \ndf1 $=$ pd.read_excel('GLD.xls')   \ndf2 $=$ pd.read_excel('GDX. $X I S ^ { \\prime }$ )   \ndf=pd.merge(df1, df2, on $=$ 'Date', suffixes $=$ ('_GLD', '_GDX'))   \ndf.set_index('Date', inplace $=$ True) df.sort_index(inplace $=$ True) trainset $=$ np.arange(0, 252)   \ntestset $=$ np.arange(trainset.shape[0], df.shape[0]) ",
+        "bbox": [
+            140,
+            347,
+            838,
+            532
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "Determine hedge ratio on trainset ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            568,
+            573,
+            590
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "model $=$ sm.OLS(df.loc[:, 'Adj Close_GLD'].iloc[trainset],   \ndf.loc[:, 'Adj Close_GDX'].iloc[trainset])   \nresults $=$ model.fit()   \nhedgeRatio $=$ results.params   \nhedgeRatio   \nAdj Close_GDX 1.631009   \ndtype: float64   \nspread $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ GLD - hedgeRatio\\*GDX   \nspread $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ df.loc[:, 'Adj Close_GLD']-hedgeRatio[0]\\*df.loc[:,   \n'Adj Close_GDX']   \nplt.plot(spread.iloc[trainset])   \nplt.plot(spread.iloc[testset])   \nspreadMean $=$ np.mean(spread.iloc[trainset])   \nspreadMean   \n0.05219623850035999   \nspreadStd $=$ np.std(spread.iloc[trainset])   \nspreadStd   \n1.944860873496509   \ndf['zscore'] $=$ (spread-spreadMean)/spreadStd   \ndf['positions_GLD_Long'] $= 0$   \ndf['positions_GDX_Long'] $= 0$   \ndf['positions_GLD_Short'] $] = 0$   \ndf['positions_GDX_Short'] $= 0$   \ndf.loc[df.zscore> $^ { - 2 }$ , ('positions_GLD_Short',   \n'positions_GDX_Short')]=[-1, 1] # Short spread   \ndf.loc[df.zscore $< = - 2$ , ('positions_GLD_Long',   \n'positions_GDX_Long')] $=$ [1, -1] # Buy spread   \ndf.loc[df.zscore $< = 1$ , ('positions_GLD_Short',   \n'positions_GDX_Short') $] = 0$ # Exit short spread   \ndf.loc[df.zscore>=-1, ('positions_GLD_Long',   \n'positions_GDX_Long')] $= 0$ # Exit long spread   \ndf.fillna(method $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ 'ffill', inplace $=$ True) # ensure existing   \npositions are carried forward unless there is an exit signal   \npositions_Long $=$ df.loc[:, ('positions_GLD_Long',   \n'positions_GDX_Long')]   \npositions_Short $=$ df.loc[:, ('positions_GLD_Short',   \n'positions_GDX_Short')]   \npositions $=$ np.array(positions_Long)+np.array(positions_Short)   \npositions $=$ pd.DataFrame(positions)   \ndailyret $=$ df.loc[:, ('Adj Close_GLD', 'Adj   \nClose_GDX')].pct_change()   \npnl $=$   \n(np.array(positions.shift())\\*np.array(dailyret)).sum(axi $\\tt { 3 } = \\tt { 1 }$ )   \nsharpeTrainset $=$ np.sqrt(252)\\*np.mean(pnl[trainset[1:]])/np.st   \nd(pnl[trainset[1:]])   \nsharpeTrainset 1.9182982282569077   \nsharpeTestset $=$ np.sqrt(252)\\*np.mean(pnl[testset])/np.std(pnl[   \ntestset])   \nsharpeTestset 1.494313761833427   \nplt.plot(np.cumsum(pnl[testset]))   \npositions.to_pickle('example3_6_positions') ",
+        "bbox": [
+            140,
+            619,
+            790,
+            739
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            790,
+            815,
+            892
+        ],
+        "page_idx": 42
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            95,
+            852,
+            790
+        ],
+        "page_idx": 43
+    },
+    {
+        "type": "text",
+        "text": "Using R ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            808,
+            250,
+            832
+        ],
+        "page_idx": 43
+    },
+    {
+        "type": "text",
+        "text": "You can download the R code as example3_6.R. ",
+        "bbox": [
+            140,
+            843,
+            661,
+            866
+        ],
+        "page_idx": 43
+    },
+    {
+        "type": "text",
+        "text": "library('zoo')   \nsource('calculateReturns.R')   \nsource('calculateMaxDD.R')   \nsource('backshift.R')   \ndata1 <- read.delim(\"GLD.txt\") # Tab-delimited   \ndata_sort1 <- data1[order(as.Date(data1[,1], '%m/%d/%Y')),] # sort in ascending order of dates (1st column of data) tday1 <- as.integer(format(as.Date(data_sort1[,1],   \n'%m/%d/%Y'), '%Y%m%d'))   \nadjcls1 <- data_sort1[,ncol(data_sort1)]   \ndata2 <- read.delim(\"GDX.txt\") # Tab-delimited   \ndata_sort2 <- data2[order(as.Date(data2[,1], '%m/%d/%Y')),] # sort in ascending order of dates (1st column of data) tday2 <- as.integer(format(as.Date(data_sort2[,1],   \n'%m/%d/%Y'), '%Y%m%d'))   \nadjcls2 <- data_sort2[,ncol(data_sort2)]   \n# find the intersection of the two data sets   \ntday <- intersect(tday1, tday2)   \nadjcls1 <- adjcls1[tday1 %in% tday]   \nadjcls2 <- adjcls2[tday2 %in% tday]   \n# define indices for training and test sets   \ntrainset <- 1:252   \ntestset <- length(trainset) $^ { + 1 }$ :length(tday)   \n# determines the hedge ratio on the trainset   \nresult <- lm(adjcls1 \\~ 0 + adjcls2, subset $=$ trainset )   \nhedgeRatio <- coef(result) # 1.631   \nspread <- adjcls1-hedgeRatio\\*adjcls2 # spread $=$ GLD - hedgeRatio\\*GDX   \nplot(spread)   \ndev.new()   \nplot(spread[trainset])   \ndev.new()   \nplot(spread[testset])   \n# mean of spread on trainset   \nspreadMean <- mean(spread[trainset]) # 0.05219624   \n# standard deviation of spread on trainset   \nspreadStd <- sd(spread[trainset]) # 1.948731   \nzscore <- (spread-spreadMean)/spreadStd   \nlongs <- zscore $< = ~ - 2$ # buy spread when its value drops below 2 standard deviations.   \nshorts <- zscore> $=$ 2 # short spread when its value rises above 2 standard deviations.   \n# exit any spread position when its value is within 1 standard deviation of its mean.   \nlongExits <- zscore> $=$ -1   \nshortExits <- zscore $< = ~ 1$   \nposL <- matrix(NaN, length(tday), 2) # long positions posS <- matrix(NaN, length(tday), 2) # short positions # initialize to 0   \nposL[1,] <- 0   \nposS[1,] <- 0   \nposL[longs, 1] <- 1   \nposL[longs, 2] <- -1   \nposS[shorts, 1] <- -1   \nposS[shorts, 2] <- 1   \nposL[longExits, 1] <- 0   \nposL[longExits, 2] <- 0   \nposS[shortExits, 1] <- 0   \nposS[shortExits, 2] <- 0   \n# ensure existing positions are carried forward unless there is an exit signal   \nposL <- zoo::na.locf(posL)   \nposS <- zoo::na.locf(posS)   \npositions <- posL $^ +$ posS   \ncl <- cbind(adjcls1, adjcls2) # last row is [385,] 77.32 46.36   \n# daily returns of price series   \ndailyret <- calculateReturns(cl, 1) # last row is [385,] -0.0122636689 -0.0140365802   \npnl <- rowSums(backshift(1, positions)\\*dailyret)   \nsharpeRatioTrainset <- sqrt(252)\\*mean(pnl[trainset], na.rm $=$ TRUE)/sd(pnl[trainset], na.rm $=$ TRUE)   \nsharpeRatioTrainset # 2.327844   \nsharpeRatioTestset <- sqrt(252)\\*mean(pnl[testset], na.rm $=$ TRUE)/sd(pnl[testset], na.rm $=$ TRUE)   \nsharpeRatioTestset # 1.508212   \nThis codes makes use of the function backshift, which you can download as backshift.R.   \nbackshift $< -$ function(mylag, x) {   \nrbind(matrix(NaN, mylag, ncol(x)), as.matrix(x[1:(nrow(x)- mylag),]))   \n} ",
+        "bbox": [
+            140,
+            109,
+            849,
+            905
+        ],
+        "page_idx": 44
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            138,
+            85,
+            856,
+            728
+        ],
+        "page_idx": 45
+    },
+    {
+        "type": "text",
+        "text": "Sensitivity Analysis Once you have optimized your parameters as well as various features of your model and have verified that its performance on a test set is still reasonable, vary these parameters or make some small qualitative changes in the features of the model and see how the performance changes on both the training and the test sets. If the drop is so drastic that any parameter set other than the optimal one is unacceptable, the model most likely suffers from data-snooping bias. ",
+        "bbox": [
+            122,
+            748,
+            875,
+            877
+        ],
+        "page_idx": 45
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            124,
+            89,
+            852,
+            132
+        ],
+        "page_idx": 46
+    },
+    {
+        "type": "text",
+        "text": "There are some variations on your model that are particularly important to try: the various ways to simplify the model. Do you really need, say, five different conditions to determine whether to make that trade? What if you eliminate the conditions one by one—at what point does the performance on the training set deteriorate to an unacceptable level? And more important: Is there a corresponding decrease in performance on the test set as you eliminate the conditions? In general, you should eliminate as many conditions, constraints, and parameters as possible as long as there is no significant decrease in performance in the test set, even though it may decrease performance on the training set. (But you should not add conditions and parameters, or adjust the parameter values, so as to improve performance on the test set: If you do, you have effectively used the test set as your training set and possibly reintroduced data-snooping bias to your model.) ",
+        "bbox": [
+            122,
+            140,
+            872,
+            455
+        ],
+        "page_idx": 46
+    },
+    {
+        "type": "text",
+        "text": "When one has reduced the set of parameters and conditions that trigger a trade to the minimum, and after one has ascertained that small variations in these parameters and conditions do not drastically alter the out-of-sample performance, one should consider dividing the trading capital across the different parameter values and sets of conditions. This averaging over parameters will further help ensure that the actual trading performance of the model will not deviate too much from the backtest result. ",
+        "bbox": [
+            122,
+            462,
+            872,
+            630
+        ],
+        "page_idx": 46
+    },
+    {
+        "type": "text",
+        "text": "TRANSACTION COSTS ",
+        "text_level": 1,
+        "bbox": [
+            122,
+            656,
+            508,
+            686
+        ],
+        "page_idx": 46
+    },
+    {
+        "type": "text",
+        "text": "No backtest performance is realistic without incorporating transaction costs. I discussed the various types of transactions costs (commission, liquidity cost, opportunity cost, market impact, and slippage) in Chapter 7 and have given examples of how to incorporate transaction costs into the backtest of a strategy. It should not surprise you to find that a strategy with a high Sharpe ratio before adding transaction costs can become very unprofitable after adding such costs. I will illustrate this in Example $3 { : } 7$ . ",
+        "bbox": [
+            122,
+            700,
+            872,
+            868
+        ],
+        "page_idx": 46
+    },
+    {
+        "type": "text",
+        "text": "Example 3.7: A Simple Mean-Reverting Model with and without Transaction Costs ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            112,
+            838,
+            174
+        ],
+        "page_idx": 47
+    },
+    {
+        "type": "text",
+        "text": "Here is a simple mean-reverting model that is attributable to Amir Khandani and Andrew Lo at MIT (available at web.mit.edu/alo/www/Papers/august07.pdf). This strategy is very simple: Buy the stocks with the worst previous one-day returns, and short the ones with the best previous one-day returns. Despite its utter simplicity, this strategy has had great performance since 1995, ignoring transaction costs (it has a Sharpe ratio of 4.47 in 2006). Our objective here is to find out what would happen to its performance in 2006 if we assume a standard 5-basis-point-per-trade transaction cost. (A trade is defined as a buy or a short, not a round-trip transaction.) This example strategy not only allows us to illustrate the impact of transaction costs, it also illustrates the power of MATLAB, Python, or R in backtesting a model that trades multiple securities—in other words, a typical statistical arbitrage model. Backtesting a model with a large number of symbols over multiple years is often too cumbersome to perform in Excel. But even assuming that you have MATLAB, Python, or R at your disposal, there is still the question of how to retrieve historical data for hundreds of symbols, especially survivorship-bias-free data. Here, we will put aside the question of survivorship bias because of the expensive nature of such data and just bear in mind that whatever performance estimates we obtained are upper bounds on the actual performance of the strategy. ",
+        "bbox": [
+            142,
+            145,
+            831,
+            694
+        ],
+        "page_idx": 47
+    },
+    {
+        "type": "text",
+        "text": "Whenever one wants to backtest a stock selection strategy, the first question is always: Which universe of stocks? The typical starting point is the S&P 500 stock universe, which is the most liquid set of stocks available. The current list of stocks in the S&P 500 is available for download at the Standard & Poor's website (www.standardandpoors.com). Since the constituents of this universe change constantly, the list that you download will be different from mine. For ease of comparison, you can find my list saved as epchan.com/book/SP500_20071121.xls. The easiest way to download historical data for all these stocks is to modify example3_1.m, example3_1.py, or example3_1.R, and save only the Date and Close fields for each stock symbol, into a file SPX_20071123.txt (downloadable from epchan.com/book). ",
+        "bbox": [
+            140,
+            703,
+            852,
+            895
+        ],
+        "page_idx": 47
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            140,
+            89,
+            838,
+            175
+        ],
+        "page_idx": 48
+    },
+    {
+        "type": "text",
+        "text": "Next, we can use this historical data set to backtest the meanreverting strategy without transaction cost: ",
+        "bbox": [
+            142,
+            181,
+            808,
+            226
+        ],
+        "page_idx": 48
+    },
+    {
+        "type": "text",
+        "text": "Using MATLAB ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            242,
+            344,
+            267
+        ],
+        "page_idx": 48
+    },
+    {
+        "type": "text",
+        "text": "clear;   \nstartDate $=$ 20060101;   \nendDate=20061231;   \n$\\mathrm { T } =$ readtable('SPX_20071123.txt');   \ntday $\\underline { { \\underline { { \\cdot } } } } =$ T{:, 1};   \n$\\mathbf { C } \\det = \\mathbb { T }$ {:, 2:end};   \n% daily returns   \ndailyret $=$ (cl-lag1(cl))./lag1(cl);   \n% equal weighted market index return   \nmarketDailyret $=$ smartmean(dailyret, 2);   \n% weight of a stock is proportional to the negative   \n% distance to the market index.   \nweights $= . .$ …   \n-(dailyret-repmat(marketDailyret,[1 size(dailyret,2)]))./ repmat(smartsum(isfinite(cl), 2), …   \n[1 size(dailyret, 2)]);   \n% those stocks that do not have valid prices or   \n% daily returns are excluded.   \nweights(\\~isfinite(cl) | \\~isfinite(lag1(cl))) $= 0$ ;   \ndailypnl $=$ smartsum(lag1(weights).\\*dailyret, 2);   \n% remove pnl outside of our dates of interest   \ndailypnl(tday < startDate | tday> endDate) $=$ [];   \n% Sharpe ratio should be about 0.25   \nsharpe=…   \nsqrt(252)\\*smartmean(dailypnl, 1)/smartstd(dailypnl, 1) ",
+        "bbox": [
+            140,
+            300,
+            818,
+            728
+        ],
+        "page_idx": 48
+    },
+    {
+        "type": "text",
+        "text": "This file was saved as epchan.com/book/example3_7.m on my website. Notice that the Sharpe ratio in 2006 is only 0.25, not 4.47 as stated by the original authors. The reason for this drastically lower performance is due to the use of the large market capitalization universe of S&P 500 in our backtest. If you read the original paper by the authors, you will find that most of the returns are generated by small and microcap stocks. ",
+        "bbox": [
+            140,
+            758,
+            843,
+            906
+        ],
+        "page_idx": 48
+    },
+    {
+        "type": "text",
+        "text": "In this MATLAB program, I have used three new functions: “smartsum,” “smartmean,” and “smartstd.” They are very similar to the usual “sum,” “mean,” and “std” functions, except they skip all the NaN entries in the data. These functions are very useful in backtesting because a price series for stocks often starts and stops. These files are all available at epchan.com/book. ",
+        "bbox": [
+            140,
+            89,
+            848,
+            217
+        ],
+        "page_idx": 49
+    },
+    {
+        "type": "text",
+        "text": "function $\\begin{array} { r l } { \\mathrm { y } } & { { } = } \\end{array}$ smartsum(x, dim)   \n$\\begin{array} { l l } { \\frac { \\mathrm { ~ \\circ ~ } } { \\mathrm { ~ \\circ ~ } } \\mathsf { y } } & { = } \\end{array}$ smartsum(x, dim)   \n%Sum along dimension dim, ignoring NaN.   \nhasData $=$ isfinite(x);   \nx(\\~hasData) $= 0$ ;   \ny=sum(x,dim);   \ny(all(\\~hasData, dim)) $= \\tt N a N$ ;   \n\"martmean.m\"   \nfunction $\\begin{array} { r l } { \\mathrm { y } } & { { } = } \\end{array}$ smartmean(x, dim)   \n$\\%$ y = smartmean(x, dim)   \n% Mean value along dimension dim, ignoring NaN.   \nhasData $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ isfinite(x);   \nx(\\~hasData) $= 0$ ;   \ny=sum(x,dim)./sum(hasData, dim);   \ny(all(\\~hasData, dim)) $= \\tt N a N$ ; % set y to NaN if all entries are NaNs.   \n\"smartstd.m\"   \nfunction $\\begin{array} { r l } { \\mathrm { y } } & { { } = } \\end{array}$ smartstd(x, dim)   \n$\\begin{array} { l l } { \\frac { \\mathrm { ~ \\circ ~ } } { \\mathrm { ~ \\circ ~ } } \\mathsf { y } } & { = } \\end{array}$ smartstd(x, dim)   \n% std along dimension dim, ignoring NaN and Inf   \nhasData $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ isfinite(x);   \nx(\\~hasData) $= 0$ ;   \n$y =$ std(x);   \ny(all(\\~hasData, dim)) $=$ NaN; ",
+        "bbox": [
+            140,
+            246,
+            854,
+            657
+        ],
+        "page_idx": 49
+    },
+    {
+        "type": "text",
+        "text": "Now, continuing with our backtest, let's see what happens if we deduct a 5-basis-point transaction cost for every trade. ",
+        "bbox": [
+            142,
+            688,
+            828,
+            731
+        ],
+        "page_idx": 49
+    },
+    {
+        "type": "text",
+        "text": "% daily pnl with transaction costs deducted   \nonewaytcost $= 0$ .0005; % assume 5 basis points   \n% remove weights outside of our dates of interest weights(tday $<$ startDate | tday> endDate, :) $=$ []; % transaction costs are only incurred when   \n% the weights change   \ndailypnlminustcost $= .$ …   \ndailypnl - smartsum(abs(weights-lag1(weights)), 2).\\* ",
+        "bbox": [
+            140,
+            761,
+            753,
+            898
+        ],
+        "page_idx": 49
+    },
+    {
+        "type": "text",
+        "text": "The strategy is now very unprofitable! ",
+        "bbox": [
+            142,
+            207,
+            553,
+            229
+        ],
+        "page_idx": 50
+    },
+    {
+        "type": "text",
+        "text": "Using Python ",
+        "text_level": 1,
+        "bbox": [
+            143,
+            246,
+            321,
+            272
+        ],
+        "page_idx": 50
+    },
+    {
+        "type": "text",
+        "text": "This file was saved as epchan.com/book/example3_7.ipynb ",
+        "bbox": [
+            143,
+            282,
+            789,
+            305
+        ],
+        "page_idx": 50
+    },
+    {
+        "type": "text",
+        "text": "Simple Mean-Reverting Model with and without Transaction   \nCosts   \nimport numpy as np   \nimport pandas as pd   \nstartDate $=$ 20060101   \nendDate=20061231   \ndf=pd.read_table('SPX_20071123.txt')   \ndf['Date'] $=$ df['Date'].astype('int')   \ndf.set_index('Date', inplace $=$ True)   \ndf.sort_index(inplace $=$ True)   \ndailyret $=$ df.pct_change()   \nmarketDailyret $=$ dailyret.mean(axis $: = 1$ )   \nweights $= -$ (np.array(dailyret)-   \nnp.array(marketDailyret).reshape((dailyret.shape[0], 1)))   \nwtsum $\\underline { { \\underline { { \\mathbf { \\Pi } } } } } =$ np.nansum(abs(weights), axi $\\mathsf { S } \\equiv \\mathsf { 1 }$ )   \nweights[wtsum $\\scriptstyle { \\underline { { = } } } = 0$ , $] = 0$   \nwtsum[wtsum $\\scriptstyle 1 = = 0 ] = 1$   \nweights $=$ weights/wtsum.reshape((dailyret.shape[0],1))   \ndailypnl $=$ np.nansum(np.array(pd.DataFrame(weights).shift())\\*n   \np.array(dailyret), axi $\\mathord { \\mathrm { : } } = 1$ )   \ndailypnl $=$ dailypnl[np.logical_and(df.index> $=$ startDate,   \ndf.index $< =$ endDate)]   \nsharpeRatio $=$ np.sqrt(252) $^ { \\star } \\mathrm { n p }$ .mean(dailypnl)/np.std(dailypnl)   \nsharpeRatio   \n0.957785681010386   \nWith transaction costs   \nonewaytcost $= 0$ .0005   \nweights $=$ weights[np.logical_and(df.index> $=$ startDate,   \ndf.index $< =$ endDate)]   \ndailypnlminustcost $=$ dailypnl - (np.nansum(abs(weights  \nnp.array(pd.DataFrame(weights).shift())),   \naxi $\\mathtt { S } = \\mathtt { 1 }$ )\\*onewaytcost)   \nsharpeRatioMinusTcost $=$ np.sqrt(252)\\*np.mean(dailypnlminustcos ",
+        "bbox": [
+            140,
+            333,
+            852,
+            902
+        ],
+        "page_idx": 50
+    },
+    {
+        "type": "discarded",
+        "text": "onewaytcost; % Sharpe ratio should be about -3.19 sharpeminustcost $= .$ … sqrt(252)\\*smartmean(dailypnlminustcost, 1)/… smartstd(dailypnlminustcost, 1) ",
+        "bbox": [
+            140,
+            90,
+            666,
+            175
+        ],
+        "page_idx": 50
+    },
+    {
+        "type": "text",
+        "text": "Using R ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            176,
+            250,
+            202
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "text",
+        "text": "This file was saved as epchan.com/book/example3_7.R. ",
+        "bbox": [
+            142,
+            212,
+            750,
+            234
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "text",
+        "text": "library('zoo')   \nsource('calculateReturns.R')   \nsource('calculateMaxDD.R')   \nsource('backshift.R')   \nstartDate <- 20060101   \nendDate <- 20061231   \ndata1 <- read.delim(\"SPX_20071123.txt\") # Tab-delimited   \ncl <- data.matrix(data1[, 2:ncol(data1)])   \ntday <- data.matrix(data1[, 1])   \ndailyret <- calculateReturns(cl, 1)   \nmarketDailyret <- rowMeans(dailyret, na.rm $=$ TRUE) # First   \nfew entries should be c(NaN, -0.001131229, -0.010251817,   \n-0.000813797, …)   \nweights <- -(dailyret - marketDailyret)   \nweights <- weights/rowSums(abs(weights), na.rm $=$ TRUE)   \npnl <- rowSums(backshift(1, weights)\\*dailyret, na.rm $=$ TRUE)   \ntestset <- which(tday> $=$ startDate & tday $< =$ endDate)   \nsharpeRatioTestset $< -$ sqrt(252)\\*mean(pnl[testset], na.rm $=$   \nTRUE)/sd(pnl[testset], na.rm $=$ TRUE)   \nsharpeRatioTestset # 0.4170207   \n# With transaction costs   \nonewaytcost <- 5/10000 # 5 bps   \npnl <- pnl - rowSums(abs(weights-backshift(1,   \nweights))\\*onewaytcost, na.rm $=$ TRUE)   \nsharpeRatioTestset <- sqrt(252)\\*mean(pnl[testset], na.rm $=$   \nTRUE)/sd(pnl[testset], na.rm $=$ TRUE)   \nsharpeRatioTestset # -3.378513 ",
+        "bbox": [
+            140,
+            263,
+            849,
+            728
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "text",
+        "text": "STRATEGY REFINEMENT ",
+        "text_level": 1,
+        "bbox": [
+            122,
+            796,
+            547,
+            827
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "text",
+        "text": "If a strategy does not deliver superb backtest performance on first trial, there are some common ways to improve it. How to refine a strategy without introducing data-snooping bias and to remain ",
+        "bbox": [
+            122,
+            842,
+            838,
+            906
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "discarded",
+        "text": "t)/np.std(dailypnlminustcost) sharpeRatioMinusTcost -2.1617433718962276 ",
+        "bbox": [
+            140,
+            89,
+            482,
+            140
+        ],
+        "page_idx": 51
+    },
+    {
+        "type": "text",
+        "text": "simple with few parameters is more of an art than a science. The guiding principle is the same as that of parameter optimization: Whatever changes you make to the strategy to improve its performance on the training set, it must also improve the performance on the test set. ",
+        "bbox": [
+            122,
+            89,
+            823,
+            194
+        ],
+        "page_idx": 52
+    },
+    {
+        "type": "text",
+        "text": "Often, there are some very simple strategies that are fairly well known in traders' circles and are still somewhat profitable, though their returns seem to be diminishing. An example is the pair trading of stocks. The reason they are diminishing in returns is that too many traders are taking advantage of this arbitrage opportunity and gradually erasing the profit margin. However, it is often possible to introduce minor variations in the basic strategy, which will boost its returns. ",
+        "bbox": [
+            122,
+            204,
+            862,
+            369
+        ],
+        "page_idx": 52
+    },
+    {
+        "type": "text",
+        "text": "These minor variations are often far less well known than the basic strategy, and therefore far less well exploited by traders. Sometimes they involve excluding certain stocks or groups of stocks from the universe. For example, traders often prefer to exclude pharmaceutical stocks from their technical trading program because of the dramatic impact of news on their prices, or else they may exclude stocks that have pending merger or acquisition deals. Other traders change the entry and exit timing or frequency of the trades. Yet another variation concerns the selection of the stock universe: We saw in Example 3.7 that a strategy that has a very good Sharpe ratio when it is applied to small-cap stocks becomes very unprofitable when applied to large-cap stocks. ",
+        "bbox": [
+            122,
+            380,
+            862,
+            631
+        ],
+        "page_idx": 52
+    },
+    {
+        "type": "text",
+        "text": "When introducing these refinements to your strategy, it is preferable that the refinement has some basis in fundamental economics or a well-studied market phenomenon, rather than some arbitrary rule based on trial and error. Otherwise, data-snooping bias looms. ",
+        "bbox": [
+            122,
+            638,
+            867,
+            723
+        ],
+        "page_idx": 52
+    },
+    {
+        "type": "text",
+        "text": "Example 3.8: A Small Variation on an Existing Strategy ",
+        "text_level": 1,
+        "bbox": [
+            143,
+            112,
+            754,
+            176
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "Let's refine the mean-reverting strategy described in Example 3.7. Recall that strategy has a mediocre Sharpe ratio of 0.25 and a very unprofitable Sharpe ratio of $- 3 . 1 9$ after transaction costs in 2006. The only change we will make here is to update the positions at the market open instead of the close. In the MATLAB code, simply replace “cl” with “op” everywhere. You can download the R code as example3_8.R and Python code as example3_8.ipynb. ",
+        "bbox": [
+            142,
+            193,
+            852,
+            361
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "Lo and behold, the Sharpe ratio before-and-after costs are both very positive! I will leave it as an exercise for the reader to improve the Sharpe ratio further by testing the strategy on the S&P 400 mid-cap and S&P 600 small-cap universes. ",
+        "bbox": [
+            142,
+            368,
+            828,
+            454
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "SUMMARY ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            507,
+            303,
+            536
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "Backtesting is about conducting a realistic historical simulation of the performance of a strategy. The hope is that the future performance of the strategy will resemble its past performance, though as your investment manager will never tire of telling you, this is by no means guaranteed! ",
+        "bbox": [
+            122,
+            551,
+            869,
+            656
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "There are many nuts and bolts involved in creating a realistic historical backtest and in reducing the divergence of the future performance of the strategy from its backtest performance. Issues discussed here include: ",
+        "bbox": [
+            124,
+            665,
+            839,
+            750
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "Data: Split/dividend adjustments, noise in daily high/low, and survivorship bias.   \nPerformance measurement: Annualized Sharpe ratio and maximum drawdown. ",
+        "bbox": [
+            142,
+            767,
+            859,
+            862
+        ],
+        "page_idx": 53
+    },
+    {
+        "type": "text",
+        "text": "Look-ahead bias: Using unobtainable future information for past trading decisions. Data-snooping bias: Using too many parameters to fit historical data, tweaking a strategy too many times in backtest, and avoiding it using a large enough sample, out-of-sample testing, and sensitivity analysis. Transaction cost: Impact of transaction costs on performance. Strategy refinement: Common ways to make small variations on the strategy to optimize performance. ",
+        "bbox": [
+            145,
+            89,
+            870,
+            328
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "After going through this chapter and working through some of the examples and exercises, you should have gained some hands-on experience in how to retrieve historical data and backtest a strategy with Excel, MATLAB, Python, or R. ",
+        "bbox": [
+            124,
+            344,
+            854,
+            429
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "When one starts testing a strategy, it may not be possible to avoid all these pitfalls due to constraints of time and other resources. In this case, it is okay to skip a few precautions to achieve a quick sense of whether the strategy has potential and is worthy of closer examination. Sometimes, even the most thorough and careful backtest cannot reveal problems that would be obvious after a few months of paper or real trading. One can always revisit each of these issues after the model has gone live. ",
+        "bbox": [
+            122,
+            438,
+            866,
+            606
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "Once you have backtested a strategy with reasonable performance, you are now ready to take the next step in setting up your trading business. ",
+        "bbox": [
+            124,
+            614,
+            848,
+            678
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "REFERENCES ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            704,
+            362,
+            733
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "Bailey, David, and Marcos López de Prado. 2012. “The Sharpe Ratio Efficient Frontier.” Journal of Risk 15 (2 Winter 2012/13). https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1821643. ",
+        "bbox": [
+            125,
+            748,
+            862,
+            814
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "Bailey, David, J. Borwein, Marcos López de Prado, and J. Zhu. 2014. “Pseudo-Mathematics and Financial Charlatanism: The Effects of Backtest Overfitting on Out-of-Sample Performance.” Notices of ",
+        "bbox": [
+            122,
+            825,
+            867,
+            890
+        ],
+        "page_idx": 54
+    },
+    {
+        "type": "text",
+        "text": "Chan, Ernest. 2006. “Reader Suggests a Possible Trading Strategy with the GLD–GDX Spread.” Quantitative Trading, November 17. http://epchan.blogspot.com/2006/11/reader-suggested-possibletrading.html. ",
+        "bbox": [
+            124,
+            145,
+            872,
+            231
+        ],
+        "page_idx": 55
+    },
+    {
+        "type": "text",
+        "text": "Chan, Ernest. 2017. “Paradox Resolved: Why Risk Decreased Expected Log Return but Not Expected Wealth.” Quantitative Trading, May 4. http://epchan.blogspot.com/2017/05/paradoxresolved-why-risk-decreases.html. ",
+        "bbox": [
+            124,
+            243,
+            859,
+            328
+        ],
+        "page_idx": 55
+    },
+    {
+        "type": "text",
+        "text": "Sharpe, William. 1994. “The Sharpe Ratio.” Journal of Portfolio Management, Fall. https://jpm.pmresearch.com/content/21/1/49. ",
+        "bbox": [
+            124,
+            342,
+            818,
+            405
+        ],
+        "page_idx": 55
+    },
+    {
+        "type": "text",
+        "text": "NOTE ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            431,
+            222,
+            459
+        ],
+        "page_idx": 55
+    },
+    {
+        "type": "text",
+        "text": "1 This section was adapted from my blog article “Parameterless Trading Models,” which you can find at epchan.blogspot.com/2008/05/parameterless-tradingmodels.html. ",
+        "bbox": [
+            122,
+            476,
+            807,
+            560
+        ],
+        "page_idx": 55
+    },
+    {
+        "type": "discarded",
+        "text": "the American Mathematical Society 61 (5 May): 458–471. https://ssrn.com/abstract=2308659. ",
+        "bbox": [
+            151,
+            90,
+            782,
+            133
+        ],
+        "page_idx": 55
+    }
+]

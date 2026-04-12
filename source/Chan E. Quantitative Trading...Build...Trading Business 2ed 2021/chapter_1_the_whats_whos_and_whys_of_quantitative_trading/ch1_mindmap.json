@@ -1,0 +1,117 @@
+{
+  "name": "Quantitative Trading",
+  "children": [
+    {
+      "name": "Definition",
+      "children": [
+        {
+          "name": "Algorithmic trading"
+        },
+        {
+          "name": "Computerized buy/sell decisions"
+        },
+        {
+          "name": "Based on historical data testing"
+        },
+        {
+          "name": "Conversion of info to bits/bytes"
+        }
+      ]
+    },
+    {
+      "name": "Inputs",
+      "children": [
+        {
+          "name": "Technical analysis (quantifiable)"
+        },
+        {
+          "name": "Fundamental data (revenue, cash flow)"
+        },
+        {
+          "name": "News events (parsed by computers)"
+        }
+      ]
+    },
+    {
+      "name": "Who Can Become a Trader",
+      "children": [
+        {
+          "name": "Institutions (PhDs, scientists)"
+        },
+        {
+          "name": "Independent traders (diverse backgrounds)"
+        },
+        {
+          "name": "Statistical arbitrage (accessible)"
+        },
+        {
+          "name": "Requirements (high school math/programming)"
+        },
+        {
+          "name": "Ideal profile (experience, savings, emotional balance)"
+        }
+      ]
+    },
+    {
+      "name": "Business Case Advantages",
+      "children": [
+        {
+          "name": "Scalability",
+          "children": [
+            {
+              "name": "Adjusting leverage"
+            },
+            {
+              "name": "Low capital entry"
+            }
+          ]
+        },
+        {
+          "name": "Time Efficiency",
+          "children": [
+            {
+              "name": "Automation/autopilot"
+            },
+            {
+              "name": "Remote monitoring"
+            },
+            {
+              "name": "Focus on research"
+            }
+          ]
+        },
+        {
+          "name": "No Marketing",
+          "children": [
+            {
+              "name": "Focus on product"
+            },
+            {
+              "name": "Price-based counterparties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Implementation Process",
+      "children": [
+        {
+          "name": "Strategy identification"
+        },
+        {
+          "name": "Rigorous backtesting"
+        },
+        {
+          "name": "Business structure setup"
+        },
+        {
+          "name": "Execution infrastructure"
+        },
+        {
+          "name": "Risk management"
+        }
+      ]
+    }
+  ]
+}

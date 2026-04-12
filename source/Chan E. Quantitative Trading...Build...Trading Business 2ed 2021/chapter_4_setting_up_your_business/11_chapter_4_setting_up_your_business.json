@@ -1,0 +1,599 @@
+[
+    {
+        "type": "text",
+        "text": "CHAPTER 4 Setting Up Your Business ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            128,
+            549,
+            190
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "In this chapter, we will be taking a break from the technical aspect of trading to focus on the business side of it. Assuming that your goal is to remain an independent trader and not work for a money management institution, the choice of the business structure for trading is important. The main choice you have to make is whether to open a retail brokerage account or to join a proprietary trading firm. The next step is to determine what features of the brokerage or trading firm are important to you. Finally, you have to decide what kind of physical trading infrastructure you need in order to execute your quantitative strategy. ",
+        "bbox": [
+            122,
+            208,
+            866,
+            420
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "BUSINESS STRUCTURE: RETAIL OR PROPRIETARY? ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            444,
+            735,
+            505
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "As a trader, you can choose to be completely independent or semiindependent. To be completely independent, you can simply open a retail brokerage account, deposit some cash, and start trading. No one will question your strategy, and no one will guide you in your trading. Furthermore, your leverage is limited by Securities and Exchange Commission (SEC) Regulation T—roughly two times your equity if you hold overnight positions. Naturally, all the profits and losses will accrue to you. ",
+        "bbox": [
+            122,
+            518,
+            859,
+            686
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "However, you can choose to join what is called a proprietary trading firm such as Bright Trading and become a member of their firm. In order to become a member of such firms, you have to pass the FINRA Series 7 examination to qualify as a registered representative of a brokerage. You will still need to invest your own capital to start an account, but you will obtain much higher leverage (or buying power) than is available through a retail account. Depending on how much capital you invested, you may get to keep all your profits, or some percentage of them. In terms of liability, however, your loss is limited to your initial investment. (Actually, liability is also limited if you form an S corporation or limited liability company (LLC) and open an account through this entity at a retail brokerage. More on this in Box 4.1.) Often, you can also receive training from the firm, perhaps at an extra cost. You will also be subject to the various rules and regulations that the proprietary trading firm chooses to impose on its members, in addition to rules imposed by the SEC or FINRA. ",
+        "bbox": [
+            120,
+            695,
+            870,
+            905
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            88,
+            861,
+            217
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "BOX 4.1 SHOULD YOU INCORPORATE BEFORE YOU TRADE? ",
+        "text_level": 1,
+        "bbox": [
+            142,
+            111,
+            784,
+            172
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "If you open a brokerage account as an individual, your liability is not limited to what you deposit in that account. Retail brokerages are known to ask their customers to “make whole” the negative equity in their account when a highly levered position loses more than 100 percent of the margin deposit. This happened in the aftermath of the Swiss Franc unpegging in January 2015. Do not be surprised to get a stern legal letter requesting a large payment from your broker when that happens, and perhaps endless phone calls from a debt collector if you don't pay up. ",
+        "bbox": [
+            142,
+            193,
+            852,
+            382
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "To avoid this personal liability, I would recommend you set up a corporation as your trading vehicle and open an account through this entity at a retail brokerage. Your loss will then be limited to your initial investment, though you may have to file corporate bankruptcy when things go wrong. In the United States, a limited liability company or S-Corp. may work best, as tax gains or losses can be passed directly to you personally. Even if you are not a US resident, you can still easily incorporate a US LLC for trading in a US brokerage account. I used bizfilings.com for that, but there are many other similar services, such as Stripe Atlas. No legal help is required if you are the sole shareholder. Of course, you will still be subject to the various rules and regulations imposed by the SEC, such as Regulation T. ",
+        "bbox": [
+            142,
+            388,
+            851,
+            661
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "I made them sound like bad things when I spoke of rules and regulations imposed by proprietary trading firms. But, actually, some of these rules (such as the prohibition from trading penny stocks or the prohibition from carrying short positions overnight) are actually risk management measures for your own protection. Often, when the going is good, traders will bemoan these constraints limiting their flexibility and profitability. They may even decide to start their own retail trading accounts and start trading on their own. However, when they suffer the (almost inevitable) big drawdown, they will wish that someone were there to restrain their risk appetites and come to regret this unfettered freedom. (The teenager in us has never left, after all.) ",
+        "bbox": [
+            142,
+            670,
+            852,
+            891
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            138,
+            89,
+            846,
+            132
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "The decision whether to go retail or to join a proprietary trading firm is generally based on your need of capital, the style of your strategy, and your skill level. For example, if you run a low-risk, market-neutral strategy that nevertheless requires a much higher leverage than allowed by Regulation T in order to generate good returns, a proprietary account may be better for you. However, if you engage in high-frequency futures trading that does not require too much capital, a retail account may save you a lot of costs and hassles. Similarly, a very experienced trader with strong risk management practices and emotional stability probably doesn't need the guidance given by a proprietary firm, but less experienced traders may benefit from the imposed restraints. ",
+        "bbox": [
+            142,
+            138,
+            854,
+            392
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "There is another consideration that applies to those of you who have discovered some unique, highly profitable strategies. In this situation, you may prefer to open a retail trading account, because if you trade through a proprietary account, your proprietary trading firm is going to find out about your highly profitable strategy and may “piggyback” on your strategy with a lot of its own capital. In this case, your strategy will suffer more market impact trading cost as time goes on. ",
+        "bbox": [
+            142,
+            400,
+            846,
+            569
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "Table 4.1 summarizes the pros and cons for each choice. ",
+        "bbox": [
+            140,
+            577,
+            750,
+            598
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "table",
+        "img_path": "images/1478fc23d92462d54e815d41d71c7646fb12d6fec60172885b6d507b47d22d6f.jpg",
+        "table_caption": [
+            "TABLE 4.1 Retail versus Proprietary Trading "
+        ],
+        "table_footnote": [],
+        "table_body": "<table><tr><td colspan=\"1\" rowspan=\"1\">Issue</td><td colspan=\"1\" rowspan=\"1\">Retail Trading</td><td colspan=\"1\" rowspan=\"1\">ProprietaryTrading</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Legalrequirementto openaccount</td><td colspan=\"1\" rowspan=\"1\">None.</td><td colspan=\"1\" rowspan=\"1\">Need to pass FINRASeries 7 examinationand satisfy otherFINRA-imposedrestrictions.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Initial capital Substantial.requirement</td><td colspan=\"1\" rowspan=\"1\">Initial capital Substantial.</td><td colspan=\"1\" rowspan=\"1\">Small.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Availableleverage orbuyingpower</td><td colspan=\"1\" rowspan=\"1\">Determined by SECRegulation T. Generally 2xleverage for overnightpositions, and 4x forintraday positions.</td><td colspan=\"1\" rowspan=\"1\">Based on firm'sdiscretion. Can be ashigh as 20x or morefor intraday or hedgedpositions.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Liability tolosses</td><td colspan=\"1\" rowspan=\"1\">Unlimited, unless accountis opened through an Scorporation or LLC.</td><td colspan=\"1\" rowspan=\"1\">Limited to initialinvestment.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Commissionsand fees</td><td colspan=\"1\" rowspan=\"1\">Low commissions(perhaps less than 0.5 centa share) and minimalmonthly fees for data.</td><td colspan=\"1\" rowspan=\"1\">Higher commissionsand significantmonthly fees.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Bankruptcyrisk ofbrokerage</td><td colspan=\"1\" rowspan=\"1\">No risk. Account insuredby Securities InvestorProtection Corporation(SIPC).</td><td colspan=\"1\" rowspan=\"1\">Has risk. Account isnot insured.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Training,mentoring,guidance</td><td colspan=\"1\" rowspan=\"1\">None.</td><td colspan=\"1\" rowspan=\"1\">May provide suchservices, sometimes ata fee.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">trade secrets</td><td colspan=\"1\" rowspan=\"1\">Disclosure of Little or no risk, especiallyif retail brokerage does nothave proprietary tradingunit.</td><td colspan=\"1\" rowspan=\"1\">Has risk. Managerscan easily \"piggyback\"on profitablestrategies.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Restrictionson tradingstyle</td><td colspan=\"1\" rowspan=\"1\">No restrictions, as long asit is allowed by SEC.</td><td colspan=\"1\" rowspan=\"1\">May have restrictions,such as prohibitionson holding overnightshort positions.</td></tr><tr><td colspan=\"1\" rowspan=\"1\">Riskmanagement</td><td colspan=\"1\" rowspan=\"1\">Mostly self-imposed.</td><td colspan=\"1\" rowspan=\"1\">More comprehensiveand imposed bymanagers.</td></tr></table>",
+        "bbox": [
+            142,
+            113,
+            854,
+            849
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "table",
+        "img_path": "",
+        "table_caption": [],
+        "table_footnote": [],
+        "bbox": [
+            140,
+            87,
+            856,
+            327
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "One final note: Some may think that there is a tax advantage in joining a proprietary trading firm because any trading loss can be deducted from current income instead of as capital loss. Actually, you can choose to apply for trader tax status even if you have a retail brokerage account so that your trading loss can offset other income, and not just other capital gain. For details on the tax considerations of a trading business, you can visit, for example,   \nwww.greencompany.com. ",
+        "bbox": [
+            122,
+            334,
+            862,
+            503
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "CHOOSING A BROKERAGE OR PROPRIETARY TRADING FIRM ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            529,
+            647,
+            589
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Many traders use only one criterion to choose their brokerage or a proprietary trading firm to join: the commission rate. This is clearly an important criterion because if a trading strategy has a small return, high commissions may render it unprofitable. However, there are other important considerations. ",
+        "bbox": [
+            124,
+            603,
+            872,
+            708
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Commissions actually form only part of your total transaction costs, sometimes even a small part. The speed of execution of your brokerage as well as their access of the so-called dark-pool liquidity also figures into your transaction costs. Dark-pool liquidity is formed by institutional orders facilitated away from the exchanges, or they come from the crossing of internal brokerage customer orders. These orders are not displayed as bid-and-ask quotes. Some of the “alternative trading systems” that provide dark-pool liquidity are Liquidnet and ITG's Posit. Your brokerage may use one or more of these providers, it may only use its internal crossing network, or it may use no alternative trading systems at all. ",
+        "bbox": [
+            122,
+            717,
+            872,
+            906
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            124,
+            89,
+            839,
+            132
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "Sometimes, a better execution price at a large brokerage due to its state-of-the-art execution system and high-speed access to deeper dark pools of liquidity will more than compensate for its higher commissions. This kind of cost/benefit analysis cannot easily be carried out unless you actually trade on multiple brokerages simultaneously and compare the actual execution costs. ",
+        "bbox": [
+            124,
+            140,
+            838,
+            267
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "For example, I traded through Goldman Sachs's REDIPlus trading platform, whose Sigma X execution engine routes orders to both its internal crossing network as well as to external liquidity providers. I had found that it often improved my execution price by more than a few cents per share over market order executions on Interactive Brokers (IBKR): more than enough to offset its higher commissions. However, to be fair to IBKR, it has since introduced many routing options, including those offered by some specialty algorithmic execution firms (such as Quantitative Brokers for futures orders), in order to reduce your orders’ market impact and allow you to route to dark pools as necessary. ",
+        "bbox": [
+            122,
+            275,
+            864,
+            505
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "Another consideration is the range of products you can trade. Many retail brokerages or proprietary trading firms do not allow you to trade futures or foreign currencies. This would be a serious limitation to your trading business's growth. ",
+        "bbox": [
+            122,
+            513,
+            856,
+            598
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "Following these two fairly generic criteria, for a quantitative trader, the next important one is: Does the trading platform offer an application programming interface (API) so that your trading software can receive live data feed, generate orders, and automatically transmit the orders for execution in your account? I will discuss more about API in Chapter 5. The only point to note here is that without an API, high-frequency quantitative trading is impossible. ",
+        "bbox": [
+            122,
+            606,
+            869,
+            773
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "Closely related to the availability of API is the availability of paper trading accounts. If a brokerage does not offer you a paper trading account, it is very hard to test an API without risking real losses. Among the brokerages I know that offer paper trading accounts are Alpaca, Interactive Brokers, and Oanda (for currency trading). ",
+        "bbox": [
+            122,
+            782,
+            852,
+            888
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "In addition to paper trading accounts, some brokerages provide a “simulator” account (an example is the demo account from Interactive Brokers), where quotes from the past are replayed as if they were real-time quotes, and an automated trading program can trade against these quotes at any time of the day in order to debug the program. ",
+        "bbox": [
+            124,
+            89,
+            852,
+            217
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "Finally, the reputation and financial strength of the proprietary trading firm you are considering is also important. This does not matter to the choice of a retail brokerage because, as noted in Table 4.1, retail accounts are insured by the SIPC, whereas proprietary accounts are not. Hence, it is important that a proprietary trading firm has a strong balance sheet and good risk management practices to prevent the firm from collapsing because of bad trades made by its fellow member traders (WorldCom's and Refco's collapses are good examples). You should also make sure the firm is a broker-dealer registered with an exchange, so that it is regularly audited by the exchange and the SEC. Non–broker-dealer proprietary trading firms were supposed to get shut down by the SEC, starting with Tuco Trading in March 2008, but you never know if some unscrupulous operators are still out there. Furthermore, even if times are good for the firm, does it have a good reputation for easy redemption of your capital should you choose to do so? It is, of course, difficult for an outsider to assess whether a proprietary trading firm has such good attributes, but you can read about the firm's reputation based on current or ex-members' opinions at the online forum www.elitetrader.com. You should also definitely check out its regulator FINRA's website brokercheck.finra.org and see if there are “Disclosures,” which include customer complaints, arbitrations, or regulatory actions against the broker you are going to use. If there are, look up the details of each Disclosure to see if it is serious. (If your prop trading firm isn't even listed as a broker, beware!) ",
+        "bbox": [
+            122,
+            222,
+            867,
+            748
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "If you are undecided whether to open a retail brokerage account or a proprietary account, or which retail brokerage or proprietary firm to use, you can in fact do both, or open multiple accounts. Unlike finding full-time employment in proprietary trading firms, just joining them as a member, especially a remote-access member, does not usually compel you to sign a noncompete agreement. You are free to be a member of more than one proprietary firm, or have both proprietary and retail trading accounts, as long as this fact is fully disclosed to the proprietary trading firms involved and to the FINRA as “outside business activities” and prior permissions obtained. With multiple accounts, it should be easier for you to decide which cost structure is more beneficial to you and which account has the better infrastructure and tools for your automated trading system. And, in fact, sometimes each account has its own pros and cons, and you may want to have the flexibility of keeping all of them open for trading different strategies! ",
+        "bbox": [
+            122,
+            755,
+            864,
+            901
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            122,
+            89,
+            867,
+            279
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "PHYSICAL INFRASTRUCTURE ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            304,
+            630,
+            334
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "Now that you have set up the legal and administrative structure of your trading business, it is time to consider the physical infrastructure. This applies to both retail and proprietary traders: Many proprietary trading firms allow their members to trade remotely in their homes. If you are a proprietary trader who requires minimal coaching from your account manager and are confident in your ability to set up the physical trading infrastructure yourself, there is no reason not to trade remotely. ",
+        "bbox": [
+            122,
+            348,
+            867,
+            515
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "In the start-up phase of your business, the physical infrastructure can be light and simple. You probably have all the components you need in your home office already: a good personal computer (practically any new computer will do), a high-speed internet connection, and an uninterruptible power supply (UPS) so that your computer doesn't get accidentally shut down in the middle of a trade because of electricity fluctuations. The total initial investment should not exceed a couple of thousand dollars at the maximum, and the monthly cost should not be more than $\\$ 100$ or so if you don't already subscribe to cable TV. ",
+        "bbox": [
+            122,
+            523,
+            870,
+            733
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "Some traders wonder if having a TV tuned to CNBC or CNN is a good idea. Although it certainly won't hurt, many professional quantitative traders have found that it is not necessary, as long as they also subscribe to another professional real-time newsfeed, such as Thomson Reuters, Dow Jones, or Bloomberg. While Bloomberg can cost more than $\\$ 2$ ,000 a month, various plans offered by Thomson Reuters and Dow Jones can cost as little as $\\$ 100$ to $\\$ 200$ (though ",
+        "bbox": [
+            122,
+            741,
+            870,
+            888
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "some will require an annual contract). Bloomberg also has a free internet radio stream at www.bloomberg.com/tvradio/radio that announces breaking business news and commentaries. Also, instead of installing a TV in your office, you can subscribe to CNBC PRO, which will provide live streaming video to your computer. Of course, too much real-time information may not necessarily lead to more profitable trades. For example, Michael Mauboussin of Legg Mason cites a study that finds horse-racing handicappers less successful in their predictions when they are given more information when ranking horses (see Economist, 2007, or Oldfield, 2007). ",
+        "bbox": [
+            122,
+            89,
+            864,
+            299
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "As your trading business grows, you may upgrade your infrastructure gradually. Perhaps you will purchase faster computers, or move your automated trading system to a virtual private server (VPS) that has direct (not public internet) connections to your broker's trading server. As discussed in Chapter 2, any delay in the transmission of your order to your brokerage results in slippage, which is quite real in terms of lost profits. In fast-moving markets, every millisecond counts. Besides offering a high-speed connection, a VPS (e.g., speedytradingservers.com) will also ensure your trading strategy is resilient to common household disasters such as internet outage, electricity outage, flooding, and so on. It can cost only a few hundred dollars a month. You can monitor your trading programs at the VPS using a free software such as Windows Remote Desktop. ",
+        "bbox": [
+            122,
+            308,
+            870,
+            579
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "You will certainly want to purchase multiple monitors to hook up to the same computer so that you have extended screen space to monitor all the different trading applications and portfolios. ",
+        "bbox": [
+            124,
+            587,
+            857,
+            651
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "SUMMARY ",
+        "text_level": 1,
+        "bbox": [
+            124,
+            678,
+            303,
+            707
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "This chapter focused on those decisions and steps that you need to take to bridge the research phase and the execution phase of your trading business. I have covered the pros and cons of retail trading versus proprietary trading and the issues to consider in choosing a brokerage or proprietary trading firm. ",
+        "bbox": [
+            124,
+            720,
+            849,
+            827
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "In a nutshell, retail brokerages give you complete freedom and better capital protection but smaller leverage, while proprietary trading firms give you less freedom and less capital protection but much ",
+        "bbox": [
+            122,
+            834,
+            869,
+            898
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "higher leverage. Finding a suitable retail brokerage is relatively easy. It took me less than a month to research and settle on one, and I have not found a reason to switch yet. Finding a suitable proprietary trading firm is much more involved, since there are contracts to sign and an exam (Series 7) to pass. It took me several months to get my account set up at one. ",
+        "bbox": [
+            122,
+            88,
+            864,
+            217
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Of course, you can choose to have both retail and proprietary accounts, each tailored to the specific needs of your strategies. This way, you can also easily compare their speed of execution and depth of liquidity. ",
+        "bbox": [
+            122,
+            223,
+            861,
+            309
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Regardless of whether you have chosen to trade in a retail brokerage or join a proprietary trading firm, you need to make sure their trading account and systems have these features: ",
+        "bbox": [
+            122,
+            316,
+            862,
+            381
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Relatively low commissions   \nTrade a good variety of financial instruments   \nAccess to deep pool of liquidity   \nMost importantly, API for real-time data retrieval and order transmission ",
+        "bbox": [
+            147,
+            397,
+            825,
+            532
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "I also described the progressive buildup of the physical infrastructure you need to build in order to run a trading business. Some of the components of a trader's operating environment mentioned are: ",
+        "bbox": [
+            122,
+            549,
+            862,
+            633
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Personal computer   \nHigh-speed internet connection   \nNoninterruptible power supply   \nReal-time data and news feed and subscription to financial TV news channels   \nVPS ",
+        "bbox": [
+            147,
+            652,
+            852,
+            815
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "Building out the physical trading infrastructure is actually quite easy, since in the beginning you probably have all the components ready in your home office already. I have found that it is easy to trade a ",
+        "bbox": [
+            122,
+            833,
+            872,
+            898
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "million-dollar portfolio with nothing more than a few thousand dollars' initial investment in your physical infrastructure and a few hundred dollars a month in operating cost. But if you want to increase your trading capacity or improve your returns, additional incremental investments will be needed. ",
+        "bbox": [
+            124,
+            88,
+            846,
+            194
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "Once you have considered and taken these steps, you are now positioned to build an automated trading environment to execute your strategy, which will be covered in the next chapter. ",
+        "bbox": [
+            124,
+            204,
+            834,
+            267
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "REFERENCES ",
+        "text_level": 1,
+        "bbox": [
+            125,
+            292,
+            362,
+            321
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "Economist . 2007. “Too Much Information.” July 12. www.economist.com/finance/displaystory.cfm? story_id=9482952. ",
+        "bbox": [
+            124,
+            338,
+            694,
+            402
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "Markoff, John. 2007. “Faster Chips Are Leaving Programmers in Their Dust.” New York Times, December 17. www.nytimes.com/2007/12/17/technology/17chip.html? ex=1355634000&en=a81769355deb7953&ei=5124&partner=per malink&exprod=permalink. ",
+        "bbox": [
+            124,
+            415,
+            859,
+            520
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "Oldfield, Richard. 2007. Simple but Not Easy. Doddington Publishing. ",
+        "bbox": [
+            124,
+            534,
+            759,
+            577
+        ],
+        "page_idx": 11
+    }
+]

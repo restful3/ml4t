@@ -1,0 +1,172 @@
+{
+  "name": "Special Topics in Quantitative Trading",
+  "children": [
+    {
+      "name": "Trading Strategies Categories",
+      "children": [
+        {
+          "name": "Mean-Reverting",
+          "children": [
+            {
+              "name": "Time-series reversion"
+            },
+            {
+              "name": "Cross-sectional reversion"
+            },
+            {
+              "name": "Stationarity and Cointegration"
+            },
+            {
+              "name": "Risk: survivorship bias and data errors"
+            }
+          ]
+        },
+        {
+          "name": "Momentum",
+          "children": [
+            {
+              "name": "Information diffusion"
+            },
+            {
+              "name": "Large order execution"
+            },
+            {
+              "name": "Herd behavior"
+            },
+            {
+              "name": "Predictable causes: roll returns and rebalancing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Regime Change and Optimization",
+      "children": [
+        {
+          "name": "Regime Types",
+          "children": [
+            {
+              "name": "Bull vs. Bear markets"
+            },
+            {
+              "name": "Regulatory changes"
+            },
+            {
+              "name": "High vs. Low volatility"
+            }
+          ]
+        },
+        {
+          "name": "Conditional Parameter Optimization (CPO)",
+          "children": [
+            {
+              "name": "Machine learning approach"
+            },
+            {
+              "name": "Adaptability to market conditions"
+            },
+            {
+              "name": "PredictNow.ai application"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Factor Models (APT)",
+      "children": [
+        {
+          "name": "Common Factors: SMB, HML, Market"
+        },
+        {
+          "name": "Factor Exposures vs. Returns"
+        },
+        {
+          "name": "Statistical Factors: PCA"
+        },
+        {
+          "name": "Predictive utility"
+        }
+      ]
+    },
+    {
+      "name": "Exit Strategies",
+      "children": [
+        {
+          "name": "Fixed holding period"
+        },
+        {
+          "name": "Target price/Profit cap"
+        },
+        {
+          "name": "Latest entry signals"
+        },
+        {
+          "name": "Stop-loss (Momentum only)"
+        },
+        {
+          "name": "Ornstein-Uhlenbeck formula"
+        }
+      ]
+    },
+    {
+      "name": "Seasonal Trading",
+      "children": [
+        {
+          "name": "Equities",
+          "children": [
+            {
+              "name": "January Effect"
+            },
+            {
+              "name": "Year-on-year trending"
+            }
+          ]
+        },
+        {
+          "name": "Commodity Futures",
+          "children": [
+            {
+              "name": "Gasoline spring trade"
+            },
+            {
+              "name": "Natural gas summer trade"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "High-Frequency Trading (HFT)",
+      "children": [
+        {
+          "name": "Law of Large Numbers"
+        },
+        {
+          "name": "High Sharpe Ratio"
+        },
+        {
+          "name": "Technological reliance"
+        },
+        {
+          "name": "Risk management: quick deleveraging"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio Management",
+      "children": [
+        {
+          "name": "Kelly Formula leverage"
+        },
+        {
+          "name": "Low-beta vs. High-beta stocks"
+        },
+        {
+          "name": "Risk Parity approach"
+        }
+      ]
+    }
+  ]
+}

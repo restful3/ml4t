@@ -1,0 +1,126 @@
+{
+  "name": "Money and Risk Management",
+  "children": [
+    {
+      "name": "Optimal Capital Allocation",
+      "children": [
+        {
+          "name": "Kelly Formula",
+          "children": [
+            {
+              "name": "Single Strategy: f = m/s^2"
+            },
+            {
+              "name": "Multi-Strategy: F = C^-1 * M"
+            },
+            {
+              "name": "Objective: Maximize long-term wealth"
+            },
+            {
+              "name": "Gaussian Assumption: Normal distribution of returns"
+            }
+          ]
+        },
+        {
+          "name": "Practical Adjustments",
+          "children": [
+            {
+              "name": "Half-Kelly betting for safety"
+            },
+            {
+              "name": "Daily rebalancing of equity"
+            },
+            {
+              "name": "Updating lookback periods"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Risk Management Components",
+      "children": [
+        {
+          "name": "Position Risk",
+          "children": [
+            {
+              "name": "Drawdowns and leverage"
+            },
+            {
+              "name": "Financial contagion effects"
+            },
+            {
+              "name": "Stop loss fallacies"
+            }
+          ]
+        },
+        {
+          "name": "Technical Risks",
+          "children": [
+            {
+              "name": "Model risk: Biases and regime shifts"
+            },
+            {
+              "name": "Software risk: Bugs and execution errors"
+            },
+            {
+              "name": "Natural disaster risk: Infrastructure failures"
+            }
+          ]
+        },
+        {
+          "name": "Tail Risk",
+          "children": [
+            {
+              "name": "Fat tails and Black Swans"
+            },
+            {
+              "name": "Historical maximum loss testing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Psychological Preparedness",
+      "children": [
+        {
+          "name": "Behavioral Biases",
+          "children": [
+            {
+              "name": "Loss aversion: Rational vs irrational"
+            },
+            {
+              "name": "Endowment effect and status quo bias"
+            },
+            {
+              "name": "Representativeness bias: Overweighting recent events"
+            }
+          ]
+        },
+        {
+          "name": "Emotional Pitfalls",
+          "children": [
+            {
+              "name": "Despair: Abandoning models or doubling down"
+            },
+            {
+              "name": "Greed: Overleveraging during success"
+            }
+          ]
+        },
+        {
+          "name": "Training",
+          "children": [
+            {
+              "name": "Start with small portfolios"
+            },
+            {
+              "name": "Maintain alternative income sources"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

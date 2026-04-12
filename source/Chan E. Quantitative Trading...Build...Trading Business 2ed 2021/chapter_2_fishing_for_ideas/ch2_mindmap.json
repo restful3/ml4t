@@ -1,0 +1,202 @@
+{
+  "name": "Fishing for Ideas",
+  "children": [
+    {
+      "name": "Sources of Trading Ideas",
+      "children": [
+        {
+          "name": "Academic Research",
+          "children": [
+            {
+              "name": "Professor Websites"
+            },
+            {
+              "name": "SSRN and NBER"
+            },
+            {
+              "name": "Finance Journals"
+            },
+            {
+              "name": "Quantpedia"
+            }
+          ]
+        },
+        {
+          "name": "Public Media",
+          "children": [
+            {
+              "name": "Finance Books"
+            },
+            {
+              "name": "Magazines and Newspapers"
+            },
+            {
+              "name": "Financial Blogs"
+            },
+            {
+              "name": "Podcasts"
+            }
+          ]
+        },
+        {
+          "name": "Social and Community",
+          "children": [
+            {
+              "name": "Trader Forums"
+            },
+            {
+              "name": "Twitter/X"
+            },
+            {
+              "name": "Starting a Blog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Suitability Considerations",
+      "children": [
+        {
+          "name": "Working Hours",
+          "children": [
+            {
+              "name": "Part-time vs Full-time"
+            },
+            {
+              "name": "Intraday vs Overnight"
+            },
+            {
+              "name": "Automation Level"
+            }
+          ]
+        },
+        {
+          "name": "Programming Skills",
+          "children": [
+            {
+              "name": "High-frequency Coding"
+            },
+            {
+              "name": "Excel/Macro Reliance"
+            }
+          ]
+        },
+        {
+          "name": "Trading Capital",
+          "children": [
+            {
+              "name": "Leverage Availability"
+            },
+            {
+              "name": "Infrastructure Costs"
+            },
+            {
+              "name": "Data Quality Access"
+            }
+          ]
+        },
+        {
+          "name": "Personal Goals",
+          "children": [
+            {
+              "name": "Monthly Income"
+            },
+            {
+              "name": "Long-term Capital Gain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Strategy Screening Criteria",
+      "children": [
+        {
+          "name": "Performance Metrics",
+          "children": [
+            {
+              "name": "Sharpe Ratio"
+            },
+            {
+              "name": "Information Ratio"
+            },
+            {
+              "name": "Benchmark Comparison"
+            }
+          ]
+        },
+        {
+          "name": "Risk Metrics",
+          "children": [
+            {
+              "name": "Maximum Drawdown"
+            },
+            {
+              "name": "Drawdown Duration"
+            }
+          ]
+        },
+        {
+          "name": "Practical Realities",
+          "children": [
+            {
+              "name": "Transaction Costs"
+            },
+            {
+              "name": "Market Impact"
+            },
+            {
+              "name": "Slippage"
+            }
+          ]
+        },
+        {
+          "name": "Data Integrity",
+          "children": [
+            {
+              "name": "Survivorship Bias"
+            },
+            {
+              "name": "Data-Snooping Bias"
+            },
+            {
+              "name": "Look-ahead Bias"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Strategy Pitfalls",
+      "children": [
+        {
+          "name": "Over-complication"
+        },
+        {
+          "name": "Regime Shifts"
+        },
+        {
+          "name": "High-Capacity Competition"
+        },
+        {
+          "name": "Non-stationary Time Series"
+        }
+      ]
+    },
+    {
+      "name": "Role of AI",
+      "children": [
+        {
+          "name": "Overfitting Risks"
+        },
+        {
+          "name": "Nonreflexive Targets"
+        },
+        {
+          "name": "Metalabeling"
+        }
+      ]
+    }
+  ]
+}

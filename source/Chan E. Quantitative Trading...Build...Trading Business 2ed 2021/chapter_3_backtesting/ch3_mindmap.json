@@ -1,0 +1,225 @@
+{
+  "name": "Backtesting Quantitative Strategies",
+  "children": [
+    {
+      "name": "Purpose of Backtesting",
+      "children": [
+        {
+          "name": "Strategy verification"
+        },
+        {
+          "name": "Research replication"
+        },
+        {
+          "name": "Due diligence"
+        },
+        {
+          "name": "Refining and improvement"
+        }
+      ]
+    },
+    {
+      "name": "Common Platforms",
+      "children": [
+        {
+          "name": "Excel",
+          "children": [
+            {
+              "name": "WYSIWYG nature"
+            },
+            {
+              "name": "Simple models"
+            },
+            {
+              "name": "VBA macros"
+            }
+          ]
+        },
+        {
+          "name": "MATLAB",
+          "children": [
+            {
+              "name": "Productive for quants"
+            },
+            {
+              "name": "Advanced toolboxes"
+            },
+            {
+              "name": "Portfolio testing"
+            }
+          ]
+        },
+        {
+          "name": "Python",
+          "children": [
+            {
+              "name": "De facto standard"
+            },
+            {
+              "name": "Pandas and Numpy"
+            },
+            {
+              "name": "Third-party packages"
+            }
+          ]
+        },
+        {
+          "name": "R",
+          "children": [
+            {
+              "name": "Statistical analysis"
+            },
+            {
+              "name": "Econometric packages"
+            }
+          ]
+        },
+        {
+          "name": "Integrated Platforms",
+          "children": [
+            {
+              "name": "QuantConnect (C#/Python)"
+            },
+            {
+              "name": "Blueshift (Python/Visual)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Historical Data",
+      "children": [
+        {
+          "name": "Sources",
+          "children": [
+            {
+              "name": "Yahoo Finance (Free)"
+            },
+            {
+              "name": "CSI Data (Low cost)"
+            },
+            {
+              "name": "Algoseek (Tick data)"
+            },
+            {
+              "name": "CRSP (Institutional)"
+            }
+          ]
+        },
+        {
+          "name": "Adjustments",
+          "children": [
+            {
+              "name": "Stock splits"
+            },
+            {
+              "name": "Dividends"
+            },
+            {
+              "name": "Reverse splits"
+            }
+          ]
+        },
+        {
+          "name": "Quality Issues",
+          "children": [
+            {
+              "name": "Survivorship bias"
+            },
+            {
+              "name": "Noisy high/low data"
+            },
+            {
+              "name": "Composite vs primary price"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Performance Measures",
+      "children": [
+        {
+          "name": "Sharpe Ratio (Annualized)"
+        },
+        {
+          "name": "Maximum Drawdown"
+        },
+        {
+          "name": "Maximum Drawdown Duration"
+        },
+        {
+          "name": "MAR Ratio"
+        }
+      ]
+    },
+    {
+      "name": "Common Pitfalls",
+      "children": [
+        {
+          "name": "Look-Ahead Bias",
+          "children": [
+            {
+              "name": "Future information usage"
+            },
+            {
+              "name": "Avoidance via lagging data"
+            },
+            {
+              "name": "Truncation test check"
+            }
+          ]
+        },
+        {
+          "name": "Data-Snooping Bias",
+          "children": [
+            {
+              "name": "Over-optimization"
+            },
+            {
+              "name": "Sample size requirements"
+            },
+            {
+              "name": "Out-of-sample testing"
+            },
+            {
+              "name": "Sensitivity analysis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transaction Costs",
+      "children": [
+        {
+          "name": "Commissions"
+        },
+        {
+          "name": "Liquidity cost"
+        },
+        {
+          "name": "Market impact"
+        },
+        {
+          "name": "Slippage"
+        }
+      ]
+    },
+    {
+      "name": "Strategy Refinement",
+      "children": [
+        {
+          "name": "Parameterless models"
+        },
+        {
+          "name": "Dynamic optimization"
+        },
+        {
+          "name": "Fundamental economic basis"
+        }
+      ]
+    }
+  ]
+}
