@@ -20,13 +20,17 @@
 | Data Table | [qt2ed_data_table.csv](qt2ed_data_table.csv) | 챕터별 핵심 개념 및 전략 정리 |
 | Mind Map | [qt2ed_mindmap.json](qt2ed_mindmap.json) | 전체 구조 마인드맵 |
 
-### 챕터별 분석 노트북
+### 챕터별 자료
 
-| 챕터 | 노트북 | 리포트 |
-|------|--------|--------|
-| Ch3. Backtesting | [chapter3_full_report.ipynb](chapter_3_backtesting/src/chapter3_full_report.ipynb) | [chapter3_report.md](chapter_3_backtesting/src/reports/chapter3_report.md) |
-| Ch6. Money & Risk Management | [chapter6_full_report.ipynb](chapter_6_money_and_risk_management/src/chapter6_full_report.ipynb) | [chapter6_report.md](chapter_6_money_and_risk_management/src/reports/chapter6_report.md) |
-| Ch7. Special Topics | [chapter7_full_report.ipynb](chapter_7_special_topics_in_quantitative_trading/src/chapter7_full_report.ipynb) | [chapter7_report.md](chapter_7_special_topics_in_quantitative_trading/src/reports/chapter7_analysis_report.md) |
+| 챕터 | README | 노트북 | 리포트 |
+|------|--------|--------|--------|
+| Ch1. The Whats, Whos, and Whys | [README](chapter_1_the_whats_whos_and_whys_of_quantitative_trading/README.md) | - | - |
+| Ch2. Fishing for Ideas | [README](chapter_2_fishing_for_ideas/README.md) | - | - |
+| Ch3. Backtesting | [README](chapter_3_backtesting/README.md) | [notebook](chapter_3_backtesting/src/chapter3_full_report.ipynb) | [report](chapter_3_backtesting/src/reports/chapter3_report.md) |
+| Ch4. Setting Up Your Business | [README](chapter_4_setting_up_your_business/README.md) | - | - |
+| Ch5. Execution Systems | [README](chapter_5_execution_systems/README.md) | - | - |
+| Ch6. Money & Risk Management | [README](chapter_6_money_and_risk_management/README.md) | [notebook](chapter_6_money_and_risk_management/src/chapter6_full_report.ipynb) | [report](chapter_6_money_and_risk_management/src/reports/chapter6_report.md) |
+| Ch7. Special Topics | [README](chapter_7_special_topics_in_quantitative_trading/README.md) | [notebook](chapter_7_special_topics_in_quantitative_trading/src/chapter7_full_report.ipynb) | [report](chapter_7_special_topics_in_quantitative_trading/src/reports/chapter7_analysis_report.md) |
 
 ---
 
