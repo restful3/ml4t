@@ -22,7 +22,7 @@
 
 ---
 
-#### **2026년 4월 25일**: Webex (TBD)
+#### **2026년 4월 18일**: Webex (TBD)
 
 * 발표자 - 태영
 * **Chapter 1. 퀀트 트레이딩의 무엇, 누가, 왜 (The Whats, Whos, and Whys of Quantitative Trading)**
@@ -32,7 +32,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/08_chapter_1_the_whats_whos_and_whys_of_quantitative_trading_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/ch1_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/ch1_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/ch1_audio.mp3)
 
 
-#### **2026년 5월 9일**: Webex (TBD)
+#### **2026년 5월 2일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 2. 아이디어 찾기 (Fishing for Ideas)**
@@ -42,7 +42,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_2_fishing_for_ideas/09_chapter_2_fishing_for_ideas_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_2_fishing_for_ideas/ch2_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_2_fishing_for_ideas/ch2_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_2_fishing_for_ideas/ch2_audio.mp3)
 
 
-#### **2026년 5월 23일**: Webex (TBD)
+#### **2026년 5월 16일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 3. 백테스팅 (Backtesting)**
@@ -52,7 +52,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/10_chapter_3_backtesting_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/ch3_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/ch3_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/ch3_audio.mp3) · [분석 노트북](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/src/chapter3_full_report.ipynb) · [분석 리포트](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_3_backtesting/src/reports/chapter3_report.md)
 
 
-#### **2026년 6월 6일**: Webex (TBD)
+#### **2026년 5월 30일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 4. 사업체 설정 (Setting Up Your Business)**
@@ -62,7 +62,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/11_chapter_4_setting_up_your_business_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_audio.mp3)
 
 
-#### **2026년 6월 20일**: Webex (TBD)
+#### **2026년 6월 13일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 5. 실행 시스템 (Execution Systems)**
@@ -72,7 +72,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/12_chapter_5_execution_systems_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_audio.mp3)
 
 
-#### **2026년 7월 4일**: Webex (TBD)
+#### **2026년 6월 27일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 6. 자금 및 리스크 관리 (Money and Risk Management)**
@@ -82,7 +82,7 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/13_chapter_6_money_and_risk_management_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_audio.mp3) · [분석 노트북](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/src/chapter6_full_report.ipynb) · [분석 리포트](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/src/reports/chapter6_report.md)
 
 
-#### **2026년 7월 18일**: Webex (TBD)
+#### **2026년 7월 11일**: Webex (TBD)
 
 * 발표자 - TBD
 * **Chapter 7. 특수 주제 (Special Topics in Quantitative Trading)**
