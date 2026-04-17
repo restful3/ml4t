@@ -84,7 +84,7 @@
 
 #### **2026년 7월 11일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mab002b1ad25c228de9b289ac98cdbd6e)
 
-* 발표자 - TBD
+* 발표자 - HY
 * **Chapter 7. 특수 주제 (Special Topics in Quantitative Trading)**
     * 공적분(Cointegration)과 상관관계의 구분
     * PCA 팩터 모델과 롱/숏 포트폴리오 구성
