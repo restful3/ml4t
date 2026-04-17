@@ -54,7 +54,7 @@
 
 #### **2026년 5월 30일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mbf76dd0c34fa02a98416d13adcae86e2)
 
-* 발표자 - TBD
+* 발표자 - WONMI
 * **Chapter 4. 사업체 설정 (Setting Up Your Business)**
     * 리테일 vs 프로프라이어터리 트레이딩 비교
     * 법인 설립 (LLC, S-Corp) 및 브로커 선택 기준
