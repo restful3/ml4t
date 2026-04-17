@@ -64,7 +64,7 @@
 
 #### **2026년 6월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m3bd1c47fb1095f51939fcfac220d38ab)
 
-* 발표자 - 송종훈
+* 발표자 - s종훈
 * **Chapter 5. 실행 시스템 (Execution Systems)**
     * 자동 매매 시스템(ATS) 아키텍처: 반자동 vs 완전자동
     * 실행 알고리즘과 슬리피지 최소화
