@@ -54,16 +54,6 @@
 
 #### **2026년 5월 30일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mbf76dd0c34fa02a98416d13adcae86e2)
 
-* 발표자 - TBD
-* **Chapter 4. 사업체 설정 (Setting Up Your Business)**
-    * 리테일 vs 프로프라이어터리 트레이딩 비교
-    * 법인 설립 (LLC, S-Corp) 및 브로커 선택 기준
-    * 물리적 인프라와 자본 배분 전략
-* 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/11_chapter_4_setting_up_your_business_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_4_setting_up_your_business/ch4_audio.mp3)
-
-
-#### **2026년 6월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m3bd1c47fb1095f51939fcfac220d38ab)
-
 * 발표자 - s종훈
 * **Chapter 5. 실행 시스템 (Execution Systems)**
     * 자동 매매 시스템(ATS) 아키텍처: 반자동 vs 완전자동
@@ -72,9 +62,9 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/12_chapter_5_execution_systems_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_5_execution_systems/ch5_audio.mp3)
 
 
-#### **2026년 6월 27일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m9e14685ad10ac697b11d657df7297a6a)
+#### **2026년 6월 13일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m3bd1c47fb1095f51939fcfac220d38ab)
 
-* 발표자 - TBD
+* 발표자 - 태호
 * **Chapter 6. 자금 및 리스크 관리 (Money and Risk Management)**
     * Kelly 공식을 통한 최적 레버리지 산출 ($F^* = C^{-1}M$)
     * Half-Kelly 배팅의 강건성과 실무 적용
@@ -82,13 +72,23 @@
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/13_chapter_6_money_and_risk_management_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/ch6_audio.mp3) · [분석 노트북](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/src/chapter6_full_report.ipynb) · [분석 리포트](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_6_money_and_risk_management/src/reports/chapter6_report.md)
 
 
+#### **2026년 6월 27일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m9e14685ad10ac697b11d657df7297a6a)
+
+* 발표자 - 원미
+* **Chapter 7. 특수 주제 Part 1 (Special Topics in Quantitative Trading — Part 1)** — 통계적 기반 (pp. 1\~28)
+    * 평균회귀 vs 모멘텀 전략·레짐 전환과 조건부 파라미터 최적화(CPO): ML로 GLD ETF Sharpe 1.95 → 2.33 개선 (Example 7.1, pp. 1\~9)
+    * 정상성·공적분 검정과 페어 트레이딩: GLD–GDX 공적분 쌍 식별, KO–PEP는 상관계수 0.48이지만 공적분 실패 (Examples 7.2–7.3, pp. 10\~20)
+    * Fama-French 팩터 모델과 PCA 통계적 팩터 기반 롱–숏 포트폴리오 설계 (Example 7.4, pp. 21\~28)
+* 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/14_chapter_7_special_topics_in_quantitative_trading_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_audio.mp3) · [분석 노트북](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/src/chapter7_full_report.ipynb) · [분석 리포트](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/src/reports/chapter7_analysis_report.md)
+
+
 #### **2026년 7월 11일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mab002b1ad25c228de9b289ac98cdbd6e)
 
 * 발표자 - HY
-* **Chapter 7. 특수 주제 (Special Topics in Quantitative Trading)**
-    * 공적분(Cointegration)과 상관관계의 구분
-    * PCA 팩터 모델과 롱/숏 포트폴리오 구성
-    * 계절성 전략 (1월 효과, 연간 모멘텀)
+* **Chapter 7. 특수 주제 Part 2 (Special Topics in Quantitative Trading — Part 2)** — 실전 응용 (pp. 29\~44)
+    * 청산 전략과 Ornstein-Uhlenbeck 반감기(Half-Life) 추정: GLD–GDX 반감기 약 10일 (Example 7.5, pp. 29\~33)
+    * 계절성 거래 백테스트: 주식 1월 효과·연간 모멘텀 수익성 약화 vs 가솔린·천연가스 선물 계절성은 여전히 유효 (Examples 7.6–7.7, pp. 33\~41)
+    * 고빈도 거래(HFT)의 Sharpe 특성과 저베타 고레버리지 vs 고베타 포트폴리오 선택 (pp. 41\~44)
 * 자료: [한국어 해설](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/14_chapter_7_special_topics_in_quantitative_trading_ko.md) · [슬라이드](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_slides.pdf) · [동영상](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_video.mp4) · [오디오](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/ch7_audio.mp3) · [분석 노트북](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/src/chapter7_full_report.ipynb) · [분석 리포트](source/Chan%20E.%20Quantitative%20Trading...Build...Trading%20Business%202ed%202021/chapter_7_special_topics_in_quantitative_trading/src/reports/chapter7_analysis_report.md)
 
 ---
