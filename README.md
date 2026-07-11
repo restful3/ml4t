@@ -28,7 +28,7 @@
 
 #### **2026년 7월 25일**: [Webex](#)
 
-* 발표자 - 박찬희
+* 발표자 - 정훈
 * **Chapter 1. 알고리즘 트레이딩의 기초 (The Basics of Algorithmic Trading)** — pp. 1–26
     * 과거·실시간 시장 데이터와 백테스팅·트레이딩 플랫폼
     * 브로커 선택과 성과 지표(performance metrics)
@@ -68,7 +68,7 @@
 
 #### **2026년 9월 19일**: [Webex](#)
 
-* 발표자 - 추후 확정
+* 발표자 - 핀조이
 * **Chapter 5. 옵션 전략 (Options Strategies)** — pp. 119–158
     * 옵션 없이 변동성 거래하기와 변동성 예측
     * 이벤트 드리븐 전략과 감마 스캘핑(gamma scalping)
