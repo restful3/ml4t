@@ -1,0 +1,197 @@
+{
+  "name": "Factor Models",
+  "children": [
+    {
+      "name": "Core Concepts",
+      "children": [
+        {
+          "name": "Factor Risk",
+          "children": [
+            {
+              "name": "Undiversifiable risk"
+            },
+            {
+              "name": "Systematic exposure"
+            },
+            {
+              "name": "Serially and cross-sectionally correlated"
+            }
+          ]
+        },
+        {
+          "name": "Alpha",
+          "children": [
+            {
+              "name": "Returns not associated with factor risk"
+            },
+            {
+              "name": "Diversifiable via white noise reduction"
+            },
+            {
+              "name": "Limited capacity and hard to find"
+            }
+          ]
+        },
+        {
+          "name": "Smart Beta",
+          "children": [
+            {
+              "name": "Regression coefficients for factors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Time-series Factors",
+      "children": [
+        {
+          "name": "Definition",
+          "children": [
+            {
+              "name": "Vary over time, not across assets"
+            }
+          ]
+        },
+        {
+          "name": "Fama-French Factors",
+          "children": [
+            {
+              "name": "Market Return (Excess market return)"
+            },
+            {
+              "name": "HML (High Minus Low/Value)"
+            },
+            {
+              "name": "SMB (Small Minus Big/Size)"
+            }
+          ]
+        },
+        {
+          "name": "UMD/WML",
+          "children": [
+            {
+              "name": "Momentum factor (Winners minus Losers)"
+            }
+          ]
+        },
+        {
+          "name": "Macroeconomic Factors",
+          "children": [
+            {
+              "name": "GDP growth"
+            },
+            {
+              "name": "Consumer Price Index change"
+            },
+            {
+              "name": "Volatility (VIX) change"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cross-sectional Factors",
+      "children": [
+        {
+          "name": "Definition",
+          "children": [
+            {
+              "name": "Vary across stocks/assets"
+            }
+          ]
+        },
+        {
+          "name": "Fundamental Factors",
+          "children": [
+            {
+              "name": "ROE (Return on Equity)"
+            },
+            {
+              "name": "BM (Book-to-Market ratio)"
+            },
+            {
+              "name": "P/E Ratio"
+            },
+            {
+              "name": "Gross Margin"
+            }
+          ]
+        },
+        {
+          "name": "Options-Implied Factors",
+          "children": [
+            {
+              "name": "Implied Moments (Vol, Skew, Kurtosis)"
+            },
+            {
+              "name": "Put-Call Implied Volatility (VS)"
+            },
+            {
+              "name": "Volatility Smirk/Skew"
+            }
+          ]
+        },
+        {
+          "name": "Market Microstructure",
+          "children": [
+            {
+              "name": "Short Interest (SIR and DTC)"
+            },
+            {
+              "name": "Liquidity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Statistical Factors",
+      "children": [
+        {
+          "name": "Principal Component Analysis (PCA)"
+        },
+        {
+          "name": "Derived from covariance matrix"
+        },
+        {
+          "name": "Unobservable directly"
+        },
+        {
+          "name": "Effective for short-term and FX trading"
+        }
+      ]
+    },
+    {
+      "name": "Model Implementation",
+      "children": [
+        {
+          "name": "Descriptive vs Predictive",
+          "children": [
+            {
+              "name": "Contemporaneous for risk management"
+            },
+            {
+              "name": "Lagged factors for return prediction"
+            }
+          ]
+        },
+        {
+          "name": "Methodologies",
+          "children": [
+            {
+              "name": "Linear Regression (Least squares fit)"
+            },
+            {
+              "name": "Ranking/Multi-sorting (Robust to outliers)"
+            },
+            {
+              "name": "Stepwise regression (Collinearity reduction)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

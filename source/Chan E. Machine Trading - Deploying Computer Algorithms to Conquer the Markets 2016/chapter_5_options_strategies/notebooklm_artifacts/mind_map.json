@@ -1,0 +1,207 @@
+{
+  "name": "Options Strategies",
+  "children": [
+    {
+      "name": "Trading Volatility without Options",
+      "children": [
+        {
+          "name": "Shorting Volatility",
+          "children": [
+            {
+              "name": "Insurance Industry Analogy"
+            },
+            {
+              "name": "Decaying Time Value"
+            },
+            {
+              "name": "Front VX Futures Rolling"
+            },
+            {
+              "name": "Kelly-optimal Leverage"
+            }
+          ]
+        },
+        {
+          "name": "Hedged Volatility Strategies",
+          "children": [
+            {
+              "name": "VX and ES Futures"
+            },
+            {
+              "name": "XIV and SPY Pair"
+            },
+            {
+              "name": "Kalman Filter Hedge Ratio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Predicting Volatility",
+      "children": [
+        {
+          "name": "GARCH Model",
+          "children": [
+            {
+              "name": "Log Returns Variance"
+            },
+            {
+              "name": "Maximum Likelihood Estimation"
+            },
+            {
+              "name": "BIC Model Selection"
+            }
+          ]
+        },
+        {
+          "name": "Realized vs Implied Volatility",
+          "children": [
+            {
+              "name": "Negative Correlation (VXX vs Realized)"
+            },
+            {
+              "name": "RV(t+1) - RV(t) Strategy"
+            },
+            {
+              "name": "RV(t+1) - VIX(t) Strategy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Event-Driven Strategies",
+      "children": [
+        {
+          "name": "Market Reports",
+          "children": [
+            {
+              "name": "Weekly Petroleum Status Report"
+            },
+            {
+              "name": "API Weekly Statistical Bulletin"
+            },
+            {
+              "name": "US Employment Report"
+            }
+          ]
+        },
+        {
+          "name": "Execution Challenges",
+          "children": [
+            {
+              "name": "Bid-Ask Spread Costs"
+            },
+            {
+              "name": "Straddle/Strangle Limits"
+            },
+            {
+              "name": "Midprice Entry vs Market Exit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamma Scalping",
+      "children": [
+        {
+          "name": "Core Concept",
+          "children": [
+            {
+              "name": "Long Straddle/Strangle Hedge"
+            },
+            {
+              "name": "Mean Reversion in Underlying"
+            },
+            {
+              "name": "Delta Neutralization"
+            }
+          ]
+        },
+        {
+          "name": "Implementation",
+          "children": [
+            {
+              "name": "Path-Dependent Profits"
+            },
+            {
+              "name": "Limit Price Levels"
+            },
+            {
+              "name": "Negative Theta Drag"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dispersion Trading",
+      "children": [
+        {
+          "name": "Correlation Trading",
+          "children": [
+            {
+              "name": "Short Index Option"
+            },
+            {
+              "name": "Long Stock Option Components"
+            },
+            {
+              "name": "Shorting Implied Correlation"
+            }
+          ]
+        },
+        {
+          "name": "Portfolio Management",
+          "children": [
+            {
+              "name": "Vega-Neutral Weighting"
+            },
+            {
+              "name": "Theta-Neutral Adjustments"
+            },
+            {
+              "name": "Survivorship-Bias-Free Data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cross-Sectional Mean Reversion",
+      "children": [
+        {
+          "name": "Implied Volatility Cheapness"
+        },
+        {
+          "name": "Long Low-IV Calls"
+        },
+        {
+          "name": "Short High-IV Puts"
+        },
+        {
+          "name": "Embedded Leverage Risks"
+        }
+      ]
+    },
+    {
+      "name": "Key Option Concepts",
+      "children": [
+        {
+          "name": "Greeks: Delta, Gamma, Theta, Vega"
+        },
+        {
+          "name": "Moneyness: ATM, OTM, ITM"
+        },
+        {
+          "name": "Tenor: Time-to-Expiration"
+        },
+        {
+          "name": "Put-Call Parity"
+        }
+      ]
+    }
+  ]
+}

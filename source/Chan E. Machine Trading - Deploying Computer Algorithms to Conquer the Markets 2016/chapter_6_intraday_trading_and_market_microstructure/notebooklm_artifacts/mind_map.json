@@ -1,0 +1,192 @@
+{
+  "name": "Intraday Trading and Market Microstructure",
+  "children": [
+    {
+      "name": "Advantages of Intraday Trading",
+      "children": [
+        {
+          "name": "Higher Sharpe Ratio"
+        },
+        {
+          "name": "Law of Large Numbers"
+        },
+        {
+          "name": "Higher Kelly Leverage"
+        },
+        {
+          "name": "Reduced Black Swan Risk"
+        }
+      ]
+    },
+    {
+      "name": "Latency Reduction",
+      "children": [
+        {
+          "name": "Types of Latency",
+          "children": [
+            {
+              "name": "Order Submission"
+            },
+            {
+              "name": "Order Status"
+            },
+            {
+              "name": "Market Data"
+            },
+            {
+              "name": "Computational"
+            }
+          ]
+        },
+        {
+          "name": "Reduction Methods",
+          "children": [
+            {
+              "name": "Colocation (Equinix NY4/NJ1)"
+            },
+            {
+              "name": "Direct Sponsored Access"
+            },
+            {
+              "name": "Compiled Languages (C++, Java)"
+            },
+            {
+              "name": "Fast Market Data Feeds (Nasdaq ITCH)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Order Types and Routing",
+      "children": [
+        {
+          "name": "Liquidity Providing (Mean Reversion)",
+          "children": [
+            {
+              "name": "Limit Orders"
+            },
+            {
+              "name": "Hide-and-Light Orders"
+            },
+            {
+              "name": "Intermarket Sweep Order (ISO)"
+            },
+            {
+              "name": "Exchange Rebates (Makers)"
+            }
+          ]
+        },
+        {
+          "name": "Liquidity Taking (Momentum)",
+          "children": [
+            {
+              "name": "Market Orders"
+            },
+            {
+              "name": "ISO for Walking the Book"
+            },
+            {
+              "name": "Immediate-or-Cancel (IOC) Modifier"
+            }
+          ]
+        },
+        {
+          "name": "Dark Pools",
+          "children": [
+            {
+              "name": "NBBO Midprice Execution"
+            },
+            {
+              "name": "Reduced Information Leakage"
+            },
+            {
+              "name": "Risks of Gaming/Spoofing"
+            },
+            {
+              "name": "IEX 350ms Delay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Market Microstructure Challenges",
+      "children": [
+        {
+          "name": "Adverse Selection",
+          "children": [
+            {
+              "name": "Informed vs. Uninformed Traders"
+            },
+            {
+              "name": "Toxic Order Flow"
+            },
+            {
+              "name": "Last Look Feature (FX)"
+            }
+          ]
+        },
+        {
+          "name": "Transaction Costs",
+          "children": [
+            {
+              "name": "Bid-Offer Spread"
+            },
+            {
+              "name": "Slippage"
+            },
+            {
+              "name": "Market Impact"
+            },
+            {
+              "name": "Opportunity Cost"
+            }
+          ]
+        },
+        {
+          "name": "Market Fragmentation (Reg NMS)"
+        }
+      ]
+    },
+    {
+      "name": "Backtesting Intraday Strategies",
+      "children": [
+        {
+          "name": "Level 2 Quote Data"
+        },
+        {
+          "name": "Historical Order Book (ITCH)"
+        },
+        {
+          "name": "Primary Exchange vs. Consolidated Prices"
+        },
+        {
+          "name": "Implied Quotes (Futures)"
+        }
+      ]
+    },
+    {
+      "name": "Predictive Indicators",
+      "children": [
+        {
+          "name": "Order Flow",
+          "children": [
+            {
+              "name": "Aggressor Side Tags"
+            },
+            {
+              "name": "Bulk Volume Classification (BVC)"
+            },
+            {
+              "name": "Lee-Ready Algorithm"
+            }
+          ]
+        },
+        {
+          "name": "Order Book Imbalance (Bid-Offer Ratio)"
+        }
+      ]
+    }
+  ]
+}

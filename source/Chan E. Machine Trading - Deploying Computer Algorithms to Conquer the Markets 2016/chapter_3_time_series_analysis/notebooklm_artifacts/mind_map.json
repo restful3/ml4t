@@ -1,0 +1,126 @@
+{
+  "name": "Time-Series Analysis",
+  "children": [
+    {
+      "name": "Linear Modeling Techniques",
+      "children": [
+        {
+          "name": "Autoregressive (AR)",
+          "children": [
+            {
+              "name": "AR(1) Model"
+            },
+            {
+              "name": "AR(p) Generalization"
+            },
+            {
+              "name": "Bayesian Information Criterion (BIC)"
+            }
+          ]
+        },
+        {
+          "name": "ARMA(p, q)",
+          "children": [
+            {
+              "name": "Moving Average Terms"
+            },
+            {
+              "name": "Optimization of p and q"
+            }
+          ]
+        },
+        {
+          "name": "ARIMA(p, d, q)",
+          "children": [
+            {
+              "name": "Integrated Component"
+            },
+            {
+              "name": "Modeling Log Returns"
+            }
+          ]
+        },
+        {
+          "name": "Vector Autoregressive (VAR)",
+          "children": [
+            {
+              "name": "Multivariate Generalization"
+            },
+            {
+              "name": "Sector-Neutral Trading"
+            }
+          ]
+        },
+        {
+          "name": "Vector Error Correction (VEC)",
+          "children": [
+            {
+              "name": "Error Correction Matrix"
+            },
+            {
+              "name": "Cointegration Relationship"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "State Space Models (SSM)",
+      "children": [
+        {
+          "name": "Kalman Filter",
+          "children": [
+            {
+              "name": "State Transition Equation"
+            },
+            {
+              "name": "Measurement Equation"
+            },
+            {
+              "name": "Hidden Variables"
+            }
+          ]
+        },
+        {
+          "name": "Applications",
+          "children": [
+            {
+              "name": "Moving Average Estimation"
+            },
+            {
+              "name": "Hedge Ratio Calculation"
+            },
+            {
+              "name": "Slope Tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Implementation Tools",
+      "children": [
+        {
+          "name": "MATLAB Econometrics Toolbox"
+        },
+        {
+          "name": "R Packages (forecast, vars, dlm)"
+        }
+      ]
+    },
+    {
+      "name": "Key Challenges",
+      "children": [
+        {
+          "name": "Overfitting Risk"
+        },
+        {
+          "name": "Parameter Constraints"
+        },
+        {
+          "name": "Low Latency Execution"
+        }
+      ]
+    }
+  ]
+}

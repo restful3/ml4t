@@ -1,0 +1,151 @@
+{
+  "name": "Artificial Intelligence Techniques in Trading",
+  "children": [
+    {
+      "name": "Methodology Approaches",
+      "children": [
+        {
+          "name": "Theoretical Physicist (Quant)",
+          "children": [
+            {
+              "name": "Hypothesis driven"
+            },
+            {
+              "name": "Exploit market inefficiencies"
+            }
+          ]
+        },
+        {
+          "name": "Experimental Physicist (AI)",
+          "children": [
+            {
+              "name": "Data mining"
+            },
+            {
+              "name": "Algorithmic exploration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Supervised Learning Models",
+      "children": [
+        {
+          "name": "Linear Models",
+          "children": [
+            {
+              "name": "Stepwise Regression"
+            },
+            {
+              "name": "Regression Tree"
+            },
+            {
+              "name": "Classification Tree"
+            },
+            {
+              "name": "Support Vector Machine (SVM)"
+            }
+          ]
+        },
+        {
+          "name": "Non-linear Models",
+          "children": [
+            {
+              "name": "Neural Networks"
+            },
+            {
+              "name": "Feed forward networks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unsupervised Learning Models",
+      "children": [
+        {
+          "name": "Hidden Markov Model (HMM)",
+          "children": [
+            {
+              "name": "Hidden states (Bull/Bear)"
+            },
+            {
+              "name": "Transition matrix"
+            },
+            {
+              "name": "Emission matrix"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Techniques to Reduce Overfitting",
+      "children": [
+        {
+          "name": "Cross Validation"
+        },
+        {
+          "name": "Bagging (Bootstrapping)"
+        },
+        {
+          "name": "Random Subspace"
+        },
+        {
+          "name": "Random Forest"
+        },
+        {
+          "name": "Boosting (LSBoost)"
+        }
+      ]
+    },
+    {
+      "name": "Practical Applications",
+      "children": [
+        {
+          "name": "ETF Prediction (SPY)",
+          "children": [
+            {
+              "name": "Technical indicators"
+            },
+            {
+              "name": "Past returns lookbacks"
+            }
+          ]
+        },
+        {
+          "name": "Stock Selection (SPX)",
+          "children": [
+            {
+              "name": "Fundamental factor discovery"
+            },
+            {
+              "name": "Data normalization"
+            },
+            {
+              "name": "Aggregation of stock data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Key Challenges",
+      "children": [
+        {
+          "name": "Data non-stationarity"
+        },
+        {
+          "name": "Black-box nature"
+        },
+        {
+          "name": "Feature selection"
+        },
+        {
+          "name": "Small financial datasets"
+        }
+      ]
+    }
+  ]
+}

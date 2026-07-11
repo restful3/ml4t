@@ -187,3 +187,10 @@ source/kaggle/**/submissions/
 *.h5
 *.hdf5
 .tokensave
+
+# NotebookLM: keep lightweight study assets in Git; retain large media locally.
+**/notebooklm_artifacts/*.m4a
+**/notebooklm_artifacts/*.mp4
+**/notebooklm_artifacts/*.pdf
+**/notebooklm_artifacts/*.pptx
+!**/notebooklm_artifacts/*.csv

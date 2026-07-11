@@ -1,0 +1,125 @@
+{
+  "name": "Basics of Algorithmic Trading",
+  "children": [
+    {
+      "name": "Market Data",
+      "children": [
+        {
+          "name": "Historical Data",
+          "children": [
+            {
+              "name": "Stocks & Futures (CSI, Quandl, CRSP)"
+            },
+            {
+              "name": "Options (ORATS, ivolatility, Option Metrics)"
+            },
+            {
+              "name": "Fundamental (Compustat, IBES, Estimize)"
+            },
+            {
+              "name": "News & Sentiment (Ravenpack, Accern)"
+            }
+          ]
+        },
+        {
+          "name": "Live Data",
+          "children": [
+            {
+              "name": "Low Latency (S&P Capital IQ, SR Labs)"
+            },
+            {
+              "name": "Medium Latency (eSignal, IQFeed, Bloomberg)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Software Platforms",
+      "children": [
+        {
+          "name": "Scripting Languages",
+          "children": [
+            {
+              "name": "MATLAB (Toolboxes, Trading Toolbox)"
+            },
+            {
+              "name": "Python (Pandas, Scipy, IDEs like PyCharm)"
+            },
+            {
+              "name": "R (Academic focus, RStudio)"
+            }
+          ]
+        },
+        {
+          "name": "Integrated Platforms",
+          "children": [
+            {
+              "name": "Quantopian"
+            },
+            {
+              "name": "QuantConnect"
+            },
+            {
+              "name": "Ninjatrader"
+            }
+          ]
+        },
+        {
+          "name": "Production Languages (C#, C++, Java)"
+        }
+      ]
+    },
+    {
+      "name": "Brokers",
+      "children": [
+        {
+          "name": "Connectivity (Broker APIs)"
+        },
+        {
+          "name": "Cost Transparency (Commissions vs Spreads)"
+        },
+        {
+          "name": "Safety (SIPC Insurance, Financial Stability)"
+        },
+        {
+          "name": "Risks (Settlement risk, Negative equity liability)"
+        }
+      ]
+    },
+    {
+      "name": "Performance Metrics",
+      "children": [
+        {
+          "name": "CAGR (Compounded growth)"
+        },
+        {
+          "name": "Sharpe Ratio (Risk-adjusted return)"
+        },
+        {
+          "name": "Max Drawdown (Tail risk measure)"
+        },
+        {
+          "name": "Calmar Ratio (CAGR / Max Drawdown)"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio Optimization",
+      "children": [
+        {
+          "name": "Kelly Formula (Optimal leverage)"
+        },
+        {
+          "name": "Markowitz (Efficient frontier, Tangency portfolio)"
+        },
+        {
+          "name": "Minimum Variance Portfolio"
+        },
+        {
+          "name": "Risk Parity (Targeting equal volatility)"
+        }
+      ]
+    }
+  ]
+}

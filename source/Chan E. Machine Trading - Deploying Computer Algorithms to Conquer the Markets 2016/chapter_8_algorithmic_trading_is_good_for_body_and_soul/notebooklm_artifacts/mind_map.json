@@ -1,0 +1,160 @@
+{
+  "name": "Algorithmic Trading Benefits",
+  "children": [
+    {
+      "name": "Personal Health and Well-being",
+      "children": [
+        {
+          "name": "Independence from Bosses",
+          "children": [
+            {
+              "name": "Avoid bad bosses"
+            },
+            {
+              "name": "Eliminate workplace unhappiness"
+            }
+          ]
+        },
+        {
+          "name": "Home Office Advantages",
+          "children": [
+            {
+              "name": "No commute stress"
+            },
+            {
+              "name": "Regular physical activity"
+            },
+            {
+              "name": "Pet companionship"
+            },
+            {
+              "name": "Comfortable environment"
+            }
+          ]
+        },
+        {
+          "name": "Emotional stability through diversification"
+        }
+      ]
+    },
+    {
+      "name": "Intellectual and Career Growth",
+      "children": [
+        {
+          "name": "Creative Research",
+          "children": [
+            {
+              "name": "No bureaucracy"
+            },
+            {
+              "name": "No permission needed"
+            },
+            {
+              "name": "Lifetime opportunity"
+            }
+          ]
+        },
+        {
+          "name": "Career Antifragility",
+          "children": [
+            {
+              "name": "Reduced tail risk"
+            },
+            {
+              "name": "Diversified income streams"
+            },
+            {
+              "name": "Synergy with teaching and writing"
+            }
+          ]
+        },
+        {
+          "name": "Scalability of intellect"
+        }
+      ]
+    },
+    {
+      "name": "Societal Benefits",
+      "children": [
+        {
+          "name": "Providing market liquidity"
+        },
+        {
+          "name": "Wholesale counterparty services"
+        },
+        {
+          "name": "Job creation and mentoring"
+        },
+        {
+          "name": "Ethical investment management"
+        }
+      ]
+    },
+    {
+      "name": "Strategy Management",
+      "children": [
+        {
+          "name": "Survival Tactics",
+          "children": [
+            {
+              "name": "Continuous innovation"
+            },
+            {
+              "name": "Diversified portfolios"
+            },
+            {
+              "name": "Adapting to market changes"
+            }
+          ]
+        },
+        {
+          "name": "New Trends",
+          "children": [
+            {
+              "name": "Unconventional data sources"
+            },
+            {
+              "name": "Machine learning"
+            },
+            {
+              "name": "Real-time news sentiment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Business Development",
+      "children": [
+        {
+          "name": "Fundraising Methods",
+          "children": [
+            {
+              "name": "Capital introduction services"
+            },
+            {
+              "name": "Trading competitions"
+            },
+            {
+              "name": "Content marketing (blogs/books)"
+            }
+          ]
+        },
+        {
+          "name": "Operational Structures",
+          "children": [
+            {
+              "name": "Managed separate accounts"
+            },
+            {
+              "name": "Hedge funds and pools"
+            },
+            {
+              "name": "Online collaboration tools"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "name": "Bitcoins and Quantitative Analysis",
+  "children": [
+    {
+      "name": "Market Characteristics",
+      "children": [
+        {
+          "name": "Trading Features",
+          "children": [
+            {
+              "name": "24/7 Market"
+            },
+            {
+              "name": "Base and Quote Currencies"
+            },
+            {
+              "name": "BTC.USD and BTC.CNY Pairs"
+            },
+            {
+              "name": "Global Exchanges"
+            }
+          ]
+        },
+        {
+          "name": "Risk Factors",
+          "children": [
+            {
+              "name": "High Volatility"
+            },
+            {
+              "name": "High Kurtosis"
+            },
+            {
+              "name": "Market Risk"
+            },
+            {
+              "name": "Credit and Exchange Risk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Time-Series Techniques",
+      "children": [
+        {
+          "name": "Models",
+          "children": [
+            {
+              "name": "AR(p) Modeling"
+            },
+            {
+              "name": "ARMA(p, q) Modeling"
+            },
+            {
+              "name": "ADF Test for Stationarity"
+            }
+          ]
+        },
+        {
+          "name": "Findings",
+          "children": [
+            {
+              "name": "Mean-Reverting Nature"
+            },
+            {
+              "name": "Predictive Power"
+            },
+            {
+              "name": "Stationary Price Series"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trading Strategies",
+      "children": [
+        {
+          "name": "Mean Reversion",
+          "children": [
+            {
+              "name": "Bollinger Bands"
+            },
+            {
+              "name": "Moving Averages"
+            },
+            {
+              "name": "Standard Deviation Bands"
+            }
+          ]
+        },
+        {
+          "name": "Order Flow Analysis",
+          "children": [
+            {
+              "name": "Signed Transaction Volume"
+            },
+            {
+              "name": "Aggressor Tags"
+            },
+            {
+              "name": "Tick Data Analysis"
+            }
+          ]
+        },
+        {
+          "name": "Arbitrage",
+          "children": [
+            {
+              "name": "Cross-Exchange Opportunities"
+            },
+            {
+              "name": "Transaction Costs"
+            },
+            {
+              "name": "Withdrawal Fees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Artificial Intelligence",
+      "children": [
+        {
+          "name": "Regression with Bagging"
+        },
+        {
+          "name": "Support Vector Machines"
+        },
+        {
+          "name": "Feedforward Neural Networks"
+        }
+      ]
+    }
+  ]
+}
