@@ -1,0 +1,148 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap2%20Factor%20Models.zip",
+  "archive_sha256": "9a8f4c1620a80c1f6f031703ef5e0bc3f75cccf6cda1a85fd29f3cc8f956c046",
+  "archive_size_bytes": 28234853,
+  "members": [
+    {
+      "archive_path": "Chap2 Factor Models/crossSectional_SPX.m",
+      "destination": "chapter_2_factor_models/original_matlab/crossSectional_SPX.m",
+      "sha256": "83a4890e461afe6a7f441d2093d6ec21b3b9b14eec1d68fb47bb9d7c70bf6544",
+      "size_bytes": 8919,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/crossSectional_SPX2.m",
+      "destination": "chapter_2_factor_models/original_matlab/crossSectional_SPX2.m",
+      "sha256": "6d58d5d652fab5c6db5f66fba397a388f171dea7bca5333880f1c4530c0a3ddb",
+      "size_bytes": 16665,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/FamaFrenchFactors.m",
+      "destination": "chapter_2_factor_models/original_matlab/FamaFrenchFactors.m",
+      "sha256": "ade06b7bf44de1cb751da29a3ee6cc3a79b6ab9cfbe77eda08dc6c576e5b1c0e",
+      "size_bytes": 2705,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/FamaFrenchFactors_predictive.m",
+      "destination": "chapter_2_factor_models/original_matlab/FamaFrenchFactors_predictive.m",
+      "sha256": "a8d10774141a9ee95e10195fbdbe8c61fa05c445de884619131b7da2451edf01",
+      "size_bytes": 2687,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/F-F_Research_Data_Factors_daily.CSV",
+      "destination": "data/raw/book3/chapter_2/F-F_Research_Data_Factors_daily.CSV",
+      "sha256": "864738f814d3268ab41cb208b4fc974edf37626b63227963eec2a89f34477fd0",
+      "size_bytes": 1086592,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/fundamentalData.mat",
+      "destination": "data/raw/book3/chapter_2/fundamentalData.mat",
+      "sha256": "72e1e59bbab7a75e263684aa053794a523a161e5f8d2f64cb9a30919b71672ac",
+      "size_bytes": 11882293,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/fundamentals.mat",
+      "destination": "data/raw/book3/chapter_2/fundamentals.mat",
+      "sha256": "211bb40db1253d656b356e79203920f7c0b17a4102ab5236af33314d86a306c2",
+      "size_bytes": 22896962,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/impliedSkewKurtVol.m",
+      "destination": "chapter_2_factor_models/original_matlab/impliedSkewKurtVol.m",
+      "sha256": "6026bd910627fbb0d81701723066f197bc37b2696eb23029118aedfcaa24fd11",
+      "size_bytes": 3267,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/liquidity.m",
+      "destination": "chapter_2_factor_models/original_matlab/liquidity.m",
+      "sha256": "fe30ea001078a0902c6384d8b5f186b49dd161dee4363c3482cccceee70f6d32",
+      "size_bytes": 2177,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/oneFundamentalFactors.m",
+      "destination": "chapter_2_factor_models/original_matlab/oneFundamentalFactors.m",
+      "sha256": "254385e72fda5a3325da65734ad1572d765b27db12295ad84ac38773c40efa16",
+      "size_bytes": 5309,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/oneFundamentalFactors_hedged.m",
+      "destination": "chapter_2_factor_models/original_matlab/oneFundamentalFactors_hedged.m",
+      "sha256": "ba6eb0641aab43155b1095e285941ae9bc67d01c9dcfe183c54d30792a531a49",
+      "size_bytes": 5392,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/oneFundamentalFactors_marketNeutral.m",
+      "destination": "chapter_2_factor_models/original_matlab/oneFundamentalFactors_marketNeutral.m",
+      "sha256": "555e0401fec4b2b466a33eda02e570f09364186a47ca28c068b949f20a25b26b",
+      "size_bytes": 5271,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/retrieveSharesOutstanding.m",
+      "destination": "chapter_2_factor_models/original_matlab/retrieveSharesOutstanding.m",
+      "sha256": "db6517f40496dca62da0f24cae2f7e3c6f7b22d6ef395cb4d58b5eb4aeb6dc47",
+      "size_bytes": 1354,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/shortInterest_SPX.m",
+      "destination": "chapter_2_factor_models/original_matlab/shortInterest_SPX.m",
+      "sha256": "5234819f2a75c87472cf84eb325b0740257942a81da6672bea121901f1c60596",
+      "size_bytes": 3148,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/shortInterest_SPX3.m",
+      "destination": "chapter_2_factor_models/original_matlab/shortInterest_SPX3.m",
+      "sha256": "fa99e1f66a3a36ed2e795d3c744ee64907151a580360dbc791d3ccca53ac9bd2",
+      "size_bytes": 3485,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/StatisticalFactors_predictive.m",
+      "destination": "chapter_2_factor_models/original_matlab/StatisticalFactors_predictive.m",
+      "sha256": "318c7988ae457dabf13c32b81c5bac7716f7132a8b89a67ef92b03e14ebe40af",
+      "size_bytes": 2405,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/twoFundamentalFactors.m",
+      "destination": "chapter_2_factor_models/original_matlab/twoFundamentalFactors.m",
+      "sha256": "b994ed82c58ea936f0243b7809387278163f92b308d72b2944d81ce2be62992a",
+      "size_bytes": 6045,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/twoFundamentalFactors_hedged.m",
+      "destination": "chapter_2_factor_models/original_matlab/twoFundamentalFactors_hedged.m",
+      "sha256": "4ecedae62bcfba127b9efc7bdf09cc37e03521dc2a59cffa1558d5c27b57ef18",
+      "size_bytes": 6293,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/twoFundamentalFactors_marketNeutral.m",
+      "destination": "chapter_2_factor_models/original_matlab/twoFundamentalFactors_marketNeutral.m",
+      "sha256": "24263148beb5f992d5fa8eb63db68378a46b67417b0e02aabfbe44c5a4a716de",
+      "size_bytes": 6132,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap2 Factor Models/twoFundamentalFactors_olddata.m",
+      "destination": "chapter_2_factor_models/original_matlab/twoFundamentalFactors_olddata.m",
+      "sha256": "9a7dc909fac9480c29ebafc5af7e95bb7b0f0d5c5d511bac891070cf79000117",
+      "size_bytes": 7693,
+      "kind": "original_source"
+    }
+  ]
+}

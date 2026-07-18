@@ -1,0 +1,77 @@
+[project]
+name = "chan-machine-trading-experiments"
+version = "0.1.0"
+description = "Reproducible Python experiments for Ernest P. Chan's Machine Trading"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "ipykernel>=6.29,<7",
+    "matplotlib>=3.9,<4",
+    "nbclient>=0.10,<1",
+    "nbconvert>=7.16,<8",
+    "nbformat>=5.10,<6",
+    "numpy>=2.0,<3",
+    "pandas>=2.2,<4",
+    "scipy>=1.14,<2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3,<9",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.book3.chapter_1]
+title = "Chap1 Basics"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap1%20Basics.zip"
+sha256 = "b868d52328a85df8e31aad900a6c3e5669fc226f39fbb003c6123e8c6de0a239"
+size_bytes = 217588
+
+[[tool.book3.chapter_1.members]]
+archive_path = "Chap1 Basics/netVsLogRet.m"
+destination = "chapter_1_the_basics_of_algorithmic_trading/original_matlab/netVsLogRet.m"
+sha256 = "04faf2974d1a1531a47c70338a12bfbeb31117a005340ff9d7ff032eabb83fca"
+kind = "original_source"
+
+[[tool.book3.chapter_1.members]]
+archive_path = "Chap1 Basics/ef.m"
+destination = "chapter_1_the_basics_of_algorithmic_trading/original_matlab/ef.m"
+sha256 = "9f4c7b19f8689ae355133485aace9d9f39afef276ce10018521dbfc247db6414"
+kind = "original_source"
+
+[[tool.book3.chapter_1.members]]
+archive_path = "Chap1 Basics/c01f002 (Efficient frontier).fig"
+destination = "chapter_1_the_basics_of_algorithmic_trading/original_matlab/c01f002 (Efficient frontier).fig"
+sha256 = "a2eb622566042dfb43d8e43cc81251b4d652de837a760e2978a8ef8d8890a419"
+kind = "original_result"
+
+[[tool.book3.chapter_1.members]]
+archive_path = "Chap1 Basics/inputDataOHLCDaily_ETF_20150417.mat"
+destination = "data/raw/book3/chapter_1/inputDataOHLCDaily_ETF_20150417.mat"
+sha256 = "3d24e65d340774ad7088ee7019582fb6dd945f78de08d96c7bbe43f9de44ab11"
+kind = "research_data"
+
+[tool.book3.chapter_2]
+title = "Chap2 Factor Models"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap2%20Factor%20Models.zip"
+sha256 = "9a8f4c1620a80c1f6f031703ef5e0bc3f75cccf6cda1a85fd29f3cc8f956c046"
+size_bytes = 28234853
+archive_prefix = "Chap2 Factor Models"
+source_root = "chapter_2_factor_models/original_matlab"
+raw_root = "data/raw/book3/chapter_2"
+source_suffixes = [".m", ".fig"]
+
+[tool.book3.chapter_3]
+title = "Chap3 Time Series"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap3%20Time%20Series.zip"
+sha256 = "a91e58b6d044e3bedc9bf4df32fbf6d6bae61db9943b159a799825309ae1057e"
+size_bytes = 31093394
+archive_prefix = "Chap3 Time Series"
+source_root = "chapter_3_time_series_analysis/original_matlab"
+raw_root = "data/raw/book3/chapter_3"
+source_suffixes = [".m", ".fig"]

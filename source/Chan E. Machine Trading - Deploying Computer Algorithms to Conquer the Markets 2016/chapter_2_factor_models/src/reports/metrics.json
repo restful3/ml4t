@@ -1,0 +1,518 @@
+{
+  "chapter": 2,
+  "chapter_coverage": [
+    {
+      "topic": "Factor risk, alpha, and predictive regression",
+      "status": "conceptual explanation",
+      "evidence": "Sections 1–2"
+    },
+    {
+      "topic": "Example 2.1 Fama–French next-day model",
+      "status": "executed + approximate book comparison",
+      "evidence": "faithful I(end-49) bug and corrected 50/50"
+    },
+    {
+      "topic": "Example 2.2 27 cross-sectional fundamentals",
+      "status": "executed + book comparison",
+      "evidence": "quarter holding"
+    },
+    {
+      "topic": "Example 2.3 ROE/BM and ROE-only",
+      "status": "executed + book comparison",
+      "evidence": "month holding"
+    },
+    {
+      "topic": "Option-implied moments",
+      "status": "formula illustration; backtest unavailable",
+      "evidence": "archive has source but no option panel"
+    },
+    {
+      "topic": "Monthly implied-volatility change",
+      "status": "conceptual explanation",
+      "evidence": "licensed option panel absent"
+    },
+    {
+      "topic": "Put–call IV spread",
+      "status": "conceptual explanation",
+      "evidence": "licensed option panel absent"
+    },
+    {
+      "topic": "OTM put–ATM call smirk",
+      "status": "conceptual explanation",
+      "evidence": "licensed option panel absent"
+    },
+    {
+      "topic": "Market-implied-volatility change",
+      "status": "conceptual explanation",
+      "evidence": "licensed option panel absent"
+    },
+    {
+      "topic": "Short interest",
+      "status": "conceptual explanation",
+      "evidence": "short-interest panel absent"
+    },
+    {
+      "topic": "Liquidity",
+      "status": "conceptual explanation",
+      "evidence": "volume and shares-outstanding inputs absent"
+    },
+    {
+      "topic": "Example 2.5 statistical PCA factors",
+      "status": "lower-frequency executed adaptation",
+      "evidence": "21-day rebalance vs book daily"
+    },
+    {
+      "topic": "Combining factors and rank robustness",
+      "status": "conceptual explanation",
+      "evidence": "collinearity and train-only selection"
+    },
+    {
+      "topic": "Exercises and endnotes",
+      "status": "out of scope",
+      "evidence": "questions retained in chapter source"
+    }
+  ],
+  "random_seed": null,
+  "randomness_note": "No stochastic estimator; NumPy deterministic linear algebra",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap2%20Factor%20Models.zip",
+    "archive_sha256": "9a8f4c1620a80c1f6f031703ef5e0bc3f75cccf6cda1a85fd29f3cc8f956c046",
+    "extraction_manifest_sha256": "bf4d58d8c0169e2fbd82869ecd316eed50f78232c62db440fe7f6e8d37de3074",
+    "input_sha256": {
+      "F-F_Research_Data_Factors_daily.CSV": "864738f814d3268ab41cb208b4fc974edf37626b63227963eec2a89f34477fd0",
+      "fundamentalData.mat": "72e1e59bbab7a75e263684aa053794a523a161e5f8d2f64cb9a30919b71672ac",
+      "fundamentals.mat": "211bb40db1253d656b356e79203920f7c0b17a4102ab5236af33314d86a306c2"
+    },
+    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "environment": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    }
+  },
+  "data": {
+    "start_date": "2007-01-03",
+    "end_date": "2013-12-31",
+    "shape": [
+      1762,
+      743
+    ],
+    "symbols": 743,
+    "missing_prices": 430075,
+    "nonpositive_finite_prices": 0,
+    "factor_count": 27
+  },
+  "strategies": {
+    "fama_official": {
+      "name": "Fama–French official 50-short/I(end-49)-long",
+      "train": {
+        "cagr": 1.0499938771835238,
+        "sharpe": 2.470536775303797,
+        "maximum_drawdown": -0.1319378779324646,
+        "drawdown_duration": 244,
+        "cumulative_return": 11.299766318055356,
+        "mean_daily_return": 0.0030404707630305185
+      },
+      "test": {
+        "cagr": -0.0655037285802661,
+        "sharpe": -0.5979056015129931,
+        "maximum_drawdown": -0.2318184093568345,
+        "drawdown_duration": 564,
+        "cumulative_return": -0.21088870296339002,
+        "mean_daily_return": -0.0002473103479861533
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": -0.12177373971286387,
+        "sharpe": -1.1932898949450184,
+        "maximum_drawdown": -0.36814619084715516,
+        "drawdown_duration": 879,
+        "cumulative_return": -0.3648939488421967,
+        "mean_daily_return": -0.0004936436145504407
+      },
+      "metadata": {
+        "long_count": 1,
+        "short_count": 50,
+        "long_selection": "50th-highest scalar",
+        "long_rank_from_top": 50,
+        "book_source_line": "I(end-topN+1) without :end",
+        "aligned_rows": 1762
+      },
+      "coefficients": null
+    },
+    "fama_corrected": {
+      "name": "Fama–French corrected 50/50",
+      "train": {
+        "cagr": 1.094494444469173,
+        "sharpe": 5.815996323883719,
+        "maximum_drawdown": -0.02989448503416592,
+        "drawdown_duration": 31,
+        "cumulative_return": 12.25876645316993,
+        "mean_daily_return": 0.0029703179507698484
+      },
+      "test": {
+        "cagr": 0.038030480085444074,
+        "sharpe": 1.185178438235298,
+        "maximum_drawdown": -0.026671428046590173,
+        "drawdown_duration": 453,
+        "cumulative_return": 0.1393864369087372,
+        "mean_daily_return": 0.00015014692434544598
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": -0.027778065384252537,
+        "sharpe": -0.8661975644485596,
+        "maximum_drawdown": -0.12208796900837482,
+        "drawdown_duration": 455,
+        "cumulative_return": -0.09379281167554265,
+        "mean_daily_return": -0.00010976226975217041
+      },
+      "metadata": {
+        "long_count": 50,
+        "short_count": 50,
+        "long_selection": "top 50",
+        "long_rank_from_top": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50
+        ],
+        "book_source_line": "I(end-topN+1) without :end",
+        "aligned_rows": 1762
+      },
+      "coefficients": null
+    },
+    "cross27": {
+      "name": "27 fundamental factors",
+      "train": {
+        "cagr": 0.0432550307131041,
+        "sharpe": 0.3913295089596236,
+        "maximum_drawdown": -0.23188542040711435,
+        "drawdown_duration": 604,
+        "cumulative_return": 0.1595613428338145,
+        "mean_daily_return": 0.00020136950248930813
+      },
+      "test": {
+        "cagr": 0.12354882037880421,
+        "sharpe": 1.675774042068136,
+        "maximum_drawdown": -0.07612360327888479,
+        "drawdown_duration": 174,
+        "cumulative_return": 0.5026957449757823,
+        "mean_daily_return": 0.00047234982441312533
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": 0.12165628924427208,
+        "sharpe": 1.6529828180956347,
+        "maximum_drawdown": -0.07651422216159054,
+        "drawdown_duration": 174,
+        "cumulative_return": 0.49386526421634147,
+        "mean_daily_return": 0.0004656453438452371
+      },
+      "metadata": {
+        "holding_days": 63,
+        "training_observations": 3363,
+        "factor_names": [
+          "ARQ_CURRENTRATIO",
+          "ARQ_DE",
+          "ARQ_DILUTIONRATIO",
+          "ARQ_PB",
+          "ARQ_TBVPS",
+          "ART_ASSETTURNOVER",
+          "ART_EBITDAMARGIN",
+          "ART_EPSGROWTH1YR",
+          "ART_EQUITYAVG",
+          "ART_EVEBIT",
+          "ART_EVEBITDA",
+          "ART_GROSSMARGIN",
+          "ART_INTERESTBURDEN",
+          "ART_LEVERAGERATIO",
+          "ART_NCFOGROWTH1YR",
+          "ART_NETINCGROWTH1YR",
+          "ART_NETMARGIN",
+          "ART_PAYOUTRATIO",
+          "ART_PE",
+          "ART_PE1",
+          "ART_PS",
+          "ART_PS1",
+          "ART_REVENUEGROWTH1YR",
+          "ART_ROA",
+          "ART_ROE",
+          "ART_ROS",
+          "ART_TAXEFFICIENCY"
+        ]
+      },
+      "coefficients": [
+        0.4289760693283677,
+        0.012434772264507885,
+        -0.0003209358054255891,
+        -0.3955325852519799,
+        0.00022486343487795345,
+        -0.00035894519386974296,
+        -0.0017104416168850602,
+        0.12946293134418682,
+        -0.0007096920444046414,
+        -3.7096634680889916e-13,
+        1.0846153928262998e-06,
+        6.003264536119707e-05,
+        0.06454512935055297,
+        -2.0847257440696292e-05,
+        0.00011465199246138876,
+        0.0006963490379191749,
+        0.0009815701395989973,
+        0.041412022375179075,
+        0.0020208373811612702,
+        -8.429627089017568e-06,
+        -1.6861557589566767e-05,
+        0.027733246775960584,
+        -0.047934036288334786,
+        0.004264273825950463,
+        -0.3753124603679956,
+        -0.0006505588916498304,
+        -0.057922703163553434,
+        -0.0008655347590408066
+      ]
+    },
+    "roe_bm": {
+      "name": "log(BM) + log(ROE)",
+      "train": {
+        "cagr": 0.05034295116133913,
+        "sharpe": 0.37062784453837505,
+        "maximum_drawdown": -0.2594419980019115,
+        "drawdown_duration": 395,
+        "cumulative_return": 0.18733779132498074,
+        "mean_daily_return": 0.0002539244497394876
+      },
+      "test": {
+        "cagr": 0.09319916776780679,
+        "sharpe": 1.0106604354779496,
+        "maximum_drawdown": -0.12071821296557639,
+        "drawdown_duration": 349,
+        "cumulative_return": 0.3655070753826295,
+        "mean_daily_return": 0.00037056511345072684
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": 0.08600106157803022,
+        "sharpe": 0.9394806174487426,
+        "maximum_drawdown": -0.12245238461384189,
+        "drawdown_duration": 422,
+        "cumulative_return": 0.3343313525976095,
+        "mean_daily_return": 0.0003443282293094911
+      },
+      "metadata": {
+        "holding_days": 21,
+        "training_observations": 5747,
+        "factor_names": [
+          "LOG_BM",
+          "LOG_ROE"
+        ]
+      },
+      "coefficients": [
+        0.01726811103609,
+        0.010708650879957295,
+        -0.04957328464288709
+      ]
+    },
+    "roe_only": {
+      "name": "log(ROE) only",
+      "train": {
+        "cagr": 0.014004217997578339,
+        "sharpe": 0.17730289667915392,
+        "maximum_drawdown": -0.4265414256503809,
+        "drawdown_duration": 619,
+        "cumulative_return": 0.04982086038707423,
+        "mean_daily_return": 0.00016776720488716936
+      },
+      "test": {
+        "cagr": 0.20166102671547748,
+        "sharpe": 1.3050361659914276,
+        "maximum_drawdown": -0.18214332356365515,
+        "drawdown_duration": 149,
+        "cumulative_return": 0.9007295248076712,
+        "mean_daily_return": 0.000773523708870308
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": 0.19374853103498046,
+        "sharpe": 1.260971934417312,
+        "maximum_drawdown": -0.18270519924546258,
+        "drawdown_duration": 155,
+        "cumulative_return": 0.8573329606062585,
+        "mean_daily_return": 0.0007472750441527176
+      },
+      "metadata": {
+        "holding_days": 21,
+        "training_observations": 5878,
+        "factor_names": [
+          "LOG_ROE"
+        ]
+      },
+      "coefficients": [
+        0.008493098041470703,
+        -0.05276845504700395
+      ]
+    },
+    "pca": {
+      "name": "PCA 5-factor, 21-day rebalance adaptation",
+      "train": null,
+      "test": {
+        "cagr": -0.008211778640684786,
+        "sharpe": -0.023840510238908617,
+        "maximum_drawdown": -0.2119426458961411,
+        "drawdown_duration": 1232,
+        "cumulative_return": -0.04820789412245152,
+        "mean_daily_return": -1.0100033716093488e-05
+      },
+      "test_with_2bps_one_way_cost": {
+        "cagr": -0.011682554287302693,
+        "sharpe": -0.056683018645721,
+        "maximum_drawdown": -0.2124729431896456,
+        "drawdown_duration": 1232,
+        "cumulative_return": -0.06799278651457519,
+        "mean_daily_return": -2.4012616497550418e-05
+      },
+      "metadata": {
+        "lookback": 252,
+        "components": 5,
+        "rebalance_every": 21,
+        "rebalances": 72,
+        "mean_explained_variance": 0.542943479822772,
+        "reproduction_classification": "lower-frequency methodological adaptation",
+        "train_segment": "no positions (lookback covers train)"
+      },
+      "coefficients": null
+    }
+  },
+  "option_moment_formula_illustration": {
+    "implied_volatility": 0.22999999999999998,
+    "implied_skewness_proxy": -0.12,
+    "implied_kurtosis_proxy": 0.040000000000000036,
+    "atm_call": 0.22,
+    "atm_put": 0.24,
+    "otm_call": 0.19,
+    "otm_put": 0.31
+  },
+  "book_results": {
+    "fama_french_official": {
+      "train_cagr": 1.035627,
+      "train_sharpe": 2.464065,
+      "test_cagr": -0.070378,
+      "test_sharpe": -0.643982
+    },
+    "cross_sectional_27": {
+      "train_cagr": 0.043255,
+      "train_sharpe": 0.39133,
+      "test_cagr": 0.123549,
+      "test_sharpe": 1.675774
+    },
+    "roe_bm": {
+      "train_cagr": 0.050343,
+      "train_sharpe": 0.370628,
+      "test_cagr": 0.093199,
+      "test_sharpe": 1.01066
+    },
+    "roe_only": {
+      "train_cagr": 0.014004,
+      "train_sharpe": 0.177303,
+      "test_cagr": 0.201661,
+      "test_sharpe": 1.305036
+    },
+    "pca_daily_book": {
+      "cagr": 0.155643,
+      "sharpe": 1.378843
+    }
+  },
+  "verification": {
+    "checks": {
+      "archive_manifest_matches": true,
+      "fama_train_cagr_matches_book": true,
+      "fama_train_sharpe_matches_book": true,
+      "fama_test_cagr_matches_book": true,
+      "fama_test_sharpe_matches_book": true,
+      "cross27_test_metrics_match_book": true,
+      "roe_bm_test_metrics_match_book": true,
+      "roe_only_test_metrics_match_book": true,
+      "corrected_fama_is_dollar_neutral": true,
+      "official_fama_exposes_indexing_bug": true,
+      "costs_do_not_improve_corrected_fama": true,
+      "pca_starts_after_lookback": true,
+      "pca_uses_five_components": true,
+      "option_moment_formula_consistent": true,
+      "oos_split_is_chronological": true
+    },
+    "summary": {
+      "total": 15,
+      "passed": 15,
+      "independent_or_empirical": 8,
+      "contract_invariant": 7,
+      "classification": {
+        "independent_or_empirical": [
+          "archive_manifest_matches",
+          "fama_train_cagr_matches_book",
+          "fama_train_sharpe_matches_book",
+          "fama_test_cagr_matches_book",
+          "fama_test_sharpe_matches_book",
+          "cross27_test_metrics_match_book",
+          "roe_bm_test_metrics_match_book",
+          "roe_only_test_metrics_match_book"
+        ],
+        "contract_invariant": [
+          "corrected_fama_is_dollar_neutral",
+          "official_fama_exposes_indexing_bug",
+          "costs_do_not_improve_corrected_fama",
+          "pca_starts_after_lookback",
+          "pca_uses_five_components",
+          "option_moment_formula_consistent",
+          "oos_split_is_chronological"
+        ]
+      }
+    }
+  }
+}

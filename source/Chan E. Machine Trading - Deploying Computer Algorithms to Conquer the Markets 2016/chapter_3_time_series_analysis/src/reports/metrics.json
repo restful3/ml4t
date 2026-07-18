@@ -1,0 +1,700 @@
+{
+  "chapter": 3,
+  "chapter_coverage": [
+    {
+      "topic": "Why time-series models; currencies, bitcoin, stocks",
+      "status": "conceptual explanation",
+      "evidence": "chapter introduction"
+    },
+    {
+      "topic": "AR(1), weak stationarity, random walk",
+      "status": "executed + source comparison",
+      "evidence": "AUD.USD and BTC conditional AR(1)"
+    },
+    {
+      "topic": "Bid-ask bounce and midprice choice",
+      "status": "executed cost diagnostic",
+      "evidence": "AUD bid/ask market-order sensitivity"
+    },
+    {
+      "topic": "AR(p), BIC, Table 3.1",
+      "status": "executed numerical reproduction",
+      "evidence": "p=10 and full-sample coefficients"
+    },
+    {
+      "topic": "Figure 3.1 AR(10) strategy",
+      "status": "executed numerical reproduction + corrected variant",
+      "evidence": "source look-ahead and train-only split"
+    },
+    {
+      "topic": "ARMA(p,q), Table 3.2, Figure 3.2",
+      "status": "published-parameter numerical replay",
+      "evidence": "ARMA(2,5) zero-innovation forecast"
+    },
+    {
+      "topic": "ARIMA(p,d,q) and price/return equivalence",
+      "status": "formula verification + source-output comparison",
+      "evidence": "ARIMA(1,1,9)"
+    },
+    {
+      "topic": "VAR(p), BIC, Tables 3.3–3.4",
+      "status": "executed methodological adaptation",
+      "evidence": "official close panel; CRSP/Compustat inputs absent"
+    },
+    {
+      "topic": "Sector-neutral equation 3.4 and Figure 3.3",
+      "status": "executed methodological adaptation",
+      "evidence": "common close-data OOS window"
+    },
+    {
+      "topic": "VEC(q), error-correction matrix, cointegration",
+      "status": "executed identity",
+      "evidence": "C=Phi-I for VAR(1)"
+    },
+    {
+      "topic": "State-space equations 3.6–3.9",
+      "status": "executed published-parameter replay",
+      "evidence": "Kalman moving-average adaptation"
+    },
+    {
+      "topic": "Tables 3.5 and Figures 3.4–3.5",
+      "status": "approximate adaptation",
+      "evidence": "different close period; no MATLAB MLE"
+    },
+    {
+      "topic": "Dynamic EWA–EWC hedge, Tables 3.6, Figures 3.6–3.9",
+      "status": "executed published-parameter replay",
+      "evidence": "official ETF data and published B,D"
+    },
+    {
+      "topic": "HP/wavelet alternatives and regime change",
+      "status": "conceptual explanation",
+      "evidence": "limitations and alternatives"
+    },
+    {
+      "topic": "Exercises 3.1–3.8 and endnotes",
+      "status": "mapped; selected exercises executed",
+      "evidence": "stationarity, costs, VAR/VEC/Kalman extensions"
+    },
+    {
+      "topic": "BTC/MXN/HYG/SPY supporting archive scripts",
+      "status": "source preserved; cross-chapter/supporting",
+      "evidence": "not claimed as Ch3 prose examples"
+    }
+  ],
+  "random_seed": null,
+  "randomness_note": "No stochastic estimator; fixed published parameters and deterministic linear algebra",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap3%20Time%20Series.zip",
+    "archive_sha256": "a91e58b6d044e3bedc9bf4df32fbf6d6bae61db9943b159a799825309ae1057e",
+    "extraction_manifest_sha256": "7c2e1edcd24327e5705c5f0e910059bf17f18c0c5b85d666e4bd3ba2a94728b7",
+    "input_sha256": {
+      "inputData_AUDUSD_20150807.mat": "c0580fd3aff25016cdff5bdc01152364e3a0b23748241dfa5dc0795fcc85e20c",
+      "inputData_ETF.mat": "5f8dc0f05cba1bd69dc1fa3fe11b6a397c06cfd39174ba47171bd8ff66ff2065",
+      "inputDataOHLCDaily_20120424.mat": "4a62f5851de9962b72c6b135d4f4addc3cb13ff1ce28afe45defceb47c318849",
+      "Jonathan_BTCUSD_trades_daily.mat": "93e0c0fc59c8427658ebe9740f5fa09a16a55ec36a2ffdcbd81f1946d56d6513",
+      "lastSwapsBTC.csv": "10e5afead82e8fdcd4c84ea3a176781734c9deb7d9a32b01238c92eb0c9e39e8"
+    },
+    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "environment": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    }
+  },
+  "data": {
+    "audusd": {
+      "bars_after_leading_nan_trim": 2963610,
+      "train_bars": 2604510,
+      "test_bars": 359100,
+      "missing_mid": 0,
+      "nonpositive_mid": 0,
+      "mean_full_spread_bps": 1.4241146095168618
+    },
+    "btc_daily_observations": 345,
+    "hardware_close": {
+      "shape": [
+        1500,
+        5
+      ],
+      "start_date": "2006-05-11",
+      "end_date": "2012-04-24",
+      "symbols": [
+        "AAPL",
+        "EMC",
+        "HPQ",
+        "NTAP",
+        "SNDK"
+      ],
+      "missing": 0
+    },
+    "ewa_ewc": {
+      "observations": 1500,
+      "start_date": "2006-04-26",
+      "end_date": "2012-04-09",
+      "missing": 0
+    }
+  },
+  "univariate": {
+    "aud_ar1_coefficients": [
+      1.4832026487602581e-06,
+      0.9999983220431959
+    ],
+    "btc_ar1_coefficients": [
+      3.943682951319949,
+      0.9883525795504157
+    ],
+    "ar_bic_lags_1_to_60": [
+      -49157558.14226518,
+      -49157618.55392552,
+      -49157714.45308742,
+      -49157818.662644535,
+      -49157906.30788964,
+      -49157891.87696105,
+      -49157890.18292977,
+      -49157941.33037144,
+      -49157939.52072972,
+      -49157955.4228159,
+      -49157941.07918881,
+      -49157939.11161632,
+      -49157932.136612974,
+      -49157931.67389832,
+      -49157928.93210795,
+      -49157919.51794469,
+      -49157905.66276982,
+      -49157905.34519661,
+      -49157891.98077333,
+      -49157878.99638956,
+      -49157866.37733436,
+      -49157852.17763324,
+      -49157837.43417379,
+      -49157825.169106744,
+      -49157810.268256515,
+      -49157804.74496158,
+      -49157790.05476108,
+      -49157776.1635997,
+      -49157763.25278678,
+      -49157765.366551116,
+      -49157767.08853235,
+      -49157752.18759996,
+      -49157738.920682535,
+      -49157726.247587726,
+      -49157711.43468067,
+      -49157698.7174516,
+      -49157683.959447496,
+      -49157681.032872364,
+      -49157666.84872134,
+      -49157655.19356714,
+      -49157640.81092727,
+      -49157626.51836819,
+      -49157611.67858546,
+      -49157597.43320381,
+      -49157583.00692114,
+      -49157569.39941994,
+      -49157563.99873508,
+      -49157549.0987068,
+      -49157536.2561599,
+      -49157522.61685646,
+      -49157507.71501997,
+      -49157503.81641882,
+      -49157489.38077047,
+      -49157474.71515135,
+      -49157460.52032325,
+      -49157446.58858932,
+      -49157431.95190165,
+      -49157423.08126203,
+      -49157408.683587484,
+      -49157395.386538275
+    ],
+    "selected_ar_lag": 10,
+    "ar10_full_coefficients": [
+      1.3719656403060968e-06,
+      0.9934336505948017,
+      -0.00121209709935798,
+      -0.0003526965197071094,
+      0.000753194376687291,
+      0.006626426303823435,
+      -0.002241169959761439,
+      -0.0030515781733904124,
+      0.0035131721738411786,
+      -0.0015484468733617386,
+      0.004077986317924914
+    ],
+    "ar10_train_coefficients": [
+      2.164002720686382e-06,
+      0.994805923158331,
+      -0.0020876153746219165,
+      -0.0008489482020617332,
+      0.0006305465638831335,
+      0.0071941327550483596,
+      -0.002770809527250368,
+      -0.0032432833086670936,
+      0.0036382787793478727,
+      -0.0014337658961977365,
+      0.004113229926901925
+    ]
+  },
+  "strategies": {
+    "ar10_full": {
+      "name": "AR(10) source-faithful full-sample fit",
+      "train": null,
+      "test": {
+        "annual_return": 1.583647637477823,
+        "sharpe": 7.4311020956335465,
+        "maximum_drawdown": -0.07344692368848871,
+        "drawdown_duration": 44124,
+        "cumulative_return": 1.583647637477823,
+        "mean_period_return": 2.666403910020334e-06,
+        "periods_per_year": 359100
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.9996075414586081,
+        "sharpe": -59.23517498719822,
+        "maximum_drawdown": -0.9996076772217425,
+        "drawdown_duration": 359089,
+        "cumulative_return": -0.9996075414586081,
+        "mean_period_return": -2.1816336794396648e-05,
+        "periods_per_year": 359100
+      },
+      "metadata": {
+        "reproduction_grade": "numerical reproduction with diagnosed look-ahead",
+        "fit_window": "entire sample, matching original MATLAB",
+        "coefficients": [
+          1.3719656403060968e-06,
+          0.9934336505948017,
+          -0.00121209709935798,
+          -0.0003526965197071094,
+          0.000753194376687291,
+          0.006626426303823435,
+          -0.002241169959761439,
+          -0.0030515781733904124,
+          0.0035131721738411786,
+          -0.0015484468733617386,
+          0.004077986317924914
+        ],
+        "one_way_execution_cost": "observed half-spread × position turnover",
+        "test_bars": 359100,
+        "train_segment": "no positions; strategy trades only the final one-year test set"
+      }
+    },
+    "ar10_train": {
+      "name": "AR(10) chronological train-only correction",
+      "train": null,
+      "test": {
+        "annual_return": 1.402664602047356,
+        "sharpe": 6.8673989627069965,
+        "maximum_drawdown": -0.07077595899049971,
+        "drawdown_duration": 43120,
+        "cumulative_return": 1.402664602047356,
+        "mean_period_return": 2.464165433811991e-06,
+        "periods_per_year": 359100
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.9996700826498057,
+        "sharpe": -60.53954962235869,
+        "maximum_drawdown": -0.9996702421130429,
+        "drawdown_duration": 359088,
+        "cumulative_return": -0.9996700826498057,
+        "mean_period_return": -2.2299719107080185e-05,
+        "periods_per_year": 359100
+      },
+      "metadata": {
+        "reproduction_grade": "corrected out-of-sample variant",
+        "fit_window": "rows 0:2604510",
+        "coefficients": [
+          2.164002720686382e-06,
+          0.994805923158331,
+          -0.0020876153746219165,
+          -0.0008489482020617332,
+          0.0006305465638831335,
+          0.0071941327550483596,
+          -0.002770809527250368,
+          -0.0032432833086670936,
+          0.0036382787793478727,
+          -0.0014337658961977365,
+          0.004113229926901925
+        ],
+        "one_way_execution_cost": "observed half-spread × position turnover",
+        "test_bars": 359100,
+        "train_segment": "no positions; strategy trades only the final one-year test set"
+      }
+    },
+    "arma25": {
+      "name": "ARMA(2,5) published-parameter replay",
+      "train": null,
+      "test": {
+        "annual_return": 0.6007930293197177,
+        "sharpe": 3.715709548587248,
+        "maximum_drawdown": -0.16018781612043798,
+        "drawdown_duration": 152324,
+        "cumulative_return": 0.6007930293197177,
+        "mean_period_return": 1.3333357047415366e-06,
+        "periods_per_year": 359100
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.9999999761882667,
+        "sharpe": -130.76345424686934,
+        "maximum_drawdown": -0.9999999761921217,
+        "drawdown_duration": 359096,
+        "cumulative_return": -0.9999999761882667,
+        "mean_period_return": -4.885451917553181e-05,
+        "periods_per_year": 359100
+      },
+      "metadata": {
+        "reproduction_grade": "published-parameter numerical replay",
+        "forecast_semantics": "MATLAB forecast with Y0 supplied and future MA innovations set to zero",
+        "coefficients": {
+          "constant": 2.80383e-06,
+          "ar": [
+            0.649011,
+            0.350986
+          ],
+          "ma": [
+            0.345806,
+            -0.00906282,
+            -0.0106082,
+            -0.0102606,
+            -0.00251154
+          ]
+        },
+        "one_way_execution_cost": "observed half-spread × position turnover",
+        "test_bars": 359100,
+        "train_segment": "no positions; strategy trades only the final one-year test set"
+      }
+    },
+    "var": {
+      "name": "VAR close-data sector-neutral adaptation",
+      "train": null,
+      "test": {
+        "annual_return": -0.04974711247356922,
+        "sharpe": -0.27069865549938454,
+        "maximum_drawdown": -0.2068821844452109,
+        "drawdown_duration": 194,
+        "cumulative_return": -0.04974711247356922,
+        "mean_period_return": -0.00015910851085686883,
+        "periods_per_year": 252
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.05250631088028279,
+        "sharpe": -0.29032990384659213,
+        "maximum_drawdown": -0.2078475840088021,
+        "drawdown_duration": 194,
+        "cumulative_return": -0.05250631088028279,
+        "mean_period_return": -0.0001706457849259902,
+        "periods_per_year": 252
+      },
+      "metadata": {
+        "reproduction_grade": "methodological adaptation",
+        "lag": 1,
+        "fit_end_date": "2011-04-25",
+        "test_start_date": "2011-04-26",
+        "input_boundary": "Official close-only 2006–2012 panel; the book's CRSP bid/ask and Compustat industry inputs are absent",
+        "train_segment": "no positions; the original strategy trades only the test set",
+        "test_start": 1248,
+        "one_way_cost_sensitivity_bps": 2.0,
+        "mean_daily_turnover_test": 0.05773913252232096
+      }
+    },
+    "hardware_kalman": {
+      "name": "Published-parameter Kalman moving-average adaptation",
+      "train": {
+        "annual_return": 0.07901471019699358,
+        "sharpe": 0.43072751422001215,
+        "maximum_drawdown": -0.1721845888867668,
+        "drawdown_duration": 522,
+        "cumulative_return": 0.2539947853725577,
+        "mean_period_return": 0.0004195729200516076,
+        "periods_per_year": 252
+      },
+      "test": {
+        "annual_return": -0.017690006699172645,
+        "sharpe": -0.033722979623863045,
+        "maximum_drawdown": -0.33525540712327306,
+        "drawdown_duration": 267,
+        "cumulative_return": -0.05173385680035625,
+        "mean_period_return": -2.119639524742138e-05,
+        "periods_per_year": 252
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.08150228608208321,
+        "sharpe": -0.4577903884652431,
+        "maximum_drawdown": -0.36048693643197394,
+        "drawdown_duration": 295,
+        "cumulative_return": -0.22355028929927734,
+        "mean_period_return": -0.00028768652250490414,
+        "periods_per_year": 252
+      },
+      "metadata": {
+        "reproduction_grade": "published-parameter methodological adaptation",
+        "process_loading_abs": [
+          3.74,
+          0.34,
+          0.73,
+          0.67,
+          1.0
+        ],
+        "measurement_loading_abs": [
+          4.54e-05,
+          0.08,
+          0.22,
+          0.19,
+          0.15
+        ],
+        "fit_boundary": "Book parameters replayed; no MATLAB maximum-likelihood re-estimation",
+        "input_boundary": "Official close data differs from the book's CRSP midquotes",
+        "test_start": 750,
+        "one_way_cost_sensitivity_bps": 2.0,
+        "mean_daily_turnover_test": 1.331937697871604
+      }
+    },
+    "pair_kalman": {
+      "name": "Published-parameter EWA–EWC dynamic hedge",
+      "train": {
+        "annual_return": 0.0957120144185839,
+        "sharpe": 1.2424198752108893,
+        "maximum_drawdown": -0.09226992701535974,
+        "drawdown_duration": 407,
+        "cumulative_return": 0.5736453527401899,
+        "mean_period_return": 0.00037408883298251013,
+        "periods_per_year": 252
+      },
+      "test": {
+        "annual_return": -0.005262470428524901,
+        "sharpe": -0.12671441161144478,
+        "maximum_drawdown": -0.04620853470886388,
+        "drawdown_duration": 177,
+        "cumulative_return": -0.005220814006509422,
+        "mean_period_return": -1.8311940014371767e-05,
+        "periods_per_year": 252
+      },
+      "test_with_cost_sensitivity": {
+        "annual_return": -0.022977292675592453,
+        "sharpe": -0.6183456148907317,
+        "maximum_drawdown": -0.05213786151854971,
+        "drawdown_duration": 202,
+        "cumulative_return": -0.02279702787878579,
+        "mean_period_return": -8.959880477205361e-05,
+        "periods_per_year": 252
+      },
+      "metadata": {
+        "reproduction_grade": "published-parameter numerical replay",
+        "test_start": 1250,
+        "process_loading": [
+          [
+            -0.01015,
+            0.02114
+          ],
+          [
+            0.40606,
+            -0.32381
+          ]
+        ],
+        "measurement_loading": -0.07687,
+        "signal_threshold": "± one-step forecast standard deviation",
+        "state_changes": 578,
+        "one_way_cost_sensitivity_bps": 2.0
+      }
+    }
+  },
+  "multivariate": {
+    "var_bic_lags_1_to_5": [
+      -1880.2777428401885,
+      -1726.0213800009683,
+      -1572.7690914222017,
+      -1417.8826794907845,
+      -1270.6753023606414
+    ],
+    "var_coefficients": [
+      [
+        0.06893924704205065,
+        0.11897534194186653,
+        0.3453125382352737,
+        0.5225177666885421,
+        -0.07831461963345061
+      ],
+      [
+        0.9935912842038599,
+        0.0005697332675675681,
+        -0.0009066480910195351,
+        0.002080436608292824,
+        -0.000776693280721108
+      ],
+      [
+        0.12840870564130058,
+        0.9895610220633445,
+        0.016905119469958575,
+        -0.022383635019205702,
+        0.0016345979019941614
+      ],
+      [
+        -0.025632526999937705,
+        -0.0019082675849481003,
+        0.9885144067385141,
+        -0.009465420481246427,
+        0.0023928575853613514
+      ],
+      [
+        0.03089152230082648,
+        0.0003768188991357911,
+        0.003828047841450216,
+        0.9921954627204641,
+        0.015050037483103053
+      ],
+      [
+        -0.022403133413730403,
+        0.0010412290267832504,
+        -0.0031085232708851843,
+        0.004187939828447118,
+        0.9883703952790324
+      ]
+    ],
+    "var_phi": [
+      [
+        0.9935912842038599,
+        0.12840870564130058,
+        -0.025632526999937705,
+        0.03089152230082648,
+        -0.022403133413730403
+      ],
+      [
+        0.0005697332675675681,
+        0.9895610220633445,
+        -0.0019082675849481003,
+        0.0003768188991357911,
+        0.0010412290267832504
+      ],
+      [
+        -0.0009066480910195351,
+        0.016905119469958575,
+        0.9885144067385141,
+        0.003828047841450216,
+        -0.0031085232708851843
+      ],
+      [
+        0.002080436608292824,
+        -0.022383635019205702,
+        -0.009465420481246427,
+        0.9921954627204641,
+        0.004187939828447118
+      ],
+      [
+        -0.000776693280721108,
+        0.0016345979019941614,
+        0.0023928575853613514,
+        0.015050037483103053,
+        0.9883703952790324
+      ]
+    ],
+    "vec_c": [
+      [
+        -0.0064087157961401076,
+        0.12840870564130058,
+        -0.025632526999937705,
+        0.03089152230082648,
+        -0.022403133413730403
+      ],
+      [
+        0.0005697332675675681,
+        -0.010438977936655491,
+        -0.0019082675849481003,
+        0.0003768188991357911,
+        0.0010412290267832504
+      ],
+      [
+        -0.0009066480910195351,
+        0.016905119469958575,
+        -0.011485593261485905,
+        0.003828047841450216,
+        -0.0031085232708851843
+      ],
+      [
+        0.002080436608292824,
+        -0.022383635019205702,
+        -0.009465420481246427,
+        -0.007804537279535895,
+        0.004187939828447118
+      ],
+      [
+        -0.000776693280721108,
+        0.0016345979019941614,
+        0.0023928575853613514,
+        0.015050037483103053,
+        -0.011629604720967635
+      ]
+    ],
+    "hardware_kalman_mean_absolute_forecast_error_fraction": 0.018708854755416567,
+    "pair_final_beta": [
+      0.9379423947813831,
+      5.961651066994756
+    ]
+  },
+  "book_results": {
+    "aud_ar1_phi": 0.999998,
+    "btc_daily_ar1_phi": 0.989484,
+    "ar10_optimal_lag": 10,
+    "ar10_annual_return": 1.584085074291988,
+    "arma25_annual_return": 0.602164545675666,
+    "arima_log_price_order": [
+      1,
+      1,
+      9
+    ],
+    "var1_book_annual_return": 0.48,
+    "var1_book_sharpe": 0.9,
+    "ssm_hardware_train_cagr": 0.407758,
+    "ssm_hardware_train_sharpe": 1.846934,
+    "ssm_hardware_test_cagr": -0.003842,
+    "ssm_hardware_test_sharpe": 0.046716
+  },
+  "verification": {
+    "checks": {
+      "archive_manifest_matches": true,
+      "aud_ar1_phi_matches_source": true,
+      "btc_ar1_phi_matches_source": true,
+      "ar_bic_selects_book_lag_10": true,
+      "ar10_full_fit_matches_book_output": true,
+      "arma25_replay_matches_book_output": true,
+      "var_close_bic_selects_lag_1": true,
+      "ar10_coefficients_match_table_31": true,
+      "source_ar10_lookahead_detected": true,
+      "train_only_ar10_differs_from_source_fit": true,
+      "market_order_costs_do_not_improve_ar10": true,
+      "var_positions_are_sector_neutral": true,
+      "vec_matrix_equals_var_phi_minus_identity": true,
+      "kalman_pair_uses_published_noise_parameters": true,
+      "splits_are_chronological": true
+    },
+    "summary": {
+      "total": 15,
+      "passed": 15,
+      "independent_or_empirical": 8,
+      "contract_invariant": 7,
+      "classification": {
+        "independent_or_empirical": [
+          "archive_manifest_matches",
+          "aud_ar1_phi_matches_source",
+          "btc_ar1_phi_matches_source",
+          "ar_bic_selects_book_lag_10",
+          "ar10_full_fit_matches_book_output",
+          "arma25_replay_matches_book_output",
+          "var_close_bic_selects_lag_1",
+          "ar10_coefficients_match_table_31"
+        ],
+        "contract_invariant": [
+          "source_ar10_lookahead_detected",
+          "train_only_ar10_differs_from_source_fit",
+          "market_order_costs_do_not_improve_ar10",
+          "var_positions_are_sector_neutral",
+          "vec_matrix_equals_var_phi_minus_identity",
+          "kalman_pair_uses_published_noise_parameters",
+          "splits_are_chronological"
+        ]
+      }
+    }
+  }
+}

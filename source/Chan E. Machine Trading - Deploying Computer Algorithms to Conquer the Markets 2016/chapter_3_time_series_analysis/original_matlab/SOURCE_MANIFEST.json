@@ -1,0 +1,239 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap3%20Time%20Series.zip",
+  "archive_sha256": "a91e58b6d044e3bedc9bf4df32fbf6d6bae61db9943b159a799825309ae1057e",
+  "archive_size_bytes": 31093394,
+  "members": [
+    {
+      "archive_path": "Chap3 Time Series/analyzeBTCUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/analyzeBTCUSD.m",
+      "sha256": "26f46354fbbc7dbf84ee118df4a0c30c139821566057e9c3edf6c2ba8ca70163",
+      "size_bytes": 1799,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/analyzeHYG.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/analyzeHYG.m",
+      "sha256": "98292503a0ba7926c34ca88050d89faf0ce89bbcc3329ad4a31baa41bdda9bd1",
+      "size_bytes": 1860,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/analyzeSPY.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/analyzeSPY.m",
+      "sha256": "1d2909f809ae7d983662178e5880928d298cbaca563b08fa730d6fa62508c821",
+      "size_bytes": 1905,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/analyzeUSDMXN2.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/analyzeUSDMXN2.m",
+      "sha256": "6c3fcc20d55a32602bd42b0a39621d23a479041120db585e5d098fb3ed64f74f",
+      "size_bytes": 4470,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/analyzeUSDMXN3.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/analyzeUSDMXN3.m",
+      "sha256": "38300b34a0f9b812f124ca0cfdf48892dda688ae0bd3a901c1d287dab5560dbe",
+      "size_bytes": 766,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildAR1.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildAR1.m",
+      "sha256": "aac015b2b0c2bc0fd46d37bfcd88cda47bd47f1f7af156f89be6f3ccedbb8d82",
+      "size_bytes": 2390,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARIMA_AUDUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARIMA_AUDUSD.m",
+      "sha256": "ef16cf4b7c017b6e081df3907dd86cfccd135c1681ad06177a2938763bbc50cf",
+      "size_bytes": 1297,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARIMA_findPQ_AUDUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARIMA_findPQ_AUDUSD.m",
+      "sha256": "d8d653b4a0c0411b6f8a66165df74fd70113579ab7864f97aea52995ca6dc6ca",
+      "size_bytes": 5572,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARMA_AUDUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARMA_AUDUSD.m",
+      "sha256": "db754d18ed29efa5ce930ad38e19cb9502ee25043bd44051d9f64cc50589a75f",
+      "size_bytes": 2319,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARMA_findPQ_AUDUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARMA_findPQ_AUDUSD.m",
+      "sha256": "9da9806e9b415626e247ddf5f05337ec87d9def4b07f9a2f193343f41e6e709b",
+      "size_bytes": 3139,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARp_AUDUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARp_AUDUSD.m",
+      "sha256": "3281c675182df2a22ee32f23cf6eb525ebbdc577583387b76e7a162bf9ffb367",
+      "size_bytes": 2717,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARp_BTCUSD.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARp_BTCUSD.m",
+      "sha256": "051806c637ee48ae40e35c2b00044e1dadeb3b507b54df26655726b00792764f",
+      "size_bytes": 3460,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildARp_BTCUSD2.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildARp_BTCUSD2.m",
+      "sha256": "185718d95d45ac9c5df984510a865cb104ea5cc1fda10a530e2abde0304cee8f",
+      "size_bytes": 2356,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR_findP_stocks.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR_findP_stocks.m",
+      "sha256": "19ed77fe4cedf0718a65f64c0abef630143388d7ca8c24c0dc5124da7bb80e5d",
+      "size_bytes": 1667,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR1.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR1.m",
+      "sha256": "b6bff256c5077fb8fca1a22abc588420eb0a0c896d660e1af29bad5d7f99dc05",
+      "size_bytes": 4941,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR1_electricUtilities.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR1_electricUtilities.m",
+      "sha256": "66b0242da8d1400fed703df635e7abb995df5e7ff851cd24549253f792dffdf6",
+      "size_bytes": 15547,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR1_marketNeutral.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR1_marketNeutral.m",
+      "sha256": "7c32deca4aa2a65d9da903a296122f30aff5463d775704aea32dbbc52d4859b8",
+      "size_bytes": 2633,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR1_sectorNeutral.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR1_sectorNeutral.m",
+      "sha256": "975d72f5c43c180e1a0b8d269cbe556f2f67cf058e33a885ecf4fe6b0747ab99",
+      "size_bytes": 3110,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/buildVAR1_sectorNeutral_computerHardware.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/buildVAR1_sectorNeutral_computerHardware.m",
+      "sha256": "7f1b2722f857d36e803ae76c2dcef176c191b6943069120bce07086002eff516",
+      "size_bytes": 6174,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/inputData_AUDUSD_20150807.mat",
+      "destination": "data/raw/book3/chapter_3/inputData_AUDUSD_20150807.mat",
+      "sha256": "c0580fd3aff25016cdff5bdc01152364e3a0b23748241dfa5dc0795fcc85e20c",
+      "size_bytes": 20780356,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap3 Time Series/inputData_ETF.mat",
+      "destination": "data/raw/book3/chapter_3/inputData_ETF.mat",
+      "sha256": "5f8dc0f05cba1bd69dc1fa3fe11b6a397c06cfd39174ba47171bd8ff66ff2065",
+      "size_bytes": 1218621,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap3 Time Series/inputDataOHLCDaily_20120424.mat",
+      "destination": "data/raw/book3/chapter_3/inputDataOHLCDaily_20120424.mat",
+      "sha256": "4a62f5851de9962b72c6b135d4f4addc3cb13ff1ce28afe45defceb47c318849",
+      "size_bytes": 10321442,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap3 Time Series/Jonathan_BTCUSD_trades_daily.mat",
+      "destination": "data/raw/book3/chapter_3/Jonathan_BTCUSD_trades_daily.mat",
+      "sha256": "93e0c0fc59c8427658ebe9740f5fa09a16a55ec36a2ffdcbd81f1946d56d6513",
+      "size_bytes": 2019,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap3 Time Series/KF_filter.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/KF_filter.m",
+      "sha256": "2cd954e0747f75f300cfb748aadb18b0cf2f88b3666ccf79c351af9a45797f27",
+      "size_bytes": 3894,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/lastSwapsBTC.csv",
+      "destination": "data/raw/book3/chapter_3/lastSwapsBTC.csv",
+      "sha256": "10e5afead82e8fdcd4c84ea3a176781734c9deb7d9a32b01238c92eb0c9e39e8",
+      "size_bytes": 1029539,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_1MA_computerHardware.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_1MA_computerHardware.m",
+      "sha256": "bd1e5c164f8dca1783d0c81f72a1d0111f80bbfa29b0d41cff45e434b9e5ac57",
+      "size_bytes": 3844,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_beta_EWA_EWC.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_beta_EWA_EWC.m",
+      "sha256": "0806d1f51f75e041af0726297366008265046eeb25e62cccc3b6440a19994f6b",
+      "size_bytes": 6638,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_beta_EWA_EWC_Abhishek.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_beta_EWA_EWC_Abhishek.m",
+      "sha256": "265d8f38258e9fc2364d493ae805cda1e805e75cb3e087e73e161b6be14c3b1d",
+      "size_bytes": 4209,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_beta_EWA_EWC_diag.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_beta_EWA_EWC_diag.m",
+      "sha256": "2154289c3bbe5b488d33bc1be7547061f8caa1521736511a815ad64113d675e0",
+      "size_bytes": 6656,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_computerHardware.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_computerHardware.m",
+      "sha256": "2eeae69e9d66d5da8e6e0dfd17371442c2243da2a6043799e5e46f83a574335d",
+      "size_bytes": 5620,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_MA_computerHardware.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_MA_computerHardware.m",
+      "sha256": "174b2b0c182c8728bcbf0baf720c60a0e2bed06b58b28bad7aa7308c09514e97",
+      "size_bytes": 3902,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_MA_computerHardware_1noise.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_MA_computerHardware_1noise.m",
+      "sha256": "a55e8332cae1e6e562fd6268debeff0c3aabda1cdf2c09cf1f804cb4988951d0",
+      "size_bytes": 3978,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap3 Time Series/SSM_MA_computerHardware_diag.m",
+      "destination": "chapter_3_time_series_analysis/original_matlab/SSM_MA_computerHardware_diag.m",
+      "sha256": "3b87722f91ae4fc8dd42489288f7f4d153e0302b619552aa6a6d3a7b2fda4894",
+      "size_bytes": 4542,
+      "kind": "original_source"
+    }
+  ]
+}

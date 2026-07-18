@@ -1,0 +1,327 @@
+{
+  "chapter": 1,
+  "chapter_coverage": [
+    {
+      "topic": "Algorithmic trading loop",
+      "status": "conceptual explanation",
+      "evidence": "system workflow figure"
+    },
+    {
+      "topic": "Historical market data",
+      "status": "historical context",
+      "evidence": "data-quality checklist"
+    },
+    {
+      "topic": "Live data, platforms, brokers",
+      "status": "historical context",
+      "evidence": "operational checklist"
+    },
+    {
+      "topic": "Performance metrics",
+      "status": "executed formula illustration + concept",
+      "evidence": "CAGR, Sharpe, MDD/duration, Calmar/MAR, scalar Kelly"
+    },
+    {
+      "topic": "Box 1.1 net vs log returns",
+      "status": "executed and compared",
+      "evidence": "official MATLAB output"
+    },
+    {
+      "topic": "Box 1.2 efficient frontier",
+      "status": "executed and compared",
+      "evidence": "official data and weights"
+    },
+    {
+      "topic": "Box 1.3 Sharpe/Kelly",
+      "status": "executed formula diagnostic",
+      "evidence": "analytical vs long-only"
+    },
+    {
+      "topic": "Estimation risk and risk parity",
+      "status": "executed diagnostic + concept",
+      "evidence": "split samples"
+    },
+    {
+      "topic": "Exercises and endnotes",
+      "status": "out of scope",
+      "evidence": "questions retained in chapter source"
+    }
+  ],
+  "random_seed": 1,
+  "random_generator": "NumPy PCG64",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap1%20Basics.zip",
+    "archive_sha256": "b868d52328a85df8e31aad900a6c3e5669fc226f39fbb003c6123e8c6de0a239",
+    "input_archive_member": "Chap1 Basics/inputDataOHLCDaily_ETF_20150417.mat",
+    "input_sha256": "3d24e65d340774ad7088ee7019582fb6dd945f78de08d96c7bbe43f9de44ab11",
+    "pyproject_sha256": "aa9e1978fac90e37df584eb8fcebdf34186b824dfab5301d2b3ce828f0f4d481",
+    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "environment": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    }
+  },
+  "data": {
+    "path": "data/raw/book3/chapter_1/inputDataOHLCDaily_ETF_20150417.mat",
+    "start_date": "2005-05-12",
+    "end_date": "2015-04-17",
+    "price_observations": 2500,
+    "return_observations": 2499,
+    "symbols": [
+      "EWC",
+      "EWG",
+      "EWJ",
+      "EWQ",
+      "EWU",
+      "EWY"
+    ],
+    "excluded_symbols": [
+      "EWZ",
+      "FXI"
+    ],
+    "excluded_symbol_diagnostics": {
+      "EWZ": {
+        "column": 6,
+        "missing_values": 2253
+      },
+      "FXI": {
+        "column": 7,
+        "missing_values": 0
+      }
+    },
+    "missing_values": 0,
+    "nonpositive_values": 0,
+    "minimum_price": 626.0,
+    "maximum_price": 6861.0,
+    "annualized_mean_net_returns": {
+      "EWC": 0.10374578669033467,
+      "EWG": 0.11673651330565181,
+      "EWJ": 0.06380994781521418,
+      "EWQ": 0.08165478682216394,
+      "EWU": 0.07586748577939792,
+      "EWY": 0.14087564188281596
+    },
+    "annualized_volatility": {
+      "EWC": 0.2490176481309791,
+      "EWG": 0.2870563694318467,
+      "EWJ": 0.23102793713610958,
+      "EWQ": 0.287480946797091,
+      "EWU": 0.2569966631693714,
+      "EWY": 0.3527332985379879
+    }
+  },
+  "net_vs_log_returns": [
+    {
+      "sample_size": 100,
+      "log_mean": -0.004722424254589412,
+      "log_std": 0.17116934376886112,
+      "net_mean": 0.00951231304358342,
+      "net_std": 0.16875568952949163,
+      "net_mean_minus_half_variance": -0.004726928330703666,
+      "absolute_approximation_error": 4.5040761142535815e-06
+    },
+    {
+      "sample_size": 10000,
+      "log_mean": -0.00011825802241690395,
+      "log_std": 0.019970919163520635,
+      "net_mean": 8.113698490982383e-05,
+      "net_std": 0.019973537799194262,
+      "net_mean_minus_half_variance": -0.00011833412119809715,
+      "absolute_approximation_error": 7.609878119320369e-08
+    },
+    {
+      "sample_size": 1000000,
+      "log_mean": 5.820036574108891e-07,
+      "log_std": 0.0019969326149501736,
+      "net_mean": 2.5758745144551293e-06,
+      "net_std": 0.0019969391655488885,
+      "net_mean_minus_half_variance": 5.819914990035837e-07,
+      "absolute_approximation_error": 1.2158407305485042e-11
+    }
+  ],
+  "net_vs_log_seed_distribution": [
+    {
+      "sample_size": 100,
+      "seed_count": 200,
+      "median_error": 0.0010061479299373014,
+      "p05_error": 0.00014260789908244947,
+      "p95_error": 0.0027617042982835556,
+      "seed_one_error": 4.5040761142535815e-06,
+      "seed_one_percentile": 0.0
+    },
+    {
+      "sample_size": 10000,
+      "seed_count": 200,
+      "median_error": 1.1402755843513385e-07,
+      "p05_error": 2.0042978133304506e-08,
+      "p95_error": 2.2445976017134358e-07,
+      "seed_one_error": 7.609878119320369e-08,
+      "seed_one_percentile": 27.500000000000004
+    },
+    {
+      "sample_size": 1000000,
+      "seed_count": 200,
+      "median_error": 1.148662220430581e-11,
+      "p05_error": 2.185582497120841e-12,
+      "p95_error": 2.2412787904769566e-11,
+      "seed_one_error": 1.2158407305485042e-11,
+      "seed_one_percentile": 54.0
+    }
+  ],
+  "performance_metric_examples": {
+    "daily_return": 0.01,
+    "periods": 252.0,
+    "cagr": 11.274002099240244,
+    "simple_annualized_return": 2.52,
+    "black_monday_return": -0.2,
+    "illustrative_leverage": 5.0,
+    "remaining_wealth_after_shock": 0.0
+  },
+  "efficient_frontier": {
+    "target_count": 21,
+    "tangency": {
+      "target_daily_return": 0.00046728545104180727,
+      "daily_volatility": 0.016525017723121406,
+      "daily_sharpe": 0.028277455363209247,
+      "weights": {
+        "EWC": 0.4513824443623836,
+        "EWG": 0.26347029903530067,
+        "EWJ": 0.0,
+        "EWQ": 0.0,
+        "EWU": 0.0,
+        "EWY": 0.28514725660231566
+      },
+      "book_weights": {
+        "EWC": 0.451338068065785,
+        "EWG": 0.263444604411169,
+        "EWJ": 1.9328104256e-05,
+        "EWQ": 4.913963978e-06,
+        "EWU": 7.497342085e-06,
+        "EWY": 0.285185588112728
+      },
+      "max_absolute_weight_difference": 4.437629659859166e-05
+    },
+    "minimum_variance": {
+      "target_daily_return": 0.0003143773278918037,
+      "daily_volatility": 0.01367943510429968,
+      "variance": 0.00018712694477274642,
+      "weights": {
+        "EWC": 0.38594754104746076,
+        "EWG": 0.0,
+        "EWJ": 0.6140524589525395,
+        "EWQ": 0.0,
+        "EWU": 0.0,
+        "EWY": 0.0
+      },
+      "book_weights": {
+        "EWC": 0.381518036613685,
+        "EWG": 3.3166607068e-05,
+        "EWJ": 0.604011066007258,
+        "EWQ": 0.000133505575004,
+        "EWU": 0.014299849485899,
+        "EWY": 4.375711085e-06
+      },
+      "max_absolute_weight_difference": 0.014299849485899,
+      "book_weights_variance_on_same_data": 0.00018716670187266717,
+      "global_minimum_weights": {
+        "EWC": 0.3928565930493773,
+        "EWG": 0.0,
+        "EWJ": 0.6071434069506226,
+        "EWQ": 0.0,
+        "EWU": 0.0,
+        "EWY": 0.0
+      },
+      "global_minimum_variance": 0.00018711931085280587,
+      "grid_variance_gap": 7.633919940549247e-09
+    }
+  },
+  "portfolio_theory": {
+    "box_1_3": {
+      "normalized_kelly_weights": {
+        "EWC": 1.2258907610173704,
+        "EWG": 2.947696902257114,
+        "EWJ": -0.19956117015201696,
+        "EWQ": -2.534770471561238,
+        "EWU": -0.9768822243439899,
+        "EWY": 0.5376262027827604
+      },
+      "daily_sharpe_rf0": 0.03846001457983828,
+      "gross_exposure": 8.42242773211449,
+      "allows_short_sales": true
+    },
+    "split_sample_stability": {
+      "split_date": "2010-04-30",
+      "first_half_weights": {
+        "EWC": 0.7211190119224806,
+        "EWG": 0.0,
+        "EWJ": 0.0,
+        "EWQ": 0.0,
+        "EWU": 0.0,
+        "EWY": 0.27888098807751927
+      },
+      "second_half_weights": {
+        "EWC": 0.0,
+        "EWG": 0.345084035602435,
+        "EWJ": 0.34928882805885697,
+        "EWQ": 0.0,
+        "EWU": 0.3056271363387081,
+        "EWY": 0.0
+      },
+      "first_half_daily_sharpe_rf0": 0.03604107162651527,
+      "second_half_daily_sharpe_rf0": 0.03080298080769226,
+      "weight_l1_distance": 2.0
+    }
+  },
+  "verification": {
+    "checks": {
+      "official_data_checksum_matches": true,
+      "data_has_no_missing_values": true,
+      "data_prices_are_positive": true,
+      "net_log_error_decreases": true,
+      "net_log_final_error_below_1e_9": true,
+      "frontier_weights_nonnegative": true,
+      "frontier_weights_sum_to_one": true,
+      "frontier_meets_target_returns": true,
+      "tangency_weights_match_book": true,
+      "minimum_variance_no_worse_than_book": true,
+      "box13_weights_sum_to_one": true,
+      "box13_first_order_condition": true,
+      "unconstrained_sharpe_no_lower_than_long_only": true,
+      "split_sample_weights_are_long_only": true,
+      "split_sample_weights_sum_to_one": true
+    },
+    "summary": {
+      "total": 15,
+      "passed": 15,
+      "independent_or_empirical": 8,
+      "contract_invariant": 7,
+      "classification": {
+        "independent_or_empirical": [
+          "official_data_checksum_matches",
+          "data_has_no_missing_values",
+          "data_prices_are_positive",
+          "net_log_error_decreases",
+          "net_log_final_error_below_1e_9",
+          "tangency_weights_match_book",
+          "minimum_variance_no_worse_than_book",
+          "unconstrained_sharpe_no_lower_than_long_only"
+        ],
+        "contract_invariant": [
+          "frontier_weights_nonnegative",
+          "frontier_weights_sum_to_one",
+          "frontier_meets_target_returns",
+          "box13_weights_sum_to_one",
+          "box13_first_order_condition",
+          "split_sample_weights_are_long_only",
+          "split_sample_weights_sum_to_one"
+        ]
+      }
+    }
+  }
+}
