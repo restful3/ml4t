@@ -1,0 +1,288 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap5%20Options.zip",
+  "archive_sha256": "3ffe46a1c8ed37e5611e114b02ab1a714efb676c9ecca2548083aa7363da590f",
+  "archive_size_bytes": 41972176,
+  "members": [
+    {
+      "archive_path": "Chap5 Options/compareVolWithVXX.m",
+      "destination": "chapter_5_options_strategies/original_matlab/compareVolWithVXX.m",
+      "sha256": "024c9ea0033fed3985c0f64461e32cbbafcef4effd1e4d6a23385f298c2226df",
+      "size_bytes": 1500,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/computeLeverage.m",
+      "destination": "chapter_5_options_strategies/original_matlab/computeLeverage.m",
+      "sha256": "7666d972988b1614e682e8a3cc2eab333d58490d7ae428b13212438f08945fc0",
+      "size_bytes": 2625,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/createEScontinuousAt1615.m",
+      "destination": "chapter_5_options_strategies/original_matlab/createEScontinuousAt1615.m",
+      "sha256": "dd7ae8d095f0ba7af18dcef7c42a0be9f2c9b2a10ccbdd3f8a231daab3a5f40e",
+      "size_bytes": 166,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/dispersion.m",
+      "destination": "chapter_5_options_strategies/original_matlab/dispersion.m",
+      "sha256": "cec09ecbc3717e0cbb94ca2149a8976c177121054c0a3b4fd75cb889121fb4a0",
+      "size_bytes": 13347,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/dispersion_output.mat",
+      "destination": "data/raw/book3/chapter_5/dispersion_output.mat",
+      "sha256": "b2cbdb947b7e15d11b702391c2f9fcc0adf116df49ee81f1dcf93e67c810a69d",
+      "size_bytes": 17881777,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/foo_VX.mat",
+      "destination": "data/raw/book3/chapter_5/foo_VX.mat",
+      "sha256": "1b403ccd578c28382f6ddefcebbf53f808c4f869d7df4bdaff3170fb3da625b6",
+      "size_bytes": 20742,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/gammaScalp_straddle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/gammaScalp_straddle_LO.m",
+      "sha256": "1820b1ebdc726f7cd2ce3811cc99472b508ba613cbfbe7aa68174df6db3846dd",
+      "size_bytes": 19730,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/gammaScalp_strangle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/gammaScalp_strangle_LO.m",
+      "sha256": "1e6bbad3b069f1247994af892a94d2aa8d88f5f2ea0124979947aee386b6fc3d",
+      "size_bytes": 37751,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/hedgeRatio_VX_SPY.mat",
+      "destination": "data/raw/book3/chapter_5/hedgeRatio_VX_SPY.mat",
+      "sha256": "f14b4331e632f7e56e4c3e26ef0f90f0675982a2649ac322859d64b7e6c872c2",
+      "size_bytes": 41460,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/hedgeRatio_XIV_SPY.mat",
+      "destination": "data/raw/book3/chapter_5/hedgeRatio_XIV_SPY.mat",
+      "sha256": "5df2a5772e9376b10a75fede2b3d1dda06f8b22b5b5578bcdbc85fb7b60708c3",
+      "size_bytes": 26792,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/impVolCrossSectionalMeanReversion.m",
+      "destination": "chapter_5_options_strategies/original_matlab/impVolCrossSectionalMeanReversion.m",
+      "sha256": "fc4ad166ce4ec32a72a7cdb4401fb9c1d773eeb3e540e6fb0a6724ce94b65161",
+      "size_bytes": 9907,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/impVolCrossSectionalMeanReversion_output.mat",
+      "destination": "data/raw/book3/chapter_5/impVolCrossSectionalMeanReversion_output.mat",
+      "sha256": "a37adbf1c5d979255a3bbb5329ac3877b1879a40faf60fe1b18459ac507681f4",
+      "size_bytes": 22571323,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/inputData_ES_continuous_20170111.mat",
+      "destination": "data/raw/book3/chapter_5/inputData_ES_continuous_20170111.mat",
+      "sha256": "bc5c654ae35df532e45be81dab854858694d0e4a3cb419c75ec853e924be43ef",
+      "size_bytes": 99576,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/inputDataDaily_ES_20150828.mat",
+      "destination": "data/raw/book3/chapter_5/inputDataDaily_ES_20150828.mat",
+      "sha256": "87e93a423964f9c62a5f47d2c67e86f0baf6b42ce3aca81273dbdcc1d9461a9f",
+      "size_bytes": 221640,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/inputDataDaily_VX_20150828.mat",
+      "destination": "data/raw/book3/chapter_5/inputDataDaily_VX_20150828.mat",
+      "sha256": "c1106b04e4d09be9e34ee79bdc104aa06bf2477155cdaaeeda60b218e12bbb28",
+      "size_bytes": 314492,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/inputDataOHLCDaily_ETF_20151125.mat",
+      "destination": "data/raw/book3/chapter_5/inputDataOHLCDaily_ETF_20151125.mat",
+      "sha256": "939245babc96c8dad661b6676ba3f07ea2b9d7b6ec627e702b1448f3e7e7e1b6",
+      "size_bytes": 1707986,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/KF_beta_VX_ES.m",
+      "destination": "chapter_5_options_strategies/original_matlab/KF_beta_VX_ES.m",
+      "sha256": "1fe89cd05e412f1178ca4e4218b6210c0eb2a132700df1c9abb778e9ae413e06",
+      "size_bytes": 2044,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/KF_beta_VX_SPY.m",
+      "destination": "chapter_5_options_strategies/original_matlab/KF_beta_VX_SPY.m",
+      "sha256": "1fe89cd05e412f1178ca4e4218b6210c0eb2a132700df1c9abb778e9ae413e06",
+      "size_bytes": 2044,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/KF_beta_XIV_SPY.m",
+      "destination": "chapter_5_options_strategies/original_matlab/KF_beta_XIV_SPY.m",
+      "sha256": "281b2168a8d74f07a76bf2b6007fcdbceade17d4df050338e490fdf2724f948a",
+      "size_bytes": 1962,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/longStraddleSameDay_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/longStraddleSameDay_LO.m",
+      "sha256": "6f8546bcb17b368475521df0229c6547dbafab3d482dde9d375dcdac649cdb9b",
+      "size_bytes": 12181,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/longStraddleShortStrangle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/longStraddleShortStrangle_LO.m",
+      "sha256": "c9179a12499c82686afd72ad110eb6a1527369b6e7b79669c095f85cbac911aa",
+      "size_bytes": 18238,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/longStrangle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/longStrangle_LO.m",
+      "sha256": "dd924eaa3e125a657b6e47f95afa0b69d8fb90229d9e03021885f58bdbf296dd",
+      "size_bytes": 13019,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/parseIvyOptions.m",
+      "destination": "chapter_5_options_strategies/original_matlab/parseIvyOptions.m",
+      "sha256": "6c9f0edd160b508d48d928ceea98e00a02e994ba1c23c5fc3efe3699002d8d20",
+      "size_bytes": 10383,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/parseIvyOptions_index.m",
+      "destination": "chapter_5_options_strategies/original_matlab/parseIvyOptions_index.m",
+      "sha256": "2c1af1cd223fa9c99a2fdac98d687ce7c44b7dc07d27beeca4280dd599090c82",
+      "size_bytes": 8757,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStraddle_ES.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStraddle_ES.m",
+      "sha256": "8db124cb5c66f8067748eabafbef890aeee2284be18dd2e7602969bd4018969a",
+      "size_bytes": 13833,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStraddle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStraddle_LO.m",
+      "sha256": "6b36331d6db48b7507c147dfa612d0e552ba8d5134cd1c026d1d71fa3c7a97e5",
+      "size_bytes": 12597,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStraddleLongStrangle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStraddleLongStrangle_LO.m",
+      "sha256": "a42e9665f992411efc7b9a27f65bcf3e0d196391d0f3c6d9084a339b4ffc7ab9",
+      "size_bytes": 18246,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStraddleSameDay_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStraddleSameDay_LO.m",
+      "sha256": "2068397be1a7551d40641009c26759ff22b9ed3ead5458c97e06fdac8de21b84",
+      "size_bytes": 12185,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStrangle_LO.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStrangle_LO.m",
+      "sha256": "325ed3aa2351e31338c29d4ee0daec94f7b91277499d44664a607ec732bd0cbc",
+      "size_bytes": 12979,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/shortStrangle_LO2.m",
+      "destination": "chapter_5_options_strategies/original_matlab/shortStrangle_LO2.m",
+      "sha256": "9b4c6d679662bfd866159016a1251782f061b80a7134c9c31e4c2aa3e4305eae",
+      "size_bytes": 13080,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/SPY_antigarch.m",
+      "destination": "chapter_5_options_strategies/original_matlab/SPY_antigarch.m",
+      "sha256": "b9cc513cb4978f4620ca320252c8fbb39c66031235c3c359dd145a49589134e3",
+      "size_bytes": 4064,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/SPY_antigarch_intraday.m",
+      "destination": "chapter_5_options_strategies/original_matlab/SPY_antigarch_intraday.m",
+      "sha256": "6b3a448a427705e3a81b1d29c2f74507d539885c46a183094a93178d0553f07a",
+      "size_bytes": 3835,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/SPY_garch.m",
+      "destination": "chapter_5_options_strategies/original_matlab/SPY_garch.m",
+      "sha256": "3b195e4d6e38704fce2c467fc56ac07aa76c823d99d7f5e591d09f34bb8b8386",
+      "size_bytes": 3958,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/variance_SPY.mat",
+      "destination": "data/raw/book3/chapter_5/variance_SPY.mat",
+      "sha256": "eb22930d6a482754ec1c3af659f1dba62763f94b08d36b35d2d3147166bcb6d6",
+      "size_bytes": 11628,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap5 Options/VX_ES_rollreturn_lagged.m",
+      "destination": "chapter_5_options_strategies/original_matlab/VX_ES_rollreturn_lagged.m",
+      "sha256": "ae3033400a30aa77d80f9435d6974159c81632650bea64f8fa9304a773e645ec",
+      "size_bytes": 3484,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/VX_GARCH_VIX.m",
+      "destination": "chapter_5_options_strategies/original_matlab/VX_GARCH_VIX.m",
+      "sha256": "4b3d19373ab216a9734bc3272f8ef72461a1113698361985af5872548466e52e",
+      "size_bytes": 4950,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/VX_SPY_returns.m",
+      "destination": "chapter_5_options_strategies/original_matlab/VX_SPY_returns.m",
+      "sha256": "b87cf28dffdf281e1cc3a623c8b23989ac3827d8a75a52313fbd8506eaf21b9e",
+      "size_bytes": 2492,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/XIV_SPY_garch_rollreturn.m",
+      "destination": "chapter_5_options_strategies/original_matlab/XIV_SPY_garch_rollreturn.m",
+      "sha256": "006da4c596b0936efc01b0b50679615636a7082b316b716035cfe023058aad2c",
+      "size_bytes": 2974,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/XIV_SPY_rollreturn.m",
+      "destination": "chapter_5_options_strategies/original_matlab/XIV_SPY_rollreturn.m",
+      "sha256": "13a047cca374d45c52521db37f564a130ebce5684fbfc0991af7f5f0b761adfb",
+      "size_bytes": 2687,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap5 Options/XIV_SPY_rollreturn_lagged.m",
+      "destination": "chapter_5_options_strategies/original_matlab/XIV_SPY_rollreturn_lagged.m",
+      "sha256": "83e2a3f5c37e18181626639c3846de1b97d850751a350f859ebf783b8b15feba",
+      "size_bytes": 2809,
+      "kind": "original_source"
+    }
+  ]
+}

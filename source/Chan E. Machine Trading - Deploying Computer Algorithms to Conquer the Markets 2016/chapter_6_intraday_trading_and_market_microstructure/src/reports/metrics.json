@@ -1,0 +1,304 @@
+{
+  "chapter": 6,
+  "title": "Intraday Trading and Market Microstructure",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap6%20Intraday%20Trading.zip",
+    "archive_sha256": "e8bceb329afcc9fe2c61bcd06f553a5fa5dbe569716b22949354b5991b6c9e3e",
+    "archive_size_bytes": 7141666,
+    "member_count": 7,
+    "matlab_source_count": 4,
+    "research_data_count": 3,
+    "manifest_sha256": "a2adca65dafbefb46cef0acf2e24611b62ac2556f37895c7edca40abb3d85c6d"
+  },
+  "environment": {
+    "versions": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    },
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf"
+  },
+  "data": {
+    "es_tick": {
+      "rows": 77390,
+      "date_start": "2012-10-01 00:00:00.625001669+00:00",
+      "date_end": "2012-10-01 23:59:55.049996614+00:00",
+      "missing_trade_price": 0,
+      "median_spread_points": 0.25
+    },
+    "es_volume_bar": {
+      "rows": 3639,
+      "bad_last_price": 0,
+      "contracts_per_bar": 500
+    },
+    "coinsetter": {
+      "rows": 246060,
+      "sequence_start": 0,
+      "sequence_end": 246059
+    }
+  },
+  "reproduction_classification": {
+    "exact_source_replay": [
+      "tickRule.m bid-ask"
+    ],
+    "source_semantic_or_independent": [
+      "volumeBar.m",
+      "buildOrderBook.m Python port"
+    ],
+    "output_only": [
+      "tick-rule midpoint execution comment",
+      "Algoseek aggressor-tag strategy",
+      "multi-day profitability"
+    ]
+  },
+  "coverage": [
+    {
+      "topic": "tick-rule trade classification",
+      "status": "exact source replay",
+      "evidence": "77,390-row ES TAQ MAT"
+    },
+    {
+      "topic": "bid-ask order-flow strategy",
+      "status": "exact source-output comparison",
+      "evidence": "four published outputs"
+    },
+    {
+      "topic": "midpoint execution",
+      "status": "current-code replay + output-only comment",
+      "evidence": "published trade counts contradict branch invariance"
+    },
+    {
+      "topic": "500-contract volume bars/BVC",
+      "status": "source-semantic replay",
+      "evidence": "3,639-row MAT; source entry/exit thresholds 0.95/0.5"
+    },
+    {
+      "topic": "Coinsetter order-book reconstruction",
+      "status": "independent Python port",
+      "evidence": "246,060 execution events"
+    },
+    {
+      "topic": "Algoseek aggressor tags",
+      "status": "code/output-only",
+      "evidence": "aggressor input file absent"
+    },
+    {
+      "topic": "multi-day strategy performance",
+      "status": "unavailable",
+      "evidence": "single ES trading day only"
+    }
+  ],
+  "results": {
+    "tick_rule": {
+      "bid_ask": {
+        "gross_pl_usd": -6687.5,
+        "pl_per_trade_usd": -5.619747899159663,
+        "num_trades": 1190,
+        "total_fee_usd": 113.05,
+        "net_pl_usd": -6800.55,
+        "ending_position": 0,
+        "execution": "bid_ask"
+      },
+      "midpoint_current_code": {
+        "gross_pl_usd": 887.5,
+        "pl_per_trade_usd": 0.7457983193277311,
+        "num_trades": 1190,
+        "total_fee_usd": 113.05,
+        "net_pl_usd": 774.45,
+        "ending_position": 0,
+        "execution": "rounded_mid"
+      },
+      "fee_sensitivity": {
+        "0.095": -6800.55,
+        "0.16": -6877.9,
+        "2.47": -9626.8
+      },
+      "contract": {
+        "lookback_seconds": 60,
+        "entry_threshold": 66,
+        "exit_threshold": 0,
+        "signals_use_current_trade_classification": true,
+        "execution_uses_current_quote": true,
+        "single_day_in_sample_demonstration": true
+      }
+    },
+    "volume_bar": {
+      "strategy": {
+        "gross_pl_usd": -3975.0,
+        "pl_per_trade_usd": -5.777616279069767,
+        "num_trades": 688,
+        "total_fee_usd": 65.36,
+        "net_pl_usd": -4040.36,
+        "ending_position": 0,
+        "execution": "bid_ask"
+      },
+      "lookback_bars": 100,
+      "bar_volume_contracts": 500,
+      "contract": {
+        "entry_threshold": 0.95,
+        "exit_threshold": 0.5,
+        "long_entry": "buy_fraction > 0.95",
+        "short_entry": "buy_fraction < 0.05",
+        "long_exit": "buy_fraction <= 0.5",
+        "short_exit": "buy_fraction >= 0.5",
+        "implementation": "centered_signal = buy_fraction - 0.5"
+      },
+      "source_has_no_published_numeric_output": true
+    },
+    "order_book": {
+      "events": 246060,
+      "bars": 233072,
+      "action_counts": {
+        "CANCEL_CONFIRMED": 111962,
+        "PARTIAL_FILL_CONFIRMED": 13082,
+        "WORKING_CONFIRMED": 116276,
+        "FILL_CONFIRMED": 4740
+      },
+      "side_counts": {
+        "BUY": 115485,
+        "SELL": 130575
+      },
+      "valid_two_sided_bars": 232940,
+      "median_spread": -250.82999999999998,
+      "crossed_event_states": 245420,
+      "invalid_missing_reductions": 13731,
+      "invalid_oversize_reductions": 369,
+      "sequence_is_strictly_increasing": true
+    }
+  },
+  "book_comparisons": [
+    {
+      "strategy": "tickRule.m bid-ask execution",
+      "metric": "gross_pl_usd",
+      "python": -6687.5,
+      "source": -6687.5,
+      "absolute_error": 0.0,
+      "tolerance": 5e-07,
+      "matches_source": true
+    },
+    {
+      "strategy": "tickRule.m bid-ask execution",
+      "metric": "pl_per_trade_usd",
+      "python": -5.619747899159663,
+      "source": -5.619748,
+      "absolute_error": 1.008403369695543e-07,
+      "tolerance": 5e-07,
+      "matches_source": true
+    },
+    {
+      "strategy": "tickRule.m bid-ask execution",
+      "metric": "num_trades",
+      "python": 1190,
+      "source": 1190,
+      "absolute_error": 0,
+      "tolerance": 0,
+      "matches_source": true
+    },
+    {
+      "strategy": "tickRule.m bid-ask execution",
+      "metric": "total_fee_usd",
+      "python": 113.05,
+      "source": 113.05,
+      "absolute_error": 0.0,
+      "tolerance": 5e-07,
+      "matches_source": true
+    }
+  ],
+  "reference_only_comparisons": [
+    {
+      "topic": "tick-rule midpoint execution comment",
+      "source_file": "tickRule.m",
+      "book_output": {
+        "gross_pl_usd": 800.0,
+        "num_trades": 1168,
+        "total_fee_usd": 110.96
+      },
+      "compared": false,
+      "reason": "The execution-price branch cannot change signals or trade count, yet the midpoint and bid-ask comments report 1168 versus 1190 trades; at least one comment is stale"
+    },
+    {
+      "topic": "Algoseek aggressor-tag strategy",
+      "source_file": "aggressorTag_algoseek.m",
+      "book_output": {
+        "20121001_midpoint_pl_usd": 762.5,
+        "20121001_bidask_pl_usd": 300.0,
+        "num_trades": 75
+      },
+      "compared": false,
+      "reason": "The downloadable TAQ MAT has prices and volume but no Algoseek aggressor flag or the CSV read by this script"
+    },
+    {
+      "topic": "multi-day profitability",
+      "source_file": "tickRule.m and volumeBar.m",
+      "book_output": null,
+      "compared": false,
+      "reason": "The bundled ES examples contain one trading day, so no out-of-sample Sharpe or annual return is supportable"
+    }
+  ],
+  "source_limitations": {
+    "midpoint_comment_trade_count_contradiction": true,
+    "aggressor_input_missing": true,
+    "single_es_day_only": true,
+    "coinsetter_invalid_or_crossed_states_preserved_as_diagnostics": true
+  },
+  "verification": {
+    "checks": {
+      "archive_manifest_matches": true,
+      "all_seven_archive_members_pinned": true,
+      "four_matlab_sources_present": true,
+      "tick_timestamps_are_strictly_increasing": true,
+      "tick_quotes_are_not_crossed": true,
+      "tick_rule_bidask_matches_source": true,
+      "midpoint_and_bidask_share_trade_decisions": true,
+      "stale_midpoint_comment_is_not_compared": true,
+      "fees_do_not_improve_tick_strategy": true,
+      "volume_bar_contract_matches_source": true,
+      "volume_bar_probabilities_are_bounded": true,
+      "volume_bar_source_output_not_invented": true,
+      "order_book_sequence_is_strict": true,
+      "order_book_event_count_matches_csv": true,
+      "order_book_has_two_sided_bars": true,
+      "synthetic_partial_fill_reduces_size": true,
+      "all_reference_only_rows_have_reasons": true,
+      "aggressor_data_is_not_claimed_available": true,
+      "single_day_is_not_claimed_out_of_sample": true,
+      "bidask_execution_is_worse_than_midpoint": true,
+      "crossed_orderbook_states_are_disclosed": true
+    },
+    "summary": {
+      "total": 21,
+      "passed": 21,
+      "failed": [],
+      "independent_or_empirical": 15,
+      "contract_invariant": 6,
+      "classification": {
+        "archive_manifest_matches": "independent_or_empirical",
+        "all_seven_archive_members_pinned": "independent_or_empirical",
+        "four_matlab_sources_present": "independent_or_empirical",
+        "tick_timestamps_are_strictly_increasing": "independent_or_empirical",
+        "tick_quotes_are_not_crossed": "independent_or_empirical",
+        "tick_rule_bidask_matches_source": "independent_or_empirical",
+        "midpoint_and_bidask_share_trade_decisions": "independent_or_empirical",
+        "stale_midpoint_comment_is_not_compared": "independent_or_empirical",
+        "fees_do_not_improve_tick_strategy": "independent_or_empirical",
+        "volume_bar_contract_matches_source": "independent_or_empirical",
+        "volume_bar_probabilities_are_bounded": "independent_or_empirical",
+        "volume_bar_source_output_not_invented": "independent_or_empirical",
+        "order_book_sequence_is_strict": "independent_or_empirical",
+        "order_book_event_count_matches_csv": "independent_or_empirical",
+        "order_book_has_two_sided_bars": "independent_or_empirical",
+        "synthetic_partial_fill_reduces_size": "contract_invariant",
+        "all_reference_only_rows_have_reasons": "contract_invariant",
+        "aggressor_data_is_not_claimed_available": "contract_invariant",
+        "single_day_is_not_claimed_out_of_sample": "contract_invariant",
+        "bidask_execution_is_worse_than_midpoint": "contract_invariant",
+        "crossed_orderbook_states_are_disclosed": "contract_invariant"
+      }
+    }
+  }
+}

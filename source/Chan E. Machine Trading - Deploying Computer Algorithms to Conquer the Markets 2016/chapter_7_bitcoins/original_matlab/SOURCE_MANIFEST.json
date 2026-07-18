@@ -1,0 +1,92 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap7%20Bitcoin.zip",
+  "archive_sha256": "03267f6abd2fa35325d915e43677265b8b90da93fea0a02b16df4c7247b18dba",
+  "archive_size_bytes": 3130126,
+  "members": [
+    {
+      "archive_path": "Chap7 Bitcoin/2014-12.csv",
+      "destination": "data/raw/book3/chapter_7/2014-12.csv",
+      "sha256": "43961fc045b743d97a61f9c08ace4e92020bcffc75823905656054b8b7708ae9",
+      "size_bytes": 5443349,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/analyzeRisk.m",
+      "destination": "chapter_7_bitcoins/original_matlab/analyzeRisk.m",
+      "sha256": "9131bdf57d66351e5ae962d87d97d0f84750ac6a6b88bc21d0d8ed7b59bfde78",
+      "size_bytes": 3522,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/bollinger.m",
+      "destination": "chapter_7_bitcoins/original_matlab/bollinger.m",
+      "sha256": "0c3c8f762d7b42346c04fba218425b04c4add86bd2327ec5fc909b80cffe08e8",
+      "size_bytes": 2248,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/buildARMA_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/buildARMA_BTCUSD.m",
+      "sha256": "be299d2ea9b18d843d65d2a9c1e5eb474ecdad7e3c3e81abfd7405edb38b34ea",
+      "size_bytes": 1285,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/buildARMA_findPQ_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/buildARMA_findPQ_BTCUSD.m",
+      "sha256": "b2a6bd9c3a28712c9998bec6b5afda572f5d10d361c908284ff30af7ed10108c",
+      "size_bytes": 1187,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/buildARp_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/buildARp_BTCUSD.m",
+      "sha256": "e77f54660bbcc34f7933befd9cc565a9b874034c7f1796b5523620e16f80e657",
+      "size_bytes": 3468,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/Jonathan_BTCUSD_BBO_1minute.mat",
+      "destination": "data/raw/book3/chapter_7/Jonathan_BTCUSD_BBO_1minute.mat",
+      "sha256": "cd8a26ad999cf547f8feb61712e985a31ec3d81c20dcee143d1d52f4cada0af7",
+      "size_bytes": 1846805,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/Jonathan_BTCUSD_trades_daily.mat",
+      "destination": "data/raw/book3/chapter_7/Jonathan_BTCUSD_trades_daily.mat",
+      "sha256": "93e0c0fc59c8427658ebe9740f5fa09a16a55ec36a2ffdcbd81f1946d56d6513",
+      "size_bytes": 2019,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/nn_feedfwd_avg_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/nn_feedfwd_avg_BTCUSD.m",
+      "sha256": "a5f25dcf5e8d7ba602fb70259ea8dc441284c9b7675135ee204bcaf9a26ac31f",
+      "size_bytes": 3656,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/orderFlow2.m",
+      "destination": "chapter_7_bitcoins/original_matlab/orderFlow2.m",
+      "sha256": "c4c39e2c2bcafced75c7db9a92170044755ebe36ca5a1c26a466454e8356afa1",
+      "size_bytes": 6193,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/rTreeBagger_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/rTreeBagger_BTCUSD.m",
+      "sha256": "3fbc3e6b251f202987761cb5156fd19b62840d3af80e88da4fce2113b005e3d8",
+      "size_bytes": 2891,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap7 Bitcoin/svm_BTCUSD.m",
+      "destination": "chapter_7_bitcoins/original_matlab/svm_BTCUSD.m",
+      "sha256": "c25906ec41a21de6bbacc593c9dff05bcf1ff4cb2ee5ab6a4a72a3613ec66d22",
+      "size_bytes": 6178,
+      "kind": "original_source"
+    }
+  ]
+}

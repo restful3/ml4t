@@ -96,7 +96,7 @@
       "Jonathan_BTCUSD_trades_daily.mat": "93e0c0fc59c8427658ebe9740f5fa09a16a55ec36a2ffdcbd81f1946d56d6513",
       "lastSwapsBTC.csv": "10e5afead82e8fdcd4c84ea3a176781734c9deb7d9a32b01238c92eb0c9e39e8"
     },
-    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf",
     "environment": {
       "python": "3.12.3",
       "numpy": "2.5.1",

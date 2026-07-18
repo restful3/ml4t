@@ -1,0 +1,2 @@
+# Preserve official companion source files byte-for-byte and suppress text normalization.
+chapter_*/original_matlab/*.m -diff -text

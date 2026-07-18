@@ -1,0 +1,1089 @@
+{
+  "chapter": 4,
+  "title": "Artificial Intelligence Techniques",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap4%20AI.zip",
+    "archive_sha256": "a556978ebe871446b3f32511a910b8fec74669bc02dddcced0c8537fd82a0358",
+    "archive_size_bytes": 169914,
+    "source_manifest_sha256": "5dc7858023237c925827b4f70cd2271c7da0e0c17101f20a60994dbb179d9262",
+    "member_count": 24,
+    "input_mat_sha256": "b94aa1b85d10e4e41c021882ee90a7d945341baf8d4690ca7561561936437fc4",
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.1",
+    "scikit-learn": "1.9.0",
+    "nbformat": "5.10.4",
+    "nbclient": "0.11.0"
+  },
+  "data": {
+    "file": "data/raw/book3/chapter_4/inputData_SPY.mat",
+    "observations": 2357,
+    "start": "2004-12-22",
+    "end": "2014-06-02",
+    "train_observations": 1178,
+    "test_observations": 1179,
+    "train_end": "2009-09-15",
+    "test_start": "2009-09-16",
+    "missing_close": 0,
+    "nonpositive_close": 0,
+    "complete_model_rows_train": 1158,
+    "causal_model_rows_train": 1157,
+    "feature_names": [
+      "ret1",
+      "ret2",
+      "ret5",
+      "ret20"
+    ]
+  },
+  "reproduction_classification": {
+    "linear_regression": "source-faithful exact replay with disclosed one-row boundary leakage",
+    "stepwise_regression": "source-faithful exact replay with disclosed one-row boundary leakage",
+    "extreme_tree_rule": "source-faithful exact rule replay; thresholds inherit source fit",
+    "hmm": "published-parameter exact replay",
+    "sklearn_models": "methodological adaptation",
+    "cross_sectional_models": "output-only; unavailable official input"
+  },
+  "book_comparisons": [
+    {
+      "metric": "linear train CAGR",
+      "python": 0.34333948406309256,
+      "book_or_source": 0.343339,
+      "absolute_error": 4.84063092553999e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "linear train Sharpe",
+      "python": 1.3653041037587532,
+      "book_or_source": 1.365304,
+      "absolute_error": 1.0375875314494465e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "linear test CAGR",
+      "python": 0.0035822999361589947,
+      "book_or_source": 0.003582,
+      "absolute_error": 2.999361589945543e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "linear test Sharpe",
+      "python": 0.10395230739575505,
+      "book_or_source": 0.103952,
+      "absolute_error": 3.0739575504479255e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "stepwise train CAGR",
+      "python": 0.436382994816223,
+      "book_or_source": 0.436383,
+      "absolute_error": 5.183777018746838e-09,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "stepwise train Sharpe",
+      "python": 1.6490675178977459,
+      "book_or_source": 1.649068,
+      "absolute_error": 4.821022541179332e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "stepwise test CAGR",
+      "python": 0.10568481580607147,
+      "book_or_source": 0.105685,
+      "absolute_error": 1.8419392852631056e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "stepwise test Sharpe",
+      "python": 0.6952276945203467,
+      "book_or_source": 0.695228,
+      "absolute_error": 3.05479653239793e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "tree-rule train CAGR",
+      "python": 0.28751860011206776,
+      "book_or_source": 0.287519,
+      "absolute_error": 3.998879322675286e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "tree-rule train Sharpe",
+      "python": 1.5294577616279437,
+      "book_or_source": 1.529458,
+      "absolute_error": 2.383720563159386e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "tree-rule test CAGR",
+      "python": 0.03866535357693257,
+      "book_or_source": 0.038665,
+      "absolute_error": 3.5357693257270784e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "tree-rule test Sharpe",
+      "python": 0.5057059804676718,
+      "book_or_source": 0.505706,
+      "absolute_error": 1.953232819928985e-08,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "HMM train CAGR",
+      "python": 0.08664376268840335,
+      "book_or_source": 0.086644,
+      "absolute_error": 2.3731159665141277e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "HMM train Sharpe",
+      "python": 0.4672046686925999,
+      "book_or_source": 0.467205,
+      "absolute_error": 3.3130740006992454e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "HMM test CAGR",
+      "python": -0.010173277497562916,
+      "book_or_source": -0.010173,
+      "absolute_error": 2.774975629161319e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    },
+    {
+      "metric": "HMM test Sharpe",
+      "python": 0.019723681229747367,
+      "book_or_source": 0.019724,
+      "absolute_error": 3.187702526316616e-07,
+      "tolerance": 5e-07,
+      "passed": true
+    }
+  ],
+  "reference_only_comparisons": [
+    {
+      "topic": "bagging/random subspace",
+      "source_file": "rTreeBagger.m",
+      "book_or_source": {
+        "annual_return": 0.071967,
+        "sharpe": 0.505925
+      },
+      "python_adaptation": {
+        "annual_return": 0.08703706652791965,
+        "sharpe": 0.5909033225675597
+      },
+      "compared": false,
+      "reason": "MATLAB TreeBagger split and random-subspace defaults differ from scikit-learn; values are output-only references"
+    },
+    {
+      "topic": "classification tree",
+      "source_file": "cTree.m adjacent comment; duplicated in five MATLAB scripts",
+      "book_or_source": {
+        "annual_return": 0.04774,
+        "sharpe": 0.366381
+      },
+      "python_adaptation": {
+        "annual_return": 0.03966949530300634,
+        "sharpe": 0.3193075173980956
+      },
+      "compared": false,
+      "reason": "The identical output comment appears in rTree.m, cTree.m, hmm.m, hmm_VXX.m, and hmm2.m, so provenance is uncertain"
+    },
+    {
+      "topic": "support vector machine",
+      "source_file": "svm.m",
+      "book_or_source": {
+        "annual_return": 0.13353,
+        "sharpe": 0.847489
+      },
+      "python_adaptation": {
+        "annual_return": 0.11201427618460813,
+        "sharpe": 0.7302850327761891
+      },
+      "compared": false,
+      "reason": "random-fold MATLAB estimator differs from train-only ordered-CV adaptation"
+    },
+    {
+      "topic": "neural-network average",
+      "source_file": "nn_feedfwd_avg.m",
+      "book_or_source": {
+        "annual_return": 0.078454,
+        "sharpe": 0.542809
+      },
+      "python_adaptation": {
+        "annual_return": -0.03041823720380732,
+        "sharpe": -0.10621091647204266
+      },
+      "compared": false,
+      "reason": "network architecture, solver, validation, and RNG differ"
+    }
+  ],
+  "strategies": {
+    "linear": {
+      "coefficients": [
+        4.552505608119103e-05,
+        -0.0249732825555173,
+        -0.13097697470395153,
+        0.013964014961744388,
+        0.0017311622271221315
+      ],
+      "p_values": [
+        0.9171639803861812,
+        0.5171974175847043,
+        8.702963691534575e-05,
+        0.507852289631805,
+        0.851807273485223
+      ],
+      "train": {
+        "name": "linear_train",
+        "gross": {
+          "annual_return": 0.34333948406309256,
+          "sharpe": 1.3653041037587532,
+          "maximum_drawdown": -0.21644015649956705,
+          "drawdown_duration": 78,
+          "cumulative_return": 2.973906583902129,
+          "mean_daily_return": 0.0012817149323072798,
+          "annual_turnover": 188.893039049236
+        },
+        "net": {
+          "annual_return": 0.29359086764002273,
+          "sharpe": 1.2056855973093659,
+          "maximum_drawdown": -0.22052147894173213,
+          "drawdown_duration": 111,
+          "cumulative_return": 2.331243162322699,
+          "mean_daily_return": 0.0011317998219507433,
+          "annual_turnover": 188.893039049236
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "source-faithful exact replay",
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-15",
+          "last_fit_target_realization_date": "2009-09-16",
+          "source_boundary_target_leakage": true,
+          "segment_start": "2004-12-22",
+          "segment_end": "2009-09-15"
+        },
+        "observations": 1178,
+        "active_fraction": 0.9821731748726655,
+        "long_fraction": 0.5025466893039049,
+        "short_fraction": 0.4796264855687606
+      },
+      "test": {
+        "name": "linear_test",
+        "gross": {
+          "annual_return": 0.0035822999361589947,
+          "sharpe": 0.10395230739575505,
+          "maximum_drawdown": -0.2959690210989243,
+          "drawdown_duration": 778,
+          "cumulative_return": 0.016870829685956767,
+          "mean_daily_return": 6.765471544110051e-05,
+          "annual_turnover": 183.17557251908397
+        },
+        "net": {
+          "annual_return": -0.032525513544660156,
+          "sharpe": -0.11940945601328457,
+          "maximum_drawdown": -0.34163961804770815,
+          "drawdown_duration": 804,
+          "cumulative_return": -0.14333016866678505,
+          "mean_daily_return": -7.772272306610903e-05,
+          "annual_turnover": 183.17557251908397
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "source-faithful exact replay",
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-15",
+          "last_fit_target_realization_date": "2009-09-16",
+          "source_boundary_target_leakage": true,
+          "segment_start": "2009-09-16",
+          "segment_end": "2014-06-02"
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.4724342663273961,
+        "short_fraction": 0.5267175572519084
+      },
+      "causal": {
+        "coefficients": [
+          3.149003088622616e-05,
+          -0.02480747826535014,
+          -0.1309142855898699,
+          0.013724021812929619,
+          0.0014123913865377175
+        ],
+        "observations": 1157,
+        "test": {
+          "name": "linear_causal_test",
+          "gross": {
+            "annual_return": 0.011816810575360215,
+            "sharpe": 0.15377095352532302,
+            "maximum_drawdown": -0.29596902109892553,
+            "drawdown_duration": 778,
+            "cumulative_return": 0.05650014169196749,
+            "mean_daily_return": 0.00010007536278609205,
+            "annual_turnover": 183.17557251908397
+          },
+          "net": {
+            "annual_return": -0.02458700038120165,
+            "sharpe": -0.06959890743898191,
+            "maximum_drawdown": -0.344634728804757,
+            "drawdown_duration": 804,
+            "cumulative_return": -0.10994302338942807,
+            "mean_daily_return": -4.5302075721117494e-05,
+            "annual_turnover": 183.17557251908397
+          },
+          "metadata": {
+            "one_way_cost_bps": 2.0,
+            "reproduction": "boundary-corrected Python adaptation",
+            "last_fit_predictor_date": "2009-09-14",
+            "last_fit_target_realization_date": "2009-09-15",
+            "test_start": "2009-09-16",
+            "source_boundary_target_leakage": false
+          },
+          "observations": 1179,
+          "active_fraction": 0.9991518235793045,
+          "long_fraction": 0.46649703138252757,
+          "short_fraction": 0.5326547921967769
+        }
+      }
+    },
+    "stepwise": {
+      "selected": [
+        "ret2"
+      ],
+      "coefficients": [
+        4.152453667198287e-05,
+        -0.13006358503528262
+      ],
+      "candidate_p_values": {
+        "ret1": 1.646151151556166e-05,
+        "ret2": 4.322268581954643e-09,
+        "ret5": 0.0037502688717026915,
+        "ret20": 0.2006202582762559
+      },
+      "train": {
+        "name": "stepwise_train",
+        "gross": {
+          "annual_return": 0.436382994816223,
+          "sharpe": 1.6490675178977459,
+          "maximum_drawdown": -0.18733153638814004,
+          "drawdown_duration": 74,
+          "cumulative_return": 4.434705721964661,
+          "mean_daily_return": 0.0015476306999540057,
+          "annual_turnover": 182.04753820033955
+        },
+        "net": {
+          "annual_return": 0.38510130393586994,
+          "sharpe": 1.495311749130597,
+          "maximum_drawdown": -0.1876605052915773,
+          "drawdown_duration": 78,
+          "cumulative_return": 3.585324198413006,
+          "mean_daily_return": 0.001403148526779133,
+          "annual_turnover": 182.04753820033955
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "source-faithful exact replay",
+          "selected_predictors": [
+            "ret2"
+          ],
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-15",
+          "last_fit_target_realization_date": "2009-09-16",
+          "source_boundary_target_leakage": true
+        },
+        "observations": 1178,
+        "active_fraction": 0.9974533106960951,
+        "long_fraction": 0.4906621392190153,
+        "short_fraction": 0.5067911714770797
+      },
+      "test": {
+        "name": "stepwise_test",
+        "gross": {
+          "annual_return": 0.10568481580607147,
+          "sharpe": 0.6952276945203467,
+          "maximum_drawdown": -0.1973106376540502,
+          "drawdown_duration": 435,
+          "cumulative_return": 0.6000456248480444,
+          "mean_daily_return": 0.0004520472942859164,
+          "annual_turnover": 172.91603053435114
+        },
+        "net": {
+          "annual_return": 0.06810343020766219,
+          "sharpe": 0.4840393194636638,
+          "maximum_drawdown": -0.2090127635597756,
+          "drawdown_duration": 804,
+          "cumulative_return": 0.36103537661715057,
+          "mean_daily_return": 0.0003148123494173837,
+          "annual_turnover": 172.91603053435114
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "source-faithful exact replay",
+          "selected_predictors": [
+            "ret2"
+          ],
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-15",
+          "last_fit_target_realization_date": "2009-09-16",
+          "source_boundary_target_leakage": true
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.43172179813401185,
+        "short_fraction": 0.5674300254452926
+      },
+      "causal": {
+        "selected": [
+          "ret2"
+        ],
+        "coefficients": [
+          2.7530802310356083e-05,
+          -0.13038768660611788
+        ],
+        "observations": 1157,
+        "test": {
+          "name": "stepwise_causal_test",
+          "gross": {
+            "annual_return": 0.10731733418642153,
+            "sharpe": 0.7042491657575362,
+            "maximum_drawdown": -0.19731063765404988,
+            "drawdown_duration": 436,
+            "cumulative_return": 0.6111284814907383,
+            "mean_daily_return": 0.0004579017296925503,
+            "annual_turnover": 172.91603053435114
+          },
+          "net": {
+            "annual_return": 0.06968270375516661,
+            "sharpe": 0.4930883845907829,
+            "maximum_drawdown": -0.20267445334571388,
+            "drawdown_duration": 804,
+            "cumulative_return": 0.37047615401064293,
+            "mean_daily_return": 0.0003206667848240176,
+            "annual_turnover": 172.91603053435114
+          },
+          "metadata": {
+            "one_way_cost_bps": 2.0,
+            "reproduction": "boundary-corrected Python adaptation",
+            "selected_predictors": [
+              "ret2"
+            ],
+            "last_fit_predictor_date": "2009-09-14",
+            "last_fit_target_realization_date": "2009-09-15",
+            "test_start": "2009-09-16",
+            "source_boundary_target_leakage": false
+          },
+          "observations": 1179,
+          "active_fraction": 0.9991518235793045,
+          "long_fraction": 0.42493638676844786,
+          "short_fraction": 0.5742154368108566
+        }
+      }
+    },
+    "tree_rule": {
+      "train": {
+        "name": "tree_rule_train",
+        "gross": {
+          "annual_return": 0.28751860011206776,
+          "sharpe": 1.5294577616279437,
+          "maximum_drawdown": -0.11843193182168055,
+          "drawdown_duration": 255,
+          "cumulative_return": 2.2587730392687275,
+          "mean_daily_return": 0.001062750010914623,
+          "annual_turnover": 83.4295415959253
+        },
+        "net": {
+          "annual_return": 0.26624789657472414,
+          "sharpe": 1.434803489458474,
+          "maximum_drawdown": -0.12336411494250055,
+          "drawdown_duration": 266,
+          "cumulative_return": 2.0146327520118357,
+          "mean_daily_return": 0.000996536089013095,
+          "annual_turnover": 83.4295415959253
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "exact published extreme-leaf rule replay",
+          "ret2_short_threshold": 0.01531,
+          "ret1_long_threshold": -0.01392,
+          "zero_signal_means_flat": true,
+          "thresholds_inherit_source_boundary_target_leakage": true
+        },
+        "observations": 1178,
+        "active_fraction": 0.23174872665534804,
+        "long_fraction": 0.0967741935483871,
+        "short_fraction": 0.13497453310696095
+      },
+      "test": {
+        "name": "tree_rule_test",
+        "gross": {
+          "annual_return": 0.03866535357693257,
+          "sharpe": 0.5057059804676718,
+          "maximum_drawdown": -0.08672519713038929,
+          "drawdown_duration": 625,
+          "cumulative_return": 0.1942148934174488,
+          "mean_daily_return": 0.00016366290288975688,
+          "annual_turnover": 70.9618320610687
+        },
+        "net": {
+          "annual_return": 0.02403226522212476,
+          "sharpe": 0.33183461371587686,
+          "maximum_drawdown": -0.10732953497567133,
+          "drawdown_duration": 626,
+          "cumulative_return": 0.11751433887287588,
+          "mean_daily_return": 0.00010734398855557543,
+          "annual_turnover": 70.9618320610687
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "exact published extreme-leaf rule replay",
+          "ret2_short_threshold": 0.015314,
+          "ret1_long_threshold": -0.0139236,
+          "zero_signal_means_flat": true,
+          "thresholds_inherit_source_boundary_target_leakage": true
+        },
+        "observations": 1179,
+        "active_fraction": 0.18999151823579305,
+        "long_fraction": 0.07124681933842239,
+        "short_fraction": 0.11874469889737066
+      }
+    },
+    "hmm": {
+      "prior": [
+        0.00122927095405,
+        0.99877072904595
+      ],
+      "transition": [
+        [
+          0.595799945653891,
+          0.404200054346109
+        ],
+        [
+          0.748746357609356,
+          0.251253642390644
+        ]
+      ],
+      "emission": [
+        [
+          0.190513239994937,
+          0.809486760005063
+        ],
+        [
+          0.973037767548789,
+          0.026962232451211
+        ]
+      ],
+      "train": {
+        "name": "hmm_train",
+        "gross": {
+          "annual_return": 0.08664376268840335,
+          "sharpe": 0.4672046686925999,
+          "maximum_drawdown": -0.31091931498606584,
+          "drawdown_duration": 389,
+          "cumulative_return": 0.47466475292313315,
+          "mean_daily_return": 0.00044065564496848365,
+          "annual_turnover": 277.88455008488967
+        },
+        "net": {
+          "annual_return": 0.027908212902846063,
+          "sharpe": 0.2333826989995593,
+          "maximum_drawdown": -0.3208391459759463,
+          "drawdown_duration": 491,
+          "cumulative_return": 0.13731764542035663,
+          "mean_daily_return": 0.00022011235125031728,
+          "annual_turnover": 277.88455008488967
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "published-parameter exact replay",
+          "fit_scope": "matrices printed by hmm_train.m"
+        },
+        "observations": 1178,
+        "active_fraction": 0.9991511035653651,
+        "long_fraction": 0.46519524617996605,
+        "short_fraction": 0.533955857385399
+      },
+      "test": {
+        "name": "hmm_test",
+        "gross": {
+          "annual_return": -0.010173277497562916,
+          "sharpe": 0.019723681229747367,
+          "maximum_drawdown": -0.28929833576112207,
+          "drawdown_duration": 723,
+          "cumulative_return": -0.04671385736328637,
+          "mean_daily_return": 1.2836921834333689e-05,
+          "annual_turnover": 247.29770992366414
+        },
+        "net": {
+          "annual_return": -0.05795980844198356,
+          "sharpe": -0.28170656347090806,
+          "maximum_drawdown": -0.35472256047214434,
+          "drawdown_duration": 723,
+          "cumulative_return": -0.24372109650941431,
+          "mean_daily_return": -0.0001834311019146061,
+          "annual_turnover": 247.29770992366414
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "published-parameter exact replay",
+          "fit_scope": "matrices printed by hmm_train.m"
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.4359626802374894,
+        "short_fraction": 0.5631891433418151
+      }
+    },
+    "python_models": {
+      "tree": {
+        "name": "python_regression_tree",
+        "gross": {
+          "annual_return": -0.10841466015669265,
+          "sharpe": -0.6183643002828896,
+          "maximum_drawdown": -0.4552003027795206,
+          "drawdown_duration": 1155,
+          "cumulative_return": -0.41543385990271364,
+          "mean_daily_return": -0.0004021500677573673,
+          "annual_turnover": 208.82442748091603
+        },
+        "net": {
+          "annual_return": -0.14489935672509646,
+          "sharpe": -0.873480364982519,
+          "maximum_drawdown": -0.5450324058109359,
+          "drawdown_duration": 1155,
+          "cumulative_return": -0.5192295467325512,
+          "mean_daily_return": -0.0005678837403612689,
+          "annual_turnover": 208.82442748091603
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "Python methodological adaptation",
+          "fit_rows": 1157,
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15",
+          "test_start": "2009-09-16",
+          "cv_rmse": 0.014223808287765038,
+          "min_samples_leaf": 100
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.5487701441899915,
+        "short_fraction": 0.45038167938931295
+      },
+      "classification_tree": {
+        "name": "python_classification_tree",
+        "gross": {
+          "annual_return": 0.03966949530300634,
+          "sharpe": 0.3193075173980956,
+          "maximum_drawdown": -0.260413389854779,
+          "drawdown_duration": 752,
+          "cumulative_return": 0.1996260155608376,
+          "mean_daily_return": 0.00020777557247224528,
+          "annual_turnover": 191.72519083969465
+        },
+        "net": {
+          "annual_return": 0.0005428413057531056,
+          "sharpe": 0.08541163263279451,
+          "maximum_drawdown": -0.30593665857316865,
+          "drawdown_duration": 815,
+          "cumulative_return": 0.002542258813170717,
+          "mean_daily_return": 5.5612722599471757e-05,
+          "annual_turnover": 191.72519083969465
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "Python methodological adaptation",
+          "fit_rows": 1157,
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15",
+          "test_start": "2009-09-16",
+          "cv_accuracy": 0.5270833333333333,
+          "min_samples_leaf": 100
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.7065309584393554,
+        "short_fraction": 0.2926208651399491
+      },
+      "random_forest": {
+        "name": "python_random_forest",
+        "gross": {
+          "annual_return": 0.08703706652791965,
+          "sharpe": 0.5909033225675597,
+          "maximum_drawdown": -0.2561219444382037,
+          "drawdown_duration": 636,
+          "cumulative_return": 0.47765073912409584,
+          "mean_daily_return": 0.0003843162668283643,
+          "annual_turnover": 184.03053435114504
+        },
+        "net": {
+          "annual_return": 0.04777253522077474,
+          "sharpe": 0.36646848738168514,
+          "maximum_drawdown": -0.30226928249587914,
+          "drawdown_duration": 636,
+          "cumulative_return": 0.24400078764645783,
+          "mean_daily_return": 0.0002382602871845984,
+          "annual_turnover": 184.03053435114504
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "Python methodological adaptation",
+          "fit_rows": 1157,
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15",
+          "test_start": "2009-09-16",
+          "cv_rmse": 0.014145977532874268,
+          "n_estimators": 5,
+          "max_features": "sqrt"
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.41899915182357933,
+        "short_fraction": 0.5801526717557252
+      },
+      "boosting": {
+        "name": "python_gradient_boosting",
+        "gross": {
+          "annual_return": -0.02203180645469205,
+          "sharpe": -0.05407769809041438,
+          "maximum_drawdown": -0.34778235998591267,
+          "drawdown_duration": 638,
+          "cumulative_return": -0.09898180658940792,
+          "mean_daily_return": -3.51956452863595e-05,
+          "annual_turnover": 204.12213740458014
+        },
+        "net": {
+          "annual_return": -0.06115478254273432,
+          "sharpe": -0.3030763404380281,
+          "maximum_drawdown": -0.400017311336926,
+          "drawdown_duration": 679,
+          "cumulative_return": -0.25564679371923793,
+          "mean_daily_return": -0.00019719734163920095,
+          "annual_turnover": 204.12213740458014
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "Python methodological adaptation",
+          "fit_rows": 1157,
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15",
+          "test_start": "2009-09-16",
+          "selected_estimators": 160,
+          "cv_rmse_by_estimators": {
+            "5": 0.014153114491976027,
+            "20": 0.014150962225901259,
+            "80": 0.014146213588473422,
+            "160": 0.0141372326049975
+          }
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.4953350296861747,
+        "short_fraction": 0.5038167938931297
+      },
+      "svm": {
+        "name": "python_svm",
+        "gross": {
+          "annual_return": 0.11201427618460813,
+          "sharpe": 0.7302850327761891,
+          "maximum_drawdown": -0.2637284018283985,
+          "drawdown_duration": 432,
+          "cumulative_return": 0.643352107151349,
+          "mean_daily_return": 0.00047479506615553225,
+          "annual_turnover": 1.9236641221374045
+        },
+        "net": {
+          "annual_return": 0.1115856913789075,
+          "sharpe": 0.7279187248688231,
+          "maximum_drawdown": -0.26490785507636216,
+          "drawdown_duration": 434,
+          "cumulative_return": 0.6403909433625494,
+          "mean_daily_return": 0.0004732683485982804,
+          "annual_turnover": 1.9236641221374045
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "Python methodological adaptation",
+          "fit_rows": 1157,
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15",
+          "test_start": "2009-09-16",
+          "selected_kernel": "polynomial",
+          "cv_accuracy_by_kernel": {
+            "linear": 0.5322916666666666,
+            "polynomial": 0.5416666666666667,
+            "rbf": 0.5354166666666667
+          }
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.9974554707379135,
+        "short_fraction": 0.0016963528413910093
+      },
+      "mlp_ensemble": {
+        "name": "python_mlp_ensemble",
+        "gross": {
+          "annual_return": -0.03041823720380732,
+          "sharpe": -0.10621091647204266,
+          "maximum_drawdown": -0.317090559783315,
+          "drawdown_duration": 468,
+          "cumulative_return": -0.1345652383119088,
+          "mean_daily_return": -6.912460855973601e-05,
+          "annual_turnover": 153.2519083969466
+        },
+        "net": {
+          "annual_return": -0.059696915311283294,
+          "sharpe": -0.29304399964446165,
+          "maximum_drawdown": -0.34542053944355045,
+          "drawdown_duration": 1002,
+          "cumulative_return": -0.2502235809977915,
+          "mean_daily_return": -0.00019075310728747138,
+          "annual_turnover": 153.2519083969466
+        },
+        "metadata": {
+          "one_way_cost_bps": 2.0,
+          "reproduction": "deterministic 10-seed Python adaptation",
+          "seeds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "hidden_layers": [
+            8,
+            4
+          ],
+          "internal_validation": "none; fixed 500-iteration training budget",
+          "seed_cagrs": [
+            -0.05611611423442098,
+            -0.0431959251545998,
+            0.017462832257115757,
+            -0.012623517033455323,
+            0.019207158073031305,
+            0.03481495487522368,
+            0.019653011365424078,
+            0.1383755232862205,
+            0.050587692451705024,
+            -0.05982517569764623
+          ],
+          "fit_end": "2009-09-15",
+          "last_fit_predictor_date": "2009-09-14",
+          "last_fit_target_realization_date": "2009-09-15"
+        },
+        "observations": 1179,
+        "active_fraction": 0.9991518235793045,
+        "long_fraction": 0.5224766751484309,
+        "short_fraction": 0.4766751484308736
+      }
+    },
+    "unavailable": {
+      "technical_stock_selection": {
+        "status": "unavailable_data",
+        "test": null,
+        "reason": "rTree_SPX.m loads a private fundamentalData file absent from the official ZIP",
+        "book_output": {
+          "annual_return": 0.023153,
+          "sharpe": 0.872566
+        }
+      },
+      "fundamental_stock_selection": {
+        "status": "unavailable_data",
+        "test": null,
+        "reason": "stepwiseLR_SPX.m loads the author's local Dropbox fundamentalData file",
+        "book_output": {
+          "annual_return": 0.039567,
+          "sharpe": 1.117113
+        }
+      }
+    }
+  },
+  "source_limitations": {
+    "incomplete_scripts": {
+      "hmm.m": "INCOMPLETE!",
+      "hmm_train2.m": "Does not work",
+      "nn_retrain.m": "INCOMPLETE!",
+      "stepwiseLR_SPX_fillFwd.m": "TODO"
+    },
+    "missing_fundamental_data": true,
+    "one_row_target_boundary_leakage": "lr.m, stepwiseLR.m, and fitted tree thresholds include the first test return as the target of the final training predictor row",
+    "duplicated_classification_output_comment": "0.047740/0.366381 appears in five different MATLAB scripts; treated as a provenance-uncertain output-only reference",
+    "matlab_cross_validation_note": "Original scripts select one fitted fold; Python adaptation uses ordered CV for train-only model choice and refits on all training rows"
+  },
+  "coverage": [
+    {
+      "topic": "AI와 자동화된 패턴 탐색",
+      "status": "개념 설명",
+      "evidence": "예측보다 검증 설계가 우선"
+    },
+    {
+      "topic": "선형회귀와 과적합",
+      "status": "정확 수치 재현",
+      "evidence": "lr.m, SPY 공식 MAT"
+    },
+    {
+      "topic": "stepwise regression",
+      "status": "정확 수치 재현",
+      "evidence": "완전관측 행 고정과 ret2 선택"
+    },
+    {
+      "topic": "regression tree",
+      "status": "정확 규칙 재현 + Python 적응",
+      "evidence": "극단 leaf 규칙과 sklearn 전체 tree"
+    },
+    {
+      "topic": "cross validation",
+      "status": "실행된 방법론 수정",
+      "evidence": "random K-fold 대신 TimeSeriesSplit"
+    },
+    {
+      "topic": "bagging/random subspace",
+      "status": "Python 적응 + output-only 원본 참조",
+      "evidence": "RandomForestRegressor, seed=1; 직접 비교 금지"
+    },
+    {
+      "topic": "boosting",
+      "status": "Python 적응 + 원본 한계 진단",
+      "evidence": "훈련 CV로 iteration 선택"
+    },
+    {
+      "topic": "classification tree",
+      "status": "Python 적응 + provenance-uncertain 원본 참조",
+      "evidence": "같은 주석이 5개 MATLAB 파일에 중복"
+    },
+    {
+      "topic": "support vector machine",
+      "status": "Python 적응 + output-only 원본 참조",
+      "evidence": "train-only kernel 선택"
+    },
+    {
+      "topic": "hidden Markov model",
+      "status": "published-parameter 정확 replay",
+      "evidence": "온라인 filtering, 행렬 재추정 아님"
+    },
+    {
+      "topic": "neural network",
+      "status": "결정적 다중 seed 적응 + output-only 원본 참조",
+      "evidence": "MLP 10개와 seed 분산"
+    },
+    {
+      "topic": "aggregation과 normalization",
+      "status": "실행 진단",
+      "evidence": "StandardScaler와 ensemble 평균"
+    },
+    {
+      "topic": "technical stock selection",
+      "status": "output-only",
+      "evidence": "fundamentalData가 공식 ZIP에 없음"
+    },
+    {
+      "topic": "fundamental stock selection",
+      "status": "output-only",
+      "evidence": "저자 로컬 Dropbox 경로만 존재"
+    },
+    {
+      "topic": "look-ahead/survivorship/selection bias",
+      "status": "개념 + 자동 검증",
+      "evidence": "시계열 split과 테스트 격리"
+    },
+    {
+      "topic": "거래비용과 위험",
+      "status": "실행 백테스트",
+      "evidence": "2bps 편도 민감도, MDD와 duration"
+    },
+    {
+      "topic": "연습문제·요약·endnotes",
+      "status": "커버리지 매핑",
+      "evidence": "모형 확장과 검증 질문"
+    }
+  ],
+  "verification": {
+    "checks": {
+      "archive_manifest_matches": true,
+      "data_dates_are_strictly_increasing": true,
+      "linear_coefficients_match_source": true,
+      "linear_train_matches_source": true,
+      "linear_test_matches_source": true,
+      "stepwise_selects_ret2": true,
+      "stepwise_coefficients_match_source": true,
+      "stepwise_train_matches_source": true,
+      "stepwise_test_matches_source": true,
+      "tree_rule_train_matches_source": true,
+      "tree_rule_test_matches_source": true,
+      "hmm_train_matches_source": true,
+      "hmm_test_matches_source": true,
+      "hmm_probabilities_are_stochastic": true,
+      "signals_are_applied_one_day_later": true,
+      "chronological_split_is_disjoint": true,
+      "source_boundary_target_leakage_detected": true,
+      "python_training_targets_precede_test": true,
+      "time_series_cv_respects_order": true,
+      "transaction_costs_do_not_improve_results": true,
+      "random_forest_is_seed_deterministic": true,
+      "cross_sectional_data_is_not_claimed_available": true,
+      "incomplete_matlab_scripts_are_disclosed": true
+    },
+    "summary": {
+      "total": 23,
+      "passed": 23,
+      "failed": [],
+      "independent_or_empirical": 13,
+      "contract_invariant": 10,
+      "classification": {
+        "archive_manifest_matches": "independent_or_empirical",
+        "data_dates_are_strictly_increasing": "independent_or_empirical",
+        "linear_coefficients_match_source": "independent_or_empirical",
+        "linear_train_matches_source": "independent_or_empirical",
+        "linear_test_matches_source": "independent_or_empirical",
+        "stepwise_selects_ret2": "independent_or_empirical",
+        "stepwise_coefficients_match_source": "independent_or_empirical",
+        "stepwise_train_matches_source": "independent_or_empirical",
+        "stepwise_test_matches_source": "independent_or_empirical",
+        "tree_rule_train_matches_source": "independent_or_empirical",
+        "tree_rule_test_matches_source": "independent_or_empirical",
+        "hmm_train_matches_source": "independent_or_empirical",
+        "hmm_test_matches_source": "independent_or_empirical",
+        "hmm_probabilities_are_stochastic": "contract_invariant",
+        "signals_are_applied_one_day_later": "contract_invariant",
+        "chronological_split_is_disjoint": "contract_invariant",
+        "source_boundary_target_leakage_detected": "contract_invariant",
+        "python_training_targets_precede_test": "contract_invariant",
+        "time_series_cv_respects_order": "contract_invariant",
+        "transaction_costs_do_not_improve_results": "contract_invariant",
+        "random_forest_is_seed_deterministic": "contract_invariant",
+        "cross_sectional_data_is_not_claimed_available": "contract_invariant",
+        "incomplete_matlab_scripts_are_disclosed": "contract_invariant"
+      }
+    }
+  }
+}

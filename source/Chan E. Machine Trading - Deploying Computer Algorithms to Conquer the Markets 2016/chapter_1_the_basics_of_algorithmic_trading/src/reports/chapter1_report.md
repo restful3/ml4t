@@ -279,7 +279,7 @@ uv run python chapter_1_the_basics_of_algorithmic_trading/src/run_chapter1_analy
 |---|---|
 | 공식 ZIP SHA-256 | `b868d52328a85df8e31aad900a6c3e5669fc226f39fbb003c6123e8c6de0a239` |
 | 입력 MAT SHA-256 | `3d24e65d340774ad7088ee7019582fb6dd945f78de08d96c7bbe43f9de44ab11` |
-| `uv.lock` SHA-256 | `d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a` |
+| `uv.lock` SHA-256 | `34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf` |
 | Python | 3.12.3 |
 | NumPy / pandas / SciPy | 2.5.1 / 3.0.3 / 1.18.0 |
 

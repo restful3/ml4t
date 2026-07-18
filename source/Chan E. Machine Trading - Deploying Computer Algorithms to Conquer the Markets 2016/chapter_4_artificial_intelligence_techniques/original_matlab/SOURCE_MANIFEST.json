@@ -1,0 +1,176 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap4%20AI.zip",
+  "archive_sha256": "a556978ebe871446b3f32511a910b8fec74669bc02dddcced0c8537fd82a0358",
+  "archive_size_bytes": 169914,
+  "members": [
+    {
+      "archive_path": "Chap4 AI/cTree.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/cTree.m",
+      "sha256": "c7041e965fa1afa0fd45d513d312e525f1f1e01b5f530fb46619045277d5d54c",
+      "size_bytes": 6720,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm.m",
+      "sha256": "ae5ebee0f5b919ade2e4c109ce02bfa5169bb3f8a1ddbc4a3e843d68b2e5d958",
+      "size_bytes": 7504,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm_foo.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm_foo.m",
+      "sha256": "a5a48839472a6e416d891cfaf84134179290ca82b45e17ccc690b126ca3415e2",
+      "size_bytes": 1441,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm_test.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm_test.m",
+      "sha256": "9d7192a7c5246631a8ea71c51b562890627a0b146ae41ed71b25e05e5b83489f",
+      "size_bytes": 3240,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm_train.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm_train.m",
+      "sha256": "2f2b632bafb2ec088ff18a2522a369a002828e6548a2a61c94232f9f74e800bc",
+      "size_bytes": 2819,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm_train2.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm_train2.m",
+      "sha256": "522719dde20c60d177bbca80a86eb977adabe0590eefaa3733c4b0f9fc70fc18",
+      "size_bytes": 1562,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm_VXX.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm_VXX.m",
+      "sha256": "f990126daa2272c24211db39e3eadb3231aab68e7fb623da461cac856e5bcc1f",
+      "size_bytes": 7587,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/hmm2.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/hmm2.m",
+      "sha256": "ff744d77a0b89242723199d4c9e80d59bb8324cb64ba1a7ebda6d09046a5682e",
+      "size_bytes": 7907,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/inputData_SPY.mat",
+      "destination": "data/raw/book3/chapter_4/inputData_SPY.mat",
+      "sha256": "b94aa1b85d10e4e41c021882ee90a7d945341baf8d4690ca7561561936437fc4",
+      "size_bytes": 17934,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap4 AI/lr.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/lr.m",
+      "sha256": "0b0c2801720a906f14e67f752927523bd61d72aea60b29b08b4de4a27612bfa0",
+      "size_bytes": 3218,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/nn.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/nn.m",
+      "sha256": "34cbcb65a18a04f1c37ad0a158dfb39606b366b7a3b872fb906d49b6ff4ad35f",
+      "size_bytes": 5108,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/nn_feedfwd.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/nn_feedfwd.m",
+      "sha256": "074423ea1a111b3d9660fc3abc705964f22946c7c6cf615769201c47b0f5188f",
+      "size_bytes": 2829,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/nn_feedfwd_avg.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/nn_feedfwd_avg.m",
+      "sha256": "8ad58b3e9fbd4ad102c65765e7c20c659d7dcc3d2e10f0ed49e963d9b9425968",
+      "size_bytes": 3475,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/nn_feedfwd_retrain.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/nn_feedfwd_retrain.m",
+      "sha256": "eb407eb6ef9f163b457351a82908c453bafd3a385b150f9e4b07b87c6ecfd452",
+      "size_bytes": 3361,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/nn_retrain.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/nn_retrain.m",
+      "sha256": "e936336fe9470d911060b04e0da811eb98faeb87d1b2364d4776e9830c11c529",
+      "size_bytes": 5462,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/rTree.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/rTree.m",
+      "sha256": "6b0088b6b1a6a007b6b5ed9b6808ce80e4eda856d08f4c6a08a5abf3a0b23b57",
+      "size_bytes": 6337,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/rTree_SPX.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/rTree_SPX.m",
+      "sha256": "89ea85dca39d7af12bf189c7fc4f121bc1f94743f880d0a1ca3e0f5df93205d0",
+      "size_bytes": 4520,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/rTreeBagger.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/rTreeBagger.m",
+      "sha256": "6e220d30e3b53e31a413619f4271acf5257b67629d209b6343b3e71fbc172341",
+      "size_bytes": 3349,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/rTreeLSBoost.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/rTreeLSBoost.m",
+      "sha256": "d1f5c87f9e6c80a05823a46934b7df567fe56492d224bc1f4a06c35655570e7f",
+      "size_bytes": 5370,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/SPY.xls",
+      "destination": "data/raw/book3/chapter_4/SPY.xls",
+      "sha256": "3c0e719231fb1ef0204ec125f950c31c88a21d92691b56dc8cec48430052f1e9",
+      "size_bytes": 289280,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap4 AI/stepwiseLR.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/stepwiseLR.m",
+      "sha256": "bad8722c89975d0c510ca7f89acc47ff37da420226939b76f54d50842b16e991",
+      "size_bytes": 3016,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/stepwiseLR_SPX.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/stepwiseLR_SPX.m",
+      "sha256": "f6292c00c07364838f0fa432ae3da3b39bb3d109d631df58cfff3117b04d2f96",
+      "size_bytes": 8269,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/stepwiseLR_SPX_fillFwd.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/stepwiseLR_SPX_fillFwd.m",
+      "sha256": "18b2737efea87a25fd905bc456940c31156bd98093a199a3002593dec4703dd4",
+      "size_bytes": 7355,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap4 AI/svm.m",
+      "destination": "chapter_4_artificial_intelligence_techniques/original_matlab/svm.m",
+      "sha256": "f6d6fde08b77cb82233f3b1a7d1177fe2a53457c00da408560480fb4f2676662",
+      "size_bytes": 8631,
+      "kind": "original_source"
+    }
+  ]
+}

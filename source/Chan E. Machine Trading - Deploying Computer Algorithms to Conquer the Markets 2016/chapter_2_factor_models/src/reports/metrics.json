@@ -84,7 +84,7 @@
       "fundamentalData.mat": "72e1e59bbab7a75e263684aa053794a523a161e5f8d2f64cb9a30919b71672ac",
       "fundamentals.mat": "211bb40db1253d656b356e79203920f7c0b17a4102ab5236af33314d86a306c2"
     },
-    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf",
     "environment": {
       "python": "3.12.3",
       "numpy": "2.5.1",

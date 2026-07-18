@@ -11,7 +11,9 @@ dependencies = [
     "nbformat>=5.10,<6",
     "numpy>=2.0,<3",
     "pandas>=2.2,<4",
+    "scikit-learn>=1.6,<2",
     "scipy>=1.14,<2",
+    "xlrd>=2.0,<3",
 ]
 
 [dependency-groups]
@@ -75,3 +77,60 @@ archive_prefix = "Chap3 Time Series"
 source_root = "chapter_3_time_series_analysis/original_matlab"
 raw_root = "data/raw/book3/chapter_3"
 source_suffixes = [".m", ".fig"]
+
+[tool.book3.chapter_4]
+title = "Chap4 AI"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap4%20AI.zip"
+sha256 = "a556978ebe871446b3f32511a910b8fec74669bc02dddcced0c8537fd82a0358"
+size_bytes = 169914
+archive_prefix = "Chap4 AI"
+source_root = "chapter_4_artificial_intelligence_techniques/original_matlab"
+raw_root = "data/raw/book3/chapter_4"
+source_suffixes = [".m"]
+
+[tool.book3.chapter_5]
+title = "Chap5 Options"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap5%20Options.zip"
+sha256 = "3ffe46a1c8ed37e5611e114b02ab1a714efb676c9ecca2548083aa7363da590f"
+size_bytes = 41972176
+archive_prefix = "Chap5 Options"
+source_root = "chapter_5_options_strategies/original_matlab"
+raw_root = "data/raw/book3/chapter_5"
+source_suffixes = [".m"]
+
+[tool.book3.chapter_6]
+title = "Chap6 Intraday Trading"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap6%20Intraday%20Trading.zip"
+sha256 = "e8bceb329afcc9fe2c61bcd06f553a5fa5dbe569716b22949354b5991b6c9e3e"
+size_bytes = 7141666
+archive_prefix = "Chap6 Intraday Trading"
+source_root = "chapter_6_intraday_trading_and_market_microstructure/original_matlab"
+raw_root = "data/raw/book3/chapter_6"
+source_suffixes = [".m"]
+
+[tool.book3.chapter_7]
+title = "Chap7 Bitcoin"
+source_page = "https://epchan.com/book3"
+url = "https://epchan.com/img/book3/Chap7%20Bitcoin.zip"
+sha256 = "03267f6abd2fa35325d915e43677265b8b90da93fea0a02b16df4c7247b18dba"
+size_bytes = 3130126
+archive_prefix = "Chap7 Bitcoin"
+source_root = "chapter_7_bitcoins/original_matlab"
+raw_root = "data/raw/book3/chapter_7"
+source_suffixes = [".m"]
+
+[tool.book3.chapter_8]
+title = "Algorithmic Trading Is Good for Your Body and Soul"
+source_page = "https://epchan.com/book3"
+official_archive_available = false
+reused_archive_chapter = 5
+data_path = "data/raw/book3/chapter_5/inputDataOHLCDaily_ETF_20151125.mat"
+data_sha256 = "939245babc96c8dad661b6676ba3f07ea2b9d7b6ec627e702b1448f3e7e7e1b6"
+data_size_bytes = 1707986
+cross_book_source_path = "archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_3_implementing_mean_reversion_strategies/src/bollinger.py"
+cross_book_source_sha256 = "99b8a6e8d40389130f4bcead274b1b45280b16491149ea21bf8c6953748b27a6"
+cross_book_data_path = "archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_3_implementing_mean_reversion_strategies/src/inputData_GLD_USO.csv"
+cross_book_data_sha256 = "cbd01eb41c0d923f7bda2fb5762b5a607924a0faf5d68ea57a7ef583fa947112"

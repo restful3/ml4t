@@ -1,0 +1,57 @@
+{
+  "source_page": "https://epchan.com/book3",
+  "archive_url": "https://epchan.com/img/book3/Chap6%20Intraday%20Trading.zip",
+  "archive_sha256": "e8bceb329afcc9fe2c61bcd06f553a5fa5dbe569716b22949354b5991b6c9e3e",
+  "archive_size_bytes": 7141666,
+  "members": [
+    {
+      "archive_path": "Chap6 Intraday Trading/aggressorTag_algoseek.m",
+      "destination": "chapter_6_intraday_trading_and_market_microstructure/original_matlab/aggressorTag_algoseek.m",
+      "sha256": "ddcf38c1c33605e507d5469b27d9cfc74a522ec93947bcb30257badd1da96747",
+      "size_bytes": 6848,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/buildOrderBook.m",
+      "destination": "chapter_6_intraday_trading_and_market_microstructure/original_matlab/buildOrderBook.m",
+      "sha256": "d771674e3d03f5ca78fa87e3cd8dd547a2bec27f1a83e76349dcac86c12bf188",
+      "size_bytes": 6523,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/COINSETTER_execution_reports_03_2014-10_2014.csv",
+      "destination": "data/raw/book3/chapter_6/COINSETTER_execution_reports_03_2014-10_2014.csv",
+      "sha256": "3bc0bfff250d999cada1e74ac8e677d893a720350514a20e399f2c18ce322128",
+      "size_bytes": 34902382,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/inputData_ESZ12_TAQ_20121001_v003.mat",
+      "destination": "data/raw/book3/chapter_6/inputData_ESZ12_TAQ_20121001_v003.mat",
+      "sha256": "ea929ed7fd12b4f82236a2137ce04ad6a952bd32aa3638a60f15c910a881b38b",
+      "size_bytes": 380753,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/inputData_ESZ12_volbar500_TAQ_20121001_v003.mat",
+      "destination": "data/raw/book3/chapter_6/inputData_ESZ12_volbar500_TAQ_20121001_v003.mat",
+      "sha256": "cb0393e1c8530073d421c1a1530192edf6bc576a624f851a0a5250d7d8ef27eb",
+      "size_bytes": 21234,
+      "kind": "research_data"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/tickRule.m",
+      "destination": "chapter_6_intraday_trading_and_market_microstructure/original_matlab/tickRule.m",
+      "sha256": "3414c54c0662bd36e0efb50c03aa9c6131792b506ab6dfcb0a688dd38bfe88e1",
+      "size_bytes": 6115,
+      "kind": "original_source"
+    },
+    {
+      "archive_path": "Chap6 Intraday Trading/volumeBar.m",
+      "destination": "chapter_6_intraday_trading_and_market_microstructure/original_matlab/volumeBar.m",
+      "sha256": "f7438dabbb39563a22bd91e480f0f6d2e6feced48cc2987c9c2a61a54315c2a3",
+      "size_bytes": 5301,
+      "kind": "original_source"
+    }
+  ]
+}

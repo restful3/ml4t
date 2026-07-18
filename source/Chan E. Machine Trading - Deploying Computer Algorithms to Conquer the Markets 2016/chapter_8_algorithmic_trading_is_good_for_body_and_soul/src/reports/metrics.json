@@ -1,0 +1,524 @@
+{
+  "chapter": 8,
+  "title": "Algorithmic Trading Is Good for Your Body and Soul",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "official_chapter_8_archive_available": false,
+    "reused_official_archive_chapter": 5,
+    "reused_data_path": "data/raw/book3/chapter_5/inputDataOHLCDaily_ETF_20151125.mat",
+    "reused_data_sha256": "939245babc96c8dad661b6676ba3f07ea2b9d7b6ec627e702b1448f3e7e7e1b6",
+    "reused_data_size_bytes": 1707986,
+    "chapter_text_sha256": "27959d06800ba7e2d4884fca047955941e16d1c4035a8c6f8163c3ed18ecc1d7",
+    "cross_book_source_path": "archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_3_implementing_mean_reversion_strategies/src/bollinger.py",
+    "cross_book_source_present": true,
+    "cross_book_source_sha256": "99b8a6e8d40389130f4bcead274b1b45280b16491149ea21bf8c6953748b27a6",
+    "cross_book_data_path": "archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/chapter_3_implementing_mean_reversion_strategies/src/inputData_GLD_USO.csv",
+    "cross_book_data_present": true,
+    "cross_book_data_sha256": "cbd01eb41c0d923f7bda2fb5762b5a607924a0faf5d68ea57a7ef583fa947112",
+    "cross_book_values_match": true
+  },
+  "environment": {
+    "versions": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    },
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf",
+    "random_seed": 20260718
+  },
+  "data": {
+    "rows": 2415,
+    "date_start": 20060426,
+    "date_end": 20151125,
+    "official_panel_assets": 26,
+    "gld_missing_used_period": 0,
+    "uso_missing_used_period": 0,
+    "gdx_available": false
+  },
+  "reproduction_classification": {
+    "exact_cross_book_replay": [
+      "corrected GLD-USO active-day metrics"
+    ],
+    "empirical_extension": [
+      "GLD-USO 2012-2015"
+    ],
+    "conceptual_simulation": [
+      "strategy lifecycle",
+      "managed-account granularity"
+    ],
+    "output_only": [
+      "GLD-GDX fixed-spread strategy death",
+      "health, autonomy, and productivity claims",
+      "managed-account registration thresholds and service providers"
+    ]
+  },
+  "coverage": [
+    {
+      "topic": "GLD-USO 20-day Bollinger",
+      "status": "cross-book empirical replay",
+      "evidence": "official Book 3 Ch5 panel; values identical to Chan 2013 CSV over 1,500 days"
+    },
+    {
+      "topic": "active-day annualization",
+      "status": "source-metric audit",
+      "evidence": "23.86% source clock versus 17.76% calendar clock"
+    },
+    {
+      "topic": "post-2012 strategy shelf life",
+      "status": "temporal extension",
+      "evidence": "915 later observations through 2015-11-25"
+    },
+    {
+      "topic": "source long-exit typo",
+      "status": "code-semantic sensitivity",
+      "evidence": "published Python uses -1 on the long exit while prose says exit z=0"
+    },
+    {
+      "topic": "strategy births/deaths and diversification",
+      "status": "deterministic conceptual simulation",
+      "evidence": "10 strategies, two alpha breaks, seed pinned"
+    },
+    {
+      "topic": "managed-account integer allocation",
+      "status": "deterministic capacity illustration",
+      "evidence": "four account sizes and ten margin requirements"
+    },
+    {
+      "topic": "GLD-GDX negative test",
+      "status": "output-only",
+      "evidence": "required 2006-2013 GDX panel absent"
+    },
+    {
+      "topic": "health, service, and regulation",
+      "status": "narrative/output-only",
+      "evidence": "not a market-data calculation"
+    }
+  ],
+  "results": {
+    "gld_uso": {
+      "original_period": {
+        "period_start": 20060426,
+        "period_end": 20120409,
+        "rows": 1500,
+        "source_active_day": {
+          "cumulative_return": 1.6462421762054764,
+          "annual_return": 0.23860906665831516,
+          "sharpe": 1.106654196870293,
+          "maximum_drawdown": -0.21831770065726142,
+          "drawdown_duration": 180,
+          "periods": 1146
+        },
+        "calendar_gross": {
+          "cumulative_return": 1.6462421762054764,
+          "annual_return": 0.17761077462685693,
+          "sharpe": 0.9668391785561579,
+          "maximum_drawdown": -0.21831770065726142,
+          "drawdown_duration": 252,
+          "periods": 1500
+        },
+        "calendar_net_10bps": {
+          "cumulative_return": 1.2307515967118636,
+          "annual_return": 0.14429975169890485,
+          "sharpe": 0.8138220488044501,
+          "maximum_drawdown": -0.22914421588657086,
+          "drawdown_duration": 276,
+          "periods": 1500
+        },
+        "position_changes": 162,
+        "contract": {
+          "lookback_days": 20,
+          "entry_zscore": 1.0,
+          "exit_zscore": 0.0,
+          "rolling_standard_deviation_ddof": 1,
+          "positions_are_lagged_one_day": true,
+          "source_active_day_clock_excludes_flat_days": true,
+          "source_long_exit_bug_replayed": false,
+          "transaction_cost_per_unit_change": 0.001
+        }
+      },
+      "source_code_long_exit_bug": {
+        "period_start": 20060426,
+        "period_end": 20120409,
+        "rows": 1500,
+        "source_active_day": {
+          "cumulative_return": 1.134326417268869,
+          "annual_return": 0.22914880089380985,
+          "sharpe": 1.033888546837639,
+          "maximum_drawdown": -0.16934849414133768,
+          "drawdown_duration": 182,
+          "periods": 926
+        },
+        "calendar_gross": {
+          "cumulative_return": 1.134326417268869,
+          "annual_return": 0.1358365013219618,
+          "sharpe": 0.8118407328742286,
+          "maximum_drawdown": -0.16934849414133768,
+          "drawdown_duration": 263,
+          "periods": 1500
+        },
+        "calendar_net_10bps": {
+          "cumulative_return": 0.7634850554144663,
+          "annual_return": 0.09999436314015231,
+          "sharpe": 0.6297082855207495,
+          "maximum_drawdown": -0.19211742725750813,
+          "drawdown_duration": 302,
+          "periods": 1500
+        },
+        "position_changes": 185,
+        "contract": {
+          "lookback_days": 20,
+          "entry_zscore": 1.0,
+          "exit_zscore": 0.0,
+          "rolling_standard_deviation_ddof": 1,
+          "positions_are_lagged_one_day": true,
+          "source_active_day_clock_excludes_flat_days": true,
+          "source_long_exit_bug_replayed": true,
+          "transaction_cost_per_unit_change": 0.001
+        }
+      },
+      "post_book_extension": {
+        "period_start": 20120410,
+        "period_end": 20151125,
+        "rows": 915,
+        "source_active_day": {
+          "cumulative_return": 0.27507706257778586,
+          "annual_return": 0.09294845985069422,
+          "sharpe": 0.6285803561348557,
+          "maximum_drawdown": -0.20322622415916358,
+          "drawdown_duration": 178,
+          "periods": 689
+        },
+        "calendar_gross": {
+          "cumulative_return": 0.27507706257778586,
+          "annual_return": 0.0692167946438138,
+          "sharpe": 0.5454483242292448,
+          "maximum_drawdown": -0.20322622415916358,
+          "drawdown_duration": 233,
+          "periods": 915
+        },
+        "calendar_net_10bps": {
+          "cumulative_return": 0.15725279401361503,
+          "annual_return": 0.0410432213253793,
+          "sharpe": 0.35591453555440655,
+          "maximum_drawdown": -0.21432878406925515,
+          "drawdown_duration": 233,
+          "periods": 915
+        },
+        "position_changes": 93,
+        "contract": {
+          "lookback_days": 20,
+          "entry_zscore": 1.0,
+          "exit_zscore": 0.0,
+          "rolling_standard_deviation_ddof": 1,
+          "positions_are_lagged_one_day": true,
+          "source_active_day_clock_excludes_flat_days": true,
+          "source_long_exit_bug_replayed": false,
+          "transaction_cost_per_unit_change": 0.001
+        }
+      },
+      "full_period": {
+        "period_start": 20060426,
+        "period_end": 20151125,
+        "rows": 2415,
+        "source_active_day": {
+          "cumulative_return": 2.432635350182669,
+          "annual_return": 0.18049792627993866,
+          "sharpe": 0.9483170320611222,
+          "maximum_drawdown": -0.21831770065726142,
+          "drawdown_duration": 180,
+          "periods": 1873
+        },
+        "calendar_gross": {
+          "cumulative_return": 2.432635350182669,
+          "annual_return": 0.13734332477626765,
+          "sharpe": 0.8348644396508201,
+          "maximum_drawdown": -0.21831770065726142,
+          "drawdown_duration": 252,
+          "periods": 2415
+        },
+        "calendar_net_10bps": {
+          "cumulative_return": 1.613311097803003,
+          "annual_return": 0.10543442651784973,
+          "sharpe": 0.6695126591730116,
+          "maximum_drawdown": -0.22914421588657086,
+          "drawdown_duration": 276,
+          "periods": 2415
+        },
+        "position_changes": 258,
+        "contract": {
+          "lookback_days": 20,
+          "entry_zscore": 1.0,
+          "exit_zscore": 0.0,
+          "rolling_standard_deviation_ddof": 1,
+          "positions_are_lagged_one_day": true,
+          "source_active_day_clock_excludes_flat_days": true,
+          "source_long_exit_bug_replayed": false,
+          "transaction_cost_per_unit_change": 0.001
+        }
+      },
+      "classification": "cross-book empirical replay using the value-identical official Book 3 Chapter 5 panel"
+    },
+    "strategy_lifecycle": {
+      "performance": {
+        "concentrated_dying_strategy": {
+          "cumulative_return": -0.5945425148145622,
+          "annual_return": -0.20346984630043752,
+          "sharpe": -1.7338760034717298,
+          "maximum_drawdown": -0.6185244001394522,
+          "drawdown_duration": 878,
+          "periods": 1000
+        },
+        "equal_weight_live_pool": {
+          "cumulative_return": 0.13284508519399685,
+          "annual_return": 0.031931743882117836,
+          "sharpe": 0.6335436414333752,
+          "maximum_drawdown": -0.06022869939915476,
+          "drawdown_duration": 283,
+          "periods": 1000
+        },
+        "drawdown_budget_live_pool": {
+          "cumulative_return": 0.36472235882164616,
+          "annual_return": 0.08151155865690218,
+          "sharpe": 1.2462550293828787,
+          "maximum_drawdown": -0.06913823046109091,
+          "drawdown_duration": 217,
+          "periods": 1000
+        }
+      },
+      "contract": {
+        "random_seed": 20260718,
+        "strategies": 10,
+        "days": 1000,
+        "strategy_0_alpha_break_day": 500,
+        "strategy_1_alpha_break_day": 700,
+        "maximum_drawdown_budget": 0.12,
+        "weights_use_information_through_previous_day": true,
+        "conceptual_simulation_not_backtest": true
+      }
+    },
+    "managed_account_granularity": {
+      "rows": [
+        {
+          "account_size_usd": 25000.0,
+          "strategies_with_nonzero_allocation": 0,
+          "capital_utilization": 0.0,
+          "l1_weight_error": 1.0
+        },
+        {
+          "account_size_usd": 100000.0,
+          "strategies_with_nonzero_allocation": 4,
+          "capital_utilization": 0.305,
+          "l1_weight_error": 0.6950000000000001
+        },
+        {
+          "account_size_usd": 500000.0,
+          "strategies_with_nonzero_allocation": 10,
+          "capital_utilization": 0.888,
+          "l1_weight_error": 0.11200000000000004
+        },
+        {
+          "account_size_usd": 2000000.0,
+          "strategies_with_nonzero_allocation": 10,
+          "capital_utilization": 0.982,
+          "l1_weight_error": 0.018000000000000016
+        }
+      ],
+      "margin_per_contract": [
+        12000.0,
+        9000.0,
+        17000.0,
+        7500.0,
+        25000.0,
+        14000.0,
+        8000.0,
+        11000.0,
+        20000.0,
+        6000.0
+      ],
+      "integer_units": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          5,
+          2,
+          6,
+          2,
+          3,
+          6,
+          4,
+          2,
+          8
+        ],
+        [
+          16,
+          22,
+          11,
+          26,
+          8,
+          14,
+          25,
+          18,
+          10,
+          33
+        ]
+      ],
+      "target_weight_per_strategy": 0.1,
+      "contract": {
+        "illustrative_margin_not_market_quote": true,
+        "integer_contract_constraint": true,
+        "conceptual_capacity_experiment_not_legal_or_investment_advice": true
+      }
+    }
+  },
+  "book_comparisons": [
+    {
+      "topic": "Chan 2013 GLD-USO Bollinger cross-book replay",
+      "metric": "annual_return",
+      "python": 0.23860906665831516,
+      "source": 0.23860906665831516,
+      "absolute_error": 0.0,
+      "tolerance": 1e-12,
+      "classification": "exact replay of the corrected chapter-analysis source on value-identical data",
+      "matches_source": true
+    },
+    {
+      "topic": "Chan 2013 GLD-USO Bollinger cross-book replay",
+      "metric": "sharpe",
+      "python": 1.106654196870293,
+      "source": 1.106654196870293,
+      "absolute_error": 0.0,
+      "tolerance": 1e-12,
+      "classification": "exact replay of the corrected chapter-analysis source on value-identical data",
+      "matches_source": true
+    },
+    {
+      "topic": "Chan 2013 GLD-USO Bollinger cross-book replay",
+      "metric": "maximum_drawdown",
+      "python": -0.21831770065726142,
+      "source": -0.21831770065726142,
+      "absolute_error": 0.0,
+      "tolerance": 1e-12,
+      "classification": "exact replay of the corrected chapter-analysis source on value-identical data",
+      "matches_source": true
+    }
+  ],
+  "reference_only_comparisons": [
+    {
+      "topic": "GLD-GDX fixed-spread strategy death",
+      "book_output": {
+        "spread": "GLD - 2.21*GDX",
+        "test_cumulative_return_direction": "negative"
+      },
+      "compared": false,
+      "reason": "Chapter 8 publishes a figure and directional statement but no Chapter 8 archive or the May 2006-May 2013 GDX panel; the available official Book 3 ETF panel does not contain GDX"
+    },
+    {
+      "topic": "health, autonomy, and productivity claims",
+      "book_output": null,
+      "compared": false,
+      "reason": "these are narrative and cited lifestyle claims, not trading calculations that can be reproduced from the bundled market data"
+    },
+    {
+      "topic": "managed-account registration thresholds and service providers",
+      "book_output": null,
+      "compared": false,
+      "reason": "the chapter describes a 2016 legal and business environment; this notebook provides no current legal, regulatory, or provider-availability advice"
+    }
+  ],
+  "source_limitations": {
+    "no_official_chapter_8_code_or_data_archive": true,
+    "gld_gdx_required_panel_absent": true,
+    "cross_book_source_active_day_clock_is_biased": true,
+    "cross_book_python_long_exit_disagrees_with_exit_zscore_variable": true,
+    "post_2015_performance_not_tested": true,
+    "legal_and_provider_statements_are_historical": true
+  },
+  "verification": {
+    "checks": {
+      "reused_official_data_checksum_matches": true,
+      "chapter_8_archive_absence_is_explicit": true,
+      "gld_and_uso_are_in_official_panel": true,
+      "gdx_absence_is_disclosed": true,
+      "dates_are_strictly_increasing": true,
+      "all_used_prices_are_finite_positive": true,
+      "original_cross_book_period_has_1500_rows": true,
+      "cross_book_data_values_match_when_available": true,
+      "post_book_extension_has_915_rows": true,
+      "source_active_day_outputs_match": true,
+      "source_active_day_clock_is_disclosed": true,
+      "calendar_clock_is_more_conservative": true,
+      "positions_are_lagged_one_day": true,
+      "transaction_costs_reduce_original_return": true,
+      "extension_remains_positive_before_cost": true,
+      "extension_remains_positive_after_10bps": true,
+      "source_long_exit_typo_changes_results": true,
+      "lifecycle_seed_is_pinned": true,
+      "lifecycle_weights_are_lagged": true,
+      "lifecycle_simulation_is_not_called_backtest": true,
+      "strategy_pool_beats_dying_concentration": true,
+      "small_accounts_have_fewer_active_strategies": true,
+      "granularity_is_not_presented_as_market_quote": true,
+      "all_reference_only_rows_have_reasons": true
+    },
+    "summary": {
+      "total": 24,
+      "passed": 24,
+      "failed": [],
+      "independent_or_empirical": 18,
+      "contract_invariant": 6,
+      "classification": {
+        "reused_official_data_checksum_matches": "independent_or_empirical",
+        "chapter_8_archive_absence_is_explicit": "independent_or_empirical",
+        "gld_and_uso_are_in_official_panel": "independent_or_empirical",
+        "gdx_absence_is_disclosed": "independent_or_empirical",
+        "dates_are_strictly_increasing": "independent_or_empirical",
+        "all_used_prices_are_finite_positive": "independent_or_empirical",
+        "original_cross_book_period_has_1500_rows": "independent_or_empirical",
+        "cross_book_data_values_match_when_available": "independent_or_empirical",
+        "post_book_extension_has_915_rows": "independent_or_empirical",
+        "source_active_day_outputs_match": "independent_or_empirical",
+        "source_active_day_clock_is_disclosed": "independent_or_empirical",
+        "calendar_clock_is_more_conservative": "independent_or_empirical",
+        "positions_are_lagged_one_day": "independent_or_empirical",
+        "transaction_costs_reduce_original_return": "independent_or_empirical",
+        "extension_remains_positive_before_cost": "independent_or_empirical",
+        "extension_remains_positive_after_10bps": "independent_or_empirical",
+        "source_long_exit_typo_changes_results": "independent_or_empirical",
+        "lifecycle_seed_is_pinned": "independent_or_empirical",
+        "lifecycle_weights_are_lagged": "contract_invariant",
+        "lifecycle_simulation_is_not_called_backtest": "contract_invariant",
+        "strategy_pool_beats_dying_concentration": "contract_invariant",
+        "small_accounts_have_fewer_active_strategies": "contract_invariant",
+        "granularity_is_not_presented_as_market_quote": "contract_invariant",
+        "all_reference_only_rows_have_reasons": "contract_invariant"
+      }
+    }
+  }
+}

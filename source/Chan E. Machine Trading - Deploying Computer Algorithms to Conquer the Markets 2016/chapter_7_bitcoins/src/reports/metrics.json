@@ -1,0 +1,892 @@
+{
+  "chapter": 7,
+  "title": "Bitcoin",
+  "provenance": {
+    "source_page": "https://epchan.com/book3",
+    "archive_url": "https://epchan.com/img/book3/Chap7%20Bitcoin.zip",
+    "archive_sha256": "03267f6abd2fa35325d915e43677265b8b90da93fea0a02b16df4c7247b18dba",
+    "archive_size_bytes": 3130126,
+    "member_count": 12,
+    "matlab_source_count": 9,
+    "research_data_count": 3,
+    "manifest_sha256": "93ce3ef2abd79c7512e50d0c2b54ceeb1c3c40fcf5cba83f3542681b84c4878e"
+  },
+  "environment": {
+    "versions": {
+      "python": "3.12.3",
+      "numpy": "2.5.1",
+      "pandas": "3.0.3",
+      "scipy": "1.18.0",
+      "scikit-learn": "1.9.0",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.10.4",
+      "nbclient": "0.11.0"
+    },
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf",
+    "random_seed": 20260718
+  },
+  "data": {
+    "minute_bbo": {
+      "rows": 479535,
+      "date_start": 20140120,
+      "date_end": 20150115,
+      "crossed_quote_rows": 517,
+      "hhmm_rows": 13438,
+      "hhmm_matches_price_rows": false
+    },
+    "daily_btc": {
+      "rows": 345,
+      "date_start": 20140120,
+      "date_end": 20150114
+    },
+    "bitstamp_trades": {
+      "rows": 119914,
+      "days": 31,
+      "date_start": "2014-12-01 00:00:05.869999",
+      "date_end": "2014-12-31 23:59:44.885999"
+    }
+  },
+  "reproduction_classification": {
+    "exact_source_replay": [
+      "bollinger.m",
+      "orderFlow2.m"
+    ],
+    "approximate_replay": [
+      "buildARp_BTCUSD.m conditional OLS and ADF"
+    ],
+    "source_semantic_adaptation": [
+      "rTreeBagger_BTCUSD.m via sklearn"
+    ],
+    "output_only": [
+      "AR and ARMA lag selection",
+      "MATLAB TreeBagger results",
+      "cross-validated SVM",
+      "100-network feed-forward ensemble",
+      "MXN, SPY, and HYG risk comparison"
+    ]
+  },
+  "coverage": [
+    {
+      "topic": "BTC daily tail risk",
+      "status": "independent source-data replay",
+      "evidence": "345 daily closes"
+    },
+    {
+      "topic": "AR(16), ADF, and forecast strategy",
+      "status": "approximate replay + look-ahead audit",
+      "evidence": "479,535 minute mids and printed coefficients"
+    },
+    {
+      "topic": "AR/ARMA BIC selection",
+      "status": "diagnostic + output-only source order",
+      "evidence": "Yule-Walker AR(15) versus MATLAB MLE AR(16), ARMA(3,7)"
+    },
+    {
+      "topic": "Bollinger mean reversion",
+      "status": "exact source replay",
+      "evidence": "three published outputs"
+    },
+    {
+      "topic": "bagged regression trees",
+      "status": "deterministic source-semantic adaptation",
+      "evidence": "chronological half split and execution-cost stress"
+    },
+    {
+      "topic": "SVM and neural networks",
+      "status": "code/output-only",
+      "evidence": "nonportable MATLAB training defaults"
+    },
+    {
+      "topic": "Bitstamp order flow",
+      "status": "exact source replay",
+      "evidence": "31 daily rows and three aggregate outputs"
+    },
+    {
+      "topic": "cross-exchange arbitrage",
+      "status": "historical arithmetic illustration",
+      "evidence": "book example; credit and transfer risk unquantified"
+    }
+  ],
+  "results": {
+    "risk": {
+      "annualized_volatility": 0.67356891126152,
+      "best_daily_return": 0.19682466798530673,
+      "best_date": 20140303,
+      "worst_daily_return": -0.24488986784140976,
+      "worst_date": 20150114,
+      "maximum_drawdown": -0.7923083447431873,
+      "annualized_kurtosis": 7.230566824580576,
+      "period_start": 20140120,
+      "period_end": 20150114
+    },
+    "ar": {
+      "source_full_fit": {
+        "test": {
+          "annual_return": 41190.75653071438,
+          "annual_return_log": 10.625993431112141,
+          "sharpe": 13.025662968624141,
+          "maximum_drawdown": -0.8207697599870556,
+          "drawdown_duration": 10183,
+          "cumulative_return": 201.9575239568969,
+          "cumulative_return_log": 5.3129967155560704,
+          "periods": 181440,
+          "periods_per_year": 362880
+        },
+        "test_net_10bps": {
+          "annual_return": -1.0,
+          "annual_return_log": -252.55271639154103,
+          "sharpe": -314.0734319418133,
+          "maximum_drawdown": -1.0,
+          "drawdown_duration": 181439,
+          "cumulative_return": -1.0,
+          "cumulative_return_log": -126.27635819577051,
+          "periods": 181440,
+          "periods_per_year": 362880
+        },
+        "fit_label": "entire sample, matching source look-ahead"
+      },
+      "train_only": {
+        "test": {
+          "annual_return": 84865.17665630889,
+          "annual_return_log": 11.348830902535852,
+          "sharpe": 13.883402732852565,
+          "maximum_drawdown": -0.8173428255924682,
+          "drawdown_duration": 15460,
+          "cumulative_return": 290.3179991972842,
+          "cumulative_return_log": 5.674415451267926,
+          "periods": 181440,
+          "periods_per_year": 362880
+        },
+        "test_net_10bps": {
+          "annual_return": -1.0,
+          "annual_return_log": -228.45665353185245,
+          "sharpe": -286.4319395342857,
+          "maximum_drawdown": -1.0,
+          "drawdown_duration": 181439,
+          "cumulative_return": -1.0,
+          "cumulative_return_log": -114.22832676592623,
+          "periods": 181440,
+          "periods_per_year": 362880
+        },
+        "fit_label": "chronological train-only correction"
+      },
+      "yule_walker_selected_lag": 15,
+      "source_selected_lag": 16,
+      "adf": {
+        "statistic": -3.0009983648270886,
+        "level_coefficient": -6.319374890828185e-05,
+        "lagged_delta_coefficient": -0.31165664123764114,
+        "critical_value_5pct_source": -2.871
+      },
+      "contract": {
+        "test_bars": 181440,
+        "source_fit_uses_test_prices": true,
+        "positions_are_lagged_one_bar_before_returns": true,
+        "source_annualization_uses_252_days_despite_24_7_market": true
+      }
+    },
+    "bollinger": {
+      "test": {
+        "annual_return": 0.4424591404643853,
+        "annual_return_log": 0.3663493934976503,
+        "sharpe": 0.8686094032543642,
+        "maximum_drawdown": -0.46258705140338685,
+        "drawdown_duration": 141606,
+        "cumulative_return": 0.20102420477873187,
+        "cumulative_return_log": 0.18317469674882514,
+        "periods": 181440,
+        "periods_per_year": 362880
+      },
+      "test_net_10bps": {
+        "annual_return": -0.9999741286561223,
+        "annual_return_log": -10.562374615778259,
+        "sharpe": -14.185168284985465,
+        "maximum_drawdown": -0.995159535761406,
+        "drawdown_duration": 181423,
+        "cumulative_return": -0.9949136119025761,
+        "cumulative_return_log": -5.281187307889129,
+        "periods": 181440,
+        "periods_per_year": 362880
+      },
+      "contract": {
+        "lookback_minutes": 60,
+        "entry_zscore": 2.0,
+        "exit_zscore": 0.0,
+        "rolling_standard_deviation_ddof": 1,
+        "positions_are_lagged_one_bar_before_returns": true,
+        "transaction_cost_per_unit_turnover": 0.001,
+        "source_annualization_uses_252_days_despite_24_7_market": true
+      }
+    },
+    "random_forest": {
+      "train": {
+        "performance": {
+          "annual_return": 3.20345156420874e+71,
+          "annual_return_log": 164.64777044491223,
+          "sharpe": 103.84445628101501,
+          "maximum_drawdown": -0.17013647198204274,
+          "drawdown_duration": 399,
+          "cumulative_return": 4.084188781778637e+32,
+          "cumulative_return_log": 75.08984609976898,
+          "periods": 239707,
+          "periods_per_year": 525600
+        },
+        "performance_net_10bps": {
+          "annual_return": -1.0,
+          "annual_return_log": -338.9847101292612,
+          "sharpe": -213.67904601299284,
+          "maximum_drawdown": -1.0,
+          "drawdown_duration": 239701,
+          "cumulative_return": -1.0,
+          "cumulative_return_log": -154.59856908476942,
+          "periods": 239707,
+          "periods_per_year": 525600
+        },
+        "position_changes": 229662
+      },
+      "test": {
+        "performance": {
+          "annual_return": 2.2307556328098424e+16,
+          "annual_return_log": 37.64370186477412,
+          "sharpe": 39.71335560473156,
+          "maximum_drawdown": -0.32945411848336337,
+          "drawdown_duration": 6116,
+          "cumulative_return": 28694538.43918275,
+          "cumulative_return_log": 17.172217399184355,
+          "periods": 239767,
+          "periods_per_year": 525600
+        },
+        "performance_net_10bps": {
+          "annual_return": -1.0,
+          "annual_return_log": -435.1041331232061,
+          "sharpe": -410.6034792970318,
+          "maximum_drawdown": -1.0,
+          "drawdown_duration": 239765,
+          "cumulative_return": -1.0,
+          "cumulative_return_log": -198.48480343712282,
+          "periods": 239767,
+          "periods_per_year": 525600
+        },
+        "position_changes": 215530
+      },
+      "feature_importances": [
+        0.7743397217958992,
+        0.06103826243178271,
+        0.0527776381105491,
+        0.055968308128959476,
+        0.05587606953280964
+      ],
+      "contract": {
+        "chronological_split_index": 239767,
+        "training_rows": 239707,
+        "test_rows": 239767,
+        "trees": 5,
+        "minimum_leaf_size": 100,
+        "random_seed": 1,
+        "implementation": "sklearn RandomForestRegressor adaptation",
+        "not_numerically_equivalent_to_matlab_treebagger": true
+      }
+    },
+    "order_flow": {
+      "daily": [
+        {
+          "date": "20141201",
+          "gross_pl_usd": 5.900000000000034,
+          "num_trades": 6,
+          "pl_per_trade_usd": 0.983333333333339
+        },
+        {
+          "date": "20141202",
+          "gross_pl_usd": -3.6300000000000523,
+          "num_trades": 8,
+          "pl_per_trade_usd": -0.45375000000000654
+        },
+        {
+          "date": "20141203",
+          "gross_pl_usd": -2.6399999999999864,
+          "num_trades": 4,
+          "pl_per_trade_usd": -0.6599999999999966
+        },
+        {
+          "date": "20141204",
+          "gross_pl_usd": 4.490000000000009,
+          "num_trades": 12,
+          "pl_per_trade_usd": 0.3741666666666674
+        },
+        {
+          "date": "20141205",
+          "gross_pl_usd": 0.12000000000006139,
+          "num_trades": 12,
+          "pl_per_trade_usd": 0.010000000000005116
+        },
+        {
+          "date": "20141206",
+          "gross_pl_usd": 0.0,
+          "num_trades": 0,
+          "pl_per_trade_usd": null
+        },
+        {
+          "date": "20141207",
+          "gross_pl_usd": -1.25,
+          "num_trades": 2,
+          "pl_per_trade_usd": -0.625
+        },
+        {
+          "date": "20141208",
+          "gross_pl_usd": 1.6800000000000068,
+          "num_trades": 20,
+          "pl_per_trade_usd": 0.08400000000000034
+        },
+        {
+          "date": "20141209",
+          "gross_pl_usd": 3.3099999999999454,
+          "num_trades": 30,
+          "pl_per_trade_usd": 0.11033333333333152
+        },
+        {
+          "date": "20141210",
+          "gross_pl_usd": 1.4600000000000364,
+          "num_trades": 7,
+          "pl_per_trade_usd": 0.20857142857143376
+        },
+        {
+          "date": "20141211",
+          "gross_pl_usd": 1.4900000000001228,
+          "num_trades": 25,
+          "pl_per_trade_usd": 0.05960000000000491
+        },
+        {
+          "date": "20141212",
+          "gross_pl_usd": -1.4700000000000273,
+          "num_trades": 8,
+          "pl_per_trade_usd": -0.1837500000000034
+        },
+        {
+          "date": "20141213",
+          "gross_pl_usd": 0.0,
+          "num_trades": 0,
+          "pl_per_trade_usd": null
+        },
+        {
+          "date": "20141214",
+          "gross_pl_usd": 2.2799999999999727,
+          "num_trades": 6,
+          "pl_per_trade_usd": 0.37999999999999545
+        },
+        {
+          "date": "20141215",
+          "gross_pl_usd": -0.6100000000000705,
+          "num_trades": 6,
+          "pl_per_trade_usd": -0.10166666666667841
+        },
+        {
+          "date": "20141216",
+          "gross_pl_usd": -1.1299999999999386,
+          "num_trades": 30,
+          "pl_per_trade_usd": -0.03766666666666462
+        },
+        {
+          "date": "20141217",
+          "gross_pl_usd": 13.60000000000008,
+          "num_trades": 36,
+          "pl_per_trade_usd": 0.37777777777778
+        },
+        {
+          "date": "20141218",
+          "gross_pl_usd": 5.1299999999999955,
+          "num_trades": 26,
+          "pl_per_trade_usd": 0.19730769230769213
+        },
+        {
+          "date": "20141219",
+          "gross_pl_usd": 1.849999999999966,
+          "num_trades": 18,
+          "pl_per_trade_usd": 0.10277777777777589
+        },
+        {
+          "date": "20141220",
+          "gross_pl_usd": 3.730000000000018,
+          "num_trades": 12,
+          "pl_per_trade_usd": 0.31083333333333485
+        },
+        {
+          "date": "20141221",
+          "gross_pl_usd": 0.7300000000000182,
+          "num_trades": 4,
+          "pl_per_trade_usd": 0.18250000000000455
+        },
+        {
+          "date": "20141222",
+          "gross_pl_usd": 2.2199999999999704,
+          "num_trades": 6,
+          "pl_per_trade_usd": 0.36999999999999506
+        },
+        {
+          "date": "20141223",
+          "gross_pl_usd": -0.01999999999998181,
+          "num_trades": 4,
+          "pl_per_trade_usd": -0.0049999999999954525
+        },
+        {
+          "date": "20141224",
+          "gross_pl_usd": -1.3399999999999181,
+          "num_trades": 6,
+          "pl_per_trade_usd": -0.2233333333333197
+        },
+        {
+          "date": "20141225",
+          "gross_pl_usd": -2.249999999999943,
+          "num_trades": 6,
+          "pl_per_trade_usd": -0.3749999999999905
+        },
+        {
+          "date": "20141226",
+          "gross_pl_usd": -2.0,
+          "num_trades": 4,
+          "pl_per_trade_usd": -0.5
+        },
+        {
+          "date": "20141227",
+          "gross_pl_usd": 0.6199999999999477,
+          "num_trades": 6,
+          "pl_per_trade_usd": 0.10333333333332462
+        },
+        {
+          "date": "20141228",
+          "gross_pl_usd": -1.7900000000000205,
+          "num_trades": 4,
+          "pl_per_trade_usd": -0.4475000000000051
+        },
+        {
+          "date": "20141229",
+          "gross_pl_usd": -0.37999999999999545,
+          "num_trades": 4,
+          "pl_per_trade_usd": -0.09499999999999886
+        },
+        {
+          "date": "20141230",
+          "gross_pl_usd": 1.7800000000000296,
+          "num_trades": 20,
+          "pl_per_trade_usd": 0.08900000000000148
+        },
+        {
+          "date": "20141231",
+          "gross_pl_usd": 0.6599999999999682,
+          "num_trades": 4,
+          "pl_per_trade_usd": 0.16499999999999204
+        }
+      ],
+      "gross_pl_usd": 32.54000000000025,
+      "pl_per_trade_usd": 0.09684523809523883,
+      "num_trades": 336,
+      "ending_position": 0,
+      "cost_sensitivity": {
+        "0.06_one_way": 12.380000000000248,
+        "0.25_one_way": -51.45999999999975
+      },
+      "contract": {
+        "lookback_seconds": 60,
+        "entry_threshold_btc": 90,
+        "exit_threshold_btc": 0,
+        "timestamp_integer_unit": "nanoseconds",
+        "position_carries_across_midnight": true
+      }
+    },
+    "arbitrage": {
+      "historical_bitfinex_bid": 239.19,
+      "historical_btce_ask": 233.546,
+      "gross_spread_usd_per_btc": 5.6440000000000055,
+      "stated_commission_usd": 1.0,
+      "stated_withdrawal_fee_usd": 2.0,
+      "illustrative_net_usd_per_btc": 2.6440000000000055,
+      "credit_and_transfer_risk_quantified": false,
+      "historical_example_not_current_recommendation": true
+    }
+  },
+  "book_comparisons": [
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "constant",
+      "python": 0.006705854589884885,
+      "source": 0.00670585,
+      "absolute_error": 4.5898848844913576e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{1}",
+      "python": 0.6852611989741897,
+      "source": 0.685261,
+      "absolute_error": 1.9897418968017888e-07,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{2}",
+      "python": 0.25770192803979497,
+      "source": 0.257702,
+      "absolute_error": 7.196020501698541e-08,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{3}",
+      "python": 0.05804137268222251,
+      "source": 0.0580414,
+      "absolute_error": 2.7317777491486783e-08,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{4}",
+      "python": 0.004431587093688645,
+      "source": 0.00443159,
+      "absolute_error": 2.906311354772262e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{5}",
+      "python": -0.003399823811668843,
+      "source": -0.00339982,
+      "absolute_error": 3.81166884296999e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{6}",
+      "python": -0.004966237545351229,
+      "source": -0.00496624,
+      "absolute_error": 2.454648771570145e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{7}",
+      "python": -0.010618177058186106,
+      "source": -0.0106182,
+      "absolute_error": 2.29418138930626e-08,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{8}",
+      "python": -0.0018989927850009576,
+      "source": -0.00189899,
+      "absolute_error": 2.7850009577147505e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{9}",
+      "python": 0.0032640342172908787,
+      "source": 0.00326403,
+      "absolute_error": 4.217290878929386e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{10}",
+      "python": 0.0045775009253292195,
+      "source": 0.0045775,
+      "absolute_error": 9.253292194977281e-10,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{11}",
+      "python": -0.00946253323714532,
+      "source": -0.00946253,
+      "absolute_error": 3.2371453191626376e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{12}",
+      "python": 0.0009565145942273645,
+      "source": 0.000956515,
+      "absolute_error": 4.0577263554428256e-10,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{13}",
+      "python": 0.0015718998646718052,
+      "source": 0.0015719,
+      "absolute_error": 1.3532819483075276e-10,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{14}",
+      "python": -0.0017755011537976247,
+      "source": -0.0017755,
+      "absolute_error": 1.1537976247165405e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{15}",
+      "python": 0.007528741871057905,
+      "source": 0.00752874,
+      "absolute_error": 1.871057904966056e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "AR{16}",
+      "python": 0.008768928712837588,
+      "source": 0.00876893,
+      "absolute_error": 1.2871624113786062e-09,
+      "tolerance": 5e-07,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "ADF statistic",
+      "python": -3.0009983648270886,
+      "source": -3.001533,
+      "absolute_error": 0.0005346351729111909,
+      "tolerance": 0.0006,
+      "classification": "approximate Python OLS versus JPL/MATLAB ADF",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "test cumulative return",
+      "python": 201.9575239568969,
+      "source": 201.9081357722237,
+      "absolute_error": 0.04938818467320516,
+      "tolerance": 0.06,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "buildARp_BTCUSD.m",
+      "metric": "test annual return",
+      "python": 41190.75653071438,
+      "source": 41170.71156255915,
+      "absolute_error": 20.04496815523453,
+      "tolerance": 25.0,
+      "classification": "approximate conditional OLS versus MATLAB Gaussian MLE",
+      "matches_source": true
+    },
+    {
+      "topic": "bollinger.m",
+      "metric": "test cumulative return",
+      "python": 0.20102420477873187,
+      "source": 0.201024204778726,
+      "absolute_error": 5.856426454897701e-15,
+      "tolerance": 1e-12,
+      "classification": "exact source replay",
+      "matches_source": true
+    },
+    {
+      "topic": "bollinger.m",
+      "metric": "test annual return",
+      "python": 0.4424591404643853,
+      "source": 0.44245914046437,
+      "absolute_error": 1.5265566588595902e-14,
+      "tolerance": 1e-12,
+      "classification": "exact source replay",
+      "matches_source": true
+    },
+    {
+      "topic": "bollinger.m",
+      "metric": "10 bps test cumulative return",
+      "python": -0.9949136119025761,
+      "source": -0.994913611902576,
+      "absolute_error": 1.1102230246251565e-16,
+      "tolerance": 1e-12,
+      "classification": "exact source replay",
+      "matches_source": true
+    },
+    {
+      "topic": "orderFlow2.m",
+      "metric": "total P&L USD",
+      "python": 32.54000000000025,
+      "source": 32.54,
+      "absolute_error": 2.4868995751603507e-13,
+      "tolerance": 1e-09,
+      "classification": "exact source replay",
+      "matches_source": true
+    },
+    {
+      "topic": "orderFlow2.m",
+      "metric": "P&L per trade USD",
+      "python": 0.09684523809523883,
+      "source": 0.096845,
+      "absolute_error": 2.3809523883033812e-07,
+      "tolerance": 5e-07,
+      "classification": "exact source replay",
+      "matches_source": true
+    },
+    {
+      "topic": "orderFlow2.m",
+      "metric": "number of trades",
+      "python": 336.0,
+      "source": 336.0,
+      "absolute_error": 0.0,
+      "tolerance": 0.0,
+      "classification": "exact source replay",
+      "matches_source": true
+    }
+  ],
+  "reference_only_comparisons": [
+    {
+      "topic": "AR and ARMA lag selection",
+      "source_file": "buildARp_BTCUSD.m and buildARMA_findPQ_BTCUSD.m",
+      "book_output": {
+        "matlab_ar_lag": 16,
+        "matlab_arma_p": 3,
+        "matlab_arma_q": 7
+      },
+      "compared": false,
+      "reason": "MATLAB Gaussian ARIMA maximum-likelihood BIC is not numerically equivalent to the lightweight Yule-Walker diagnostic; Python selects AR(15), so the source selections are preserved without claiming exact estimator equivalence"
+    },
+    {
+      "topic": "MATLAB TreeBagger results",
+      "source_file": "rTreeBagger_BTCUSD.m",
+      "book_output": {
+        "test_cagr": 75340814462.26346,
+        "test_sharpe": 31.810122,
+        "test_max_drawdown": -0.294237
+      },
+      "compared": false,
+      "reason": "scikit-learn RandomForestRegressor is a deterministic source-semantic adaptation, not MATLAB TreeBagger; split, lags, five trees and minimum leaf size are retained while numeric parity is not asserted"
+    },
+    {
+      "topic": "cross-validated SVM",
+      "source_file": "svm_BTCUSD.m",
+      "book_output": {
+        "test_cagr": -0.856935,
+        "test_sharpe": -2.034599,
+        "test_max_drawdown": -0.759027
+      },
+      "compared": false,
+      "reason": "the script selects one fold-trained model rather than refitting on all training data, and MATLAB fitcsvm defaults are not pinned sufficiently for a defensible cross-library replay"
+    },
+    {
+      "topic": "100-network feed-forward ensemble",
+      "source_file": "nn_feedfwd_avg_BTCUSD.m",
+      "book_output": {
+        "test_cagr": 1115340053.5725,
+        "test_sharpe": 22.171526,
+        "test_max_drawdown": -0.70336
+      },
+      "compared": false,
+      "reason": "the MATLAB neural-network training algorithm and initialization contract are not portable to the pinned Python environment; the published output remains output-only"
+    },
+    {
+      "topic": "MXN, SPY, and HYG risk comparison",
+      "source_file": "analyzeRisk.m",
+      "book_output": null,
+      "compared": false,
+      "reason": "the official Chapter 7 archive contains BTC daily data but the script points to external local MXN and ETF files that are absent"
+    }
+  ],
+  "source_limitations": {
+    "minute_hhmm_array_shape_mismatch": true,
+    "crossed_bbo_rows_preserved": true,
+    "ar_source_full_sample_fit_is_lookahead": true,
+    "matlab_and_sklearn_tree_implementations_differ": true,
+    "order_flow_spread_comment_conflicts_with_book_prose": true,
+    "crypto_annualization_conventions_are_inconsistent": true
+  },
+  "verification": {
+    "checks": {
+      "archive_manifest_matches": true,
+      "all_12_archive_members_pinned": true,
+      "nine_matlab_sources_present": true,
+      "minute_midprices_are_finite": true,
+      "crossed_minute_quotes_are_disclosed": true,
+      "hhmm_shape_mismatch_is_disclosed": true,
+      "daily_dates_are_strictly_increasing": true,
+      "trade_timestamps_are_monotonic": true,
+      "all_numeric_source_comparisons_pass": true,
+      "bollinger_uses_sample_standard_deviation": true,
+      "bollinger_cost_destroys_published_return": true,
+      "source_ar_lookahead_is_disclosed": true,
+      "train_only_ar_does_not_use_test_prices": true,
+      "yule_walker_difference_is_not_called_exact": true,
+      "adf_does_not_reject_at_source_5pct_threshold": true,
+      "random_forest_is_deterministic_and_chronological": true,
+      "random_forest_cost_stress_is_worse": true,
+      "order_flow_matches_all_31_daily_comments": true,
+      "order_flow_aggregate_matches_source": true,
+      "order_flow_ends_flat": true,
+      "nanosecond_rolling_window_fixture_passes": true,
+      "transaction_costs_reduce_order_flow_profit": true,
+      "btc_risk_table_rounds_to_book_values": true,
+      "arbitrage_credit_risk_is_not_quantified": true,
+      "all_reference_only_rows_have_reasons": true
+    },
+    "summary": {
+      "total": 25,
+      "passed": 25,
+      "failed": [],
+      "independent_or_empirical": 19,
+      "contract_invariant": 6,
+      "classification": {
+        "archive_manifest_matches": "independent_or_empirical",
+        "all_12_archive_members_pinned": "independent_or_empirical",
+        "nine_matlab_sources_present": "independent_or_empirical",
+        "minute_midprices_are_finite": "independent_or_empirical",
+        "crossed_minute_quotes_are_disclosed": "independent_or_empirical",
+        "hhmm_shape_mismatch_is_disclosed": "independent_or_empirical",
+        "daily_dates_are_strictly_increasing": "independent_or_empirical",
+        "trade_timestamps_are_monotonic": "independent_or_empirical",
+        "all_numeric_source_comparisons_pass": "independent_or_empirical",
+        "bollinger_uses_sample_standard_deviation": "independent_or_empirical",
+        "bollinger_cost_destroys_published_return": "independent_or_empirical",
+        "source_ar_lookahead_is_disclosed": "independent_or_empirical",
+        "train_only_ar_does_not_use_test_prices": "independent_or_empirical",
+        "yule_walker_difference_is_not_called_exact": "independent_or_empirical",
+        "adf_does_not_reject_at_source_5pct_threshold": "independent_or_empirical",
+        "random_forest_is_deterministic_and_chronological": "independent_or_empirical",
+        "random_forest_cost_stress_is_worse": "independent_or_empirical",
+        "order_flow_matches_all_31_daily_comments": "independent_or_empirical",
+        "order_flow_aggregate_matches_source": "independent_or_empirical",
+        "order_flow_ends_flat": "contract_invariant",
+        "nanosecond_rolling_window_fixture_passes": "contract_invariant",
+        "transaction_costs_reduce_order_flow_profit": "contract_invariant",
+        "btc_risk_table_rounds_to_book_values": "contract_invariant",
+        "arbitrage_credit_risk_is_not_quantified": "contract_invariant",
+        "all_reference_only_rows_have_reasons": "contract_invariant"
+      }
+    }
+  }
+}

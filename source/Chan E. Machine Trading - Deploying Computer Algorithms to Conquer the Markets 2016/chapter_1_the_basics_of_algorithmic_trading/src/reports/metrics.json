@@ -55,8 +55,8 @@
     "archive_sha256": "b868d52328a85df8e31aad900a6c3e5669fc226f39fbb003c6123e8c6de0a239",
     "input_archive_member": "Chap1 Basics/inputDataOHLCDaily_ETF_20150417.mat",
     "input_sha256": "3d24e65d340774ad7088ee7019582fb6dd945f78de08d96c7bbe43f9de44ab11",
-    "pyproject_sha256": "aa9e1978fac90e37df584eb8fcebdf34186b824dfab5301d2b3ce828f0f4d481",
-    "uv_lock_sha256": "d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a",
+    "pyproject_sha256": "4c4f3ed89a9460f3d24255bad86b015cfb3845b7d02b54b5e34f3c1448b50f18",
+    "uv_lock_sha256": "34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf",
     "environment": {
       "python": "3.12.3",
       "numpy": "2.5.1",

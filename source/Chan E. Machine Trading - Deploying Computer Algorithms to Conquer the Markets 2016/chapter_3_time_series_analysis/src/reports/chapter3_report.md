@@ -47,7 +47,7 @@
 - 공식 페이지: https://epchan.com/book3
 - 공식 ZIP: `https://epchan.com/img/book3/Chap3%20Time%20Series.zip`
 - ZIP SHA-256: `a91e58b6d044e3bedc9bf4df32fbf6d6bae61db9943b159a799825309ae1057e`
-- 환경 잠금: `uv.lock` SHA-256 `d3b494323b4b7b207e1f32e4f86e1c42e24d90afc8b86ef2ccd736cd5067403a`
+- 환경 잠금: `uv.lock` SHA-256 `34057457773a614f058648f3ba9ba2f02f02354f64214ec14891fbb212c5ebaf`
 - random_seed = None: 난수 추정기는 없으며 고정 계수와 결정론적 선형대수만 쓴다.
 - AUD.USD: 선두 NaN 제거 후 2,963,610분봉, 마지막 359,100개를 1년 test로 사용
 - BTC/USD: 일봉 345개
