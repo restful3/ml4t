@@ -43,6 +43,10 @@ Prefer the publisher or author's official companion archive when one exists. Rec
 
 Never silently replace unavailable licensed data with a convenient public dataset. If a substitution is necessary, label the result as a conceptual reproduction rather than a numerical replication.
 
+When a chapter has no dedicated companion archive, say so explicitly. Reuse an official file from another chapter or edition only after recording its checksum and proving the exact overlap and value identity relevant to the claim. Limit comparisons to that proven scope; do not imply that an extended period, different symbol pair, or prose-only example is book output.
+
+Preserve extracted companion source byte-for-byte. Do not normalize CRLF, encodings, or trailing whitespace merely to satisfy repository formatters. When exact official files trigger text-only checks, use a narrowly scoped `.gitattributes` rule such as `original_matlab/*.m -diff -text`, keep the manifest hashes authoritative, and continue running normal whitespace checks on authored files.
+
 Keep downloaded raw data out of version control when appropriate. Provide a checksum-backed manifest or downloader, and make offline validation possible after the first download.
 
 ## Create a Reproducible Environment
@@ -52,6 +56,8 @@ Use the book project environment, normally `pyproject.toml` plus `uv.lock`. Use 
 Make generated notebooks byte-reproducible when practical: assign stable cell IDs and disable execution-timing metadata before writing the executed notebook. Verify this by rebuilding twice and comparing hashes; matching numerical outputs alone is not enough.
 
 Implement current library idioms, including positional indexing with `iloc` and row assembly with `concat` rather than removed pandas APIs. Keep charts portable by using English chart labels, or explicitly configure a Korean font.
+
+Do not assume a pandas datetime array has nanosecond storage. Convert explicitly with `to_numpy(dtype="datetime64[ns]").astype(np.int64)` before integer time-window arithmetic, and test an exact window boundary. Validate every auxiliary input array even when the original script does not use it: record shape mismatches, non-finite values, and invalid or crossed quotes instead of silently cleaning them.
 
 ## Implement the Analysis
 
@@ -67,6 +73,12 @@ For each experiment:
 6. Explain differences caused by solver tolerances, random generators, APIs, precision, or data revisions.
 
 Generate conclusions from computed metrics where possible. Audit every qualitative claim against the displayed number. Never describe a nonsignificant test as significant, a shortened run as full-period evidence, or an in-sample illustration as out-of-sample performance.
+
+Preserve the semantics of the original state machine. If a source emits a continuous position, probability, or target weight, do not reduce it to `{-1, 0, 1}` without algebraically deriving the equivalent thresholds. Test hold bands, equality boundaries, and transitions independently of aggregate P&L.
+
+Distinguish estimator families rather than treating close-looking implementations as equivalent. For example, Gaussian maximum-likelihood BIC, conditional OLS, and Yule-Walker AR selection can choose different lags. Replay the source's fixed-order result separately from an approximate modern estimator and label both clearly.
+
+Trust executed branches over comments, variable names, and printed prose when they disagree. Preserve a source-faithful path, add a corrected interpretation when useful, and encode irreconcilable comparisons as `compared: false` with a reason rather than manufacturing agreement.
 
 Save generated reports and figures under the chapter's established report directory. Make the command idempotent and expose an offline mode when downloads are involved.
 
@@ -107,6 +119,10 @@ Use result tables and concise interpretation rather than a stream of console out
 
 Represent an inactive strategy segment as `null`, not as a fabricated zero-return metric, and include a machine-readable reason such as `train_segment: no positions ...` for every such strategy.
 
+State the performance clock. If the source removes flat or inactive days before annualization, report both active-day and calendar-day APR/Sharpe and treat calendar time as the economic default unless capital redeployment is explicitly modeled. Define exactly which return index pays turnover costs relative to lagged positions; test that convention for look-ahead safety.
+
+For simulations or operational examples, use a named deterministic generator such as PCG64 and ensure decisions use only information available through the prior observation. Label a deterministic lifecycle demonstration as conceptual rather than a backtest. Treat historical broker, vendor, regulatory, tax, and legal statements as dated context unless current primary sources are verified.
+
 ## Verify Before Claiming Completion
 
 Run the relevant equivalents of:
@@ -131,6 +147,8 @@ If a downloader exists, also run its online or validation-only path and confirm 
 - `git diff --check` reports no whitespace errors.
 
 Do not say that code or a notebook was executed unless it was actually run. Report the command and the decisive output or metric.
+
+When the user requires chapter-by-chapter peer consensus, keep the workflow sequential: implement and verify one chapter, obtain an explicit approval verdict, apply requested fixes, and only then begin the next chapter. Preserve the verdict and its evidence in the work log.
 
 ## Iterate Against the Benchmark
 
