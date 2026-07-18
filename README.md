@@ -33,7 +33,7 @@
     * 과거·실시간 시장 데이터와 백테스팅·트레이딩 플랫폼
     * 브로커 선택과 성과 지표(performance metrics)
     * 최적 레버리지 산출과 포트폴리오 최적화
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_1_the_basics_of_algorithmic_trading/01_chapter_1_the_basics_of_algorithmic_trading_ko_explained.md)
 
 
 #### **2026년 8월 8일**: [Webex](#)
@@ -43,7 +43,7 @@
     * 시계열·횡단면 팩터와 2-팩터 모델
     * 옵션 가격을 이용한 주가 수익률 예측
     * 유동성·공매도 잔고·PCA 통계적 팩터
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_2_factor_models/02_chapter_2_factor_models_ko_explained.md)
 
 
 #### **2026년 8월 22일**: [Webex](#)
@@ -53,7 +53,7 @@
     * AR(p)·ARMA(p, q)·VAR(p) 모형
     * 상태공간 모형과 칼만 필터(Kalman filter)
     * 시계열 예측의 트레이딩 적용
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_3_time_series_analysis/03_chapter_3_time_series_analysis_ko_explained.md)
 
 
 #### **2026년 9월 5일**: [Webex](#)
@@ -63,7 +63,7 @@
     * 단계적 회귀와 회귀·분류 트리
     * 배깅·랜덤 포레스트·부스팅·SVM·은닉 마르코프 모형(HMM)
     * 신경망과 주식 종목 선정(stock selection) 응용
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_4_artificial_intelligence_techniques/04_chapter_4_artificial_intelligence_techniques_ko_explained.md)
 
 
 #### **2026년 9월 19일**: [Webex](#)
@@ -73,7 +73,7 @@
     * 옵션 없이 변동성 거래하기와 변동성 예측
     * 이벤트 드리븐 전략과 감마 스캘핑(gamma scalping)
     * 디스퍼전 트레이딩과 내재변동성 횡단면 평균회귀
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/05_chapter_5_options_strategies_ko_explained.md)
 
 
 #### **2026년 10월 3일**: [Webex](#)
@@ -83,7 +83,7 @@
     * 지연(latency) 감소와 주문 유형·라우팅 최적화(다크풀 포함)
     * 역선택(adverse selection) 감소와 장중 전략 백테스팅
     * 주문 흐름(order flow)과 호가창 불균형(order book imbalance)
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_6_intraday_trading_and_market_microstructure/06_chapter_6_intraday_trading_and_market_microstructure_ko_explained.md)
 
 
 #### **2026년 10월 17일**: [Webex](#)
@@ -93,7 +93,7 @@
     * 비트코인 기초와 시계열·평균회귀 전략
     * 인공지능 기법의 비트코인 적용
     * 주문 흐름과 거래소 간 차익거래(cross-exchange arbitrage)
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_7_bitcoins/07_chapter_7_bitcoins_ko_explained.md)
 
 
 #### **2026년 10월 31일**: [Webex](#)
@@ -103,7 +103,7 @@
     * 트레이더의 심신 건강
     * 서비스로서의 트레이딩과 실효성 검증
     * 최신 트렌드 추적과 타인 자금 운용
-* 자료: 추후 공유
+* 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_8_algorithmic_trading_is_good_for_body_and_soul/08_chapter_8_algorithmic_trading_is_good_for_body_and_soul_ko_explained.md)
 
 ---
 
