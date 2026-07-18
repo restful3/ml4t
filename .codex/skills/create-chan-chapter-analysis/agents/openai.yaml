@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chan Chapter Analysis"
+  short_description: "Build reproducible Chan chapter studies"
+  default_prompt: "Use $create-chan-chapter-analysis to build and verify a reproducible Python notebook and report for a Chan book chapter."
