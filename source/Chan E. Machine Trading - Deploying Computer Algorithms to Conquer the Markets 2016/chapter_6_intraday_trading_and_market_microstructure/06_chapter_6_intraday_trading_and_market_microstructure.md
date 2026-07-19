@@ -1,6 +1,6 @@
 # Intraday Trading and Market Microstructure
 
-uppose you are given a choice of two investment strategies. Both have Sthe same unlevered average annualized returns net of all costs, but one has an average holding period of one hour and the other has a holding period of one month. Which strategy would you prefer?
+Suppose you are given a choice of two investment strategies. Both have the same unlevered average annualized returns net of all costs, but one has an average holding period of one hour and the other has a holding period of one month. Which strategy would you prefer?
 
 Most investors would prefer the first, intraday strategy. The reason is obvious: intraday strategies typically have higher Sharpe ratio than longer-term ones, given the same average returns. This is because intraday strategies can make more independent bets in one day. By the law of large numbers, the difference between an intraday strategy’s realized mean return and expected return will be smaller than that of a strategy that makes only monthly bets. Because of the higher Sharpe ratio, we can also apply a higher leverage to the strategy as per Kelly’s formula. So even if the unlevered average returns of the two strategies are the same, the levered compound return of the intraday strategy will be higher.1 Quite apart from earning higher returns, it is also obvious that the longer one holds a position, the more vulnerable we are to black swan risks.
 
@@ -128,7 +128,7 @@ So in conclusion, is it recommended to route market orders to dark pools? The sh
 
 Sometimes we have a buy limit order on the book, but we never manage to get it filled because no one hits our bid. A little later, the best bid goes above ours, making our purchase further out of reach. We incur opportunity cost. Other times, our buy limit order does get filled quickly, but right after our purchase, the BBO goes lower, generating (unrealized) loss for us. If these two situations happen often, then we are suffering from adverse selection in that market.
 
-Adverse selection happens when prices on average go down after we buy something, and go up when we sell something. This happens because the traders on the other side of our trade (the ‘‘aggressors’’) are informed ones—they possess information or models that are good at shortterm prediction of prices.
+Adverse selection happens when prices on average go down after we buy something, and go up when we sell something. This happens because the traders on the other side of our trade (the ‘‘aggressors’’) are informed ones—they possess information or models that are good at short-term prediction of prices.
 
 Who, then, would be the uninformed traders? There is a saying: ‘‘If you can’t spot the sucker at the poker table, it’s probably you.’’ If we are running a rebate-earning or market-making strategy, we would be the uninformed traders, since our only model is to buy when prices are cheap, no matter why they are cheap. If we are running a large mutual fund, and suffer some redemption requests from our retail customers, we may need to sell some holdings to raise cash. In that case, we would also be the uninformed traders—we are selling because of our immediate liquidity need, not because we know where the prices will go. (See the section on ‘‘Mutual Funds Asset Fire Sale and Forced Purchases’’ in Chan, 2013, and also Harris, 2003, for a general discussion of informed versus liquidity traders.) Adverse selection can be measured quite accurately by computing the difference between the P&L of unfilled orders and the P&L of filled orders over a short time frame from 1 second to 30 minutes (Saraiya and Mittal, 2009). As we will discuss in the section on ‘‘Order Flow,’’ market orders generate order flow, and market orders from highly informed traders generate ‘‘toxic’’ order flow (Easley, Lopez de Prado, and O’Hara, 2012). It is toxic to market makers and mean-reversion traders because of adverse selection.
 
@@ -259,9 +259,10 @@ end
 end
 end
 end
+```
+
 Naturally, a symmetrical process occurs for sell orders events. The
 complete code can be downloaded as buildOrderBook.m.
-```
 
 For those of us who may not have the time to build such sophisticated backtesting platforms for ourselves or the resources to rent them, we can at least backtest strategies that can be executed with market orders and still remain profitable. (See Chapter 1 for commercially available backtesting platforms.) We will demonstrate in Example 6.3 how we can backtest an intraday futures strategy using MATLAB with BBO data sampled at 25 ms. But the essential difference between backtesting using BBO bar data (whether it is daily, minute, 25 ms, or 1 ms bars) and tick data is that bar data have prices for every bar while tick data, even if they are sampled at regular intervals, may show prices at irregular intervals in the historical file. If the instruments’ quote price changes more frequently than the frequency of the time stamps, we may also find multiple ticks to have the same time stamp. One can, of course, create bars from tick data, but if quotes change infrequently, we would be utilizing both CPU and memory very inefficiently when backtesting. Hence, backtesting algorithms (such as that in Example 6.3) that are designed specifically to handle prices with irregular time stamps are needed.
 

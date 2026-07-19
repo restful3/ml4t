@@ -1,6 +1,6 @@
 # Algorithmic Trading Is Good for Body and Soul
 
-Before we start engaging in a complex, time-consuming, and possiblyrisky venture, it is often a good idea to pause and ask why we should do it. Even if we have already been doing it for years, and have invested countless hours and dollars, it is still worthwhile to ask if we should continue doing it. (Sunk cost is not a rational justification.) Now that we have surveyed the highly technical side of algorithmic trading, perhaps it is time to ask these high-level questions.
+Before we start engaging in a complex, time-consuming, and possibly risky venture, it is often a good idea to pause and ask why we should do it. Even if we have already been doing it for years, and have invested countless hours and dollars, it is still worthwhile to ask if we should continue doing it. (Sunk cost is not a rational justification.) Now that we have surveyed the highly technical side of algorithmic trading, perhaps it is time to ask these high-level questions.
 
 ### ■ Your Mind and Your Health
 
