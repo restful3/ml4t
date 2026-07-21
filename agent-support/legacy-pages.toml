@@ -1,0 +1,439 @@
+schema_version = 1
+
+# Pages 소스를 /docs로 바꾸기 전에 각 항목의 decision을
+# preserve, redirect 또는 retire로 확정한다.
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/404.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/browser-open.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/login.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/logout.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/main.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/page.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyter_server/templates/view.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab/staging/templates/403.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab/staging/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab/staging/templates/partial.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab/staging/templates/template.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab/static/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab_server/templates/403.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab_server/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/jupyterlab_server/templates/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/matplotlib/backends/web_backend/all_figures.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/matplotlib/backends/web_backend/ipython_inline_figure.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/matplotlib/backends/web_backend/single_figure.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/consoles.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/edit.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/notebooks.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/terminals.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/notebook/templates/tree.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/setuptools/tests/indexes/test_links_priority/external.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/setuptools/tests/indexes/test_links_priority/simple/foobar/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/tornado/test/static/dir/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/lib/python3.12/site-packages/tornado/test/templates/utf8.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Algorithmic Trading - Winning Strategies and Their Rationale 2013/.venv/share/jupyter/lab/static/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/404.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/browser-open.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/login.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/logout.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/main.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/page.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyter_server/templates/view.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab/staging/templates/403.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab/staging/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab/staging/templates/partial.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab/staging/templates/template.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab/static/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab_server/templates/403.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab_server/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/jupyterlab_server/templates/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/matplotlib/backends/web_backend/all_figures.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/matplotlib/backends/web_backend/ipython_inline_figure.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/matplotlib/backends/web_backend/single_figure.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/consoles.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/edit.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/error.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/notebooks.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/terminals.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/notebook/templates/tree.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/setuptools/tests/indexes/test_links_priority/external.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/setuptools/tests/indexes/test_links_priority/simple/foobar/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/tornado/test/static/dir/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/lib/python3.13/site-packages/tornado/test/templates/utf8.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/.venv/share/jupyter/lab/static/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/ch1_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_1_the_whats_whos_and_whys_of_quantitative_trading/ch1_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_2_fishing_for_ideas/ch2_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_2_fishing_for_ideas/ch2_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_3_backtesting/ch3_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_3_backtesting/ch3_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_4_setting_up_your_business/ch4_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_4_setting_up_your_business/ch4_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_5_execution_systems/ch5_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_5_execution_systems/ch5_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_6_money_and_risk_management/ch6_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_6_money_and_risk_management/ch6_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_7_special_topics_in_quantitative_trading/ch7_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/chapter_7_special_topics_in_quantitative_trading/ch7_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/qt2ed_flashcards.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Chan E. Quantitative Trading...Build...Trading Business 2ed 2021/qt2ed_quiz.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Hands-On AI Trading with Python, QuantConnect, and AWS/Chapter 07 Better Hedging with Reinforcement Learning.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Hands-On AI Trading with Python, QuantConnect, and AWS/Chapter6 Example12 Trading Costs Optimization - research.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Hands-On AI Trading with Python, QuantConnect, and AWS/Chapter6_Example19_FinBERT_Model.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Python_for_Finance_Cookbook/EW portfolio evaluation.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Python_for_Finance_Cookbook/EW portfolio evaluation2.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/11_asset_allocation/EW portfolio evaluation.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Python_for_Finance_Cookbook/Python-for-Finance-Cookbook-2E-main/13_applied_ml_identifying_credit_default/loan_default_eda.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/Python_for_Finance_Cookbook/loan_default_eda.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/_static/sbt-webpack-macros.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/_static/webpack-macros.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/api_trading.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/backtest.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/crawl_basic.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/data_global.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/data_global_revision.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/data_korea.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/data_ref.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/eda.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/factor.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/genindex.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/index.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/install_python.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/install_sql.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/plot.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/portfolio.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/python.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/quant_intro.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/search.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/selenium.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/sql.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/sql_in_python.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/technical.html'
+decision = "pending"
+
+[[pages]]
+path = 'archive/파이썬을_이용한_퀀트_투자_포트폴리오_만들기/quant_py/_build/html/web.html'
+decision = "pending"

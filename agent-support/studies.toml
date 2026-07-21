@@ -1,0 +1,13 @@
+schema_version = 1
+
+[[studies]]
+id = "machine-trading-2026"
+slug = "machine-trading"
+title = "Machine Trading"
+title_ko = "머신 트레이딩"
+status = "active"
+start_date = "2026-07-25"
+end_date = "2026-10-31"
+materials_path = "source/Chan E. Machine Trading - Deploying Computer Algorithms to Conquer the Markets 2016"
+archive_path = "archive/Chan E. Machine Trading - Deploying Computer Algorithms to Conquer the Markets 2016"
+presentation_path = "docs/studies/machine-trading"
