@@ -1,0 +1,58 @@
+# 회차 발표물이 push되면 인덱스를 검증하고, main에서는 오래된 인덱스를 자동 재생성해 커밋한다.
+# 저장소가 크므로(2GB+) docs/ + agent-support/만 sparse checkout 한다.
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "agent-support/**"
+      - ".github/workflows/pages.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "agent-support/**"
+      - ".github/workflows/pages.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            docs
+            agent-support
+
+      - name: Run site tool unit tests
+        # -t 를 저장소 루트로 두면 하이픈이 든 agent-support 가 패키지로 임포트되지 않는다
+        run: python3 -m unittest discover -s agent-support/tests -v
+
+      - name: Rebuild indexes
+        run: python3 agent-support/scripts/build-index.py
+
+      - name: Validate site
+        run: python3 agent-support/scripts/validate-site.py
+
+      - name: Commit refreshed indexes (main push only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if git diff --quiet -- docs; then
+            echo "indexes already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "ci: rebuild study indexes"
+          git pull --rebase origin main
+          git push origin HEAD:main
