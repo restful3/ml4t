@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}
+      .key{fill:#0F2C59;stroke:#0F2C59}
+      .t{fill:#0F0F10;font-size:13px;font-weight:600;text-anchor:middle}
+      .tk{fill:#fff}
+      .s{fill:#57534E;font-size:10.5px;text-anchor:middle}
+      .sk{fill:#C7D2E6}
+      .a{stroke:#0F2C59;stroke-width:1.5;fill:none;marker-end:url(#ah)}
+      .e{fill:#0F2C59;font-size:11px;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect class="box" x="14"  y="40" width="128" height="58" rx="9"/>
+  <text class="t" x="78"  y="65">시장 데이터</text><text class="s" x="78" y="82">과거 · 실시간</text>
+  <rect class="box key" x="176" y="40" width="128" height="58" rx="9"/>
+  <text class="t tk" x="240" y="65">전략 프로그램</text><text class="s sk" x="240" y="82">동일 코드</text>
+  <rect class="box" x="338" y="40" width="128" height="58" rx="9"/>
+  <text class="t" x="402" y="65">주문 제출</text><text class="s" x="402" y="82">API</text>
+  <rect class="box" x="500" y="40" width="128" height="58" rx="9"/>
+  <text class="t" x="564" y="65">브로커</text><text class="s" x="564" y="82">체결 · 거래소</text>
+  <rect class="box" x="662" y="40" width="84" height="58" rx="9"/>
+  <text class="t" x="704" y="62">주문</text><text class="t" x="704" y="79">상태</text>
+  <path class="a" d="M142,69 H174"/>
+  <path class="a" d="M304,69 H336"/>
+  <path class="a" d="M466,69 H498"/>
+  <path class="a" d="M628,69 H660"/>
+  <path class="a" d="M704,98 V150 H240 V100"/>
+  <text class="e" x="470" y="146">주문 상태 알림 → 다음 주기</text>
+</svg>

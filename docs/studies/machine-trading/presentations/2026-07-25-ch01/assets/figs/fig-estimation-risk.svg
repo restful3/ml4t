@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}.key{fill:#0F2C59;stroke:#0F2C59}
+      .warnbox{fill:#FBE9E7;stroke:#B91C1C;stroke-width:1.3}
+      .t{fill:#0F0F10;font-size:12.5px;font-weight:600;text-anchor:middle}.tk{fill:#fff}
+      .s{fill:#57534E;font-size:10px;text-anchor:middle}.sk{fill:#C7D2E6}.warn{fill:#B91C1C;font-size:10px;text-anchor:middle}
+      .a{stroke:#0F2C59;stroke-width:1.4;fill:none;marker-end:url(#ah4)}
+      .e{fill:#0F2C59;font-size:10.5px;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect class="box" x="12" y="92" width="150" height="60" rx="10"/>
+  <text class="t" x="87" y="116">표본 추정</text><text class="s" x="87" y="134">기대수익 M · 공분산 C</text>
+  <rect class="box key" x="200" y="92" width="150" height="60" rx="10"/>
+  <text class="t tk" x="275" y="112">최적화</text><text class="s sk" x="275" y="130">F* = C⁻¹M</text>
+  <rect class="warnbox" x="388" y="88" width="164" height="68" rx="10"/>
+  <text class="t" x="470" y="110" fill="#B91C1C">추정 위험</text>
+  <text class="warn" x="470" y="127">비중 급변 · gross 8.4×</text>
+  <text class="warn" x="470" y="142">기간 바뀌면 해가 뒤집힘</text>
+  <path class="a" d="M162,122 H198"/>
+  <path class="a" d="M350,122 H386"/>
+  <rect class="box" x="586" y="30" width="126" height="56" rx="9"/>
+  <text class="t" x="649" y="52">최소분산</text><text class="s" x="649" y="70">C만 사용</text>
+  <rect class="box" x="586" y="158" width="126" height="56" rx="9"/>
+  <text class="t" x="649" y="180">위험균형</text><text class="s" x="649" y="198">σ 역비례 배분</text>
+  <path class="a" d="M552,110 C572,80 566,64 584,58"/>
+  <path class="a" d="M552,134 C572,164 566,180 584,186"/>
+  <text class="e" x="568" y="122">물러서기</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <marker id="ahr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#B91C1C"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}
+      .key{fill:#0F2C59;stroke:#0F2C59}
+      .t{fill:#0F0F10;font-size:13px;font-weight:600;text-anchor:middle}
+      .tk{fill:#fff}.s{fill:#57534E;font-size:10.5px;text-anchor:middle}.sk{fill:#C7D2E6}
+      .a{stroke:#0F2C59;stroke-width:1.5;fill:none;marker-end:url(#ah2)}
+      .bad{stroke:#B91C1C;stroke-width:1.4;fill:none;stroke-dasharray:5 4;marker-end:url(#ahr)}
+      .warn{fill:#B91C1C;font-size:11px;text-anchor:middle;font-weight:600}
+    </style>
+  </defs>
+  <rect class="box key" x="226" y="16" width="168" height="56" rx="10"/>
+  <text class="t tk" x="310" y="40">동일 전략 코드</text><text class="s sk" x="310" y="57">한 벌의 모델·로직</text>
+  <path class="a" d="M266,72 L150,116"/>
+  <path class="a" d="M354,72 L470,116"/>
+  <rect class="box" x="40" y="120" width="212" height="60" rx="10"/>
+  <text class="t" x="146" y="145">백테스트</text><text class="s" x="146" y="163">과거 데이터로 검증</text>
+  <rect class="box" x="368" y="120" width="212" height="60" rx="10"/>
+  <text class="t" x="474" y="145">실거래</text><text class="s" x="474" y="163">실시간 데이터로 실행</text>
+  <path class="a" d="M146,180 V214"/>
+  <path class="a" d="M474,180 V214"/>
+  <rect x="150" y="216" width="320" height="34" rx="8" fill="#EAF0F9" stroke="#0F2C59" stroke-width="1"/>
+  <text class="t" x="310" y="238" font-size="12">검증한 그대로 거래 — 동작 일치 보장</text>
+  <path class="bad" d="M226,44 H120 V116" />
+  <text class="warn" x="120" y="276">코드가 갈라지면</text>
+  <text class="warn" x="120" y="291">검증한 것과 다른 것을 거래</text>
+</svg>

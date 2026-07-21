@@ -1,0 +1,11 @@
+study_id = "machine-trading-2026"
+session_id = "2026-07-25-ch01"
+title = "알고리즘 트레이딩의 기초"
+date = "2026-07-25"
+presenters = ["정훈"]
+chapters = ["Chapter 1"]
+template = "study-deck-v1"
+report_template = "study-report-v1"
+workflow = "raw-report-deck-v1"
+report_source = "report.html"
+artifacts = ["report", "slides"]

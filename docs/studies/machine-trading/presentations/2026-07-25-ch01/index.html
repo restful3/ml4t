@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-deck-template="study-deck-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 트레이딩의 기초</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/deck.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#deck">발표자료로 건너뛰기</a>
+  <div class="deck-settings" aria-label="설정">
+    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="deck-settings-panel" aria-hidden="true">
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">화면</span><button id="themeButton" type="button" aria-label="화면 테마 전환">☀</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">발표</span><button class="deck-settings-action" type="button" id="fullscreenButton">Fullscreen</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">이동</span><nav class="deck-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="./" aria-current="page">Slides</a><a href="report.html">Report</a></nav></div>
+    </div>
+  </div>
+
+  <!--
+    Chapter 1 완성본에서 추출한 22장 흐름이다. 내용에 맞지 않는 장은 합치거나 제거하되,
+    문제 → 개념 → 메커니즘 → 운영 구조 → 사례 → 판단 → 요약의 논리 순서는 유지한다.
+  -->
+  <main class="stage" id="deck" aria-live="polite" data-report-source="report.html">
+    <section class="slide slide--cover" aria-label="표지" data-report-refs="summary">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">STUDY PRESENTATION</span></header>
+      <div class="cover-hero">
+        <p class="eyebrow">머신 트레이딩 · Chapter 1</p>
+        <h1>알고리즘 트레이딩의 기초</h1>
+        <p class="cover-subtitle">검증·측정·배분 — 모든 전략이 딛고 설 공통 지반</p>
+      </div>
+      <dl class="cover-meta">
+        <div><dt>발표자</dt><dd>정훈</dd></div>
+        <div><dt>학습 범위</dt><dd>Chapter 1 (pp. 1&#126;26)</dd></div>
+        <div><dt>일시</dt><dd>2026-07-25</dd></div>
+      </dl>
+    </section>
+
+    <section class="slide" aria-label="발표의 핵심 질문" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPENING</span></header>
+      <h1>좋은 전략보다 먼저, 딛고 설 지반을 묻는다</h1>
+      <p class="lead">1장은 개별 전략을 만들지 않는다. 모든 전략이 공유하는 데이터·검증·측정·배분의 토대를 정의한다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">흔한 착각</p><h2>수익률만 보면 된다</h2><ul><li>좋아 보이는 백테스트를 그대로 신뢰</li><li>절대 수익으로 전략을 비교</li><li>최적화가 준 답을 그대로 실행</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">1장의 관점</p><h2>지반을 먼저 의심한다</h2><ul><li>데이터 편향을 먼저 감사</li><li>위험조정 지표로 측정</li><li>추정 위험 때문에 최적해를 덜 믿음</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>오늘의 질문</strong> — 어떻게 <em>신뢰할 수 있게</em> 만들고, 한정된 자본을 어떻게 배분하는가?</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 문제 제기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="오늘의 흐름" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OVERVIEW</span></header>
+      <h1>데이터 → 일치 → 측정 → 배분</h1>
+      <p class="lead">네 단계가 순서대로 쌓인다. 앞 단계가 무너지면 뒤 단계의 정교함은 의미가 없다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>데이터</h2><p>생존·미래 정보 편향을 먼저 감사한다.</p></article>
+          <article class="card"><span>02</span><h2>일치</h2><p>검증한 것과 거래하는 것을 같게 만든다.</p></article>
+          <article class="card"><span>03</span><h2>측정</h2><p>위험조정·꼬리위험·레버리지로 성과를 본다.</p></article>
+          <article class="card"><span>04</span><h2>배분</h2><p>수학적 최적화 — 그러나 추정을 덜 믿는다.</p></article>
+        </div>
+        <p class="takeaway"><strong>발표의 약속</strong> — 기술 목록이 아니라 재사용할 <em>판단 기준</em>을 가져갑니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 전체 흐름</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="시스템과 데이터 섹션" data-report-refs="system-data">
+      <p class="eyebrow">SECTION 01</p><h1>시스템의 순환과 데이터의 함정</h1><p>전략이 딛고 서는 재료를 먼저 의심한다</p><span class="section-number">01</span>
+    </section>
+
+    <section class="slide" aria-label="알고리즘 트레이딩의 순환 구조" data-report-refs="system-data fig-trading-loop">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SYSTEM LOOP</span></header>
+      <h1>중심에는 하나의 전략 프로그램이 있다</h1>
+      <p class="lead">데이터 → 전략 프로그램 → 주문 → 상태 수신의 순환. 저자는 백테스트와 실거래를 일부러 같은 상자로 그린다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-trading-loop.svg" alt="시장 데이터가 전략 프로그램으로 들어가 API로 주문을 제출하고 브로커 체결 뒤 주문 상태가 되돌아오는 순환. 전략 프로그램은 하나로 강조." style="max-width:100%;max-height:46vh;object-fit:contain;display:block;margin:0.4rem auto">
+        <p class="takeaway"><strong>기억할 점</strong> — 순환의 중심이 <em>단일</em> 전략 프로그램이라는 점이 2절의 원칙으로 이어진다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 순환 구조</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="데이터를 속이는 편향" data-report-refs="system-data table-bias">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DATA TRAPS</span></header>
+      <h1>백테스트를 부풀리는 것은 전략이 아니라 데이터다</h1>
+      <p class="lead">편향은 아이디어가 아니라 재료에서 들어온다. 좋아 보이는 백테스트일수록 데이터를 먼저 의심한다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">생존 편향</p><h2>사라진 종목을 뺀다</h2><ul><li>수익률·승률이 실제보다 높아 보임</li><li>방어: 상장폐지 포함 데이터셋</li></ul></article>
+          <article class="panel"><p class="eyebrow">미래 정보 편향</p><h2>그때 몰랐던 정보가 섞인다</h2><ul><li>존재할 수 없는 성과가 만들어짐</li><li>방어: 시점 정합(point-in-time) 데이터</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>실무 순서</strong> — 전략을 튜닝하기 전에 데이터 품질을 감사한다. 롤오버·지연시간도 같은 범주.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 데이터 함정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="검증과 실행 일치 섹션" data-report-refs="verify-execute">
+      <p class="eyebrow">SECTION 02</p><h1>검증한 것과 거래하는 것을 일치시킨다</h1><p>같은 프로그램이 신뢰의 근거다</p><span class="section-number">02</span>
+    </section>
+
+    <section class="slide" aria-label="동일 프로그램 원칙" data-report-refs="verify-execute fig-same-program">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SAME PROGRAM</span></header>
+      <h1>같은 코드를 써야 "검증한 것"을 거래한다</h1>
+      <p class="lead">백테스트용 코드와 실거래용 코드가 갈라지면 검증한 것과 다른 것을 거래하는 사고가 난다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-same-program.svg" alt="하나의 동일 전략 코드가 백테스트(과거 데이터)와 실거래(실시간 데이터)로 갈라지되 같은 로직을 쓴다. 코드가 분기하면 검증과 다른 것을 거래한다는 붉은 경고." style="max-width:100%;max-height:46vh;object-fit:contain;display:block;margin:0.4rem auto">
+        <p class="takeaway"><strong>원칙</strong> — 그래서 백테스팅과 트레이딩 플랫폼을 한데 묶어 논의한다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 동일 프로그램</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="연구 속도와 실전 성능의 트레이드오프" data-report-refs="verify-execute">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">TRADE-OFF</span></header>
+      <h1>REPL의 속도 vs 컴파일 언어의 성능</h1>
+      <p class="lead">연구는 빠른 반복이, 실전은 낮은 지연시간과 안정성이 중요하다. 둘은 자주 충돌한다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">연구 단계</p><h2>REPL 언어</h2><ul><li>MATLAB · R · Python</li><li>컴파일 없이 즉시 실행·수정</li><li>반복 속도가 강점</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">실전 단계</p><h2>독립 재구축(C#)</h2><ul><li>성능·안정성 확보</li><li>단, drift 위험 발생</li><li>두 구현 결과를 <em>교차 대조</em></li></ul></article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 별도 구현을 하면 반드시 교차 대조로 "같은 것을 거래한다"를 되묶는다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 언어와 성능</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="브로커와 운영 섹션" data-report-refs="broker-ops">
+      <p class="eyebrow">SECTION 03</p><h1>브로커 — 수수료보다 안전성</h1><p>백테스트에 안 나타나는 비용을 본다</p><span class="section-number">03</span>
+    </section>
+
+    <section class="slide" aria-label="수수료보다 안전성" data-report-refs="broker-ops table-broker">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BROKER</span></header>
+      <h1>브로커가 무너지면 전략의 우열은 무의미하다</h1>
+      <p class="lead">수수료는 눈에 띄지만, 안전성·체결 품질·결제 위험은 대개 백테스트에 나타나지 않는다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card"><span>①</span><h2>안전성</h2><p>파산 시 고객자산 보호(SIPC 한도).</p></article>
+          <article class="card"><span>②</span><h2>체결 품질</h2><p>주문 흐름 대가·슬리피지 — 낮은 수수료를 상쇄할 수 있음.</p></article>
+          <article class="card"><span>③</span><h2>결제 위험</h2><p>통화 거래의 헤르슈타트 위험 → CLS 동시 결제로 제거.</p></article>
+        </div>
+        <p class="takeaway"><strong>순서</strong> — 성과 지표를 논하기 전에 이 지반이 단단한지 먼저 확인한다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 브로커</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="성과 지표 섹션" data-report-refs="metrics">
+      <p class="eyebrow">SECTION 04</p><h1>성과 지표 — 무엇으로 판단하는가</h1><p>절대 수익이 숨기는 것을 드러낸다</p><span class="section-number">04</span>
+    </section>
+
+    <section class="slide" aria-label="CAGR과 복리와 레버리지" data-report-refs="metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">COMPOUNDING</span></header>
+      <h1>복리는 수익도, 손실도 극단으로 키운다</h1>
+      <p class="lead">하루 1%를 252일 복리로 얻으면 CAGR은 단순 합산과 크게 벌어진다 — 그러나 레버리지는 파멸도 부른다.</p>
+      <div class="slide-body">
+        <div class="kpi-grid">
+          <article class="kpi"><strong>$1.01^{252}-1$</strong><h2>≈ 1127%</h2><p>복리 CAGR (단순 합산은 252%)</p></article>
+          <article class="kpi"><strong>$5\times$ 레버리지</strong><h2>−20% 충격 → 전액 소멸</h2><p>블랙먼데이급 하락에 자본 −100%</p></article>
+          <article class="kpi"><strong>$\dfrac{\text{mean}}{\text{var}}$</strong><h2>켈리 최적 레버리지</h2><p>장기 복리를 극대화하는 크기</p></article>
+        </div>
+        <p class="source-note">출처: 교재 Chapter 1 · 성과지표 절. 재현 실험도 CAGR ≈ 1127%로 일치.</p>
+        <p class="takeaway"><strong>해석</strong> — "얼마나 버느냐"만큼 "얼마나 크게 거느냐(레버리지)"가 생사를 가른다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · CAGR·레버리지</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="성과 지표의 관계" data-report-refs="metrics fig-metric-map table-metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">METRIC MAP</span></header>
+      <h1>지표들은 같은 수익률을 다른 각도로 본다</h1>
+      <p class="lead">한 지표만으로 판단하지 않는다. 수익·위험·꼬리위험·레버리지를 함께 읽어야 그림이 완성된다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-metric-map.svg" alt="수익률 시계열에서 CAGR(복리 성장), Sharpe(위험조정), 최대 낙폭(꼬리위험)이 갈라지고 Calmar는 CAGR÷|MDD|, Kelly는 평균÷분산으로 연결." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="takeaway"><strong>읽기</strong> — Sharpe(위험조정) · MDD·Calmar(꼬리위험) · Kelly(레버리지)를 한 세트로.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 지표 관계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="포트폴리오 최적화 섹션" data-report-refs="portfolio-opt">
+      <p class="eyebrow">SECTION 05</p><h1>자본 배분의 수학 — 세 개의 Box</h1><p>공식 데이터로 재현한 근거</p><span class="section-number">05</span>
+    </section>
+
+    <section class="slide" aria-label="로그수익률 근사와 수렴" data-report-refs="portfolio-opt table-convergence">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.1</span></header>
+      <h1>잘게 쪼갤수록 $\mu \approx m - s^2/2$ 는 정확해진다</h1>
+      <p class="lead">순수익률 기대치를 로그수익률의 평균·분산으로 근사한다. 기간을 잘게 쪼갤수록 항등식 오차가 줄어든다.</p>
+      <div class="slide-body">
+        <table class="compare-table">
+          <thead><tr><th>$N$</th><th>Python 오차</th><th>책 오차</th></tr></thead>
+          <tbody>
+            <tr><td>100</td><td>$4.5\times10^{-6}$</td><td>$9.4\times10^{-4}$</td></tr>
+            <tr><td>10,000</td><td>$7.6\times10^{-8}$</td><td>$1.6\times10^{-7}$</td></tr>
+            <tr><td>1,000,000</td><td>$1.2\times10^{-11}$</td><td>$1.8\times10^{-11}$</td></tr>
+          </tbody>
+        </table>
+        <p class="source-note">출처: 재현 실험 run_chapter1_analysis.py (NumPy PCG64, 200시드 중앙값). 15개 검증 통과.</p>
+        <p class="takeaway"><strong>확인</strong> — 식 (1.1)의 주장이 재현으로 그대로 확인된다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · Box 1.1</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="효율적 프런티어와 접점 포트폴리오" data-report-refs="portfolio-opt fig-efficient-frontier table-tangency">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.2</span></header>
+      <h1>효율적 프런티어의 접점이 Sharpe 최대점</h1>
+      <p class="lead">이차계획법으로 6개 국가 ETF의 프런티어를 구한다. 롱온리 접점 비중은 책과 소수 다섯째 자리까지 일치.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-efficient-frontier.png" alt="위험 대비 기대수익의 효율적 프런티어 곡선과 접점(Sharpe 최대) 포트폴리오, 그리고 6개 ETF의 최적 배분 막대." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">공식 데이터(epchan.com/book3, SHA-256 검증) 기반. 접점 vs 책 최대 오차 $4.4\times10^{-5}$ · daily Sharpe ≈ 0.0283.</p>
+        <p class="takeaway"><strong>접점 비중</strong> — EWC 45.1% · EWG 26.3% · EWY 28.5% (나머지 0, 롱온리).</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · Box 1.2</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="복리 Sharpe 켈리는 같은 해" data-report-refs="portfolio-opt table-kelly">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.3</span></header>
+      <h1>복리 극대화 = Sharpe 극대화 = 켈리 배분</h1>
+      <p class="lead">공매도를 허용하면 최적 자본 배분이 닫힌 형태로 떨어진다. 더 높은 Sharpe에는 대가가 따른다.</p>
+      <div class="slide-body">
+        <p style="text-align:center;font-size:1.15em">$$F^{*} = C^{-1}M$$</p>
+        <table class="compare-table">
+          <thead><tr><th>배분</th><th>daily Sharpe</th><th>총노출(gross)</th></tr></thead>
+          <tbody>
+            <tr><td>롱온리 접점</td><td>0.0283</td><td>$1\times$</td></tr>
+            <tr><td>무제약 켈리 $C^{-1}M$</td><td>0.0385</td><td>$8.42\times$ (공매도)</td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>경고</strong> — "수학적으로 더 좋은" 해가 총노출 $8.42\times$ 를 부른다. 그 안에는 <em>추정된</em> $M, C$ 가 있다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · Box 1.3</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="추정 위험과 판단 섹션" data-report-refs="estimation-risk">
+      <p class="eyebrow">SECTION 06</p><h1>추정 위험과 현실적 배분</h1><p>최적해가 아름다울수록 추정을 의심한다</p><span class="section-number">06</span>
+    </section>
+
+    <section class="slide" aria-label="최적해를 그대로 못 믿는 이유" data-report-refs="estimation-risk fig-estimation-risk">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">ESTIMATION RISK</span></header>
+      <h1>기간만 바꿔도 "최적"이 뒤집힌다</h1>
+      <p class="lead">가장 불안정한 입력은 기대수익 $M$. 표본을 반으로 나누면 최적 비중이 거의 겹치지 않는다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-estimation-risk.svg" alt="표본에서 추정한 M과 C로 F=C역행렬 곱하기 M을 풀면 비중이 급변하고 총노출 8.42배가 되는 추정 위험이 발생, 이에 최소분산(C만)과 위험균형(변동성 역비례)으로 물러선다." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="takeaway"><strong>대응</strong> — 추정을 덜 믿는다: 최소분산($C$만) · 위험균형($\sigma$ 역비례).</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 추정 위험</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="자본 배분 방식 판단" data-report-refs="estimation-risk table-allocation">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DECISION</span></header>
+      <h1>무엇을 믿고 무엇을 포기하는가</h1>
+      <p class="lead">배분 방식의 선택은 곧 "기대수익 추정을 얼마나 믿을 것인가"의 선택이다.</p>
+      <div class="slide-body">
+        <table class="compare-table">
+          <thead><tr><th>방식</th><th>사용 입력</th><th>언제 / 약점</th></tr></thead>
+          <tbody>
+            <tr><td>무제약 켈리 $C^{-1}M$</td><td>$M$, $C$</td><td>이론상 최대 — 추정 위험·총노출 폭발</td></tr>
+            <tr><td>최소분산</td><td>$C$ 만</td><td>불안정한 $M$ 회피 — 수익 관점 포기</td></tr>
+            <tr><td>위험균형</td><td>변동성</td><td>견고 — 단, 전염(contagion) 위험</td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>주의</strong> — 모두가 같은 위험관리를 쓰면 청산이 청산을 부르는 <em>전염</em>이 생긴다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 배분 판단</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="발표 정리 질문" data-report-refs="summary estimation-risk">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">CHECKPOINT</span></header>
+      <h1>함께 생각해 볼 세 가지</h1>
+      <p class="lead">정답을 확인하는 질문이 아니라, 1장의 원칙을 우리 환경에 옮길 때 부딪히는 지점들.</p>
+      <div class="slide-body">
+        <ol class="question-list">
+          <li>동일 프로그램을 강제하는 이득과, 성능상 별도 구현(C#)의 트레이드오프를 어떻게 관리할까?</li>
+          <li>무제약 켈리가 Sharpe는 더 높은데($0.0385>0.0283$, gross $8.42\times$), 왜 실전에 그대로 못 쓰는가?</li>
+          <li>모두가 위험균형을 쓰면 왜 전염 위험이 커지는가? 어떻게 완화할까?</li>
+        </ol>
+        <p class="takeaway"><strong>토론</strong> — 우리 데이터·집행 환경에서 가장 크게 달라지는 전제 하나를 고른다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 정리 질문</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--closing" aria-label="정리와 질의응답" data-report-refs="summary estimation-risk">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">WRAP UP</span></header>
+      <div class="closing-body">
+        <p class="eyebrow">KEY TAKEAWAYS</p>
+        <h1>세 문장으로 남기는 1장</h1>
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>검증=실행</h2><p>같은 프로그램·편향 없는 데이터로, 검증한 그대로 거래한다.</p></article>
+          <article class="card"><span>02</span><h2>위험조정 측정</h2><p>절대 수익이 아니라 Sharpe·MDD·Calmar·Kelly로 성과를 본다.</p></article>
+          <article class="card"><span>03</span><h2>배분과 겸손</h2><p>최적해 $F^*=C^{-1}M$ 도 추정 위험 때문에 최소분산·위험균형으로 물러선다.</p></article>
+        </div>
+        <p class="closing-question">Q&amp;A</p>
+      </div>
+      <div class="closing-links"><a class="back-link" href="report.html">상세 리포트 읽기</a><a class="back-link" href="../../">회차 목록으로 돌아가기</a></div>
+    </section>
+  </main>
+
+  <button class="toc-button control" id="tocButton" type="button" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <aside class="toc" id="toc" aria-label="슬라이드 목차" aria-hidden="true"><h2>목차</h2><div id="tocItems"></div></aside>
+  <nav class="deck-controls" aria-label="슬라이드 제어">
+    <button type="button" id="prevButton" aria-label="이전 슬라이드">←</button><span id="deckCounter" aria-live="polite">1 / 1</span><button type="button" id="nextButton" aria-label="다음 슬라이드">→</button>
+  </nav>
+  <div class="deck-progress" aria-hidden="true"><span id="progress"></span></div>
+  <script src="assets/deck.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>

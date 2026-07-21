@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}.key{fill:#0F2C59;stroke:#0F2C59}
+      .t{fill:#0F0F10;font-size:12.5px;font-weight:600;text-anchor:middle}.tk{fill:#fff}
+      .s{fill:#57534E;font-size:10px;text-anchor:middle}.sk{fill:#C7D2E6}
+      .a{stroke:#0F2C59;stroke-width:1.4;fill:none;marker-end:url(#ah3)}
+      .e{fill:#0F2C59;font-size:10.5px;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect class="box key" x="16" y="96" width="150" height="58" rx="10"/>
+  <text class="t tk" x="91" y="120">수익률 시계열</text><text class="s sk" x="91" y="137">전략의 원자료</text>
+  <rect class="box" x="250" y="14"  width="180" height="52" rx="9"/><text class="t" x="340" y="35">CAGR</text><text class="s" x="340" y="52">복리 성장률</text>
+  <rect class="box" x="250" y="99"  width="180" height="52" rx="9"/><text class="t" x="340" y="120">Sharpe 비율</text><text class="s" x="340" y="137">위험조정 수익</text>
+  <rect class="box" x="250" y="184" width="180" height="52" rx="9"/><text class="t" x="340" y="205">최대 낙폭(MDD)</text><text class="s" x="340" y="222">꼬리 위험</text>
+  <path class="a" d="M166,112 C210,80 210,44 248,40"/>
+  <path class="a" d="M166,125 H248"/>
+  <path class="a" d="M166,138 C210,170 210,206 248,210"/>
+  <rect class="box" x="500" y="99" width="184" height="52" rx="9"/><text class="t" x="592" y="120">Calmar = CAGR / |MDD|</text><text class="s" x="592" y="137">회복력 지표</text>
+  <path class="a" d="M430,40 C470,40 470,110 498,118"/>
+  <path class="a" d="M430,210 C470,210 470,140 498,132"/>
+  <rect class="box" x="500" y="14" width="184" height="52" rx="9"/><text class="t" x="592" y="35">Kelly = 평균 / 분산</text><text class="s" x="592" y="52">최적 레버리지</text>
+  <path class="a" d="M166,105 C330,-6 470,4 498,26"/>
+  <text class="e" x="326" y="24">초과수익 평균·분산</text>
+</svg>
