@@ -1,5 +1,5 @@
 # 세션 핸드오프 — ML4T 발표자료 시스템 + Chapter 1 배포
-_최종 갱신: 2026-07-22 KST_
+_최종 갱신: 2026-07-25 KST_
 
 ## 🎯 목표
 ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고, 그 시스템으로 각 스터디 회차(상세 리포트 + 발표 덱)를 만들어 GitHub Pages에 배포·누적한다.
@@ -29,7 +29,8 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - 상세 결정은 영속 메모리 `~/.claude/projects/-home-restful3/memory/reference_ml4t_ds4th_presentation_system.md`에도 기록됨.
 
 ## ⚠️ 클리어 전 주의
-- 커밋 안 됨(전부 사용자 소유 — 자동 커밋·되돌림·삭제 금지): `chapter1_full_report.ipynb` kernelspec 1줄 수정(M, 소유권 미확인), `.claude/.headroom_wrap_marker.json`(?? 사용자 소유), `HANDOFF.md`(?? — untracked 유지가 관례). **이 세션 작업은 전부 커밋·push 완료(6e6fe2c 동기화)라 클리어에 안전.**
+- 커밋 안 됨: `chapter1_full_report.ipynb` kernelspec 1줄(`display_name`이 로컬 venv 이름으로 바뀜). 머신 종속 잡음이라 의도적으로 미커밋 — 자동 커밋·되돌림 금지.
+- 정리 완료(2026-07-25): `.claude/.headroom_wrap_marker.json` 삭제(죽은 pid 마커), `.claude/settings.local.json`은 repo `.gitignore`에 추가(`b1b1af5`) — 이전엔 전역 ignore에만 있어 다른 참여자에겐 안 걸렸음. `HANDOFF.md`는 이제 추적 대상(커밋됨).
 - 백그라운드: 없음(띄웠던 http.server 8137/8138 모두 종료 확인).
 - 미완료 todo: 없음.
 
