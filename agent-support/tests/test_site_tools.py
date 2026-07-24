@@ -76,6 +76,18 @@ REPORT_HTML = '''<!doctype html>
 '''
 
 
+REPO_BLOB = "https://github.com/restful3/ml4t/blob/main/"
+
+
+def report_with_reference(href: str) -> str:
+    return REPORT_HTML.replace(
+        "</section></main>",
+        f'</section><section class="report-appendix" id="references">'
+        f'<ol class="references"><li><a href="{href}" target="_blank">'
+        f"<code>참고</code></a></li></ol></section></main>",
+    )
+
+
 class SiteToolTests(unittest.TestCase):
     def setUp(self) -> None:
         self.tempdir = tempfile.TemporaryDirectory()
@@ -203,6 +215,57 @@ class SiteToolTests(unittest.TestCase):
         validation = self.validate()
         self.assertNotEqual(validation.returncode, 0)
         self.assertIn("slide references unknown report id", validation.stderr)
+
+    def write_report_reference(self, href: str) -> None:
+        (self.deck / "report.html").write_text(
+            report_with_reference(href), encoding="utf-8"
+        )
+
+    def test_validator_accepts_repo_blob_link(self) -> None:
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(
+            REPO_BLOB + "agent-support/scripts/validate-site.py"
+        )
+
+        validation = self.validate()
+        self.assertEqual(validation.returncode, 0, validation.stderr)
+
+    def test_validator_rejects_repo_blob_link_to_missing_file(self) -> None:
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(
+            REPO_BLOB + "agent-support/scripts/does-not-exist.py"
+        )
+
+        validation = self.validate()
+        self.assertNotEqual(validation.returncode, 0)
+        self.assertIn("repo link target not found", validation.stderr)
+
+    def test_validator_rejects_unencoded_repo_blob_link(self) -> None:
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(REPO_BLOB + "agent-support/scripts/validate site.py")
+
+        validation = self.validate()
+        self.assertNotEqual(validation.returncode, 0)
+        self.assertIn("repo link is not percent-encoded", validation.stderr)
+
+    def test_validator_rejects_repo_blob_link_off_main(self) -> None:
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(
+            "https://github.com/restful3/ml4t/blob/some-branch/"
+            "agent-support/scripts/validate-site.py"
+        )
+
+        validation = self.validate()
+        self.assertNotEqual(validation.returncode, 0)
+        self.assertIn("repo link must target main", validation.stderr)
+
+    def test_validator_skips_repo_blob_link_outside_sparse_checkout(self) -> None:
+        """CI checks out only docs/ and agent-support/, so source/ links stay unverified."""
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(REPO_BLOB + "no-such-top-level-dir/whatever.py")
+
+        validation = self.validate()
+        self.assertEqual(validation.returncode, 0, validation.stderr)
 
     def test_new_presentation_uses_canonical_template_without_overwrite(self) -> None:
         session = "2026-01-15-ch02-ch03"

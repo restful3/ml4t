@@ -16,6 +16,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "agent-support" / "studies.toml"
 DEFAULT_SITE = REPO_ROOT / "docs"
 SLUG_RE = re.compile(r"^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$")
+REPO_SLUG = "restful3/ml4t"
+COMMIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 MAX_FILE_BYTES = 10 * 1024 * 1024
 MAX_SESSION_BYTES = 30 * 1024 * 1024
 SUPPORTED_ARTIFACTS = {"report", "slides"}
@@ -336,6 +338,42 @@ def validate_metadata(site: Path, studies: dict[str, dict], errors: list[str]) -
             )
 
 
+def validate_repo_link(
+    html_path: Path, parsed, value: str, errors: list[str]
+) -> None:
+    """Check links that point at a file in this repository on GitHub.
+
+    Reports cite their own reproduction scripts, notebooks and preserved MATLAB
+    sources, so a typo silently ships a 404. The CI checkout is sparse (docs/ and
+    agent-support/ only), so a path whose top-level directory is absent is left
+    unverified rather than reported as broken.
+    """
+    if parsed.netloc.lower() != "github.com":
+        return
+    parts = parsed.path.lstrip("/").split("/")
+    if len(parts) < 5 or "/".join(parts[:2]) != REPO_SLUG or parts[2] != "blob":
+        return
+
+    ref = parts[3]
+    if ref != "main" and not COMMIT_SHA_RE.match(ref):
+        errors.append(
+            f"repo link must target main or a full commit SHA in {html_path}: {value}"
+        )
+        return
+
+    encoded_path = "/".join(parts[4:])
+    if " " in encoded_path:
+        errors.append(f"repo link is not percent-encoded in {html_path}: {value}")
+        return
+
+    relative = unquote(encoded_path)
+    top_level = relative.split("/", 1)[0]
+    if not (REPO_ROOT / top_level).exists():
+        return
+    if not (REPO_ROOT / relative).exists():
+        errors.append(f"repo link target not found in {html_path}: {value}")
+
+
 def validate_reference(
     html_path: Path,
     site: Path,
@@ -363,8 +401,10 @@ def validate_reference(
     if scheme:
         if scheme != "https":
             errors.append(f"non-HTTPS external URL in {html_path}: {value}")
-        elif tag in {"script", "iframe"}:
-            warnings.append(f"review external {tag} in {html_path}: {value}")
+        else:
+            if tag in {"script", "iframe"}:
+                warnings.append(f"review external {tag} in {html_path}: {value}")
+            validate_repo_link(html_path, parsed, value, errors)
         return
     if stripped.startswith("/"):
         errors.append(f"root-relative Pages URL in {html_path}: {value}")
