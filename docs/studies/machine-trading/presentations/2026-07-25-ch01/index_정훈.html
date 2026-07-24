@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-deck-template="study-deck-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 트레이딩의 기초</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/deck.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#deck">발표자료로 건너뛰기</a>
+  <div class="deck-settings" aria-label="설정">
+    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="deck-settings-panel" aria-hidden="true">
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">화면</span><button id="themeButton" type="button" aria-label="화면 테마 전환">☀</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">발표</span><button class="deck-settings-action" type="button" id="fullscreenButton">Fullscreen</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">이동</span><nav class="deck-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="./" aria-current="page">Slides</a><a href="report.html">Report</a></nav></div>
+    </div>
+  </div>
+
+  <main class="stage" id="deck" aria-live="polite" data-report-source="report.html">
+    <section class="slide slide--cover" aria-label="표지" data-report-refs="summary">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">STUDY PRESENTATION</span></header>
+      <div class="cover-hero">
+        <p class="eyebrow">머신 트레이딩 · Chapter 1</p>
+        <h1>알고리즘 트레이딩의 기초</h1>
+        <!-- <p class="cover-subtitle">검증·측정·배분 — 모든 전략이 딛고 설 공통 지반</p> -->
+      </div>
+      <dl class="cover-meta">
+        <div><dt>발표자</dt><dd>정훈</dd></div>
+        <div><dt>학습 범위</dt><dd>Chapter 1 (pp. 1&#126;26)</dd></div>
+        <div><dt>일시</dt><dd>2026-07-25</dd></div>
+      </dl>
+    </section>
+
+    <section class="slide" aria-label="동일 프로그램 원칙" data-report-refs="verify-execute fig-same-program">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SAME PROGRAM</span></header>
+      <h1>같은 코드를 써야 "검증한 것"을 거래한다</h1>
+      <p class="lead">백테스트용 코드와 실거래용 코드가 갈라지면 검증한 것과 다른 것을 거래하는 사고가 난다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-same-program.svg" alt="하나의 동일 전략 코드가 백테스트(과거 데이터)와 실거래(실시간 데이터)로 갈라지되 같은 로직을 쓴다. 코드가 분기하면 검증과 다른 것을 거래한다는 붉은 경고." style="max-width:100%;max-height:46vh;object-fit:contain;display:block;margin:0.4rem auto">
+        <p class="takeaway"><strong>원칙</strong> — 그래서 백테스팅과 트레이딩 플랫폼을 한데 묶어 논의한다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 동일 프로그램</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="알고리즘 트레이딩의 순환 구조" data-report-refs="system-data fig-trading-loop">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SYSTEM LOOP</span></header>
+      <h1>중심에는 하나의 전략 프로그램이 있다</h1>
+      <p class="lead">데이터 → 전략 프로그램 → 주문 → 상태 수신의 순환. 저자는 백테스트와 실거래를 일부러 같은 상자로 그린다.</p>
+      <p class="lead">과거 데이터로 검증한 바로 그 모델을 실전에서도 사용하여 품질 보장</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-trading-loop.svg" alt="시장 데이터가 전략 프로그램으로 들어가 API로 주문을 제출하고 브로커 체결 뒤 주문 상태가 되돌아오는 순환. 전략 프로그램은 하나로 강조." style="max-width:100%;max-height:46vh;object-fit:contain;display:block;margin:0.4rem auto">
+        <p class="takeaway"><strong>기억할 점</strong> — 순환의 중심이 <em>단일</em> 전략 프로그램이라는 점이 2절의 원칙으로 이어진다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 순환 구조</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="발표의 핵심 질문" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPENING</span></header>
+      <h1>좋은 전략보다 먼저, 딛고 설 지반을 묻는다</h1>
+      <p class="lead">전략을 만들려면 먼저 과거 데이터가 있어야 검증을 할 수 있다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">흔한 착각</p><h2>수익률만 보면 된다</h2><ul><li>좋아 보이는 백테스트를 그대로 신뢰</li><li>절대 수익으로 전략을 비교</li><li>최적화가 준 답을 그대로 실행</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">1장의 관점</p><h2>지반을 먼저 의심한다</h2><ul><li>편향을 최소화한 데이터셋 확보</li><li>위험조정 지표로 측정</li><li>추정 위험 때문에 최적해를 덜 믿음</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>전략의 성패</strong> — 어떤 데이터를 어디서구하고 무엇을 검증하느냐</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 문제 제기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- <section class="slide" aria-label="오늘의 흐름" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OVERVIEW</span></header>
+      <h1>데이터 → 일치 → 측정 → 배분</h1>
+      <p class="lead">네 단계가 순서대로 쌓인다. 앞 단계가 무너지면 뒤 단계의 정교함은 의미가 없다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>데이터</h2><p>생존·미래 정보 편향을 먼저 감사한다.</p></article>
+          <article class="card"><span>02</span><h2>일치</h2><p>검증한 것과 거래하는 것을 같게 만든다.</p></article>
+          <article class="card"><span>03</span><h2>측정</h2><p>위험조정·꼬리위험·레버리지로 성과를 본다.</p></article>
+          <article class="card"><span>04</span><h2>배분</h2><p>수학적 최적화 — 그러나 추정을 덜 믿는다.</p></article>
+        </div>
+        <p class="takeaway"><strong>발표의 약속</strong> — 기술 목록이 아니라 재사용할 <em>판단 기준</em>을 가져갑니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 전체 흐름</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section> -->
+
+<!-- 첫 번째 슬라이드: 과거 시장 데이터와 생존 편향 (12살 눈높이) -->
+    <section class="slide" aria-label="과거 데이터 시장과 생존 편향" data-report-refs="data-sourcing">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DATA SOURCING</span></header>
+      <h1>과거로 가는 타임머신 만들기</h1>
+      <p class="lead">내 투자 비법이 진짜 통하는지 알려면, 과거의 가격표를 모아 시험해 봐야 해요.</p>
+      <div class="slide-body">
+        <!-- <div class="two-col"> -->
+          <article class="panel">
+            <p class="eyebrow">정보의 보물창고</p>
+            <h2>어디서 정보를 구할까?</h2>
+            <ul>
+              <li><strong>CSI나 Quandl:</strong> 주식이나 선물의 과거 가격을 매일매일 자동으로 정리해 주는 아주 편리한 상점</li>
+              <li>저자는 오랫동안 csidata.com 이용 (자동화)</li>
+              <li>CSI의 대안으로 Quandl.com 이용 (여러 공급업체로 부터 다양한 데이터를 한곳에서 제공하는 통합 제공업체, 다기능 API 포함, 일부 무료)</li>
+            </ul>
+          </article>
+          <!-- <article class="panel panel--accent">
+            <p class="eyebrow">주의할 점 (생존 편향)</p>
+            <h2>망한 회사를 빼먹으면 안 돼요!</h2>
+            <ul>
+              <li>과거 데이터를 모을 때, 지금은 망해서 없어진 회사들의 성적표까지 전부 모아야(상장폐지 종목 포함) 편향되지 않음</li>
+              <li>성공한 1등들의 점수만 모아놓고 "내 전략은 100점이야!"라고 착각하는 것을 <strong>'생존 편향(Survivorship Bias)'</strong>이라고 해요.</li>
+            </ul>
+          </article> -->
+        </div>
+        <!-- <p class="takeaway"><strong>핵심</strong> — 투자를 검증할 때는 예쁜 정보만 고르지 말고, 실패하고 사라진 진짜 현실의 정보까지 몽땅 구해야 정직한 결과를 얻을 수 있습니다.</p> -->
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 타임머신 재료</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="데이터를 속이는 편향" data-report-refs="system-data table-bias">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DATA TRAPS</span></header>
+      <h1>백테스트를 부풀리는 것은 전략이 아니라 데이터다</h1>
+      <p class="lead">편향은 아이디어가 아니라 재료에서 들어온다. 좋아 보이는 백테스트일수록 데이터를 먼저 의심한다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">생존 편향</p><h2>사라진 종목을 뺀다</h2><ul><li>반응 : 수익률·승률이 실제보다 높아 보임</li><li>대책 : 상장폐지 포함 데이터셋 확보</li></ul></article>
+          <article class="panel"><p class="eyebrow">미래 정보 편향</p><h2>그때 몰랐던 정보가 섞인다</h2><ul><li>그 시점에는 알 수 없었던 미래 정보가 과거 데이터에 포함되는 오류</li><li>반응 : 존재할 수 없는 성과가 만들어짐</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>실무 순서</strong> — 전략을 튜닝하기 전에 데이터 품질을 감사한다. 롤오버·지연시간도 같은 범주.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 데이터 함정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+<!-- 추가 슬라이드: 뉴스 데이터와 감성 점수 (152살 아이 눈높이) -->
+    <section class="slide" aria-label="뉴스 데이터와 감성 점수의 이해" data-report-refs="data-sourcing">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">NEWS SENTIMENT</span></header>
+      <h1>뉴스 데이터- 뉴스 감정 데이터, 영향 점수</h1>
+      <!-- <p class="lead">152년의 지혜를 가진 아이(?)도 단번에 이해할 수 있는, 투자 세계의 뉴스 활용법!</p> -->
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">로봇이 뉴스를 읽는 법</p>
+            <h2>"오늘 시장 기분 어때?"</h2>
+            <ul>
+              <li>파이썬과 도커(Docker)를 엮어서 마켓워치나 야후 파이낸스의 뉴스를 매일 자동으로 긁어모으는 봇처럼, 투자 회사들도 기계가 바로 읽고 분석할 수 있게 정리된 '뉴스 피드'를 사서 씁니다.</li>
+              <li>수많은 뉴스를 직접 읽고 판단하기 번거롭다면? 인공지능이 뉴스를 쫙 읽고 "오늘은 긍정적!", "오늘은 부정적!"이라고 점수를 매겨주는 <strong>'뉴스 감성 데이터'</strong>를 사면 아주 편하답니다.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">점수의 함정</p>
+            <h2>채점 기준은 로봇마다 달라요</h2>
+            <ul>
+              <li>어떤 회사의 데이터는 방향(오를지 내릴지)은 비밀로 하고, "아무튼 크게 움직일 거야!"라는 <strong>'영향 점수'</strong>만 주기도 해요. 위아래 상관없이 크게 흔들리는 것을 좋아하는 트레이더에게 딱이죠.</li>
+              <li>가장 큰 문제는 로봇(데이터 업체)마다 뉴스의 <strong>'기분을 채점하는 기준'</strong>이 제각각이라는 거예요. 그래서 진짜 시험을 잘 보는(예측력이 높은) 족집게 데이터를 고르는 것이 가장 중요합니다.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 방대한 뉴스를 직접 다 읽는 대신, 기계가 요약해 준 키워드나 '감정 점수'를 사서 활용하면 빠르고 효율적인 알고리즘 매매를 할 수 있습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 뉴스 감성 데이터</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="검증과 실행 일치 섹션" data-report-refs="verify-execute">
+      <p class="eyebrow">SECTION 02</p><h1>백테스팅과 트레이딩 플랫폼</h1><p>검증한 것과 거래하는 것을 어떻게 일치시키는가</p><span class="section-number">02</span>
+    </section>
+
+    <!-- <section class="slide slide--section" aria-label="시스템과 데이터 섹션" data-report-refs="system-data">
+      <p class="eyebrow">SECTION 01</p><h1>시스템의 순환과 데이터의 함정</h1><p>전략이 딛고 서는 재료를 먼저 의심한다</p><span class="section-number">01</span>
+    </section> -->
+
+<!-- 첫 번째 슬라이드: 프로그래밍 언어 비교 (15살 눈높이) -->
+    <section class="slide" aria-label="연구용 언어와 실전용 언어의 차이" data-report-refs="verify-execute">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">PROGRAMMING LANGUAGES</span></header>
+      <h1>연구실의 아이디어 뱅크 vs 실전의 로봇 전사</h1>
+      <p class="lead">세상에 완벽한 코딩 언어는 없습니다. 목적에 맞게 무기를 골라야 해요.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">빠르게 실험하기 (스크립트 언어)</p>
+            <h2>파이썬(Python), 매트랩(MATLAB)</h2>
+            <ul>
+              <li><strong>장점:</strong> 코드를 짜서 바로바로 결과를 확인할 수 있어요. (연구 주기 단축)</li>
+              <li>머릿속에 떠오른 투자 작전을 수백 번 테스트하고 고치는 데 최고예요.</li>
+              <li><strong>단점:</strong> 실제 돈을 걸고 거래하는 서버에 올리기엔 속도가 좀 느리고 뼈대가 약해요.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">빠르고 튼튼하게 (컴파일 언어)</p>
+            <h2>C#, C++, Java</h2>
+            <ul>
+              <li><strong>장점:</strong> 코드를 기계어로 꽁꽁 뭉쳐서(컴파일) 실행 속도가 엄청나게 빨라요.</li>
+              <li>아주 짧은 순간(지연시간)에 주문을 넣어야 하는 실전에선 필수입니다.</li>
+              <li><strong>단점:</strong> 처음에 뼈대 잡고 룰(객체 지향, 예외 처리)을 지켜서 코딩하려면 시간이 엄청 오래 걸려요.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 파이썬으로 가볍게 스크립트를 짜는 것과, 실제 브로커 서버와 연결해 24시간 돌아가는 무결점 시스템을 짜는 것은 완전히 다른 이야기입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 프로그래밍 언어 고르기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 두 번째 슬라이드: 이중 구축 전략과 통합 플랫폼 (15살 눈높이) -->
+    <section class="slide" aria-label="이중 구축 전략과 통합 플랫폼" data-report-refs="verify-execute">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SYSTEM ARCHITECTURE</span></header>
+      <h1>두 마리 토끼를 다 잡는 비법</h1>
+      <p class="lead">속도와 안정성, 그리고 똑같은 코드를 거래해야 한다는 원칙을 어떻게 지킬까요?</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">최고의 하이브리드 전략</p>
+            <h2>두 번 만들어서 크로스 체크!</h2>
+            <ul>
+              <li><strong>Step 1:</strong> 연구원들이 파이썬으로 빠르게 실험해서 작전을 짭니다.</li>
+              <li><strong>Step 2:</strong> 작전이 확정되면, 개발 고수(CTO)가 C#으로 똑같이 다시 만듭니다.</li>
+              <li><strong>효과:</strong> 서로 다른 언어로 만들었는데 결과가 똑같다? 논리 오류(버그)가 없다는 최고의 증거죠! 게다가 실전 속도도 챙길 수 있어요.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">돈으로 해결하기(?)</p>
+            <h2>통합 트레이딩 플랫폼</h2>
+            <ul>
+              <li>두 번 만들기 귀찮다면 Quantopian, AlgoTrader 같은 '올인원 플랫폼'을 쓸 수도 있어요.</li>
+              <li>백테스트부터 실거래까지 다 지원해주지만, 내가 원하는 대로 맘껏 바꾸기 어렵고(자유도 제약), 빠르고 좋은 건 엄청 비싸답니다.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>결론</strong> — 가장 유연하고 강력한 시스템을 원한다면, "파이썬으로 검증하고 C#으로 출격하는" 이중 구축(Dual Build) 전략이 정답일 수 있습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 시스템 아키텍처</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="성과 지표 섹션" data-report-refs="metrics">
+      <p class="eyebrow">SECTION 04</p><h1>브로커 </h1><p>수수료보다 중요한 것은 안전성이다</p><span class="section-number">04</span>
+    </section>
+
+<!-- 추가 슬라이드: 브로커의 숨겨진 비밀과 위험 관리 (15살 눈높이) -->
+    <section class="slide" aria-label="브로커의 숨겨진 비용과 위험 관리" data-report-refs="broker-ops">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BROKER SECRETS</span></header>
+      <h1>"수수료 무료"의 숨겨진 진실</h1>
+      <!-- <p class="lead">세상에 공짜는 없습니다! 브로커가 돈을 버는 진짜 방법과 내 돈을 지키는 방어막을 알아볼까요?</p> -->
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">눈뜨고 코 베이는 비용</p>
+            <h2>공짜 수수료? 함정이 있어요!</h2>
+            <ul>
+              <li><strong>주문 팔아넘기기:</strong> "수수료 무료!"라고 광고하지만, 브로커는 여러분의 주문 정보를 다른 곳에 팔아서 뒷돈(리베이트)을 챙겨요. 결국 내가 미세하게 손해 보는 가격으로 체결될 수 있습니다.</li>
+              <li><strong>스프레드 늘리기:</strong> 살 때와 팔 때의 가격 차이(스프레드)를 브로커가 몰래 더 벌려놔서, 거래할 때마다 내 돈이 찔끔찔끔 새어나가게 만들기도 해요.</li>
+            </ul>
+            <p class="eyebrow">먹튀 방지 시스템</p>
+            <h2>동시 교환 (결제 위험)</h2>
+            <ul>
+              <li>다행히 'CLS 은행'이라는 든든한 중간 관리자가 있어서 무조건 <strong>'동시 교환'</strong>이 되도록 지켜줍니다.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">최악의 상황 대비하기</p>
+            <h2>내 돈, 그리고 내 인생 지키기</h2>
+            <ul>
+              <li><strong>브로커가 망한다면?:</strong> 주식 계좌는 나라에서 어느 정도 보호해 주지만(SIPC 보험), 선물 계좌는 보험이 없어서 브로커가 파산하면 내 돈도 같이 날아갈 수 있어요.</li>
+              <li><strong>빚더미 피하기 (유한책임):</strong> 가진 돈보다 더 크게 투자(레버리지)했다가 마이너스가 되면 어떻게 될까요? 내 이름으로 가입했다면 그 빚을 평생 다 갚아야 합니다.</li>
+              <li><strong>꿀팁:</strong> 그래서 진짜 고수들은 개인 이름 대신 <strong>'회사(법인)'</strong>를 세워서 투자합니다. 최악의 경우 회사가 파산할 뿐, 내 진짜 통장과 집은 지킬 수 있음</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 겉보기에 저렴한 수수료보다 중요한 것은, 숨겨진 비용이 얼마나 되는지 파악하고 최악의 사고(파산, 빚)에 대비한 튼튼한 방어막을 쳐두는 것입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 브로커의 비밀</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="성과 지표 섹션" data-report-refs="metrics">
+      <p class="eyebrow">SECTION 04</p><h1>성과 지표</h1><p>무엇으로 전략의 좋고 나쁨을 판단하는가</p><span class="section-number">04</span>
+    </section>
+
+    <section class="slide" aria-label="성과 지표의 관계" data-report-refs="metrics fig-metric-map table-metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">METRIC MAP</span></header>
+      <h1>무엇으로 전략의 좋고나쁨을 판단하는가</h1>
+      <!-- <p class="lead">한 지표만으로 판단하지 않는다. 수익·위험·꼬리위험·레버리지를 함께 읽어야 그림이 완성된다.</p> -->
+      <p class="lead">낙폭 : 이전 고점 대비 감소폭, 최대 낙폭 지속기간 : 고점에서 내려온 후 회복까지 기간</p>
+      <p class="lead">저자가 관심을 두는 것은 보통 다섯 가지</p>      
+      <div class="slide-body">
+        <img src="assets/figs/fig-metric-map.svg" alt="수익률 시계열에서 CAGR(복리 성장), Sharpe(위험조정), 최대 낙폭(꼬리위험)이 갈라지고 Calmar는 CAGR÷|MDD|, Kelly는 평균÷분산으로 연결." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <!-- <p class="takeaway"><strong>읽기</strong> — Sharpe(위험조정) · MDD·Calmar(꼬리위험) · Kelly(레버리지)를 한 세트로.</p> -->
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 지표 관계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+<!-- 추가 슬라이드: 5가지 성과 지표 (15살 눈높이 롤러코스터 비유) -->
+    <section class="slide" aria-label="5가지 핵심 성과 지표" data-report-refs="metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">PERFORMANCE METRICS</span></header>
+      <h1>투자 성적표 읽는 법: 롤러코스터 5대 지표</h1>
+      <p class="lead">내 투자 전략이 얼마나 좋은지, 게임 캐릭터의 스탯처럼 5가지 숫자로 확인해 봐요!</p>
+      <div class="slide-body">
+        
+        <!-- 수익 지표 -->
+        <div class="two-col" style="margin-bottom: 1rem;">
+          <article class="panel panel--accent">
+            <p class="eyebrow">얼마나 잘 컸어? (수익 스탯)</p>
+            <h2>1. CAGR (연평균 레벨업)</h2>
+            <ul>
+              <li><strong>의미:</strong> 1년에 평균적으로 내 돈이 몇 %씩 복리로 불어났는가?</li>
+              <li><strong>비유:</strong> "내 캐릭터, 1년에 평균 몇 렙씩 올랐어?" 장기 투자의 최종 스코어입니다.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 위험 지표 -->
+        <div class="two-col" style="margin-bottom: 1rem;">
+          <article class="panel">
+            <p class="eyebrow">얼마나 무서웠어? (멘탈 스탯)</p>
+            <h2>2. 최대 낙폭 (MDD)</h2>
+            <ul>
+              <li><strong>의미:</strong> 가장 높았던 고점에서 가장 낮았던 저점까지의 <strong>최대 마이너스(-) 비율</strong>.</li>
+              <li><strong>비유:</strong> 롤러코스터에서 가장 아찔했던 수직 낙하 폭! "내 돈이 반토막 났다"할 때 그 폭입니다.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">얼마나 고통받았어? (인내력 스탯)</p>
+            <h2>3. 최대 낙폭 지속 기간</h2>
+            <ul>
+              <li><strong>의미:</strong> 고점에서 떨어져서 다시 원금을 회복할 때까지 걸린 <strong>가장 긴 시간</strong>.</li>
+              <li><strong>비유:</strong> 수직 낙하 후 다시 올라오기까지 캄캄한 동굴 속에서 강제로 '존버'해야 했던 인고의 시간입니다.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 5대 성과 지표</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 추가 슬라이드: 5가지 성과 지표 (15살 눈높이 롤러코스터 비유) -->
+    <section class="slide" aria-label="5가지 핵심 성과 지표" data-report-refs="metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">PERFORMANCE METRICS</span></header>
+      <h1>투자 성적표 읽는 법: 롤러코스터 5대 지표</h1>
+      <!-- <p class="lead">내 투자 전략이 얼마나 좋은지, 게임 캐릭터의 스탯처럼 5가지 숫자로 확인해 봐요!</p> -->
+      <div class="slide-body">
+        
+        <!-- 가성비(비율) 지표 -->
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">멀미 대비 꿀잼 (가성비 1)</p>
+            <h2>4. 샤프 비율 (Sharpe Ratio)</h2>
+            <ul>
+              <li><strong>의미:</strong> 평소의 잔잔한 변동성(멀미) 대비 벌어들인 수익.</li>
+              <li><strong>비유:</strong> "이 놀이기구, 덜덜거리는 거 치고 탈 만해?" (숫자가 클수록 승차감이 좋음)</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">공포 대비 꿀잼 (가성비 2)</p>
+            <h2>5. 칼마 비율 (Calmar Ratio)</h2>
+            <ul>
+              <li><strong>의미:</strong> 가장 끔찍했던 최대 낙폭(MDD) 대비 벌어들인 수익(CAGR).</li>
+              <li><strong>비유:</strong> "심장 멎을 뻔한 수직 낙하를 견딜 만큼 이 게임이 재밌어?"</li>
+            </ul>
+          </article>
+        </div>
+
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 5대 성과 지표</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="CAGR과 복리와 레버리지" data-report-refs="metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">COMPOUNDING</span></header>
+      <h1>CAGR - 복리로 굴렸을 때의 성장률</h1>
+      <!-- 복리는 수익도, 손실도 극단으로 키운다 -->
+      <!-- <p class="lead">하루 1%를 252일 복리로 얻으면 CAGR은 단순 합산과 크게 벌어진다.</p> -->
+      <div class="slide-body">
+        <div class="kpi-grid">
+          <article class="kpi"><strong>$1.01^{252}-1$</strong><h2>≈ 1127%</h2><p>복리 CAGR (단순 합산은 252%)</p></article>
+          <article class="kpi"><strong>$5\times$ 레버리지</strong><h2>−20% 충격 → 전액 소멸</h2><p>블랙먼데이급 하락에 자본 −100%</p></article>
+          <article class="kpi"><strong>$\dfrac{\text{mean}}{\text{var}}$</strong><h2>켈리 최적 레버리지</h2><p>복리 성장을 장기적으로 극대화 하는 레버러지</p></article>
+        </div>
+        <p class="source-note"> <p>CAGR은 각 기간마다 계좌에서 돈을 빼거나 넣지 않고, 레버리지를 내내 똑같이 유지한다고 가정했을 경우의 수익률을 의미하며,</p>하루 1%를 252일 복리로 얻으면 CAGR은 단순 합산과 크게 벌어진다.</p>초과수익률의 평균은 클수록 공격적인 베팅 & 초과수익률의 분산은 클수록 레버러지 낮춰야</p>
+        <p class="takeaway"><strong>해석</strong> — 기대 이익이 크고, 변동이 작을수록 크게 배팅하라. but 극단적인 하락장에는 한계가 있음</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · CAGR·레버리지</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+<!-- 추가 슬라이드: 샤프 비율의 한계와 칼마 비율 (15살 눈높이) -->
+    <section class="slide" aria-label="샤프 비율의 한계와 칼마 비율" data-report-refs="metrics">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">CALMAR RATIO</span></header>
+      <h1>"설마 그런 일이 생기겠어?"의 함정</h1>
+      <p class="lead">평소에 아무리 얌전해도, 한 번 크게 사고 치는 전략을 피하는 방법!</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">평균의 배신 (샤프 비율의 한계)</p>
+            <h2>우주 나이보다 긴 시간?</h2>
+            <ul>
+              <li><strong>착각:</strong> 샤프 비율은 수익률이 예쁜 '종 모양(정규분포)'이라고 믿어요. 그래서 -20% 같은 대폭락은 "우주가 생겨난 시간보다 더 긴 시간에 한 번 일어날까 말까 한 일"이라고 계산하죠.</li>
+              <li><strong>현실(두꺼운 꼬리):</strong> 하지만 주식 시장에서는 '블랙 먼데이' 같은 초대형 폭락이 터집니다. 평소의 잔잔한 흔들림(표준편차)만 재는 샤프 비율은 이 <strong>'최악의 위기'</strong>를 잡아내지 못해요.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">진짜 실력 판독기</p>
+            <h2>칼마 비율 (Calmar Ratio)</h2>
+            <ul>
+              <li>그래서 찐 고수들은 평소 흔들림 대신 <strong>'가장 끔찍했던 순간(최대 낙폭, MDD)'</strong>을 기준으로 점수를 매깁니다.</li>
+              <li><strong>공정한 룰:</strong> 과거 100년을 다 뒤지면 당연히 하락폭이 너무 커지겠죠? 그래서 딱 <strong>'최근 3년'</strong> 동안의 최악의 하락폭만 떼어내서 내 연평균 수익률(CAGR)을 나눕니다.</li>
+              <li><strong>목표치:</strong> 이렇게 계산한 칼마 비율 점수가 <strong>'1 이상'</strong>이면 아주 훌륭한 전략으로 평가해요!</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 평소에 얼마나 잔잔한지(샤프 비율)보다, 최악의 위기 때 얼마나 덜 박살 났는지(칼마 비율)를 확인하는 것이 실전 투자에서는 훨씬 안전하고 똑똑한 방법입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 찐 가성비 지표</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>    
+    
+    <section class="slide slide--section" aria-label="포트폴리오 최적화 섹션" data-report-refs="portfolio-opt">
+      <p class="eyebrow">SECTION 05</p><h1>포트폴리오 최적화 - 자본을 어떻게 나눌 것인가</h1><p>세 개의 Box</p><span class="section-number">05</span>
+    </section>
+    
+    <!-- 여기서부터 새로 추가된 슬라이드 (페이지 12와 13 사이) -->
+    <section class="slide" aria-label="단기 목표와 장기 목표의 차이" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPTIMIZATION GOALS</span></header>
+      <h1>포트폴리오 최적화: 단기 vs 장기</h1>
+      <p class="lead">"한 번의 기대수익을 크게" 만드는 배분과 "오래 굴렸을 때 자산이 크게 불어나는" 배분은 다를 수 있다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">단기 목표 (한 기간 최적화)</p>
+            <h2>마코위츠 포트폴리오</h2>
+            <ul>
+              <li>목표: 다음 한 기간(예: 1년)의 수익 극대화</li>
+              <li>방법: 위험(분산)을 고정하고 기대수익을 최대화</li>
+              <li>비유: "이번 판에 점수를 제일 높게 뽑아보자!"</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">장기 목표 (무한 지평)</p>
+            <h2>복리 수익률(CAGR) 극대화</h2>
+            <ul>
+              <li>목표: 장기적으로 자산이 가장 크게 불어나는 배분</li>
+              <li>방법: 변동성에 의해 갉아먹히는 손실분까지 고려</li>
+              <li>비유: "앞으로 10년 동안 내 레벨을 제일 높게 만들자!"</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 두 목표는 접근이 다르지만, 결국 하나의 해로 수렴한다는 것을 이후에 다룬다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 최적화 목표</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="수익률의 함정과 변동성 벌점" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">VOLATILITY PENALTY</span></header>
+      <h1>수익률의 함정: 롤러코스터 벌점</h1>
+      <p class="lead">평균 수익률이 같아도, 변동성이 크면 '벌점'을 받아 실제 내 돈은 갉아먹힌다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">예시</p>
+            <h2>+50% 그리고 -50%</h2>
+            <ul>
+              <li>시작: 10,000원</li>
+              <li>첫째 날 (+50%): 15,000원</li>
+              <li>둘째 날 (-50%): <b>7,500원</b></li>
+            </ul>
+            <p>평균은 0%지만, 실제로는 2,500원이 사라짐! (변동성 함정)</p>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">수학적 표현 (Ito's Lemma)</p>
+            <h2>$$ \mu \approx m - \frac{s^2}{2} $$</h2>
+            <ul>
+              <li>$\mu$ : 진짜 내 주머니에 들어오는 돈의 성장률 (평균 로그 수익률)</li>
+              <li>$m$ : 겉보기에 계산된 단순 평균 (평균 순수익률)</li>
+              <li>$s^2/2$ : <b>롤러코스터 벌점 (변동성)</b></li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>결론</strong> — 단순히 수익($m$)이 높은 것보다, 변동성($s$)을 줄이는 것이 장기 투자에 유리하다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 변동성 벌점</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+    <!-- 새로 추가된 슬라이드 끝 -->
+
+    <!-- 첫 번째 슬라이드: Box 1.1 순수익률과 로그 수익률 -->
+    <section class="slide" aria-label="순수익률과 로그 수익률의 수렴" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.1</span></header>
+      <h1>기간을 잘게 쪼갤수록 정교해지는 근사</h1>
+      <p class="lead">로그 수익률이 가우스 분포를 따를 때, $\mu \approx m - s^2/2$ 등식은 하위 기간($N$)이 많아질수록 정확해집니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">시뮬레이션 가정</p>
+            <h2>$N \to \infty$ 일 때의 수렴 확인</h2>
+            <ul>
+              <li>전체 로그 수익률 평균 100%, 표준편차 200% 가정</li>
+              <li>전체 기간을 $N$개로 분할하여 독립적인 하위 기간 로그 수익률($r_i$) 생성</li>
+              <li>평균은 $N$에 비례, 표준편차는 $\sqrt{N}$에 비례하여 감소</li>
+              <li>순수익률 $R = e^r - 1$ 로 변환하여 표본평균($m$) 및 표본표준편차($s$) 산출</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">표 1.2</p>
+            <h2>순수익률과 로그 수익률의 평균 비교</h2>
+            <table class="compare-table" style="font-size: 0.9em; margin-top: 1rem;">
+              <thead>
+                <tr>
+                  <th>$N$</th>
+                  <th>$\mu$</th>
+                  <th>$m$</th>
+                  <th>$m - s^2/2$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100</td>
+                  <td>2.00e-2</td>
+                  <td>2.99e-4</td>
+                  <td>-6.41e-4</td>
+                </tr>
+                <tr>
+                  <td>10,000</td>
+                  <td>2.24e-4</td>
+                  <td>2.30e-5</td>
+                  <td>2.28e-5</td>
+                </tr>
+                <tr>
+                  <td>1,000,000</td>
+                  <td><strong>2.65e-6</strong></td>
+                  <td>2.65e-6</td>
+                  <td><strong>2.65e-6</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+        <p class="takeaway"><strong>확인</strong> — $N=1,000,000$으로 잘게 쪼개면 두 값이 2.65e-6으로 완전히 일치하며, 식 1.1의 주장이 증명됩니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · Box 1.1</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 두 번째 슬라이드: 효율적 프런티어와 접점 포트폴리오 -->
+    <section class="slide" aria-label="효율적 프런티어와 접점 포트폴리오 개념" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">EFFICIENT FRONTIER</span></header>
+      <h1>위험과 수익의 최적 절충선: 효율적 프런티어</h1>
+      <p class="lead">주어진 목표 수익률을 가장 적은 위험으로 달성하는 곡선과, 샤프 비율이 최대가 되는 접점을 찾습니다.</p>
+      <div class="slide-body">
+        <div class="two-col" style="align-items: center;">
+          <article class="panel">
+            <p class="eyebrow">행렬 기반 최적화</p>
+            <h2>기대수익과 분산</h2>
+            <ul>
+              <li><strong>기대수익률:</strong> $F^T M$ (비중과 수익률의 가중평균)</li>
+              <li><strong>기대분산:</strong> $F^T C F$ (공분산 $C$를 반영한 분산 감소 효과)</li>
+            </ul>
+            <p class="eyebrow">마코위츠 포트폴리오 최적화</p>
+            <h2>접점 포트폴리오 (Tangency Portfolio)</h2>
+            <ul>
+              <li><strong>효율적 프런티어:</strong> 고정된 수익률에서 기대분산을 최소화한 점들의 곡선</li>
+              <li>원점에서 프런티어를 향해 그은 직선 중 <strong>가장 가파른 접점</strong>을 선택</li>
+              <li>이 직선의 기울기가 <strong>샤프 비율이며, 해당 지점이 최적의 배분점이 됨</li>
+            </ul>
+          </article>
+          <div style="text-align: center; padding: 1rem;">
+            <img src="assets/figs/fig-efficient-frontier.png" alt="효율적 프런티어 곡선 그래프. 원점에서 그은 접선이 만나는 지점이 Tangency portfolio이며, 이 선의 기울기가 접점 포트폴리오의 샤프 비율을 의미함을 보여줌." style="max-width:100%; max-height: 40vh; object-fit:contain; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 각 상품의 개별 성과와 상품 간의 공분산을 함께 고려하여, 전체 포트폴리오의 샤프 비율을 극대화하는 자본 배분($F$)을 찾습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 효율적 프런티어</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="효율적 프런티어와 접점 포트폴리오" data-report-refs="portfolio-opt fig-efficient-frontier table-tangency">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">EFFICIENT FRONTIER</span></header>
+      <h1>효율적 프런티어의 접점이 Sharpe 최대점</h1>
+      <p class="lead">이차계획법으로 6개 국가 ETF의 프런티어를 구한다. 롱온리 접점 비중은 책과 소수 다섯째 자리까지 일치.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-efficient-frontier.png" alt="위험 대비 기대수익의 효율적 프런티어 곡선과 접점(Sharpe 최대) 포트폴리오, 그리고 6개 ETF의 최적 배분 막대." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">공식 데이터(epchan.com/book3, SHA-256 검증) 기반. 접점 vs 책 최대 오차 $4.4\times10^{-5}$ · daily Sharpe ≈ 0.0283.</p>
+        <p class="takeaway"><strong>접점 비중</strong> — EWC 45.1% · EWG 26.3% · EWY 28.5% (나머지 0, 롱온리).</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · Box 1.2</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+
+<!-- 첫 번째 슬라이드: 효율적 프런티어 -->
+    <section class="slide" aria-label="효율적 프런티어의 쉬운 이해" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.2</span></header>
+      <h1> 이차계획법으로 효율적 프런티어 계산하기 </h1>
+      <p class="lead">우선 최대와최소 기대 수익률을 찾는 것 → 집합 각각에 대한 표준편차를 푀소화여 샤프비율을 최대로 만드는 점을 구하기</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">게임으로 이해하기</p>
+            <h2>컴퓨터에게 미션 주기</h2>
+            <ul>
+              <li><strong>조건 1:</strong> 내 용돈을 100% 다 쓸 것 (가중치 합 = 1)</li>
+              <li><strong>조건 2:</strong> 친구에게 빚지지 말 것 (숏 포지션, 레버리지 금지)</li>
+              <li><strong>목표:</strong> 목표 점수를 정해주면, 컴퓨터가 가장 덜 다치고(분산 최소화) 깰 수 있는 팀 조합을 짜줍니다.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">최고의 가성비</p>
+            <h2>접점 포트폴리오</h2>
+            <ul>
+              <li>이렇게 찾은 가장 좋은 팀들의 모임을 <strong>'효율적 프런티어'</strong>라고 부릅니다.</li>
+              <li>그중에서도 체력 소모 대비 공격력이 제일 짱짱한 '가성비 끝판왕' 팀이 하나 있는데, 이를 <strong>'접점 포트폴리오'</strong>라고 해요.</li>
+              <li>투자의 고수들은 이 가성비(샤프 비율)를 가장 중요하게 생각한답니다!</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway">효율적 프런티어는 고정된 기대수익률 집합 각각에 대한 최소 분산들의 모임</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 드림팀 짜기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 두 번째 슬라이드: 켈리 배분과 복리 -->
+    <section class="slide" aria-label="켈리 배분과 복리의 마법" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.2 : KELLY FORMULA</span></header>
+      <h1>눈덩이 굴리기 마법의 공식</h1>
+      <p class="lead">실제 투자자들이 원하는 것은 무한한 시간에서 기대 복리 성장률을 최대화 하는 것 = 샤프비율을 최대화 하는 것 = 켈리 배분</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">놀라운 비밀</p>
+            <h2>단기 우등생 = 장기 우등생</h2>
+            <ul>
+              <li>방금 찾은 가성비 끝판왕(샤프 비율 최대화) 전략을 오랫동안 쓰면 어떻게 될까요?</li>
+              <li>수학자들이 계산해 보니, 이 전략이 내 돈을 눈덩이처럼 가장 크고 빠르게 불려주는(복리 성장 극대화) 방법과 <strong>완전히 똑같다</strong>는 것을 발견했어요!</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">마법의 수식</p>
+            <h2>$$ F^* = C^{-1}M $$</h2>
+            <ul>
+              <li>이 마법 같은 정답을 <strong>'켈리 배분(Kelly Allocation)'</strong>이라고 불러요.</li>
+              <li>$M$ : 잘하는 선수(기대수익)에게 돈을 줍니다.</li>
+              <li>$C^{-1}$ : 하지만 비슷한 약점을 가진 선수들끼리 한 팀에 몰아넣지 않도록(공분산) 골고루 분산시켜 줍니다.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>결론</strong> — 무조건 돈을 많이 벌 것 같은 곳에 '몰빵'하는 게 아니라, 서로 약점을 보완하는 팀을 꾸려야 장기적으로 진정한 승자가 될 수 있습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 마법의 공식</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+<!-- 추가 슬라이드: Box 1.3 샤프 비율 최대화 증명 (12살 눈높이) -->
+    <section class="slide" aria-label="샤프 비율 최대화 증명의 쉬운 이해" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">BOX 1.3</span></header>
+      <h1>마법의 물약 레시피 찾기</h1>
+      <!-- <p class="lead">어려운 수학 증명도 '게임 룰'이라고 생각하면 쉽게 이해할 수 있어요.</p> -->
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">게임 규칙 (라그랑주 승수)</p>
+            <h2>그림자 벌점 없애기</h2>
+            <ul>
+              <li><strong>목표:</strong> 독(위험)은 제일 적고, 파워(수익)는 제일 쎈 완벽한 마법 물약 만들기!</li>
+              <li><strong>규칙:</strong> 내가 가진 재료(돈)를 딱 100%만 써야 해요.</li>
+              <li>수학자들은 이 규칙을 어길 때마다 <strong>'그림자 벌점($\lambda$)'</strong>을 매기는 방식을 씁니다.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">놀라운 수학의 비밀</p>
+            <h2>비율만 맞으면 OK!</h2>
+            <ul>
+              <li>물약을 작게 만들든 크게 만들든 <strong>'파워 대비 독의 비율(샤프 비율)'</strong>은 안 변하겠죠?</li>
+              <li>수학으로 열심히 계산해 보니(미분), 놀랍게도 이 규칙의 벌점($\lambda$)이 사실은 <strong>'0'</strong>이라는 걸 알게 되었어요!</li>
+              <li>결국, 복잡한 제약 없이 <strong>켈리 배분($F=C^{-1}M$)</strong>이라는 레시피만 따르면 가장 완벽한 비율의 물약이 만들어진답니다.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 투자의 덩치(레버리지)를 키우든 줄이든 '가장 효율적인 비율' 자체는 변하지 않으며, 수학적으로 켈리 공식이 곧 그 정답임을 증명하는 과정입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 마법 물약 레시피</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="추정 위험과 판단 섹션" data-report-refs="estimation-risk">
+      <p class="eyebrow">SECTION 06</p><h1>추정 위험과 현실적 배분</h1><p>최적해가 아름다울수록 추정을 의심한다</p><span class="section-number">06</span>
+    </section>
+
+<!-- 추가 슬라이드: 현실의 개입 - 최소분산과 위험균형 (15살 눈높이) -->
+    <section class="slide" aria-label="최소분산과 위험균형 포트폴리오" data-report-refs="portfolio-opt">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">REALITY CHECK</span></header>
+      <h1>현실 패치 완료: 수학 공식이 박살 나는 순간</h1>
+      <p class="lead">과거에 1등 했다고 내일도 1등 할까요? 예측 불가능한 현실에 대처하는 투자자들의 생존법!</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">미래 예측 포기 선언</p>
+            <h2>최소분산 & 위험균형</h2>
+            <ul>
+              <li><strong>최소분산 (Minimum Variance):</strong> "앞으로 얼마나 벌까?"(기대수익률)는 예측하기 너무 어려워요. 그래서 수익 예측은 쿨하게 포기하고, 그나마 예측하기 쉬운 <strong>"가장 덜 흔들리는 조합(공분산)"</strong>만 찾는 방어적인 전략입니다.</li>
+              <li><strong>위험균형 (Risk Parity):</strong> 한 발 더 나아가서, 심하게 널뛰는 위험한 자산에는 돈을 쪼끔만 걸고, 얌전한 자산에는 돈을 많이 걸어서 <strong>모든 자산의 '위험 기여도'를 똑같이 맞추는</strong> 방법이에요.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">모두가 똑같이 행동한다면?</p>
+            <h2>비상구 쏠림 현상 (전염)</h2>
+            <ul>
+              <li><strong>전염(Contagion)의 비극:</strong> 시장이 조금 흔들릴 때, 수많은 거대 펀드들이 똑같은 위험균형 공식에 따라 <strong>"위험해졌으니 당장 팔아라!"</strong>라고 동시에 기계적인 매도 버튼을 누르면 어떻게 될까요?</li>
+              <li>파는 사람이 너무 많아 가격이 폭락하고, 폭락하니 규칙에 따라 또 팔아야 하는 지옥의 굴레(연쇄 대폭락)가 시작됩니다.</li>
+              <li><strong>저자의 꿀팁:</strong> 평소의 '흔들림(변동성)'을 기준으로 방어하지 말고, 진짜 공포인 <strong>'최대 낙폭(MDD)'</strong>을 기준으로 밸런스를 맞추는 것이 더 현명합니다.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 완벽해 보이는 수학적 방어 공식도 시장의 모든 사람이 동시에 똑같이 사용하면 오히려 거대한 시장 붕괴(전염)를 일으킬 수 있습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 현실의 개입</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+
+
+    <section class="slide" aria-label="자본 배분 방식 판단" data-report-refs="estimation-risk table-allocation">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DECISION</span></header>
+      <h1>무엇을 믿고 무엇을 포기하는가</h1>
+      <p class="lead">배분 방식의 선택은 곧 "기대수익 추정을 얼마나 믿을 것인가"의 선택이다.</p>
+      <div class="slide-body">
+        <table class="compare-table">
+          <thead><tr><th>방식</th><th>사용 입력</th><th>언제 / 약점</th></tr></thead>
+          <tbody>
+            <tr><td>무제약 켈리 $C^{-1}M$</td><td>$M$, $C$</td><td>이론상 최대 — 추정 위험·총노출 폭발</td></tr>
+            <tr><td>최소분산</td><td>$C$ 만</td><td>불안정한 $M$ 회피 — 수익 관점 포기</td></tr>
+            <tr><td>위험균형</td><td>변동성</td><td>견고 — 단, 전염(contagion) 위험</td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>주의</strong> — 모두가 같은 위험관리를 쓰면 청산이 청산을 부르는 <em>전염</em>이 생긴다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 1 · 배분 판단</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--closing" aria-label="정리와 질의응답" data-report-refs="summary estimation-risk">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">WRAP UP</span></header>
+      <div class="closing-body">
+        <p class="eyebrow">KEY TAKEAWAYS</p>
+        <h1>세 문장으로 남기는 1장</h1>
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>검증=실행</h2><p>같은 프로그램·편향 없는 데이터로, 검증한 그대로 거래한다.</p></article>
+          <article class="card"><span>02</span><h2>위험조정 측정</h2><p>절대 수익이 아니라 Sharpe·MDD·Calmar·Kelly로 성과를 본다.</p></article>
+          <article class="card"><span>03</span><h2>배분과 겸손</h2><p>최적해 $F^*=C^{-1}M$ 도 추정 위험 때문에 최소분산·위험균형으로 물러선다.</p></article>
+        </div>
+        <p class="closing-question">Q&amp;A</p>
+      </div>
+      <div class="closing-links"><a class="back-link" href="report.html">상세 리포트 읽기</a><a class="back-link" href="../../">회차 목록으로 돌아가기</a></div>
+    </section>
+  </main>
+
+  <button class="toc-button control" id="tocButton" type="button" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <aside class="toc" id="toc" aria-label="슬라이드 목차" aria-hidden="true"><h2>목차</h2><div id="tocItems"></div></aside>
+  <nav class="deck-controls" aria-label="슬라이드 제어">
+    <button type="button" id="prevButton" aria-label="이전 슬라이드">←</button><span id="deckCounter" aria-live="polite">1 / 1</span><button type="button" id="nextButton" aria-label="다음 슬라이드">→</button>
+  </nav>
+  <div class="deck-progress" aria-hidden="true"><span id="progress"></span></div>
+  <script src="assets/deck.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>
