@@ -9,6 +9,7 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - **Pages 안전화** (`10bfff1`, 피어 Fable5): `.gitignore` `!docs/**/`+`!docs/**`(회차 자산 드롭 방지), `.github/workflows/pages.yml`(sparse CI: 테스트+build-index+validate, main push 시 인덱스 자동 재생성 guard 포함).
 - **Chapter 1 산출물** (`6e6fe2c`, 이 세션/Opus): `2026-07-25-ch01` — report.html(7섹션+부록, 9표, 6그림[새 SVG 4 + 재현차트 2], KaTeX 수식), index.html(23슬라이드, 전 슬라이드 data-report-refs 추적, 7섹션·4필수그림 커버). 근거는 재현 실험(공식 epchan.com/book3, SHA-256). build-index --check·validate-site --check-materials·headless Chrome(데스크톱/모바일390/A4, 덱 16:9) 전부 통과.
 - **favicon 정비** (`28850e0`, 2026-07-25): study-report 템플릿에 `<link rel="icon">`이 없어 생성되는 모든 report.html이 favicon 없이 나가던 버그 수정(덱 템플릿엔 원래 있었음) — 템플릿 + 게시된 ch01·ch05 report.html에 추가. `docs/assets/favicon.svg`는 이식 때 딸려온 ds4th의 "D" 마크였어서 같은 파랑(#3157d5)에 "M"으로 다시 그림. 사이트 6개 HTML 전부 favicon 링크 보유·경로 해석 확인.
+- **리포트 푸터 정리** (`d7bc74a`, 2026-07-25): 부록 끝의 `.report-jump-links`(발표자료·회차 목록·문서 처음) 제거 — 설정 패널의 `Index / Report / Slides`와 중복. 템플릿 + ch01·ch05 report.html, 그리고 죽은 `.report-jump-links` CSS 3벌(`@media print`는 `.skip-link`만 남김)까지. report.css 3벌은 계속 byte-identical 유지.
 - **배포·라이브**: Pages(main/docs) 빌드 완료. ch05(`2026-09-19-ch05`)는 pinjoy99가 별도 추가.
   - 사이트 https://restful3.github.io/ml4t/
   - ch01 덱 https://restful3.github.io/ml4t/studies/machine-trading/presentations/2026-07-25-ch01/
