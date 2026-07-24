@@ -26,7 +26,7 @@
 
 ---
 
-#### **2026년 7월 25일**: [Webex](#)
+#### **2026년 7월 25일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=me1d2791ff716182dd6d9d2d0029b6697)
 
 * 발표자 - 정훈
 * **Chapter 1. 알고리즘 트레이딩의 기초 (The Basics of Algorithmic Trading)** — pp. 1–26
