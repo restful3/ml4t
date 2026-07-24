@@ -1,0 +1,11 @@
+study_id = "machine-trading-2026"
+session_id = "2026-09-19-ch05"
+title = "Chapter 5. 옵션 전략 (Options Strategies)"
+date = "2026-09-19"
+presenters = ["핀조이"]
+chapters = ["Chapter 5"]
+template = "study-deck-v1"
+report_template = "study-report-v1"
+workflow = "raw-report-deck-v1"
+report_source = "report.html"
+artifacts = ["report", "slides"]

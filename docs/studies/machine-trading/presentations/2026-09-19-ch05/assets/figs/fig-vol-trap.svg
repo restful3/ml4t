@@ -1,0 +1,42 @@
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="실현변동성과 내재변동성(VXX)의 괴리 및 어긋남을 나타내는 다이어그램">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4B5563"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="100%" height="100%" fill="#F9FAFB" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13">
+    <!-- 왼쪽 박스: 실현변동성 (Realized Volatility) -->
+    <rect x="30" y="40" width="220" height="150" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="140" y="65" font-size="15" font-weight="bold" fill="#1E3A8A" text-anchor="middle">실현변동성 (Realized Vol)</text>
+    <text x="50" y="95" fill="#1E40AF" font-weight="600">■ 과거/현재 수익률의 절대 크기</text>
+    <text x="50" y="120" fill="#1E40AF" font-weight="600">■ GARCH(p,q) 예측 대상</text>
+    <text x="50" y="145" fill="#1E40AF" font-style="italic">→ 예측 정확도: SPY 66% 등</text>
+    <text x="50" y="170" fill="#1E40AF" font-weight="bold" font-size="11">※ 가격 예측보다 부호 예측이 수월</text>
+
+    <!-- 중앙: 매칭 실패 / 괴리 통계 -->
+    <g transform="translate(260, 40)">
+      <line x1="10" y1="50" x2="190" y2="50" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+      <line x1="190" y1="100" x2="10" y2="100" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+      <rect x="35" y="55" width="130" height="40" rx="4" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+      <text x="100" y="73" font-size="12" font-weight="bold" fill="#991B1B" text-anchor="middle">방향 일치율 35.07%</text>
+      <text x="100" y="88" font-size="10" fill="#991B1B" text-anchor="middle">(무작위 50%보다 훨씬 낮음)</text>
+      <text x="100" y="25" font-size="11" font-weight="600" fill="#D97706" text-anchor="middle">실현 RV 증가 ≠ VXX 상승</text>
+      <text x="100" y="130" font-size="11" font-weight="600" fill="#4B5563" text-anchor="middle">역방향(Short VXX) 활용</text>
+    </g>
+
+    <!-- 오른쪽 박스: 내재변동성 / VXX ETN -->
+    <rect x="470" y="40" width="220" height="150" rx="6" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <text x="580" y="65" font-size="15" font-weight="bold" fill="#065F46" text-anchor="middle">내재변동성 (Implied Vol)</text>
+    <text x="490" y="95" fill="#065F46" font-weight="600">■ VIX 지수 및 VX 선물 기반</text>
+    <text x="490" y="120" fill="#065F46" font-weight="600">■ 시간가치 감소 (음의 세타)</text>
+    <text x="490" y="145" fill="#065F46" font-weight="600">■ 콘탱고 환경의 롤 데미지</text>
+    <text x="490" y="170" fill="#034D35" font-style="italic">→ VXX 가격 하향 편향 존재</text>
+  </g>
+</svg>

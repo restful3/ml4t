@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-deck-template="study-deck-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 5. 옵션 전략 (Options Strategies)</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/deck.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#deck">발표자료로 건너뛰기</a>
+  <div class="deck-settings" aria-label="설정">
+    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="deck-settings-panel" aria-hidden="true">
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">화면</span><button id="themeButton" type="button" aria-label="화면 테마 전환">☀</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">발표</span><button class="deck-settings-action" type="button" id="fullscreenButton">Fullscreen</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">이동</span><nav class="deck-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="./" aria-current="page">Slides</a><a href="report.html">Report</a></nav></div>
+    </div>
+  </div>
+
+  <main class="stage" id="deck" aria-live="polite" data-report-source="report.html">
+    <!-- 1. 표지 -->
+    <section class="slide slide--cover" aria-label="표지" data-report-refs="summary">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">STUDY PRESENTATION</span></header>
+      <div class="cover-hero">
+        <p class="eyebrow">머신 트레이딩 · Chapter 5</p>
+        <h1>Chapter 5. 옵션 전략 (Options Strategies)</h1>
+        <p class="cover-subtitle">내재변동성과 실현변동성의 역설, 그리고 실행 계약</p>
+      </div>
+      <dl class="cover-meta">
+        <div><dt>발표자</dt><dd>핀조이</dd></div>
+        <div><dt>학습 범위</dt><dd>Chapter 5 (pp. 119–158)</dd></div>
+        <div><dt>일시</dt><dd>2026-09-19</dd></div>
+      </dl>
+    </section>
+
+    <!-- 2. Opening -->
+    <section class="slide" aria-label="발표의 핵심 질문" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPENING</span></header>
+      <h1>이론적 가격 공식 너머의 "실행 계약"을 묻다</h1>
+      <p class="lead">옵션 알고리즘 거래의 진짜 병목은 수학적 가격결정론(Black-Scholes)에 있지 않습니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">흔한 착각</p>
+            <h2>이론 수식이 수익을 줄 것이다</h2>
+            <ul>
+              <li>블랙-숄즈 편미분방정식을 푸는 데 집착</li>
+              <li>실현변동성과 내재변동성(VXX)을 같은 방향으로 거래</li>
+              <li>체결 비용과 호가 시차를 무시한 백테스트</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">5장의 관점</p>
+            <h2>실행 비용과 괴리가 본질이다</h2>
+            <ul>
+              <li>실현변동성(RV)과 내재변동성(IV)의 일별 불일치 규명</li>
+              <li>15분 정산 시차에 숨겨진 미래 정보 편향 통제</li>
+              <li>스프레드 한계 및 헤지 비율의 동적 갱신(칼만 필터)</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>오늘의 질문</strong> — 실현변동성 변화와 VXX 변화의 어긋남을 어떻게 역으로 이용할 수 있는가?</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 문제 제기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 3. Overview -->
+    <section class="slide" aria-label="오늘의 흐름" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OVERVIEW</span></header>
+      <h1>오늘의 흐름</h1>
+      <p class="lead">네 가지 주제를 통해 옵션 전략의 이론과 실전 오차를 관통합니다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card">
+            <span>01</span>
+            <h2>옵션 없는 변동성</h2>
+            <p>VXX, VX 선물 숏의 높은 CAGR과 칼만 필터 헤지.</p>
+          </article>
+          <article class="card">
+            <span>02</span>
+            <h2>변동성 예측 (GARCH)</h2>
+            <p>실현변동성 부호 변화의 높은 예측도 및 VXX 어긋남의 역설.</p>
+          </article>
+          <article class="card">
+            <span>03</span>
+            <h2>이벤트 기반 전략</h2>
+            <p>주간 석유 보고서(EIA) 전후의 스트래들 함정과 스프레드 비용.</p>
+          </article>
+          <article class="card">
+            <span>04</span>
+            <h2>감마 스캘핑 &amp; 분산</h2>
+            <p>기초선물(CL) 평균회귀 결합 메커니즘과 재현성 감사.</p>
+          </article>
+        </div>
+        <p class="takeaway"><strong>발표의 약속</strong> — 책 수치 중 무엇이 참재현이고 무엇이 보존용 기록(Output-only)인지 식별합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 전체 흐름</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 4. Section 01 표지 -->
+    <section class="slide slide--section" aria-label="옵션 없이 변동성 거래하기 섹션" data-report-refs="vol-trading table-vol-performance">
+      <p class="eyebrow">SECTION 01</p>
+      <h1>옵션 없이 변동성 거래하기</h1>
+      <p>단순한 VX 숏의 보상과 리스크, 그리고 동적 헤지</p>
+      <span class="section-number">01</span>
+    </section>
+
+    <!-- 5. SPY 롱 vs VX 숏 -->
+    <section class="slide" aria-label="SPY 롱 vs VX 숏 성과 비교" data-report-refs="vol-trading table-vol-performance">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">VOLATILITY RISK PREMIUM</span></header>
+      <h1>변동성 매도(VX 선물 숏)의 높은 보상과 MDD</h1>
+      <p class="lead">시간가치 감소(세타)의 수혜를 얻는 숏 VX는 롱 SPY보다 큰 위험조정 수익을 제공합니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <table class="compare-table" style="font-size: 0.85rem; margin-top: 1rem;">
+            <thead>
+              <tr>
+                <th>성과 지표 (2004-04-05 ~ 2015-08-19)</th>
+                <th>2.15배 SPY 롱 (리밸런싱)</th>
+                <th>-0.88배 VX 숏 (리밸런싱)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CAGR (복리 연성장률)</strong></td>
+                <td>7.2%</td>
+                <td style="color: var(--brand-primary); font-weight: bold;">17.8%</td>
+              </tr>
+              <tr>
+                <td><strong>최대 낙폭 (MDD)</strong></td>
+                <td>-86.3%</td>
+                <td>-91.8%</td>
+              </tr>
+              <tr>
+                <td><strong>칼마 비율 (CAGR / |MDD|)</strong></td>
+                <td>0.084</td>
+                <td style="color: var(--brand-primary); font-weight: bold;">0.194</td>
+              </tr>
+            </tbody>
+          </table>
+          <article class="panel panel--accent">
+            <p class="eyebrow">핵심 시사점</p>
+            <h2>위험은 끔찍하나 보상은 우수하다</h2>
+            <ul>
+              <li>숏 VX의 복리 수익률(17.8%)은 롱 SPY(7.2%)의 2.4배 수준.</li>
+              <li>단, 둘 다 90%에 근접하는 최대 낙폭을 보임.</li>
+              <li>변동성 숏 포지션의 무조건적 노출은 파멸을 초래하므로 동적 통제가 필수적.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>재현 검증</strong> — MATLAB 원본 데이터(2015-11-25 ETF 패널)와 Python 역산 결과는 5e-7 이내로 정확히 일치.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 변동성 매도</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 6. 미래 정보 편향 통제 -->
+    <section class="slide" aria-label="정산가 시차와 미래 정보 편향" data-report-refs="vol-trading">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">LOOK-AHEAD BIAS</span></header>
+      <h1>15분 시차가 백테스트를 속인다</h1>
+      <p class="lead">VX 선물의 정산 시간(16:15 ET)과 ES 선물의 정산 시간(16:00 ET)의 차이를 통제해야 합니다.</p>
+      <div class="slide-body">
+        <div class="shift">
+          <article>
+            <p class="eyebrow">BIAS PATH</p>
+            <h2>당일 신호 당일 진입 (Look-ahead)</h2>
+            <p>16:15 ET에 확정되는 당일 VX 롤 수익률 신호를 16:00 ET에 끝나는 당일 ES 포지션에 대입하여 성과를 과장.</p>
+          </article>
+          <b aria-hidden="true" style="color: var(--brand-primary)">→</b>
+          <article class="shift__focus">
+            <p class="eyebrow">CLEAN PATH</p>
+            <h2>하루 지연 신호 적용 (Lagged Signal)</h2>
+            <p>VX의 16:15 ET 정산 신호를 <strong>하루 늦춰(lagged)</strong> 다음 날 ES 선물 진입에 적용하여 정보적 선후관계 확보.</p>
+          </article>
+        </div>
+        <p class="takeaway"><strong>타임존 정합성</strong> — 모든 거래 및 정산 시각은 <strong>America/New_York (동부 표준시)</strong> 기준을 준수해야 정합성이 맞습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 미래 정보 편향</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 7. 칼만 필터 동적 헤지 -->
+    <section class="slide" aria-label="칼만 필터 동적 헤지 비율 갱신" data-report-refs="vol-trading">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DYNAMIC HEDGING</span></header>
+      <h1>칼만 필터 동적 갱신: 칼마비 0.41 → 0.97</h1>
+      <p class="lead">변동성 레벨 변화에 따라 XIV(VIX 역방향 ETN)와 SPY 간의 헤지 비율(Beta)을 매일 업데이트합니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">고정 헤지 비율의 한계</p>
+            <h2>시장 변화에 둔감</h2>
+            <ul>
+              <li>2010년 6월 이전 데이터로 고정한 단일 비율(0.3906).</li>
+              <li>변동성 급등 국면에서 헤지 계약 과대 추정.</li>
+              <li>변동성 하락 국면에서 헤지 계약 과소 추정.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">칼만 필터 동적 갱신</p>
+            <h2>환경 변화에 즉시 수렴</h2>
+            <ul>
+              <li>2011년 이후 전반적인 변동성 하락세를 학습.</li>
+              <li>SPY 1주당 필요한 XIV 주식 수를 동적으로 축소.</li>
+              <li><strong>결과:</strong> XIV-SPY 롤 수익률 전략의 칼마 비율이 <strong>0.97</strong>로 크게 향상.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>교훈</strong> — 헤지 대상의 구조적 관계 변화(정상성 훼손)는 실시간 베타 추정으로 방어해야 합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 칼만 필터 헤지</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 8. Section 02 표지 -->
+    <section class="slide slide--section" aria-label="변동성 예측하기: GARCH 섹션" data-report-refs="vol-forecasting fig-vol-trap">
+      <p class="eyebrow">SECTION 02</p>
+      <h1>변동성 예측하기 (GARCH)</h1>
+      <p>실현변동성 부호 변화의 높은 예측과 VXX 괴리의 역설</p>
+      <span class="section-number">02</span>
+    </section>
+
+    <!-- 9. GARCH(1,2) 분산 예측 -->
+    <section class="slide" aria-label="GARCH(1,2) 분산 예측 수식 및 성과" data-report-refs="vol-forecasting">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">GARCH MODEL</span></header>
+      <h1>GARCH(1,2)로 예측한 내일의 실현변동성 부호</h1>
+      <p class="lead">예측된 수익률 분산은 과거의 예측 분산들과 과거의 실제 제곱수익률의 선형 함수입니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">GARCH(p,q) 공식 (식 5.1)</p>
+            <div style="font-size: 1.1rem; text-align: center; margin: 1.5rem 0;">
+              <span>$\sigma_{t}^{2} = \omega + \sum_{i=1}^{P}\alpha_i\sigma_{t-i}^{2} + \sum_{j=1}^{q}\beta_j r_{t-j}^{2}$</span>
+            </div>
+            <ul>
+              <li><span>$\sigma_{t}^{2}$</span>: 예측된 내일의 조건부 분산</li>
+              <li><span>$r_{t}^{2}$</span>: 과거 일별 로그수익률의 제곱</li>
+              <li>최적화된 차수: <strong>GARCH(1,2)</strong> (BIC 기준)</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">표본 외 부호 변화 예측 성과</p>
+            <h2>66%가 넘는 높은 예측 정확도</h2>
+            <ul>
+              <li><strong>SPY:</strong> 66% (테스트셋: 69%)</li>
+              <li><strong>USO:</strong> 67%</li>
+              <li><strong>AAPL:</strong> 60% / <strong>EURUSD:</strong> 62%</li>
+              <li><strong>역설:</strong> 가격 예측은 차익거래로 소멸하기 쉬우나, 변동성 예측은 이를 거래하기가 어려워 예측력이 오래 유지됨.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>의문</strong> — 변동성 예측률이 69%에 달하는데 왜 VXX를 곧바로 거래하면 손실이 날까?</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · GARCH 예측</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 10. VXX vs 실현변동성 역설 -->
+    <section class="slide" aria-label="VXX와 실현변동성 역설 및 RV 전략" data-report-refs="vol-forecasting fig-vol-trap">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">VOLATILITY PARADOX</span></header>
+      <h1>실현변동성과 VXX는 엇갈린다 (방향 일치율 35.07%)</h1>
+      <p class="lead">성공적으로 예측한 것은 "실현변동성"이지만, VXX는 "내재변동성의 시간 감소 대용물"이기 때문입니다.</p>
+      <div class="slide-body">
+        <div class="two-col" style="grid-template-columns: 1.1fr 0.9fr;">
+          <object type="image/svg+xml" data="assets/figs/fig-vol-trap.svg" style="width: 100%; max-height: 40vh; display: block; margin: 0 auto;" data-deck-use="required"></object>
+          <article class="panel panel--accent" style="margin-top: 0.5rem;">
+            <p class="eyebrow">전략적 해결책</p>
+            <h2>RV(t+1) - RV(t) 역전 전략</h2>
+            <ul>
+              <li>GARCH가 실현변동성 <strong>증가</strong>를 예측할 때마다 종가에 VXX를 <strong>숏</strong>(매도)하고 하루 보유.</li>
+              <li>GARCH가 실현변동성 <strong>감소</strong>를 예측할 때마다 VXX를 <strong>롱</strong>(매수).</li>
+              <li><strong>테스트셋 성과:</strong> CAGR <strong>81%</strong>, 칼마 비율 <strong>1.9</strong> 도출.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>핵심</strong> — 실현변동성(RV)의 하루 단위 변동은 내재변동성(IV) 변화의 어긋남을 역이용하여 거래해야 합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 변동성 역설</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 11. Section 03 표지 -->
+    <section class="slide slide--section" aria-label="이벤트 기반 전략 섹션" data-report-refs="event-driven">
+      <p class="eyebrow">SECTION 03</p>
+      <h1>이벤트 기반 전략</h1>
+      <p>예정된 보고서 발표 주위의 변동성 고평가와 스프레드 함정</p>
+      <span class="section-number">03</span>
+    </section>
+
+    <!-- 12. EIA 주간 보고서와 스트래들 함정 -->
+    <section class="slide" aria-label="EIA 보고서 발표와 롱 스트래들 함정" data-report-refs="event-driven">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">EVENT-DRIVEN FAILURE</span></header>
+      <h1>보고서 발표 직전 옵션을 사면 전패한다</h1>
+      <p class="lead">미국 EIA 주간 석유 보고서(매주 수요일 10:30 ET) 주위에 롱 스트래들을 거래하면 큰 손실이 발생합니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">롱 스트래들 성과</p>
+            <h2>연간 $27,110 손실</h2>
+            <ul>
+              <li>발표 당일 오전 9:00에 콜/풋 옵션 매수 → 발표 1분 후(10:31) 매도 청산.</li>
+              <li><strong>원인:</strong> 변동성 급등이 선반영되어 옵션 진입 가격이 과도하게 부풀려져 있음.</li>
+              <li>내재변동성이 이벤트 직후 급락(Volatility Crush)하여 옵션 가치가 파괴됨.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">또 다른 주범</p>
+            <h2>넓은 호가 스프레드 (Bid-Ask Spread)</h2>
+            <ul>
+              <li>진입 시 중간가격(midprice), 청산 시 시장가 매도 호가(bid)를 가정한 백테스트.</li>
+              <li>원유 옵션(LO)의 호가 스프레드는 2주 만기 등가격조차 1.2%에 달할 정도로 넓음.</li>
+              <li><strong>체결 비용:</strong> 롱과 숏 양방향 모두를 돈 잃게 만드는 주요 병목.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>한계</strong> — 옵션 스프레드 비용이 엣지를 상쇄하므로 단순 시장가 주문 기반 live 진입은 금물.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 이벤트 스트래들 함정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 13. 한산한 기간의 변동성 매도 -->
+    <section class="slide" aria-label="한산한 기간의 변동성 매도 전략" data-report-refs="event-driven">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">EVENT-DRIVEN SHORT</span></header>
+      <h1>발표 다음 날부터 다음 발표 직전까지 숏</h1>
+      <p class="lead">변동성이 가장 적고 안정적인 구간을 타겟하여 프리미엄 시간 감소(세타)를 수취합니다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card">
+            <span>①</span>
+            <h2>숏 스트래들</h2>
+            <p>발표 다음 날(목요일) 오전 9:00 숏 진입 → 다음 발표 전(수요일) 10:29 커버 청산. <strong>연간 $13,270 수익</strong> (MDD $4,050).</p>
+          </article>
+          <article class="card">
+            <span>②</span>
+            <h2>5% OTM 숏 스트랭글</h2>
+            <p>외가격 옵션 숏으로 프리미엄 수치는 낮으나 꼬리 완충 효과 제공. <strong>연간 $10,640 수익</strong> (MDD $3,410으로 개선).</p>
+          </article>
+          <article class="card">
+            <span>③</span>
+            <h2>API 보고서 결합</h2>
+            <p>화요일 16:30 ET의 API 주간 회보 직전에 청산 시점을 당김. <strong>연간 $9,750 수익</strong> (MDD $2,950으로 위험 최소화).</p>
+          </article>
+        </div>
+        <p class="takeaway"><strong>실무 적용</strong> — 정기 이벤트 일정을 모두 파싱하여 한산한 시점의 포지션 비중을 조율해야 합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 이벤트 숏 전략</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 14. Section 04 표지 -->
+    <section class="slide slide--section" aria-label="감마 스캘핑 섹션" data-report-refs="gamma-scalping fig-gamma-scalping">
+      <p class="eyebrow">SECTION 04</p>
+      <h1>감마 스캘핑 (Gamma Scalping)</h1>
+      <p>롱 스트래들의 리스크 상쇄 보호막과 기초 선물 평균회귀의 조화</p>
+      <span class="section-number">04</span>
+    </section>
+
+    <!-- 15. 감마 스캘핑 메커니즘 -->
+    <section class="slide" aria-label="감마 스캘핑의 구조 및 헤지 기법" data-report-refs="gamma-scalping fig-gamma-scalping">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">GAMMA SCALPING</span></header>
+      <h1>롱 스트랭글 헤지와 선물 평균회귀 매매의 결합</h1>
+      <p class="lead">순수 변동성 매도의 파국 위험을 옵션 매수로 차단하고, 기초 선물(CL) 매매로 실질 수익을 얻습니다.</p>
+      <div class="slide-body">
+        <div class="two-col" style="grid-template-columns: 1.15fr 0.85fr;">
+          <object type="image/svg+xml" data="assets/figs/fig-gamma-scalping.svg" style="width: 100%; max-height: 40vh; display: block; margin: 0 auto;" data-deck-use="required"></object>
+          <article class="panel panel--accent" style="margin-top: 0.5rem;">
+            <p class="eyebrow">최대 손실 통제 효과</p>
+            <h2>파산 걱정이 없다</h2>
+            <ul>
+              <li>5% OTM 롱 스트랭글 개시 후 기초 선물이 임계값을 이탈할 때마다 리밸런싱.</li>
+              <li>급격한 이탈(블랙 스완)이 생기더라도, 선물 손실은 옵션 가치 급등에 의해 상쇄.</li>
+              <li>최대 손실은 4%(약 $4,000 수준)로 완벽 차단.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>스캘핑</strong> — 주가 이탈 시마다 "고가 매도, 저가 매수"를 반복하여 누적 차익을 실현합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 감마 스캘핑 원리</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 16. 경로 의존성과 주중 루프 -->
+    <section class="slide" aria-label="스캘핑의 경로 의존성과 주중 루프 설계" data-report-refs="gamma-scalping">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">PATH DEPENDENCY</span></header>
+      <h1>경로와 주말 세타 회피: 목요일 진입 ~ 금요일 청산</h1>
+      <p class="lead">감마 스캘핑의 수익은 시작/종료 가격이 아니라 중간의 진동 경로에 의존합니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">시간감소(세타) 방어</p>
+            <h2>주중 트레이딩 루프</h2>
+            <ul>
+              <li>목요일 09:00 ET 진입 → 금요일 14:30 ET 전량 시장가 청산.</li>
+              <li>평균회귀 매매 기회(보상)가 없는 주말 동안 음의 세타 비용을 내는 손실을 차단.</li>
+              <li>주요 발표 이벤트가 없는 한산한 주중 시간대를 골라 기초 선물의 평균회귀 성향을 유도.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">스프레드 비용 민감성</p>
+            <h2>거래 비용의 중요성</h2>
+            <ul>
+              <li>헤지 시마다 발생하는 슬리피지와 왕복 거래비용에 극도로 취약.</li>
+              <li>5% OTM LO 스트랭글 감마 스캘핑 시 연간 수익 <strong>$6,370</strong>, 최대 낙폭 <strong>$9,400</strong>.</li>
+              <li>비용을 높였을 때 수익이 향상되는 경로는 존재하지 않음을 단조성 검증으로 확인.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>실무 적용</strong> — 볼린저 밴드 혹은 옵션의 델타값 기준(델타 0.45 ~ 0.25)으로 선물 수준 간격을 동적 배치할 수 있습니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 경로와 거래비용</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 17. Section 05 표지 -->
+    <section class="slide slide--section" aria-label="횡단면 IV 평균회귀 및 분산 거래 섹션" data-report-refs="dispersion table-repro-status">
+      <p class="eyebrow">SECTION 05</p>
+      <h1>내재변동성 횡단면 평균회귀 &amp; 분산 거래</h1>
+      <p>상대 가치 거래와 상관관계 매도, 그리고 정직한 재현 기록</p>
+      <span class="section-number">05</span>
+    </section>
+
+    <!-- 18. 분산 거래와 상관관계 -->
+    <section class="slide" aria-label="분산 거래의 원리 및 구조" data-report-refs="dispersion">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DISPERSION TRADING</span></header>
+      <h1>분산 거래: 상관관계 하락에 베팅</h1>
+      <p class="lead">개별 종목들의 옵션 매수(롱) + 지수 옵션 매도(숏)를 통해 상관관계 프리미엄을 수취합니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">상관관계 차익거래</p>
+            <h2>지수 IV vs 개별 IV 합의 괴리</h2>
+            <ul>
+              <li>지수 옵션의 내재변동성은 개별 주식 옵션의 내재변동성 가중합보다 항상 낮음.</li>
+              <li>시장 하락 국면에서는 상관관계가 1에 가까워지며 지수 옵션 가격이 비싸짐.</li>
+              <li>평상시 상관관계가 떨어지면 개별 주식 간의 분산(Dispersion)이 증가해 롱 포지션 수익 극대화.</li>
+            </ul>
+          </article>
+          <article class="panel panel--accent">
+            <p class="eyebrow">실무적 난점</p>
+            <h2>바스켓 복제와 비용</h2>
+            <ul>
+              <li>S&P 500 등 지수를 구성하는 다수의 개별 옵션을 포트폴리오로 복제해야 함.</li>
+              <li>각 옵션의 만기/행사가가 달라 관리가 복잡하고, 거래 수수료와 슬리피지가 엄청남.</li>
+              <li>호가 스프레드가 누적되면 이론적 차익이 대부분 소멸할 위험 존재.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>구조</strong> — 횡단면 IV 평균회귀와 마찬가지로 옵션 포트폴리오를 다루는 고도의 델타 중립 전략입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 분산 거래</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 19. 재현성 감사와 Output-only -->
+    <section class="slide" aria-label="재현성 여부 분석" data-report-refs="dispersion table-repro-status">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">REPRODUCTION AUDIT</span></header>
+      <h1>재현 가능한 사실과 책 출력 보존의 분리</h1>
+      <p class="lead">데이터 라이선스 부재 및 정보 섞임(Kelly 계수 오류 등) 사유를 명확히 밝힙니다.</p>
+      <div class="slide-body">
+        <table class="compare-table" style="font-size: 0.8rem;">
+          <thead>
+            <tr>
+              <th>주제</th>
+              <th>재현 결과</th>
+              <th>Compared</th>
+              <th>주요 원인 및 증거</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>VX-ES 롤 및 VXX 방향 일치</strong></td>
+              <td>정확 재현</td>
+              <td><strong>True</strong></td>
+              <td>동봉된 VX 및 20151125 ETF 패널 데이터를 통해 5e-7 이내 일치.</td>
+            </tr>
+            <tr>
+              <td><strong>Black-Scholes &amp; Greeks</strong></td>
+              <td>독립 Python 입증</td>
+              <td><strong>True</strong></td>
+              <td>Greeks 유한차분 오차(1.7e-10 등) 및 변동성 복원성 완벽 검증.</td>
+            </tr>
+            <tr>
+              <td><strong>VX-SPY 켈리 비교</strong></td>
+              <td>재현 불가</td>
+              <td><strong>False</strong></td>
+              <td>20150828 ETF 패널 부재 및 원본 소스에서 켈리 계수를 1로 덮어쓰고 혼용함.</td>
+            </tr>
+            <tr>
+              <td><strong>EIA 원유 스트래들/스캘핑</strong></td>
+              <td>재현 불가</td>
+              <td><strong>False</strong></td>
+              <td>유료 라이선스 Nanex 틱 데이터(CL, LO 옵션 틱) 부재.</td>
+            </tr>
+            <tr>
+              <td><strong>분산 거래 &amp; 횡단면 IV</strong></td>
+              <td>재현 불가</td>
+              <td><strong>False</strong></td>
+              <td>옵션 역사적 틱 패널 데이터(Ivy Option 등) 누락.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>원칙</strong> — 재현 불가한 결과는 임의의 데이터로 포장하지 않고 정직하게 보존(Compared: False)합니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 재현성 감사</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 20. Section 06 표지 -->
+    <section class="slide slide--section" aria-label="재현성 검증 결과 섹션" data-report-refs="verification table-repro-errors">
+      <p class="eyebrow">SECTION 06</p>
+      <h1>재현성 검증 결과</h1>
+      <p>MATLAB 소스와 Python 구현 간의 오차 정밀 검사</p>
+      <span class="section-number">06</span>
+    </section>
+
+    <!-- 21. MATLAB vs Python 정밀 대조 -->
+    <section class="slide" aria-label="MATLAB vs Python 재현 오차" data-report-refs="verification table-repro-errors">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">VERIFICATION ERROR</span></header>
+      <h1>반올림 허용오차 5e-7 이내 완벽 일치</h1>
+      <p class="lead">재현에 성공한 핵심 지표들의 원본 MATLAB과 Python 재현값 정밀 대조표입니다.</p>
+      <div class="slide-body">
+        <table class="compare-table" style="font-size: 0.8rem; margin-top: 1rem;">
+          <thead>
+            <tr>
+              <th>스크립트 소스</th>
+              <th>검사 항목 (Metric)</th>
+              <th>Python 결과</th>
+              <th>MATLAB 결과</th>
+              <th>절대 오차 (Abs Error)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3"><code>compareVolWithVXX.m</code></td>
+              <td>전체 방향 일치율 (all)</td>
+              <td>0.350680544</td>
+              <td>0.350681</td>
+              <td>4.56e-07</td>
+            </tr>
+            <tr>
+              <td>SPY 상승 시 일치율 (positive_spy)</td>
+              <td>0.288419519</td>
+              <td>0.288420</td>
+              <td>4.81e-07</td>
+            </tr>
+            <tr>
+              <td>SPY 하락 시 일치율 (negative_spy)</td>
+              <td>0.426273458</td>
+              <td>0.426273</td>
+              <td>4.58e-07</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><code>XIV_SPY_rollreturn_lagged.m</code></td>
+              <td>연평균 복합 수익률 (annual_return)</td>
+              <td>0.128077502</td>
+              <td>0.128078</td>
+              <td>4.98e-07</td>
+            </tr>
+              <td>샤프 비율 (Sharpe Ratio)</td>
+              <td>1.101081442</td>
+              <td>1.101081</td>
+              <td>4.42e-07</td>
+            </tr>
+              <td>최대 낙폭 (Max Drawdown)</td>
+              <td>-0.131693278</td>
+              <td>-0.131693</td>
+              <td>2.78e-07</td>
+            </tr>
+              <td>칼마 비율 (Calmar Ratio)</td>
+              <td>0.972543961</td>
+              <td>0.972544</td>
+              <td>3.90e-08</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>신뢰</strong> — 수치 정밀 검증 22개 테스트 모두 통과. 실행 정밀도가 보장된 결과입니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 오차 비교</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <!-- 22. Closing -->
+    <section class="slide" aria-label="결론 및 요약" data-report-refs="verification">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">TAKEAWAYS</span></header>
+      <h1>내재-실현변동성 구분과 실행 통제가 전부다</h1>
+      <p class="lead">5장이 남긴 핵심 교훈은 세밀한 모델 튜닝보다 구조적 위험의 관리 방식입니다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel panel--accent">
+            <p class="eyebrow">핵심 결론</p>
+            <h2>구조적 괴리와 세타 수취</h2>
+            <ul>
+              <li>VXX와 실현변동성 간의 괴리(방향 일치율 35%)를 역으로 활용할 것.</li>
+              <li>정산 시각 불일치로 인한 미래 정보 편향(Look-ahead Bias)을 차단할 것.</li>
+              <li>주말 시간감소(세타) 피해를 막는 주중 루프 설계.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">다음 행동 (Next Steps)</p>
+            <h2>실전적인 변동성 필터 도입</h2>
+            <ul>
+              <li>GARCH(1,2) 모형을 실시간 실현변동성 부호 필터로 연계.</li>
+              <li>호가 스프레드 비용 극복을 위해 지정가(midprice) 오더북 깊이 분석 선행.</li>
+              <li>칼만 필터를 통한 동적 자산 헤지 베타 추정 실시간 가동.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="takeaway"><strong>최종 한 줄</strong> — 이론 가격 수식에 속지 말고, <em>비용과 편향과 괴리</em>를 통제하는 실행을 고수하십시오.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 5 · 결론</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+  </main>
+
+  <button class="toc-button control" id="tocButton" type="button" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <aside class="toc" id="toc" aria-label="슬라이드 목차" aria-hidden="true"><h2>목차</h2><div id="tocItems"></div></aside>
+  <nav class="deck-controls" aria-label="슬라이드 제어">
+    <button type="button" id="prevButton" aria-label="이전 슬라이드">←</button><span id="deckCounter" aria-live="polite">1 / 1</span><button type="button" id="nextButton" aria-label="다음 슬라이드">→</button>
+  </nav>
+  <div class="deck-progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <script src="assets/deck.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>
