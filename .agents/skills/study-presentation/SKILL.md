@@ -15,6 +15,8 @@ Follow the pipeline in order: (A) audit the raw chapter material and record its 
 
 Treat the report as a long-form publication, not a slide transcript. Preserve the canonical ConnectBrick-derived report component hierarchy and the blueprint's problem-to-decision logic. Add source-backed tables and newly composed SVG diagrams when they materially explain the chapter. Give report sections, tables, and figures stable IDs, and mark report figures that the deck must carry with `data-deck-use="required"`. The report gate requires complete argument coverage, captions and sources, working TOC/lightbox, desktop/mobile rendering, and an inspected A4 PDF.
 
+The references appendix must link cited artifacts that exist in this repository — reproduction scripts, notebooks, reproduction reports, preserved original MATLAB, Korean explainers — using `https://github.com/restful3/ml4t/blob/main/<path>` with spaces percent-encoded. Books and external standards stay as bibliography text with no repository link. `validate-site.py` rejects a repository link whose path does not exist, contains a raw space, or targets a ref other than `main` or a full commit SHA.
+
 Derive the deck's narrative, claims, terminology, tables, SVGs, and CSS relationships from the approved report. Reuse a report visual directly when it is legible at slide scale; otherwise make a faithful slide-scale adaptation without changing its meaning. Keep `data-report-source="report.html"` on the deck main element and put valid `data-report-refs` on every slide. Preserve automatic report/deck TOCs and verify that every report section and every required figure is covered.
 
 After creating or editing a report or deck, run:

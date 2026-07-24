@@ -146,6 +146,7 @@ python3 agent-support/scripts/validate-site.py --check-materials
 - [ ] 슬라이드가 16:9에서 잘리지 않고 키보드·전체화면·테마가 동작한다.
 - [ ] A4 PDF에 과도한 빈 페이지, 잘린 표·도형, 중복 번호가 없다.
 - [ ] `source/` 또는 `archive/` 원문 자산을 공개 HTML이 직접 참조하지 않는다.
+- [ ] 참고 자료 부록에서 저장소에 있는 파일(재현 스크립트·노트북·재현 리포트·원본 MATLAB·해설판)을 `https://github.com/restful3/ml4t/blob/main/<경로>` 로 링크했고 실제로 열린다.
 - [ ] 빌드 인덱스와 사이트 검증이 통과한다.
 
 ## 참가자가 에이전트에게 요청하는 가장 짧은 문장
