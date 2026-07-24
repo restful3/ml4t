@@ -3616,11 +3616,9 @@ html.reader-size-large .continuous-mode {
 html, body, button, input { font-family: Inter, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
 .skip-link { position: fixed; left: 16px; top: -60px; z-index: 9999; background: var(--brand-primary); color: #fff; padding: 10px 14px; border-radius: 4px; text-decoration: none; }
 .skip-link:focus { top: 16px; }
-.report-jump-links { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
-.report-jump-links a { font-size:9pt; font-weight:700; text-decoration:none; color:var(--brand-deep); border:1px solid var(--border); padding:5px 9px; border-radius:4px; background:var(--surface); }
 .report-appendix ol.references li::before,
 .s-refs ol.references li::before { content: none !important; }
-@media print { .skip-link, .report-jump-links { display:none !important; } }
+@media print { .skip-link { display:none !important; } }
 +
 /* ===== Fullscreen image viewer: click / keyboard / wheel / pinch ===== */
 [data-report-zoomable="true"] {
