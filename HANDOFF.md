@@ -8,7 +8,8 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - **시스템 이식** (`9f562ef`): ds4th_study의 study-presentation 시스템 전체 이식 — `agent-support/`(study-report-v1·study-deck-v1 템플릿, new-presentation/build-index/validate-site, 절차·테스트, studies.toml, legacy-pages.toml), `.claude`·`.agents` 스킬, `docs/` 게시 셸, AGENTS/QUICKSTART/CLAUDE.md. **자체 호스팅 KaTeX 0.16.22**(woff2, code/pre 제외)를 두 템플릿에 추가 — 퀀트 수식용(원래 ml4t 고유, 2026-07-22 ds4th에도 역이식되어 이제 두 repo 동일).
 - **Pages 안전화** (`10bfff1`, 피어 Fable5): `.gitignore` `!docs/**/`+`!docs/**`(회차 자산 드롭 방지), `.github/workflows/pages.yml`(sparse CI: 테스트+build-index+validate, main push 시 인덱스 자동 재생성 guard 포함).
 - **Chapter 1 산출물** (`6e6fe2c`, 이 세션/Opus): `2026-07-25-ch01` — report.html(7섹션+부록, 9표, 6그림[새 SVG 4 + 재현차트 2], KaTeX 수식), index.html(23슬라이드, 전 슬라이드 data-report-refs 추적, 7섹션·4필수그림 커버). 근거는 재현 실험(공식 epchan.com/book3, SHA-256). build-index --check·validate-site --check-materials·headless Chrome(데스크톱/모바일390/A4, 덱 16:9) 전부 통과.
-- **배포·라이브**: main=origin/main=`6e6fe2c` 동기화, Pages(main/docs) 빌드 완료.
+- **favicon 정비** (`28850e0`, 2026-07-25): study-report 템플릿에 `<link rel="icon">`이 없어 생성되는 모든 report.html이 favicon 없이 나가던 버그 수정(덱 템플릿엔 원래 있었음) — 템플릿 + 게시된 ch01·ch05 report.html에 추가. `docs/assets/favicon.svg`는 이식 때 딸려온 ds4th의 "D" 마크였어서 같은 파랑(#3157d5)에 "M"으로 다시 그림. 사이트 6개 HTML 전부 favicon 링크 보유·경로 해석 확인.
+- **배포·라이브**: Pages(main/docs) 빌드 완료. ch05(`2026-09-19-ch05`)는 pinjoy99가 별도 추가.
   - 사이트 https://restful3.github.io/ml4t/
   - ch01 덱 https://restful3.github.io/ml4t/studies/machine-trading/presentations/2026-07-25-ch01/
   - ch01 리포트 위 경로 + `report.html`
