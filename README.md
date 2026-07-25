@@ -8,7 +8,7 @@
 
 ### **2. 스터디 시간**
 
-* 격주 토요일 **08:00–09:00**
+* 매주 토요일 **08:00–09:00**
 
 ---
 
@@ -18,7 +18,7 @@
 
 ---
 
-### **4. 스터디 운영 계획 (2026년 7월 \~ 2026년 10월)**
+### **4. 스터디 운영 계획 (2026년 7월 \~ 2026년 9월)**
 
 > 2026년 7월 18일(토)은 휴식하고, 7월 25일(토)부터 재개한다.
 >
@@ -36,7 +36,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_1_the_basics_of_algorithmic_trading/01_chapter_1_the_basics_of_algorithmic_trading_ko_explained.md)
 
 
-#### **2026년 8월 8일**: [Webex](#)
+#### **2026년 8월 1일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 2. 팩터 모델 (Factor Models)** — pp. 27–58
@@ -46,7 +46,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_2_factor_models/02_chapter_2_factor_models_ko_explained.md)
 
 
-#### **2026년 8월 22일**: [Webex](#)
+#### **2026년 8월 8일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 3. 시계열 분석 (Time-Series Analysis)** — pp. 59–82
@@ -56,7 +56,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_3_time_series_analysis/03_chapter_3_time_series_analysis_ko_explained.md)
 
 
-#### **2026년 9월 5일**: [Webex](#)
+#### **2026년 8월 15일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 4. 인공지능 기법 (Artificial Intelligence Techniques)** — pp. 83–118
@@ -66,7 +66,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_4_artificial_intelligence_techniques/04_chapter_4_artificial_intelligence_techniques_ko_explained.md)
 
 
-#### **2026년 9월 19일**: [Webex](#)
+#### **2026년 8월 22일**: [Webex](#)
 
 * 발표자 - 핀조이
 * **Chapter 5. 옵션 전략 (Options Strategies)** — pp. 119–158
@@ -76,7 +76,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/05_chapter_5_options_strategies_ko_explained.md)
 
 
-#### **2026년 10월 3일**: [Webex](#)
+#### **2026년 8월 29일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 6. 장중 거래와 시장 미시구조 (Intraday Trading and Market Microstructure)** — pp. 159–200
@@ -86,7 +86,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_6_intraday_trading_and_market_microstructure/06_chapter_6_intraday_trading_and_market_microstructure_ko_explained.md)
 
 
-#### **2026년 10월 17일**: [Webex](#)
+#### **2026년 9월 5일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 7. 비트코인 (Bitcoins)** — pp. 201–214
@@ -96,7 +96,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_7_bitcoins/07_chapter_7_bitcoins_ko_explained.md)
 
 
-#### **2026년 10월 31일**: [Webex](#)
+#### **2026년 9월 12일**: [Webex](#)
 
 * 발표자 - 추후 확정
 * **Chapter 8. 알고리즘 트레이딩은 몸과 마음에 이롭다 (Algorithmic Trading Is Good for Body and Soul)** — pp. 215–232
@@ -110,7 +110,7 @@
 ### **5. 스터디 운영 방법**
 
 * **교재**: [Machine Trading: Deploying Computer Algorithms to Conquer the Markets (Ernest P. Chan, 2017)](https://www.amazon.com/Machine-Trading-Deploying-Computer-Algorithms/dp/1119219604)
-* **학습 공유**: 격주 학습한 내용을 발표자료와 함께 GitHub에 공유
+* **학습 공유**: 매주 학습한 내용을 발표자료와 함께 GitHub에 공유
 * **발표 방식**: 각 챕터에 대한 50분 발표 + 10분 Q&A (총 1시간 진행)
 * **운영 규칙**: [스터디 운영 규칙](https://github.com/restful3/ds4th_study/blob/main/source/etc/%EC%8A%A4%ED%84%B0%EB%94%94_%EC%9A%B4%EC%98%81_%EA%B7%9C%EC%B9%99_v01.pdf)
 
