@@ -193,7 +193,7 @@
           <span class="asset-caption__title">실현변동성(RV) vs 내재변동성(VXX)의 어긋남 구조</span>
         </figcaption>
         <object type="image/svg+xml" data="assets/figs/fig-vol-trap.svg" style="width: 100%; max-height: 240px;"></object>
-        <small class="asset-note">재현 검증: compareVolWithVXX.m 데이터 대조 결과, 실현변동성 변화 방향과 VXX 변화 방향은 35.07%만 일치한다. 이는 VXX의 시간감소(세타)와 VX 선물 곡선의 롤 비용에서 야기된다.</small>
+        <small class="asset-note">재현 검증: <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/compareVolWithVXX.m" target="_blank">compareVolWithVXX.m</a> 데이터 대조 결과, 실현변동성 변화 방향과 VXX 변화 방향은 35.07%만 일치한다. 이는 VXX의 시간감소(세타)와 VX 선물 곡선의 롤 비용에서 야기된다.</small>
       </figure>
 
       <h2>2.1 실현변동성과 VXX의 괴리 및 RV(t+1) - RV(t) 전략</h2>
@@ -359,7 +359,7 @@
         </thead>
         <tbody>
           <tr>
-            <td rowspan="3"><code>compareVolWithVXX.m</code></td>
+            <td rowspan="3"><a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/compareVolWithVXX.m" target="_blank"><code>compareVolWithVXX.m</code></a></td>
             <td>전체 방향 일치율 (all)</td>
             <td>0.350680544</td>
             <td>0.350681</td>
@@ -378,7 +378,7 @@
             <td>4.58e-07</td>
           </tr>
           <tr>
-            <td rowspan="4"><code>XIV_SPY_rollreturn_lagged.m</code></td>
+            <td rowspan="4"><a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/XIV_SPY_rollreturn_lagged.m" target="_blank"><code>XIV_SPY_rollreturn_lagged.m</code></a></td>
             <td>연평균 복합 수익률 (annual_return)</td>
             <td>0.128077502</td>
             <td>0.128078</td>
@@ -465,11 +465,11 @@
       <ol class="references" style="list-style:none;padding:0;">
         <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
           <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[1]</span>
-          <span>Ernest P. Chan, <i>Machine Trading: Deploying Computer Algorithms to Conquer the Markets</i>, Wiley, 2017, Chapter 5 (pp. 119-158). 저장소 한국어 해설판: <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/05_chapter_5_options_strategies_ko_explained.md" target="_blank"><code>05_chapter_5_..._ko_explained.md</code></a>.</span>
+          <span>Ernest P. Chan, <i>Machine Trading: Deploying Computer Algorithms to Conquer the Markets</i>, Wiley, 2017, Chapter 5 (pp. 119-158). 저장소 한국어 해설판: <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/05_chapter_5_options_strategies_ko_explained.md" target="_blank"><code>05_chapter_5_..._ko_explained.md</code></a>.</span>
         </li>
         <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
           <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[2]</span>
-          <span>공식 보존 데이터셋: <a href="https://epchan.com/book3" target="_blank">Ernest Chan's Book 3 Data</a> (VX 선물 및 ETF 패널 MAT 파일). 저장소에 보존한 원본 MATLAB: <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/compareVolWithVXX.m" target="_blank"><code>compareVolWithVXX.m</code></a>, <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/XIV_SPY_rollreturn_lagged.m" target="_blank"><code>XIV_SPY_rollreturn_lagged.m</code></a>.</span>
+          <span>공식 보존 데이터셋: <a href="https://epchan.com/book3" target="_blank">Ernest Chan's Book 3 Data</a> (VX 선물 및 ETF 패널 MAT 파일). 저장소에 보존한 원본 MATLAB: <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/compareVolWithVXX.m" target="_blank"><code>compareVolWithVXX.m</code></a>, <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/original_matlab/XIV_SPY_rollreturn_lagged.m" target="_blank"><code>XIV_SPY_rollreturn_lagged.m</code></a>.</span>
         </li>
         <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
           <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[3]</span>
@@ -477,7 +477,7 @@
         </li>
         <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
           <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[4]</span>
-          <span>이 회차의 재현 자료(저장소): <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/run_chapter5_analysis.py" target="_blank"><code>run_chapter5_analysis.py</code></a> (재현 스크립트) · <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/chapter5_full_report.ipynb" target="_blank"><code>chapter5_full_report.ipynb</code></a> (전체 노트북) · <a href="https://github.com/restful3/ml4t/blob/main/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/reports/chapter5_report.md" target="_blank"><code>chapter5_report.md</code></a> (재현 리포트).</span>
+          <span>이 회차의 재현 자료(저장소): <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/run_chapter5_analysis.py" target="_blank"><code>run_chapter5_analysis.py</code></a> (재현 스크립트) · <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/chapter5_full_report.ipynb" target="_blank"><code>chapter5_full_report.ipynb</code></a> (전체 노트북) · <a href="https://github.com/restful3/ml4t/blob/9198e9e11eb425eccaefbc1095181e3b01657efc/source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/src/reports/chapter5_report.md" target="_blank"><code>chapter5_report.md</code></a> (재현 리포트).</span>
         </li>
       </ol>
     </section>
