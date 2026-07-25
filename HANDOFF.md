@@ -13,6 +13,7 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - **참고 자료 GitHub 링크** (`71653ab`·`d5755a1`·`f9d584f`, 2026-07-25): 리포트 참고 자료 부록에서 저장소에 실제 있는 파일(재현 스크립트·노트북·재현 리포트·원본 MATLAB·해설판)을 `https://github.com/restful3/ml4t/blob/main/<경로>`(공백 `%20`)로 링크하는 규칙 도입. ch01·ch05에 적용(임베드된 14개 링크 전부 curl 200 확인). 규칙은 `procedures/study-presentation.md`·`study-report/DESIGN.md`·`STUDY_SESSION_BLUEPRINT.md`·양쪽 `SKILL.md`·리포트 템플릿 주석에 기록. `validate-site.py`에 검사 추가(ref/인코딩/경로 존재, 테스트 5개) — **CI는 `docs/`+`agent-support/`만 sparse checkout이라 `source/` 링크는 로컬 실행에서만 강제된다.**
 - **아카이브 시 주의**: `blob/main/source/...` 링크는 학습자료가 `archive/`로 옮겨지면 404가 된다. `procedures/archive-study.md` 7번에 링크 갱신 단계를 넣어뒀고, 누락하면 로컬 `validate-site.py`가 `repo link target not found`로 잡는다.
 - **배포·라이브**: Pages(main/docs) 빌드 완료. ch05(`2026-09-19-ch05`)는 pinjoy99가, ch01 폴더의 `index_정훈.html`은 Junghoon Park(`dc1ae11`, 웹 업로드)이 추가. **참여자 3명이 main에 직접 push하므로 작업 전 `git pull --rebase` 필수.**
+- **ch05 폴더명 ≠ 날짜(의도적)**: 매주 전환으로 Ch5가 09-19 → 08-22로 옮겨졌지만 디렉터리·`session_id`는 `2026-09-19-ch05` 그대로 뒀다. 이미 배포된 공개 URL을 깨지 않기 위해서다(`session_id`는 디렉터리와 일치해야 하고, `date`는 표시·정렬용 독립 필드라 도구가 이 조합을 허용한다). 표시 날짜만 `presentation.toml`·덱·리포트에서 08-22로 맞췄다. 폴더까지 맞추려면 URL 변경이므로 pinjoy99와 합의 필요.
   - 사이트 https://restful3.github.io/ml4t/
   - ch01 덱 https://restful3.github.io/ml4t/studies/machine-trading/presentations/2026-07-25-ch01/
   - ch01 리포트 위 경로 + `report.html`
@@ -21,7 +22,7 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - 없음. Chapter 1은 완성·배포·검증 완료.
 
 ## ⏭️ 다음 단계
-1. **Chapter 2 준비**(2026-08-08, 발표자 미정) — 원자료 `source/Chan E. Machine Trading .../chapter_2_factor_models/`. `new-presentation.py --study machine-trading-2026 --session 2026-08-08-ch02 …` 스캐폴딩 → 리포트 먼저 완성·검증(리포트 게이트) → 덱 파생. study-presentation 스킬/절차 사용.
+1. **Chapter 2 준비**(2026-08-01, 발표자 미정) — 원자료 `source/Chan E. Machine Trading .../chapter_2_factor_models/`. `new-presentation.py --study machine-trading-2026 --session 2026-08-01-ch02 …` 스캐폴딩 → 리포트 먼저 완성·검증(리포트 게이트) → 덱 파생. study-presentation 스킬/절차 사용.
 2. (선택) collaborator 초대 — 사용자가 직접.
 3. (선택) 두 repo CI 파일명 통일(ml4t `pages.yml` ↔ ds4th `validate-study-site.yml`).
 
@@ -42,6 +43,6 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - `docs/studies/machine-trading/presentations/2026-07-25-ch01/` — ch01 report.html·index.html·assets(figs 6, katex). 라이브.
 - `agent-support/templates/study-{report,deck}/` — 템플릿(+KaTeX). 새 회차 품질 기준.
 - `agent-support/scripts/{new-presentation,build-index,validate-site}.py` — 회차 생성·인덱스·검증.
-- `agent-support/studies.toml` — machine-trading(active, 2026-07-25 – 2026-10-31).
+- `agent-support/studies.toml` — machine-trading(active, 2026-07-25 – 2026-09-12). 2026-07-25 격주→매주 전환(`189e30c`)으로 종료일이 10-31에서 당겨졌다.
 - `.claude/skills/study-presentation/SKILL.md` — 회차 작업 스킬(이제 하네스에 등록됨).
 - `source/Chan E. Machine Trading .../chapter_N_*/` — 원자료(한국어 해설판 + 재현 실험 `src/reports/`).
