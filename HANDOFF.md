@@ -13,6 +13,7 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - **참고 자료 GitHub 링크**: 리포트에서 저장소에 실제 있는 파일(재현 스크립트·노트북·재현 리포트·원본 MATLAB·해설판)을 GitHub로 링크하는 규칙. 참고 자료 부록뿐 아니라 본문의 그림 캡션·소스코드 표 셀까지 전부 링크(파서로 미링크 0건 확인, 임베드된 14개 링크 curl 200). 규칙은 `procedures/study-presentation.md`·`study-report/DESIGN.md`·`STUDY_SESSION_BLUEPRINT.md`·양쪽 `SKILL.md`·리포트 템플릿 주석에 기록.
 - **링크는 커밋 SHA 고정**: `blob/main/source/...`은 학습자료가 `archive/`로 옮겨지는 순간 404가 되므로 `blob/9198e9e11eb425eccaefbc1095181e3b01657efc/`로 고정했다. 고정 커밋은 불변이라 아카이브 때 손댈 것이 없다(그래서 `archive-study.md` 7번은 '갱신'이 아니라 '손대지 않는다'로 바뀜). 반대급부: 원본 파일이 수정돼도 링크는 옛 버전을 가리키므로 크게 바뀌면 SHA를 갱신한다. `validate-site.py`는 SHA 고정 링크는 shape만(ref·인코딩) 검사하고 워킹트리 경로 검사를 건너뛴다 — 아카이브 후 오탐을 막기 위해서다. `main` 링크는 기존대로 경로 존재까지 검사하되 CI sparse checkout(`docs/`+`agent-support/`)에 없는 top-level은 건너뛴다. 테스트 7개.
 - **배포·라이브**: Pages(main/docs) 빌드 완료. ch05(`2026-08-22-ch05`)는 pinjoy99가, ch01 폴더의 `index_정훈.html`은 Junghoon Park(`dc1ae11`, 웹 업로드)이 추가. **참여자 3명이 main에 직접 push하므로 작업 전 `git pull --rebase` 필수.**
+- **Chapter 5 PDF 인쇄 추가**: 2026-08-22-ch05 하위에 리포트(report.pdf, 1.9MB)와 발표자료(presentation.pdf, 2.3MB)를 Playwright를 통해 16:9 및 A4 규격으로 출력하여 빌드 및 커밋 완료.
 - **ch05 회차 폴더 개명**: 매주 전환으로 Ch5가 09-19 → 08-22가 되어 디렉터리·`session_id`를 `2026-09-19-ch05` → `2026-08-22-ch05`로 바꿨다. **사용자가 pinjoy99 허가를 받아 지시한 것.** 기존 공개 URL `.../2026-09-19-ch05/`는 이제 404다 — 외부에 그 링크를 공유했다면 새 URL로 안내가 필요하다.
   - 사이트 https://restful3.github.io/ml4t/
   - ch01 덱 https://restful3.github.io/ml4t/studies/machine-trading/presentations/2026-07-25-ch01/
