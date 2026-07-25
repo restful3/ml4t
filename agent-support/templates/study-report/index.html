@@ -173,8 +173,9 @@
     <section class="report-appendix s-refs page-break" id="references">
       <div class="report-section__kicker">Appendix B · References</div>
       <h1>참고 자료와 도형 출처</h1>
-      <!-- 저장소에 있는 파일을 인용하면 GitHub 링크를 건다:
-           <a href="https://github.com/restful3/ml4t/blob/main/source/<책>/<챕터>/src/run_chapterN_analysis.py" target="_blank"><code>run_chapterN_analysis.py</code></a>
+      <!-- 저장소에 있는 파일을 인용하면 GitHub 링크를 건다. ref는 main이 아니라 40자리 커밋 SHA로 고정한다
+           (아카이브 때 source/ → archive/ 로 옮겨져도 링크가 살아남는다. SHA는 `git rev-parse origin/main`):
+           <a href="https://github.com/restful3/ml4t/blob/<40자리 SHA>/source/<책>/<챕터>/src/run_chapterN_analysis.py" target="_blank"><code>run_chapterN_analysis.py</code></a>
            경로의 공백은 %20으로 인코딩한다. 책·외부 표준처럼 저장소에 없는 것은 서지 정보만 남긴다. -->
       <ol class="references" style="list-style:none;padding:0;"><li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);"><span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[1]</span><span>교재 챕터의 서지 정보와 사용 범위. 저장소 한국어 해설판이 있으면 GitHub 링크를 함께 단다.</span></li><li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);"><span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[2]</span><span>외부 논문·공식 문서·도형의 직접 출처.</span></li><li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);"><span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[3]</span><span>이 회차의 재현 자료(저장소): 재현 스크립트·노트북·재현 리포트·보존된 원본 MATLAB을 GitHub 링크로 연결한다.</span></li></ol>
     </section>

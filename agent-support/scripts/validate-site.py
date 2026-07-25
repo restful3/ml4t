@@ -344,7 +344,11 @@ def validate_repo_link(
     """Check links that point at a file in this repository on GitHub.
 
     Reports cite their own reproduction scripts, notebooks and preserved MATLAB
-    sources, so a typo silently ships a 404. The CI checkout is sparse (docs/ and
+    sources, so a typo silently ships a 404.
+
+    A link pinned to a commit SHA is immutable: the file cannot move out from
+    under it, so only its shape is checked. A link on `main` is checked against
+    the working tree, except that the CI checkout is sparse (docs/ and
     agent-support/ only), so a path whose top-level directory is absent is left
     unverified rather than reported as broken.
     """
@@ -355,7 +359,8 @@ def validate_repo_link(
         return
 
     ref = parts[3]
-    if ref != "main" and not COMMIT_SHA_RE.match(ref):
+    pinned = bool(COMMIT_SHA_RE.match(ref))
+    if ref != "main" and not pinned:
         errors.append(
             f"repo link must target main or a full commit SHA in {html_path}: {value}"
         )
@@ -364,6 +369,9 @@ def validate_repo_link(
     encoded_path = "/".join(parts[4:])
     if " " in encoded_path:
         errors.append(f"repo link is not percent-encoded in {html_path}: {value}")
+        return
+
+    if pinned:
         return
 
     relative = unquote(encoded_path)

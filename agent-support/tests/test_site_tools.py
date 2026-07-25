@@ -259,6 +259,30 @@ class SiteToolTests(unittest.TestCase):
         self.assertNotEqual(validation.returncode, 0)
         self.assertIn("repo link must target main", validation.stderr)
 
+    def test_validator_accepts_sha_pinned_link_to_moved_path(self) -> None:
+        """A pinned commit is immutable, so the path need not exist in the worktree."""
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(
+            "https://github.com/restful3/ml4t/blob/"
+            + "0" * 40
+            + "/agent-support/scripts/moved-away.py"
+        )
+
+        validation = self.validate()
+        self.assertEqual(validation.returncode, 0, validation.stderr)
+
+    def test_validator_rejects_unencoded_sha_pinned_link(self) -> None:
+        self.assertEqual(self.build().returncode, 0)
+        self.write_report_reference(
+            "https://github.com/restful3/ml4t/blob/"
+            + "0" * 40
+            + "/agent-support/scripts/validate site.py"
+        )
+
+        validation = self.validate()
+        self.assertNotEqual(validation.returncode, 0)
+        self.assertIn("repo link is not percent-encoded", validation.stderr)
+
     def test_validator_skips_repo_blob_link_outside_sparse_checkout(self) -> None:
         """CI checks out only docs/ and agent-support/, so source/ links stay unverified."""
         self.assertEqual(self.build().returncode, 0)
