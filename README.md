@@ -36,7 +36,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_1_the_basics_of_algorithmic_trading/01_chapter_1_the_basics_of_algorithmic_trading_ko_explained.md)
 
 
-#### **2026년 8월 1일**: [Webex](#)
+#### **2026년 8월 1일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m04f313dbbe685507858e50181ce261a7)
 
 * 발표자 - 종훈
 * **Chapter 2. 팩터 모델 (Factor Models)** — pp. 27–58
@@ -46,7 +46,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_2_factor_models/02_chapter_2_factor_models_ko_explained.md)
 
 
-#### **2026년 8월 8일**: [Webex](#)
+#### **2026년 8월 8일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=mc566f92559137856a5817a3391b681e6)
 
 * 발표자 - 태호
 * **Chapter 3. 시계열 분석 (Time-Series Analysis)** — pp. 59–82
@@ -56,7 +56,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_3_time_series_analysis/03_chapter_3_time_series_analysis_ko_explained.md)
 
 
-#### **2026년 8월 15일**: [Webex](#)
+#### **2026년 8월 15일**: [Webex](https://lgehq.webex.com/lgehq/j.php?MTID=m48de660ac23783eb903ddd4c68227e79)
 
 * 발표자 - 태영
 * **Chapter 4. 인공지능 기법 (Artificial Intelligence Techniques)** — pp. 83–118
@@ -66,7 +66,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_4_artificial_intelligence_techniques/04_chapter_4_artificial_intelligence_techniques_ko_explained.md)
 
 
-#### **2026년 8월 22일**: [Webex](#)
+#### **2026년 8월 22일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m7eb4e3e4262dd69a5da327418202ebdf)
 
 * 발표자 - 핀조이
 * **Chapter 5. 옵션 전략 (Options Strategies)** — pp. 119–158
@@ -76,7 +76,7 @@
 * 자료: [한국어 해설판](source/Chan%20E.%20Machine%20Trading%20-%20Deploying%20Computer%20Algorithms%20to%20Conquer%20the%20Markets%202016/chapter_5_options_strategies/05_chapter_5_options_strategies_ko_explained.md)
 
 
-#### **2026년 8월 29일**: [Webex](#)
+#### **2026년 8월 29일**: [Webex](https://lgehq.webex.com/lgehq-en/j.php?MTID=m4216b4978be315dc5515a5e416d79bdf)
 
 * 발표자 - 추후 확정
 * **Chapter 6. 장중 거래와 시장 미시구조 (Intraday Trading and Market Microstructure)** — pp. 159–200
