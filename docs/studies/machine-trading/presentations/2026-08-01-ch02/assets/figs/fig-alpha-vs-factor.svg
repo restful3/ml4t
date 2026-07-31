@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 248" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}
+      .key{fill:#0F2C59;stroke:#0F2C59}
+      .warnbox{fill:#FBE9E7;stroke:#B91C1C;stroke-width:1.3}
+      .goodbox{fill:#E8F1EA;stroke:#1B6B3A;stroke-width:1.3}
+      .t{fill:#0F0F10;font-size:13px;font-weight:700;text-anchor:middle}
+      .tk{fill:#fff}
+      .s{fill:#57534E;font-size:10.5px;text-anchor:middle}
+      .sk{fill:#C7D2E6}
+      .warn{fill:#B91C1C;font-size:10.5px;text-anchor:middle}
+      .good{fill:#1B6B3A;font-size:10.5px;text-anchor:middle}
+      .a{stroke:#0F2C59;stroke-width:1.4;fill:none;marker-end:url(#ah)}
+      .e{fill:#0F2C59;font-size:10.5px;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <!-- lane A : alpha -->
+  <rect class="box key" x="16" y="32" width="176" height="60" rx="10"/>
+  <text class="t tk" x="104" y="56">알파</text>
+  <text class="s sk" x="104" y="76">팩터 위험과 무관한 초과수익</text>
+
+  <rect class="box" x="252" y="32" width="196" height="60" rx="10"/>
+  <text class="t" x="350" y="56">모두가 원한다</text>
+  <text class="s" x="350" y="76">확산 · 수용력 한계</text>
+
+  <rect class="warnbox" x="524" y="32" width="160" height="60" rx="10"/>
+  <text class="t" x="604" y="56" fill="#B91C1C">닳아 없어진다</text>
+  <text class="warn" x="604" y="76">숨겨야 하는 이유</text>
+
+  <path class="a" d="M192,62 H250"/>
+  <path class="a" d="M448,62 H522"/>
+
+  <!-- lane B : factor -->
+  <rect class="box key" x="16" y="152" width="176" height="60" rx="10"/>
+  <text class="t tk" x="104" y="176">팩터 프리미엄</text>
+  <text class="s sk" x="104" y="196">위험을 감수한 대가</text>
+
+  <rect class="box" x="252" y="152" width="196" height="60" rx="10"/>
+  <text class="t" x="350" y="176">공짜가 아니다</text>
+  <text class="s" x="350" y="196">분산으로 못 없애는 위험이 대가</text>
+
+  <rect class="goodbox" x="524" y="152" width="160" height="60" rx="10"/>
+  <text class="t" x="604" y="176" fill="#1B6B3A">해마다 남는다</text>
+  <text class="good" x="604" y="196">대놓고 팔 수 있다</text>
+
+  <path class="a" d="M192,182 H250"/>
+  <path class="a" d="M448,182 H522"/>
+
+  <text class="e" x="221" y="56">발견</text>
+  <text class="e" x="485" y="56">자본 유입</text>
+  <text class="e" x="221" y="176">보상</text>
+  <text class="e" x="485" y="176">위험이 장벽</text>
+</svg>

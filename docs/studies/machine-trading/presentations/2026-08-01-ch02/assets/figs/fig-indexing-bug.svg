@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 232" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ahs" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#8A8377"/></marker>
+    <style>
+      .strip{fill:#F3F1EC;stroke:#8A8377;stroke-width:1.2}
+      .short{fill:#0F2C59}
+      .long{fill:#1B6B3A}
+      .bug{fill:#B91C1C}
+      .tag{fill:#0F2C59;stroke:#0F2C59}
+      .warnbox{fill:#FBE9E7;stroke:#B91C1C;stroke-width:1.3}
+      .goodbox{fill:#E8F1EA;stroke:#1B6B3A;stroke-width:1.3}
+      .tagt{fill:#fff;font-size:13px;font-weight:700;text-anchor:middle}
+      .tags{fill:#C7D2E6;font-size:9.5px;text-anchor:middle}
+      .chip{fill:#fff;font-size:11px;font-weight:700;text-anchor:middle}
+      .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;text-anchor:middle}
+      .cnavy{fill:#0F2C59}.cgreen{fill:#1B6B3A}.cred{fill:#B91C1C}
+      .s{fill:#57534E;font-size:9.5px;text-anchor:middle}
+      .axis{fill:#8A8377;font-size:10px}
+      .rt{font-size:12.5px;font-weight:700;text-anchor:middle}
+      .rs{font-size:10.5px;font-weight:700;text-anchor:middle}
+    </style>
+  </defs>
+
+  <!-- sort direction -->
+  <text class="axis" x="124" y="20">예측 수익 오름차순 정렬</text>
+  <path d="M300,16 H540" stroke="#8A8377" stroke-width="1.1" fill="none" marker-end="url(#ahs)"/>
+  <text class="axis" x="548" y="20">높음</text>
+
+  <!-- row 1 : official -->
+  <rect class="tag" x="16" y="34" width="92" height="44" rx="8"/>
+  <text class="tagt" x="62" y="53">원본</text>
+  <text class="tags" x="62" y="69">공식 .m 파일</text>
+
+  <rect class="strip" x="124" y="34" width="420" height="32" rx="6"/>
+  <rect class="short" x="124" y="34" width="70" height="32" rx="6"/>
+  <text class="chip" x="159" y="55">숏 50</text>
+  <rect class="bug" x="474" y="34" width="8" height="32"/>
+
+  <text class="code cnavy" x="159" y="84">I(1:topN)</text>
+  <text class="s" x="159" y="98">하위 50개 숏 — 의도대로</text>
+  <text class="code cred" x="478" y="84">I(end-topN+1)</text>
+  <text class="s" x="478" y="98">콜론 누락 → 스칼라 1개만 롱</text>
+
+  <rect class="warnbox" x="560" y="34" width="144" height="44" rx="8"/>
+  <text class="rt" x="632" y="53" fill="#B91C1C">순숏 포트폴리오</text>
+  <text class="rs" x="632" y="69" fill="#B91C1C">−6.55% · Sharpe −0.60</text>
+
+  <!-- row 2 : corrected -->
+  <rect class="tag" x="16" y="134" width="92" height="44" rx="8"/>
+  <text class="tagt" x="62" y="153">수정</text>
+  <text class="tags" x="62" y="169">콜론 하나 추가</text>
+
+  <rect class="strip" x="124" y="134" width="420" height="32" rx="6"/>
+  <rect class="short" x="124" y="134" width="70" height="32" rx="6"/>
+  <text class="chip" x="159" y="155">숏 50</text>
+  <rect class="long" x="474" y="134" width="70" height="32" rx="6"/>
+  <text class="chip" x="509" y="155">롱 50</text>
+
+  <text class="code cnavy" x="159" y="184">I(1:topN)</text>
+  <text class="s" x="159" y="198">하위 50개 숏 — 동일</text>
+  <text class="code cgreen" x="509" y="184">I(end-topN+1:end)</text>
+  <text class="s" x="509" y="198">상위 50개 전부 롱</text>
+
+  <rect class="goodbox" x="560" y="134" width="144" height="44" rx="8"/>
+  <text class="rt" x="632" y="153" fill="#1B6B3A">달러중립</text>
+  <text class="rs" x="632" y="169" fill="#1B6B3A">+3.80% · Sharpe 1.19</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 258" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah6" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.4}
+      .key{fill:#0F2C59;stroke:#0F2C59}
+      .warnbox{fill:#FBE9E7;stroke:#B91C1C;stroke-width:1.3}
+      .t{fill:#0F0F10;font-size:12.5px;font-weight:700;text-anchor:middle}
+      .tk{fill:#fff}
+      .s{fill:#57534E;font-size:10px;text-anchor:middle}
+      .sk{fill:#C7D2E6}
+      .warn{fill:#B91C1C;font-size:10px;text-anchor:middle}
+      .stage{fill:#8A8377;font-size:10.5px;font-weight:700}
+      .a{stroke:#0F2C59;stroke-width:1.4;fill:none;marker-end:url(#ah6)}
+      .e{fill:#0F2C59;font-size:10px;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+      .note{fill:#0F2C59;font-size:10px;font-weight:700;text-anchor:middle}
+    </style>
+  </defs>
+
+  <!-- stage 1 -->
+  <text class="stage" x="16" y="24">STEP 1 · 이름 없는 요인을 캐낸다</text>
+  <rect class="box" x="16" y="34" width="196" height="56" rx="9"/>
+  <text class="t" x="114" y="56">룩백 252일 수익 행렬</text>
+  <text class="s" x="114" y="74">전 기간 유한한 종목만 (300+)</text>
+
+  <rect class="box" x="262" y="34" width="196" height="56" rx="9"/>
+  <text class="t" x="360" y="56">공분산 행렬 대각화</text>
+  <text class="s" x="360" y="74">고윳값 내림차순 · 직교</text>
+
+  <rect class="box key" x="508" y="34" width="196" height="56" rx="9"/>
+  <text class="t tk" x="606" y="56">상위 5성분 factors(t)</text>
+  <text class="s sk" x="606" y="74">평균 설명분산 54.3%</text>
+
+  <path class="a" d="M212,62 H260"/>
+  <path class="a" d="M458,62 H506"/>
+  <text class="e" x="236" y="54">PCA</text>
+
+  <!-- stage 2 -->
+  <text class="stage" x="16" y="140">STEP 2 · 서술을 예측으로 바꾼다</text>
+  <rect class="box" x="16" y="150" width="196" height="58" rx="9"/>
+  <text class="t" x="114" y="172">다음 날 수익에 회귀</text>
+  <text class="s" x="114" y="190">종목별 다중회귀 → β̂(s)</text>
+
+  <rect class="warnbox" x="262" y="150" width="196" height="58" rx="9"/>
+  <text class="t" x="360" y="172" fill="#B91C1C">마지막 날은 학습 제외</text>
+  <text class="warn" x="360" y="190">미리보기 편향 차단</text>
+
+  <rect class="box key" x="508" y="150" width="196" height="58" rx="9"/>
+  <text class="t tk" x="606" y="172">상위 50 롱 / 하위 50 숏</text>
+  <text class="s sk" x="606" y="190">21일마다 재적합(재현 적응)</text>
+
+  <path class="a" d="M212,179 H260"/>
+  <path class="a" d="M458,179 H506"/>
+  <text class="e" x="484" y="171">예측</text>
+
+  <path class="a" d="M606,90 V110 Q606,116 600,116 H120 Q114,116 114,122 V148"/>
+  <text class="note" x="360" y="107">factors(t) 를 설명변수로 — β̂(s) 는 고유벡터가 아니다</text>
+</svg>

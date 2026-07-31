@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah5" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F2C59"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#0F2C59;stroke-width:1.3}
+      .key{fill:#0F2C59;stroke:#0F2C59}
+      .t{fill:#0F0F10;font-size:12px;font-weight:700}
+      .tc{fill:#fff;font-size:13.5px;font-weight:700;text-anchor:middle}
+      .s{fill:#57534E;font-size:10px}
+      .sk{fill:#C7D2E6;font-size:10.5px;text-anchor:middle}
+      .num{fill:#0F2C59;font-size:10.5px;font-weight:700;text-anchor:end}
+      .a{stroke:#0F2C59;stroke-width:1.3;fill:none;marker-end:url(#ah5)}
+      .chip{fill:#0F2C59}
+      .chipt{fill:#fff;font-size:10px;font-weight:700;text-anchor:middle}
+    </style>
+  </defs>
+
+  <!-- source -->
+  <rect class="box key" x="14" y="104" width="176" height="82" rx="11"/>
+  <text class="tc" x="102" y="134">정보 우위 트레이더</text>
+  <text class="sk" x="102" y="154">레버리지·정밀한 방향 베팅</text>
+  <text class="sk" x="102" y="171">→ 옵션에 먼저 흔적</text>
+
+  <!-- five signals on a shared grid -->
+  <rect class="box" x="290" y="10" width="416" height="44" rx="8"/>
+  <rect class="chip" x="300" y="20" width="22" height="24" rx="5"/><text class="chipt" x="311" y="37">1</text>
+  <text class="t" x="332" y="30">내재 모멘트 — Vol · Skew · Kurt 의 수준</text>
+  <text class="s" x="332" y="46">3단 다중정렬 상위/하위 30%</text>
+  <text class="num" x="696" y="38">9.68%</text>
+
+  <rect class="box" x="290" y="68" width="416" height="44" rx="8"/>
+  <rect class="chip" x="300" y="78" width="22" height="24" rx="5"/><text class="chipt" x="311" y="95">2</text>
+  <text class="t" x="332" y="88">내재 변동성의 월간 변화</text>
+  <text class="s" x="332" y="104">콜 IV 상승 → 방금 유입된 정보</text>
+  <text class="num" x="696" y="96">6%+</text>
+
+  <rect class="box" x="290" y="126" width="416" height="44" rx="8"/>
+  <rect class="chip" x="300" y="136" width="22" height="24" rx="5"/><text class="chipt" x="311" y="153">3</text>
+  <text class="t" x="332" y="146">풋-콜 패리티 이탈 VS</text>
+  <text class="s" x="332" y="162">미결제약정 가중 콜 IV − 풋 IV</text>
+  <text class="num" x="696" y="154">12.4%</text>
+
+  <rect class="box" x="290" y="184" width="416" height="44" rx="8"/>
+  <rect class="chip" x="300" y="194" width="22" height="24" rx="5"/><text class="chipt" x="311" y="211">4</text>
+  <text class="t" x="332" y="204">스큐 — OTM 풋 − ATM 콜</text>
+  <text class="s" x="332" y="220">요인 부호 음(−) → 상위를 숏</text>
+  <text class="num" x="696" y="212">4.2%</text>
+
+  <rect class="box" x="290" y="242" width="416" height="44" rx="8"/>
+  <rect class="chip" x="300" y="252" width="22" height="24" rx="5"/><text class="chipt" x="311" y="269">5</text>
+  <text class="t" x="332" y="262">시장 내재변동성의 일간 변화</text>
+  <text class="s" x="332" y="278">유일한 시계열 팩터 · 헤지 프리미엄</text>
+  <text class="num" x="696" y="270">3.6%</text>
+
+  <!-- edges -->
+  <path class="a" d="M190,132 C238,120 244,44 288,32"/>
+  <path class="a" d="M190,138 C240,132 244,98 288,90"/>
+  <path class="a" d="M190,145 H288"/>
+  <path class="a" d="M190,152 C240,158 244,198 288,206"/>
+  <path class="a" d="M190,158 C238,170 244,252 288,264"/>
+</svg>

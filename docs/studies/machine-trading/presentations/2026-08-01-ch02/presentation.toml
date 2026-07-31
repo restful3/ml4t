@@ -1,0 +1,11 @@
+study_id = "machine-trading-2026"
+session_id = "2026-08-01-ch02"
+title = "팩터 모델"
+date = "2026-08-01"
+presenters = ["종훈"]
+chapters = ["Chapter 2"]
+template = "study-deck-v1"
+report_template = "study-report-v1"
+workflow = "raw-report-deck-v1"
+report_source = "report.html"
+artifacts = ["report", "slides"]

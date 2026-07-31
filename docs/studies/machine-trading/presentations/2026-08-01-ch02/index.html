@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-deck-template="study-deck-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>팩터 모델</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/deck.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#deck">발표자료로 건너뛰기</a>
+  <div class="deck-settings" aria-label="설정">
+    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="deck-settings-panel" aria-hidden="true">
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">화면</span><button id="themeButton" type="button" aria-label="화면 테마 전환">☀</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">발표</span><button class="deck-settings-action" type="button" id="fullscreenButton">Fullscreen</button></div>
+      <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">이동</span><nav class="deck-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="./" aria-current="page">Slides</a><a href="report.html">Report</a></nav></div>
+    </div>
+  </div>
+
+  <main class="stage" id="deck" aria-live="polite" data-report-source="report.html">
+    <section class="slide slide--cover" aria-label="표지" data-report-refs="summary">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">STUDY PRESENTATION</span></header>
+      <div class="cover-hero">
+        <p class="eyebrow">머신 트레이딩 · Chapter 2</p>
+        <h1>팩터 모델</h1>
+        <p class="cover-subtitle">예측력은 어디서 오고, 무엇 때문에 뒤집히는가</p>
+      </div>
+      <dl class="cover-meta">
+        <div><dt>발표자</dt><dd>종훈</dd></div>
+        <div><dt>학습 범위</dt><dd>Chapter 2</dd></div>
+        <div><dt>일시</dt><dd>2026-08-01</dd></div>
+      </dl>
+    </section>
+
+    <section class="slide" aria-label="발표의 핵심 질문" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPENING</span></header>
+      <h1>이 장은 팩터의 목록이 아니라, 주장이 무너지는 방식의 카탈로그다</h1>
+      <p class="lead">같은 요인이 유니버스가 바뀌면 0이 되고, 측정 정의가 바뀌면 결론이 반대가 되고, 코드 한 글자에 부호가 뒤집힌다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">흔한 기대</p><h2>좋은 팩터를 찾으면 된다</h2><ul><li>논문의 CAGR을 그대로 신뢰</li><li>표본 내 설명력을 예측력으로 착각</li><li>백테스트 수익 = 팩터의 실력</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">2장의 관점</p><h2>먼저 무엇이 함께 고정되는지 묻는다</h2><ul><li>유니버스 · 측정 정의 · 순노출</li><li>비용 · 정보 가용시점 · 구현 검증</li><li>하나만 어긋나도 <em>부호</em>가 바뀐다</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>오늘의 질문</strong> — 이 수치를 믿으려면 <em>무엇을 함께 확인</em>해야 하는가?</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 문제 제기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="오늘의 흐름" data-report-refs="summary table-overview">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OVERVIEW</span></header>
+      <h1>왜 팩터인가 → 어떻게 캐내는가 → 무엇이 뒤집는가</h1>
+      <p class="lead">개념에서 시작해 네 개의 예제를 지나, 마지막에 판단 기준으로 모은다.</p>
+      <div class="slide-body">
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>왜 팩터인가</h2><p>알파는 닳고 팩터는 남는다 — 위험이 대가이기 때문에.</p></article>
+          <article class="card"><span>02</span><h2>두 좌표계</h2><p>시계열과 횡단면은 관측·회귀의 방향이 거울상이다.</p></article>
+          <article class="card"><span>03</span><h2>네 예제</h2><p>파마-프렌치 · 펀더멘털 · 옵션/공매도/유동성 · PCA.</p></article>
+          <article class="card"><span>04</span><h2>판단</h2><p>순위 방법론과 비용, 그리고 8개 점검 항목.</p></article>
+        </div>
+        <p class="takeaway"><strong>발표의 약속</strong> — 팩터 목록이 아니라 <em>재사용할 검증 순서</em>를 가져갑니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 전체 흐름</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="왜 팩터인가 섹션" data-report-refs="alpha-vs-factor">
+      <p class="eyebrow">SECTION 01</p><h1>알파는 숨겨야 하고, 팩터는 대놓고 판다</h1><p>위험이 대가이기 때문에 살아남는다</p><span class="section-number">01</span>
+    </section>
+
+    <section class="slide" aria-label="알파와 팩터 프리미엄의 대비" data-report-refs="alpha-vs-factor fig-alpha-vs-factor">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">WHY FACTORS</span></header>
+      <h1>공짜 점심이라서 사라지고, 불편한 대가라서 남는다</h1>
+      <p class="lead">알파는 분산으로 위험을 0까지 줄일 수 있어 모두가 원한다 — 그래서 닳는다. 팩터 위험은 분산해도 남는다 — 그래서 보상이 남는다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-alpha-vs-factor.svg" alt="왼쪽 알파는 팩터 위험과 무관한 초과수익이라 모두가 원하고 확산과 수용력 한계로 닳아 없어지며 숨겨야 한다. 오른쪽 팩터 프리미엄은 위험을 감수한 대가라 공짜가 아니고 해마다 남으며 대놓고 팔 수 있다." style="max-width:100%;max-height:46vh;object-fit:contain;display:block;margin:0.4rem auto">
+        <p class="takeaway"><strong>질문의 전환</strong> — "얼마나 버는가"가 아니라 <em>"내가 무슨 위험을 사고 있는가"</em>.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 알파 vs 팩터</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="팩터 모델의 정의와 감쇠" data-report-refs="alpha-vs-factor">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SCOPE</span></header>
+      <h1>단, 팩터도 영원하지는 않다</h1>
+      <p class="lead">이 장의 "팩터 모델"은 예측변수가 곧 팩터인 <em>선형 모델</em>로만 한정된다. 그 회귀계수가 스마트 베타다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">용어 경계</p><h2>팩터 모델 = 선형 모델</h2><ul><li>암묵적 팩터 노출을 가진 전략은 많지만 팩터 모델이라 부르지 않는다</li><li>'멍청한' 베타 = 주식 vs 시장 지수 회귀계수</li><li>스마트 베타 = 그 밖의 요인에 붙는 계수</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">감쇠하는 팩터</p><h2>SMB · 풋-콜 IV · 시장 IV 변화 · DTC</h2><ul><li>저자의 해석: <em>위험 자체가 줄었다고</em> 인식된 것</li><li>SMB — 분산만 되면 소형주가 딱히 더 위험하지 않다는 믿음</li><li>엔론과 리먼도 둘 다 대형주였다</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>기억할 점</strong> — 팩터가 남는 이유가 위험이라면, 그 위험이 사라질 때 수익도 사라진다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 정의와 한계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="두 좌표계 섹션" data-report-refs="two-coordinates">
+      <p class="eyebrow">SECTION 02</p><h1>두 좌표계 — 무엇이 관측되고 무엇을 캐내는가</h1><p>같은 한 줄을 어느 방향으로 읽느냐</p><span class="section-number">02</span>
+    </section>
+
+    <section class="slide" aria-label="시계열 요인과 횡단면 요인의 거울상" data-report-refs="two-coordinates fig-two-coordinates table-two-coordinates">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">COORDINATES</span></header>
+      <h1>시계열과 횡단면은 관측·회귀 방향이 뒤집힌다</h1>
+      <p class="lead">시계열은 요인이 주어지고 적재량을 캔다. 횡단면은 적재량이 재무제표에 적혀 있고 요인을 캔다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-two-coordinates.svg" alt="가운데 회귀식을 두고 위쪽 시계열 요인에서는 시장수익률 HML SMB UMD가 관측되고 적재량 베타를 회귀로 캐며, 아래쪽 횡단면 요인에서는 ROE BM P/E 유동성 공매도잔량이 관측되고 요인을 회귀로 캔다." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="takeaway"><strong>실무 영향</strong> — 수식은 같아도 <em>데이터 준비와 회귀 코드가 통째로</em> 달라진다. 먼저 구분한다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 두 좌표계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="서술적 모델을 예측적으로 바꾸기" data-report-refs="two-coordinates fig-loadings-spread">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">DESCRIBE → PREDICT</span></header>
+      <h1>양변의 $t$ 가 같으면 그것은 예측이 아니다</h1>
+      <p class="lead">교과서의 대부분 팩터 모델은 서술적이다. 좌변만 한 칸 미래로 옮겨야 거래가 된다.</p>
+      <div class="slide-body">
+        <p style="text-align:center;font-size:0.98em">$$\mathrm{Return}(t,s)-r_F=\alpha(s)+\beta_1(s)\mathrm{Factor}_1(t)+\cdots+\varepsilon \quad (2.1)$$</p>
+        <p style="text-align:center;font-size:0.98em">$$\mathrm{Return}(t{+}1,s)-r_F=\alpha(s)+\beta_1(s)\mathrm{Factor}_1(t)+\cdots+\varepsilon \quad (2.2)$$</p>
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">(2.1)의 쓸모</p><h2>위험 관리와 성과 귀속</h2><ul><li>변동성에 +로 적재되면 −로 적재되는 것을 함께 든다</li><li>방향을 예측할 필요가 없다</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">(2.1)만으로 거래하면</p><h2>과거의 승자를 사는 것뿐</h2><ul><li>요인 수익이 그대로 유지된다는 가정이 숨는다</li><li>그래서 (2.2)로 옮긴다</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>주의</strong> — 동시대 $R^2$ 를 예측력의 근거로 쓰지 않는다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 서술 vs 예측</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="예제 2.1과 인덱싱 버그 섹션" data-report-refs="fama-french-bug">
+      <p class="eyebrow">SECTION 03</p><h1>예제 2.1 — 콜론 하나가 만든 순숏 포트폴리오</h1><p>무엇을 재현했는지부터 확정한다</p><span class="section-number">03</span>
+    </section>
+
+    <section class="slide" aria-label="공식 코드의 인덱싱 버그" data-report-refs="fama-french-bug fig-indexing-bug">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">THE BUG</span></header>
+      <h1>숏은 <code>I(1:topN)</code>, 롱은 <code>I(end-topN+1)</code> — 콜론이 빠졌다</h1>
+      <p class="lead">상위 50개가 아니라 <em>위에서 50번째 종목 딱 하나</em>를 롱한다. 책이 출력한 것은 50숏 1롱의 순숏 포트폴리오다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-indexing-bug.svg" alt="예측 수익 오름차순 정렬 배열에서 원본 m 파일은 숏에 하위 50개를 의도대로 선택하지만 롱에는 콜론이 빠져 스칼라 한 개만 롱하며, 그 결과 순숏 포트폴리오가 되어 표본 밖 마이너스 6.55퍼센트 샤프 마이너스 0.60이 된다." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">출처: 공식 <code>FamaFrenchFactors_predictive.m</code>. Python 재현도 같은 순위를 선택하도록 구현해 버그를 그대로 재현했다.</p>
+        <p class="takeaway"><strong>핵심</strong> — 이 일치는 전략이 옳다는 증거가 아니라 <em>버그를 정확히 재현했다</em>는 증거다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 인덱싱 버그</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="버그와 수정본의 자산곡선 비교" data-report-refs="fama-french-bug fig-bug-equity table-fama">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SAME MODEL</span></header>
+      <h1>예측 모델은 같고, 포지션 구성 한 줄만 다르다</h1>
+      <p class="lead">그런데 표본 밖 결과의 부호가 갈린다 — 백테스트 결과가 아이디어가 아니라 구현에서 갈릴 수 있다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-bug-equity.png" alt="2010년 7월부터 2014년 초까지 표본 밖 누적수익. 버그 버전은 지속 하락해 마이너스 21퍼센트로 끝나고 수정한 50대50 버전은 완만히 상승해 플러스 14퍼센트 부근을 유지한다." style="max-width:100%;max-height:168px;object-fit:contain;display:block;margin:0 auto 0.35rem">
+        <table class="compare-table">
+          <thead><tr><th>구성</th><th>표본 밖 CAGR / Sharpe</th><th>2bps 차감 후</th></tr></thead>
+          <tbody>
+            <tr><td>원본 — 50숏 / 1롱</td><td>−6.55% / −0.60</td><td>−12.18%</td></tr>
+            <tr><td>수정 — 50숏 / 50롱</td><td>+3.80% / +1.19</td><td><strong>−2.78%</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>그런데</strong> — 고쳐서 양수가 되어도, 편도 2bps를 넣으면 <em>다시 음수</em>가 된다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 원본 vs 수정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="횡단면 펀더멘털 섹션" data-report-refs="fundamental-factors">
+      <p class="eyebrow">SECTION 04</p><h1>횡단면 펀더멘털 — 약한 설명력의 역설</h1><p>그리고 그 수익의 정체</p><span class="section-number">04</span>
+    </section>
+
+    <section class="slide" aria-label="약한 설명력과 과적합의 대비" data-report-refs="fundamental-factors">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">R-SQUARED</span></header>
+      <h1>$R^2=0.015$ 는 되고, $R^2=0.961$ 은 무너진다</h1>
+      <p class="lead">정확한 수익 값을 맞힐 필요가 없다. 순서만 살짝 맞히면 수백 종목에 쌓인 미세한 우위가 누적된다.</p>
+      <div class="slide-body">
+        <div class="kpi-grid">
+          <article class="kpi"><strong>27개 요인 (규모 무관)</strong><h2>$R^2 = 0.015$</h2><p>표본 밖 CAGR 12.35% · Sharpe 1.68</p></article>
+          <article class="kpi"><strong>112개 요인 (규모 포함)</strong><h2>훈련 $R^2 = 0.961$</h2><p>훈련 CAGR 48% → 테스트 <em>음수</em></p></article>
+          <article class="kpi"><strong>왜 되는가</strong><h2>잡음은 씻기고 신호만 남는다</h2><p>개별 예측은 거의 잡음, 롱-숏 누적이 우위를 만든다</p></article>
+        </div>
+        <p class="source-note">출처: 교재 예제 2.2. 27개는 분기 ARQ 5 + trailing ART 22로 모두 규모에 무관한 비율이다.</p>
+        <p class="takeaway"><strong>교훈</strong> — 금융에서 약한 $R^2$ 은 쓸모없음이 아니다. 반대로 <em>높은 $R^2$ 이 과적합의 신호</em>일 수 있다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 설명력의 역설</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="세 펀더멘털 모델의 표본 밖 성과" data-report-refs="fundamental-factors fig-fundamental-equity table-fundamental">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">REPRODUCED</span></header>
+      <h1>ROE 단독이 ROE+BM보다 강하다 — 책과 소수점까지 일치</h1>
+      <p class="lead">세 모델 모두 허용오차 $10^{-5}$ 의 수치 재현. 그런데 곡선들이 <em>같은 시점에 함께</em> 꺾인다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-fundamental-equity.png" alt="2010년 7월부터 2014년 초까지 세 전략 누적수익. log ROE 단독이 약 0.9로 가장 높고 27개 요인이 약 0.5, log BM 더하기 log ROE가 약 0.37이며 2011년 8월 부근에 셋 모두 동시 급락한다." style="max-width:100%;max-height:150px;object-fit:contain;display:block;margin:0 auto 0.35rem">
+        <table class="compare-table">
+          <thead><tr><th>모델</th><th>보유</th><th>표본 밖 CAGR / Sharpe</th></tr></thead>
+          <tbody>
+            <tr><td>27개 펀더멘털 요인</td><td>63일</td><td>12.35% / 1.676</td></tr>
+            <tr><td>$\log(\mathrm{BM})+\log(\mathrm{ROE})$</td><td>21일</td><td>9.32% / 1.011</td></tr>
+            <tr><td>$\log(\mathrm{ROE})$ 단독</td><td>21일</td><td><strong>20.17% / 1.305</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>단서</strong> — 서로 다른 요인 집합인데 동시에 꺾인다면, 공통의 <em>시장 성분</em>을 공유한다는 뜻이다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 예제 2.2&#126;2.3</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="숨은 시장 베팅의 발견" data-report-refs="fundamental-factors">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">HIDDEN BETA</span></header>
+      <h1>시장 성분을 벗겨 내면 남는 것이 없다</h1>
+      <p class="lead">이 전략들의 포트폴리오는 대개 순매수(net long)다. 2010&#126;2013년은 눈부신 강세장이었다.</p>
+      <div class="slide-body">
+        <div class="kpi-grid">
+          <article class="kpi"><strong>그대로 두면</strong><h2>+9.3% / +20.2%</h2><p>ROE+BM · ROE 단독 (순매수)</p></article>
+          <article class="kpi"><strong>SPY로 순노출 헤지</strong><h2>거의 0%</h2><p>한 팩터든 두 팩터든 대략 0</p></article>
+          <article class="kpi"><strong>5분위 롱-숏 시장중립</strong><h2>−9.2%</h2><p>부호가 아예 뒤집힌다</p></article>
+        </div>
+        <p class="source-note">원 논문(Chattopadhyay 2015)의 4.3%는 유니버스가 다르다 — 시총·유동성 상위 98퍼센타일 전체. 소형주(SML)에 ROE 단일 모델을 적용하면 5%를 넘는다.</p>
+        <p class="takeaway"><strong>판단</strong> — "좋은 수익"을 만나면 <em>팩터의 예측력인지 숨은 시장 베팅인지</em> 먼저 가른다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 순노출의 함정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="재무제표 밖 팩터 섹션" data-report-refs="exotic-factors">
+      <p class="eyebrow">SECTION 05</p><h1>재무제표 밖의 팩터 — 옵션 · 공매도 · 유동성</h1><p>그리고 부호가 뒤집히는 순간들</p><span class="section-number">05</span>
+    </section>
+
+    <section class="slide" aria-label="옵션 가격이 먼저 흘리는 정보" data-report-refs="exotic-factors fig-option-signals">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">OPTION SIGNALS</span></header>
+      <h1>정보 우위는 주가보다 옵션에 먼저 새겨진다</h1>
+      <p class="lead">레버리지가 크고 방향 베팅을 정교하게 표현할 수 있어서다. 다섯 팩터가 모두 이 하나의 논리를 다른 각도로 읽는다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-option-signals.svg" alt="정보 우위 트레이더가 옵션에 먼저 흔적을 남긴다는 전제에서 세 갈래가 나온다. 내재 모멘트 수준을 3단 다중정렬 상하위 30퍼센트로 읽으면 9.68퍼센트, 내재 변동성의 월간 변화로 읽으면 6퍼센트 이상, 풋-콜 패리티 이탈을 미결제약정 가중으로 읽으면 12.4퍼센트다." style="max-width:100%;max-height:42vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">표시된 CAGR은 모두 <strong>원 논문이 자기 유니버스에서 보고한 값</strong>이며 이 회차의 재현값이 아니다.</p>
+        <p class="takeaway"><strong>그런데 예제 2.4</strong> — 같은 내재 모멘트 전략을 SPX에만 적용하면 결과는 <em>거의 정확히 0</em>이다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 옵션 팩터</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="유니버스와 측정 정의가 부호를 뒤집는다" data-report-refs="exotic-factors fig-sign-flip table-factor-catalog">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">SIGN FLIP</span></header>
+      <h1>팩터의 부호는 절대적이지 않다</h1>
+      <p class="lead">같은 개념을 다르게 재거나 다른 종목 집합에 적용하면 결론이 반대가 된다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-sign-flip.svg" alt="세 축에서 각각 부호가 뒤집힌다. 유니버스 축에서 유동성 팩터는 상위 3500 종목의 비유동주 롱으로 CAGR 7.27퍼센트이지만 SPX 대형주에서는 손실이라 반전해야 8.4퍼센트가 된다. 측정 정의 축에서 SIR로 재면 공매도자가 틀렸다고 나오지만 DTC로 재면 5.8퍼센트 샤프 1.1로 옳았다고 나온다. 구성 방식 축에서 순매수 그대로면 9.3퍼센트이지만 5분위 롱숏 시장중립으로 바꾸면 마이너스 9.2퍼센트다." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">SIR = 대차주식÷발행주식 · DTC = 대차주식÷일평균거래량(20일 이동평균). DTC조차 2012년 이후 부호가 뒤집힌 것으로 보인다.</p>
+        <p class="takeaway"><strong>규칙</strong> — 논문의 수치는 <em>그 유니버스·그 정의에 딸린 값</em>이다. 내 환경에서 다시 재기 전엔 믿지 않는다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 부호 반전</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="재현 경계와 라이선스 데이터 한계" data-report-refs="exotic-factors table-repro-scope">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">REPRO SCOPE</span></header>
+      <h1>재현하지 못한 것은 재현하지 못했다고 적는다</h1>
+      <p class="lead">공식 ZIP에 MATLAB 소스는 다 있지만, 필요한 라이선스 데이터 패널이 없다.</p>
+      <div class="slide-body">
+        <table class="compare-table">
+          <thead><tr><th>주제</th><th>상태</th><th>막힌 지점</th></tr></thead>
+          <tbody>
+            <tr><td>예제 2.2 · 2.3</td><td><strong>수치 재현</strong></td><td>허용오차 $10^{-5}$ 로 일치</td></tr>
+            <tr><td>예제 2.1</td><td>실행 + 근사 재현</td><td>버그·수정본 분리 실행</td></tr>
+            <tr><td>예제 2.5 PCA</td><td>방법론적 적응</td><td>일간 → 21일 재적합</td></tr>
+            <tr><td>옵션 5개 팩터</td><td>수식 설명만</td><td>OptionMetrics 변동성 표면 부재</td></tr>
+            <tr><td>공매도 잔량 · 유동성</td><td>개념 설명만</td><td>Compustat · 거래량/발행주식 부재</td></tr>
+          </tbody>
+        </table>
+        <p class="source-note">확인한 것은 형식 점검뿐 — Vol 0.230 / Skew −0.120 / Kurt 0.040 의 일관성. 이는 수식 점검이지 백테스트가 아니다.</p>
+        <p class="takeaway"><strong>원칙</strong> — 편리한 현대 데이터로 바꿔 놓고 "수치 재현"이라 부르지 않는다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 재현 경계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="통계적 팩터 섹션" data-report-refs="statistical-factors">
+      <p class="eyebrow">SECTION 06</p><h1>통계적 팩터 — 이름 없는 요인을 캐낸다</h1><p>요인도 적재량도 주어지지 않을 때</p><span class="section-number">06</span>
+    </section>
+
+    <section class="slide" aria-label="PCA 2단계 파이프라인" data-report-refs="statistical-factors fig-pca-pipeline">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">PCA PIPELINE</span></header>
+      <h1>데이터가 스스로 공통 요인을 자백하게 만든다</h1>
+      <p class="lead">공분산 행렬을 대각화해 직교하며 분산을 큰 순서로 설명하는 성분을 뽑는다. 그다음 <em>다음 날</em> 수익에 회귀한다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-pca-pipeline.svg" alt="1단계는 룩백 252일 수익 행렬에서 전 기간 유한한 300개 이상 종목만 남기고 공분산 행렬을 대각화해 상위 5성분을 얻으며 평균 설명분산 54.3퍼센트다. 2단계는 그 팩터에 다음 날 수익을 종목별 다중회귀로 회귀시켜 예측 적재량을 얻되 마지막 날은 학습에서 제외한다." style="max-width:100%;max-height:44vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="takeaway"><strong>핵심 장치</strong> — 마지막 날을 학습에서 빼고 <em>예측에만</em> 쓴다. 미래 정보를 한 톨이라도 흘리면 백테스트 전체가 거짓이 된다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · PCA 2단계</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="책의 일간 재적합과 21일 적응의 차이" data-report-refs="statistical-factors table-pca fig-pca-equity">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">ADAPTATION</span></header>
+      <h1>재적합 주기만 바꿔도 결과가 뒤집힌다</h1>
+      <p class="lead">책은 매 거래일 재적합해 15.6%를 보고한다. 이 회차는 21일마다만 재적합했다 — <em>같은 조건의 재현이 아니다</em>.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-pca-equity.png" alt="2008년부터 2014년까지 PCA 5팩터 21일 재조정 적응의 누적수익. 2009년 초 마이너스 17퍼센트까지 떨어진 뒤 회복하지만 기간 내내 0선 아래에 머물다 마이너스 5퍼센트 부근에서 끝난다." style="max-width:100%;max-height:180px;object-fit:contain;display:block;margin:0 auto 0.35rem">
+        <table class="compare-table">
+          <thead><tr><th>항목</th><th>책 (일간 재적합)</th><th>재현 적응 (21일)</th></tr></thead>
+          <tbody>
+            <tr><td>CAGR / Sharpe</td><td>15.56% / 1.379</td><td><strong>−0.82% / −0.024</strong></td></tr>
+            <tr><td>재적합 · 설명분산</td><td>매 거래일</td><td>72회 · 상위 5성분 54.3%</td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>읽는 법</strong> — "책이 틀렸다"가 아니라 <em>다른 전략을 돌린 것</em>. 이 차이만으로 부호가 갈린다는 사실 자체가 결과다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 예제 2.5</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--section" aria-label="결합과 판단 섹션" data-report-refs="decision">
+      <p class="eyebrow">SECTION 07</p><h1>묶는 법과 판단 — 회귀보다 순위, 그리고 비용</h1><p>무엇을 확인해야 이 수치를 믿는가</p><span class="section-number">07</span>
+    </section>
+
+    <section class="slide" aria-label="회귀보다 순위 방법론이 나은 이유" data-report-refs="decision">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">RANK OVER REGRESSION</span></header>
+      <h1>투박한 순위가 정밀한 회귀를 이기는 이유</h1>
+      <p class="lead">회귀계수는 이상치 하나에 휘둘린다. 순위는 그 종목을 그냥 "1등"으로 셀 뿐이다.</p>
+      <div class="slide-body">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">회귀 예측</p><h2>고레버리지 점에 오염된다</h2><ul><li>실적 서프라이즈로 하루 40% 튄 한 점이</li><li>회귀선 전체를 잡아당겨 <em>모든</em> 예측을 오염</li><li>정밀하지만 취약하다</li></ul></article>
+          <article class="panel panel--accent"><p class="eyebrow">순위 방법론</p><h2>이상치에 면역이다</h2><ul><li>값이 40%든 400%든 순위는 같다</li><li>피어슨 대신 <em>스피어만</em>을 쓰는 것과 같은 지혜</li><li>적재량이 둘 이상이면 다중 정렬</li></ul></article>
+        </div>
+        <p class="takeaway"><strong>정교한 버전</strong> — 시총·산업 그룹 <em>안에서만</em> 정렬한다. 부호가 유니버스에 따라 달라지기 때문이다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 결합 방법</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="거래비용 민감도" data-report-refs="decision fig-cost-sensitivity">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">COST</span></header>
+      <h1>편도 2bps가 회전율 높은 전략의 부호를 바꾼다</h1>
+      <p class="lead">분기·월 보유 전략은 거의 무감각하다. 매일 재조정하는 전략은 같은 비용에 훨씬 크게 깎인다.</p>
+      <div class="slide-body">
+        <img src="assets/figs/fig-cost-sensitivity.png" alt="네 전략의 비용 전후 CAGR 막대그래프. 27개 요인은 0.123에서 0.121로, ROE와 BM은 0.093에서 0.086으로, ROE 단독은 0.202에서 0.194로 거의 유지되지만 PCA는 이미 0 아래에서 더 내려간다." style="max-width:100%;max-height:42vh;object-fit:contain;display:block;margin:0.3rem auto">
+        <p class="source-note">그림에 없는 수정 파마-프렌치(일간 재조정)는 <strong>+3.80% → −2.78%</strong> 로 부호가 바뀐다.</p>
+        <p class="takeaway"><strong>실무</strong> — 비용 민감도를 성과표와 <em>같은 화면</em>에서 본다. 나중에 붙이는 항목이 아니다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 비용</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="팩터 전략 도입 판단표" data-report-refs="decision table-decision">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">CHECKLIST</span></header>
+      <h1>이 수치를 믿으려면 무엇을 확인해야 하는가</h1>
+      <p class="lead">각 항목은 "이 조건이 무너지면 성과의 부호가 바뀔 수 있다"는 뜻으로 읽는다.</p>
+      <div class="slide-body">
+        <table class="compare-table">
+          <thead><tr><th>점검 항목</th><th>이 장의 증거</th><th>무너지면</th></tr></thead>
+          <tbody>
+            <tr><td>유니버스 일치</td><td>ROE 대형주 거의 0 vs 소형주 5%+</td><td>부호까지 뒤집힌다</td></tr>
+            <tr><td>측정 정의</td><td>SIR vs DTC — 반대 결론</td><td>결론이 반대가 된다</td></tr>
+            <tr><td>순노출</td><td>SPY 헤지 시 ROE/BM 대략 0</td><td>강세장 베팅으로 판명</td></tr>
+            <tr><td>표본 분리</td><td>표본 내 105% → 밖 −6.6%</td><td>백테스트 전체가 무의미</td></tr>
+            <tr><td>요인 개수</td><td>112개 훈련 $R^2$ 0.961 → 테스트 음수</td><td>표본 밖에서 무너진다</td></tr>
+            <tr><td>거래비용</td><td>+3.80% → −2.78%</td><td>부호가 바뀐다</td></tr>
+            <tr><td>정보 가용시점</td><td><strong>이 재현은 검증하지 못했다</strong></td><td>look-ahead bias</td></tr>
+            <tr><td>구현 검증</td><td>콜론 하나 → 시장중립이 순숏으로</td><td>다른 전략을 백테스트한 것</td></tr>
+          </tbody>
+        </table>
+        <p class="takeaway"><strong>순서</strong> — 요인 수식 · 정보 가용시점 · 포지션 구성 · 비용 · 표본 외 적용을 <em>따로따로</em> 검증한다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 판단표</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide" aria-label="발표 정리 질문" data-report-refs="summary decision">
+      <header class="slide-header"><span class="brand-name">ML4T study</span><span class="section-tag">CHECKPOINT</span></header>
+      <h1>함께 생각해 볼 세 가지</h1>
+      <p class="lead">정답 확인이 아니라, 2장의 원칙을 우리 환경으로 옮길 때 부딪히는 지점들.</p>
+      <div class="slide-body">
+        <ol class="question-list">
+          <li>우리가 쓰는 팩터 중 <em>유니버스가 바뀌면 부호가 뒤집힐</em> 후보는 무엇인가? 어떻게 미리 확인할까?</li>
+          <li>같은 개념을 다르게 재서(SIR vs DTC) 결론이 갈린 경험이 있는가? 어떤 정의를 정본으로 삼을 것인가?</li>
+          <li>공개된 코드의 출력을 재현했을 때, 그것이 <em>의도인지 버그인지</em> 어떻게 구분할 수 있을까?</li>
+        </ol>
+        <p class="takeaway"><strong>토론</strong> — 우리 데이터·집행 환경에서 가장 크게 달라지는 전제 하나를 고른다.</p>
+      </div>
+      <footer class="slide-footer"><span>Chapter 2 · 정리 질문</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--closing" aria-label="정리와 질의응답" data-report-refs="summary decision">
+      <header class="cover-brand"><span class="brand-name">ML4T study</span><span class="brand-sub">WRAP UP</span></header>
+      <div class="closing-body">
+        <p class="eyebrow">KEY TAKEAWAYS</p>
+        <h1>세 문장으로 남기는 2장</h1>
+        <div class="card-grid">
+          <article class="card"><span>01</span><h2>위험이 대가다</h2><p>팩터 수익은 분산 불가능한 위험의 값이라 닳지 않는다 — 그 위험이 사라지면 수익도 사라진다.</p></article>
+          <article class="card"><span>02</span><h2>부호는 조건부다</h2><p>유니버스·측정 정의·순노출·비용이 각각 결론의 부호를 뒤집을 수 있다.</p></article>
+          <article class="card"><span>03</span><h2>재현 ≠ 타당</h2><p>콜론 하나가 시장중립을 순숏으로 바꾼다. 무엇을 재현했는지부터 확정한다.</p></article>
+        </div>
+        <p class="closing-question">Q&amp;A</p>
+      </div>
+      <div class="closing-links"><a class="back-link" href="report.html">상세 리포트 읽기</a><a class="back-link" href="../../">회차 목록으로 돌아가기</a></div>
+    </section>
+  </main>
+
+  <button class="toc-button control" id="tocButton" type="button" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <aside class="toc" id="toc" aria-label="슬라이드 목차" aria-hidden="true"><h2>목차</h2><div id="tocItems"></div></aside>
+  <nav class="deck-controls" aria-label="슬라이드 제어">
+    <button type="button" id="prevButton" aria-label="이전 슬라이드">←</button><span id="deckCounter" aria-live="polite">1 / 1</span><button type="button" id="nextButton" aria-label="다음 슬라이드">→</button>
+  </nav>
+  <div class="deck-progress" aria-hidden="true"><span id="progress"></span></div>
+  <script src="assets/deck.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>

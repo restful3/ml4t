@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 276" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" role="img">
+  <defs>
+    <marker id="ah7" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#B91C1C"/></marker>
+    <style>
+      .lane{fill:#fff;stroke:#0F2C59;stroke-width:1.3}
+      .axis{fill:#0F2C59;stroke:#0F2C59}
+      .pos{fill:#E8F1EA;stroke:#1B6B3A;stroke-width:1.3}
+      .neg{fill:#FBE9E7;stroke:#B91C1C;stroke-width:1.3}
+      .t{fill:#0F0F10;font-size:11.5px;font-weight:700;text-anchor:middle}
+      .tk{fill:#fff;font-size:12px;font-weight:700;text-anchor:middle}
+      .s{fill:#57534E;font-size:9.5px;text-anchor:middle}
+      .sk{fill:#C7D2E6;font-size:9.5px;text-anchor:middle}
+      .good{fill:#1B6B3A;font-size:10px;font-weight:700;text-anchor:middle}
+      .bad{fill:#B91C1C;font-size:10px;font-weight:700;text-anchor:middle}
+      .flip{stroke:#B91C1C;stroke-width:1.5;fill:none;marker-end:url(#ah7)}
+      .e{fill:#B91C1C;font-size:10px;font-weight:700;text-anchor:middle;paint-order:stroke fill;stroke:#FAFAF9;stroke-width:3px;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <!-- row 1 : universe -->
+  <rect class="lane axis" x="16" y="20" width="150" height="62" rx="9"/>
+  <text class="tk" x="91" y="44">유니버스</text>
+  <text class="sk" x="91" y="62">유동성 팩터</text>
+
+  <rect class="pos" x="206" y="20" width="216" height="62" rx="9"/>
+  <text class="t" x="314" y="42">상위 3,500 종목</text>
+  <text class="s" x="314" y="59">비유동주 롱</text>
+  <text class="good" x="314" y="75">CAGR +7.27%</text>
+
+  <rect class="neg" x="490" y="20" width="216" height="62" rx="9"/>
+  <text class="t" x="598" y="42">SPX 대형주만</text>
+  <text class="s" x="598" y="59">비유동주 롱은 손실 · 뒤집어야</text>
+  <text class="bad" x="598" y="75">부호 반전 → +8.4%</text>
+
+  <path class="flip" d="M422,51 H488"/>
+  <text class="e" x="455" y="42">반전</text>
+
+  <!-- row 2 : definition -->
+  <rect class="lane axis" x="16" y="106" width="150" height="62" rx="9"/>
+  <text class="tk" x="91" y="130">측정 정의</text>
+  <text class="sk" x="91" y="148">공매도 잔량</text>
+
+  <rect class="neg" x="206" y="106" width="216" height="62" rx="9"/>
+  <text class="t" x="314" y="128">SIR = 대차주식 ÷ 발행주식</text>
+  <text class="s" x="314" y="145">저SIR 롱 전략은 음의 수익</text>
+  <text class="bad" x="314" y="161">공매도자가 틀렸다</text>
+
+  <rect class="pos" x="490" y="106" width="216" height="62" rx="9"/>
+  <text class="t" x="598" y="128">DTC = 대차주식 ÷ 거래량</text>
+  <text class="s" x="598" y="145">같은 구성, 정렬 기준만 교체</text>
+  <text class="good" x="598" y="161">+5.8% · Sharpe 1.1</text>
+
+  <path class="flip" d="M422,137 H488"/>
+  <text class="e" x="455" y="128">반전</text>
+
+  <!-- row 3 : construction -->
+  <rect class="lane axis" x="16" y="192" width="150" height="62" rx="9"/>
+  <text class="tk" x="91" y="216">구성 방식</text>
+  <text class="sk" x="91" y="234">ROE · BM 두 팩터</text>
+
+  <rect class="pos" x="206" y="192" width="216" height="62" rx="9"/>
+  <text class="t" x="314" y="214">순매수(net long) 그대로</text>
+  <text class="s" x="314" y="231">2010–2013 강세장에 올라탐</text>
+  <text class="good" x="314" y="247">CAGR +9.3%</text>
+
+  <rect class="neg" x="490" y="192" width="216" height="62" rx="9"/>
+  <text class="t" x="598" y="214">5분위 롱-숏 시장중립</text>
+  <text class="s" x="598" y="231">SPY 헤지 시에도 약 0</text>
+  <text class="bad" x="598" y="247">CAGR −9.2%</text>
+
+  <path class="flip" d="M422,223 H488"/>
+  <text class="e" x="455" y="214">반전</text>
+</svg>
