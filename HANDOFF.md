@@ -1,5 +1,5 @@
-# 세션 핸드오프 — ML4T 발표자료 시스템 + Chapter 1 배포
-_최종 갱신: 2026-07-25 KST_
+# 세션 핸드오프 — ML4T 발표자료 시스템 + Chapter 1·2 배포
+_최종 갱신: 2026-08-01 KST_
 
 ## 🎯 목표
 ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고, 그 시스템으로 각 스터디 회차(상세 리포트 + 발표 덱)를 만들어 GitHub Pages에 배포·누적한다.
@@ -12,6 +12,11 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
 - **리포트 푸터 정리** (`d7bc74a`, 2026-07-25): 부록 끝의 `.report-jump-links`(발표자료·회차 목록·문서 처음) 제거 — 설정 패널의 `Index / Report / Slides`와 중복. 템플릿 + ch01·ch05 report.html, 그리고 죽은 `.report-jump-links` CSS 3벌(`@media print`는 `.skip-link`만 남김)까지. report.css 3벌은 계속 byte-identical 유지.
 - **참고 자료 GitHub 링크**: 리포트에서 저장소에 실제 있는 파일(재현 스크립트·노트북·재현 리포트·원본 MATLAB·해설판)을 GitHub로 링크하는 규칙. 참고 자료 부록뿐 아니라 본문의 그림 캡션·소스코드 표 셀까지 전부 링크(파서로 미링크 0건 확인, 임베드된 14개 링크 curl 200). 규칙은 `procedures/study-presentation.md`·`study-report/DESIGN.md`·`STUDY_SESSION_BLUEPRINT.md`·양쪽 `SKILL.md`·리포트 템플릿 주석에 기록.
 - **링크는 커밋 SHA 고정**: `blob/main/source/...`은 학습자료가 `archive/`로 옮겨지는 순간 404가 되므로 `blob/9198e9e11eb425eccaefbc1095181e3b01657efc/`로 고정했다. 고정 커밋은 불변이라 아카이브 때 손댈 것이 없다(그래서 `archive-study.md` 7번은 '갱신'이 아니라 '손대지 않는다'로 바뀜). 반대급부: 원본 파일이 수정돼도 링크는 옛 버전을 가리키므로 크게 바뀌면 SHA를 갱신한다. `validate-site.py`는 SHA 고정 링크는 shape만(ref·인코딩) 검사하고 워킹트리 경로 검사를 건너뛴다 — 아카이브 후 오탐을 막기 위해서다. `main` 링크는 기존대로 경로 존재까지 검사하되 CI sparse checkout(`docs/`+`agent-support/`)에 없는 top-level은 건너뛴다. 테스트 7개.
+- **Chapter 2 산출물** (`b5c74d9`, 2026-08-01/Opus): `2026-08-01-ch02` — report.html(8섹션+부록 2, 9표, 11그림[새 SVG 6 + 재현차트 5]), index.html(29슬라이드, 8개 본문 절·9개 필수그림 전부 커버). **책 보고값과 재현값을 끝까지 분리**했고, 라이선스 데이터(OptionMetrics·Compustat) 부재로 재현 못 한 절은 표 6 「재현 경계」에 명시했다. 링크 SHA는 `2f7e380` 고정, 5종 curl 200. 검증 3종 + headless Chrome(데스크톱/모바일390/A4, 덱 16:9) 통과.
+  - **작업 경위**: 07-31 심야에 스캐폴딩과 그림 11장까지만 만들고 중단된 것을 08-01 아침에 이어받아 리포트 본문·덱을 완성했다. 어젯밤 산출물은 전부 미커밋 상태였다.
+  - **렌더에서 잡은 결함**: 이미지+표를 함께 둔 슬라이드 4장(12·15·19·23)이 1280×720에서 lead 문장이 차트에 가려지고 takeaway가 footer와 겹쳤다. 이미지 `max-height`를 vh에서 px로 고정해 해결했고, 19번은 도해와 two-col 패널이 내용 중복이라 패널을 걷어냈다. **덱에 이미지와 표/패널을 함께 넣을 때는 반드시 16:9 렌더를 눈으로 확인할 것.**
+  - **남은 gap**: 회차 폴더의 재현 차트 PNG 5장(`fig-bug-equity`·`fig-fundamental-equity`·`fig-pca-equity`·`fig-loadings-spread`·`fig-cost-sensitivity`)을 그린 **플로팅 스크립트가 저장소에 없다.** 수치는 전부 `src/reports/metrics.json`에서 추적되지만 차트 자체는 재생성 경로가 끊겨 있다. ch01은 `run_chapter1_analysis.py`가 그림까지 만들어 링크가 걸렸는데 ch02는 그렇지 않다 — 다음에 그 스크립트를 `src/` 아래로 복원하면 캡션에 GitHub 링크를 걸 수 있다.
+  - **책 본문 vs 공식 코드 불일치**: 예제 2.1 표본 내 성과를 책 본문은 CAGR 242%·Sharpe 3.7로 적었지만, 재현의 대조 기준 책 수치는 103.6%·2.46이고 Python 재현은 105.0%·2.47이다. 리포트는 대조 기준 수치를 쓰고 이 불일치를 본문에 명시했다. **원인 미규명** — 발표 때 질문이 나올 수 있다.
 - **배포·라이브**: Pages(main/docs) 빌드 완료. ch05(`2026-08-22-ch05`)는 pinjoy99가, ch01 폴더의 `index_정훈.html`은 Junghoon Park(`dc1ae11`, 웹 업로드)이 추가. **참여자 3명이 main에 직접 push하므로 작업 전 `git pull --rebase` 필수.**
 - **Chapter 5 PDF 인쇄 추가**: 2026-08-22-ch05 하위에 리포트(report.pdf, 1.9MB)와 발표자료(presentation.pdf, 2.3MB)를 Playwright를 통해 16:9 및 A4 규격으로 출력하여 빌드 및 커밋 완료.
 - **ch05 회차 폴더 개명**: 매주 전환으로 Ch5가 09-19 → 08-22가 되어 디렉터리·`session_id`를 `2026-09-19-ch05` → `2026-08-22-ch05`로 바꿨다. **사용자가 pinjoy99 허가를 받아 지시한 것.** 기존 공개 URL `.../2026-09-19-ch05/`는 이제 404다 — 외부에 그 링크를 공유했다면 새 URL로 안내가 필요하다.
@@ -20,12 +25,15 @@ ds4th_study의 HTML 리포트+발표덱 생성 시스템을 ml4t로 이식하고
   - ch01 리포트 위 경로 + `report.html`
 
 ## 🔄 진행 중
-- 없음. Chapter 1은 완성·배포·검증 완료.
+- **ch02는 로컬 커밋까지 완료, push 안 됨** (`b5c74d9`). 사용자 확인 후 push해야 라이브에 뜬다.
+- **ch02 발표자는 종훈** (`presentation.toml`). 태영이 자료를 만든 것이라 **종훈에게 전달·검토가 필요**하다. 종훈이 자기 버전을 따로 만들었다면 ch01의 `index_정훈.html`처럼 병존시킬지 정해야 한다.
 
 ## ⏭️ 다음 단계
-1. **Chapter 2 준비**(2026-08-01, 발표자 미정) — 원자료 `source/Chan E. Machine Trading .../chapter_2_factor_models/`. `new-presentation.py --study machine-trading-2026 --session 2026-08-01-ch02 …` 스캐폴딩 → 리포트 먼저 완성·검증(리포트 게이트) → 덱 파생. study-presentation 스킬/절차 사용.
-2. (선택) collaborator 초대 — 사용자가 직접.
-3. (선택) 두 repo CI 파일명 통일(ml4t `pages.yml` ↔ ds4th `validate-study-site.yml`).
+1. **ch02 push 여부 확인** → push 후 Pages 반영 확인(`https://restful3.github.io/ml4t/studies/machine-trading/presentations/2026-08-01-ch02/`).
+2. **ch02 PDF 인쇄물 추가**(선택) — ch05처럼 `report.pdf`·`presentation.pdf`를 만들려면 별도 작업. 현재 ch02에는 없다.
+3. **ch02 재현 차트 스크립트 복원**(위 gap 참조) — 복원하면 그림 캡션에 GitHub 링크를 걸 수 있다.
+4. (선택) collaborator 초대 — 사용자가 직접.
+5. (선택) 두 repo CI 파일명 통일(ml4t `pages.yml` ↔ ds4th `validate-study-site.yml`).
 
 ## 🧠 대화에만 있던 핵심 컨텍스트
 - **결정(KaTeX)**: 수식은 자체 호스팅 KaTeX(외부 CDN 금지 유지). 원래 ml4t 고유였으나 2026-07-22 ds4th에도 역이식(3bd49288)되어 두 repo 동일.
