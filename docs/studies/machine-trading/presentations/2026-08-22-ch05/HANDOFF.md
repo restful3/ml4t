@@ -10,16 +10,23 @@
 
 ## 2. 파일 목록 (Asset Manifest)
 본 세션 디렉토리는 다음 파일들로 구성되어 독립 배포됩니다:
-- `report.html`: 상세 분석 리포트 (수식 KaTeX, 표, SVG 내장)
+- `report.html`: 상세 분석 리포트 (통합 마스터 버전, 입문자용/전문가용 동적 탭 스위처 내장)
+- `report_beginner.html`: 비전공 입문자용 상세 리포트 (기반 지식 및 개념 상세 설명 포함)
+- `report_expert.html`: 전문가용 상세 리포트 (현실적 마찰 비용 및 이론적 모형 한계 비판 포함)
 - `index.html`: 발표용 16:9 슬라이드 (TOC 및 네비게이션 컨트롤 포함)
 - `presentation.toml`: 세션 메타데이터 (workflow: raw-report-deck-v1)
-- `report.pdf`: A4 포맷으로 출력된 상세 리포트 (약 1.9 MB)
-- `presentation.pdf`: 1280x720 16:9 규격 가로형으로 출력된 슬라이드 (약 2.3 MB)
+- `report.pdf`: A4 포맷으로 출력된 통합 리포트
+- `report_beginner.pdf`: A4 포맷으로 출력된 입문자용 리포트
+- `report_expert.pdf`: A4 포맷으로 출력된 전문가용 리포트
+- `presentation.pdf`: 1280x720 16:9 규격 가로형으로 출력된 슬라이드
 - `assets/`: 회차별 전용 스타일시트 및 스냅샷 스크립트
 - `assets/figs/fig-vol-trap.svg`: 실현변동성 vs VXX 방향 어긋남 시각화 다이어그램
 - `assets/figs/fig-gamma-scalping.svg`: 감마 스캘핑(CL/LO) 헤징 및 선물 평균회귀 매커니즘 다이어그램
 
 ## 3. 핵심 내용 및 재현 오차 감사 결과
+- **입문자용 기반지식과 전문가용 건설적 비판 수록**:
+  - 각 섹션별로 입문자를 위한 금융 기초 지식(VIX, Contango, 켈리 공식, 칼만 필터, 그리스, 분산 거래 원리) 해설 추가.
+  - 전문가를 위한 모형 결함 비판(XIV 청산 사건 분석, 칼만 필터의 시변 잡음 매개변수 리스크, GARCH 파라미터 비정상성, 호가 스프레드 확대 유동성 블랙홀, discrete 리밸런싱의 Whipsaw 마찰 비용, correlation jump 리스크) 수록.
 - **VX 숏 vs SPY 롱 (1.2절)**:
   - 켈리 레버리지 및 리밸런싱을 적용하여 성과 비교 완료. 
   - MATLAB 원본 결과와 대조 오차 `5e-7` 이내로 재현 일치 (Sharpe 1.1011, Calmar 0.9725 등).

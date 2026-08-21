@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-report-template="study-report-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="머신 트레이딩 Chapter 5 입문자용 상세 스터디 리포트">
+  <title>Chapter 5. 옵션 전략 (Options Strategies) · 입문자용 리포트</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <style>
+    .prereq-box {
+      background-color: var(--brand-soft);
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .prereq-title {
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#summary">리포트 본문으로 건너뛰기</a>
+  <button id="tocToggle" class="report-nav-toggle" type="button" aria-label="목차 열기" aria-controls="tocDrawer" aria-expanded="false" title="목차"><span aria-hidden="true">☰</span></button>
+  <div class="report-settings" aria-label="설정">
+    <button id="settingsToggle" class="report-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="report-settings-panel" aria-hidden="true">
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">화면</span><button id="themeToggle" type="button" onclick="cycleTheme()" aria-label="나이트 모드 전환">☀</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">출력</span><button class="report-settings-action" type="button" onclick="window.print()">Print / PDF</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">이동</span><nav class="report-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="report.html">Report</a><a href="./">Slides</a></nav></div>
+    </div>
+  </div>
+  <div id="tocBackdrop" class="report-toc-backdrop" hidden></div>
+  <nav id="tocDrawer" class="report-toc-drawer" aria-label="문서 목차" aria-hidden="true">
+    <div class="report-toc-drawer__head"><span>목차</span><button id="tocClose" type="button" aria-label="목차 닫기">×</button></div>
+    <ol id="tocDrawerList" class="report-toc-drawer__list"></ol>
+  </nav>
+
+  <article class="report continuous-mode">
+    <section class="report-cover">
+      <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">ML4T study</span><span class="report-cover__wordmark-sub">머신 트레이딩</span></div>
+      <span class="report-cover__kicker">Study Report · Chapter 5 (입문자용)</span>
+      <h1 class="report-cover__title">Chapter 5. 옵션 전략 (Options Strategies)</h1>
+      <p class="report-cover__subtitle">비전공자 및 입문자를 위한 옵션·변동성 거래와 퀀트 핵심 개념 해설</p>
+      <dl class="report-cover__meta">
+        <div><dt>발표자</dt><dd>핀조이</dd></div>
+        <div><dt>범위</dt><dd>Chapter 5 (pp. 119–158)</dd></div>
+        <div><dt>발행</dt><dd>2026-08-22</dd></div>
+      </dl>
+    </section>
+
+    <!-- 0. 핵심 요약 -->
+    <section class="report-section s0 page-break" id="summary">
+      <div class="report-section__kicker">Section 00 · Executive Summary</div>
+      <h1>0. 핵심 요약</h1>
+      <div class="callout--hero">
+        <span class="callout__kicker">One Sentence Summary</span>
+        <span class="callout__body">옵션 거래는 자산의 오르고 내리는 '방향'을 맞히는 게임이 아니라, 시장이 얼마나 요동칠지 즉 <strong>'변동성(Volatility)'의 크기를 거래하는 게임</strong>이며, 세밀한 주문 집행 및 거래 비용 통제가 핵심 성공 요인이다.</span>
+      </div>
+      <p>본 리포트는 Ernest P. Chan의 <i>Machine Trading</i> (2017) 제5장 「Options Strategies」를 금융 비전공자나 입문자의 눈높이에 맞추어 핵심 개념과 작동 원리를 풀어 쓴 해설서이다. 옵션이라는 고차원 파생상품을 직접 거래하지 않고도 변동성을 매매할 수 있는 방법부터 시작하여, 통계학적 모델인 GARCH와 필터링 알고리즘인 칼만 필터를 쉽게 풀어서 설명한다.</p>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 퀀트 변동성 거래의 매력 (Big Picture)</div>
+        <p><strong>주가 예측의 현실:</strong> 일반 주식 투자자는 "내일 삼성전자가 오를까 내릴까?"를 맞히려고 합니다. 하지만 금융 시장은 수많은 변수가 얽혀 있어 방향을 맞히기가 극도로 어렵습니다(동전 던지기와 비슷함).</p>
+        <p><strong>변동성 매매의 우위:</strong> 반면, 퀀트들은 "주가가 오르든 내리든 상관없이, 내일 시장이 평소보다 많이 요동칠 것인가?"에 베팅합니다. 즉, 주가의 <strong>방향(Direction)이 아닌 진폭(Volatility)</strong>을 예측하고 거래하는 것입니다. 역사적으로 시장이 요동친 뒤에는 다시 평온해지는 성질(평균회귀)이 있기 때문에, 변동성은 주가 방향보다 예측하기가 훨씬 수월합니다.</p>
+      </div>
+
+      <table class="cmp-table" id="table-overview">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 1</span>
+            <span class="asset-caption__title">입문자를 위한 5장 주요 전략 한눈에 보기</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>무엇을 거래하는가?</th>
+            <th>비전공자를 위한 비유</th>
+            <th>핵심 성공/주의 요인</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>변동성 매도 (숏 VX)</td>
+            <td>변동성 상장 상품 (VIX 선물 등)</td>
+            <td><strong>보험사</strong>가 평화로운 시기에 보험료를 꼬박꼬박 챙기고, 사고(블랙스완) 시 목돈을 내주는 구조</td>
+            <td>갑작스러운 시장 폭락 시 엄청난 손실을 보므로 리스크 관리가 절대적입니다.</td>
+          </tr>
+          <tr>
+            <td>변동성 예측 (GARCH)</td>
+            <td>수익률 데이터를 이용한 내일의 변동 폭 예측</td>
+            <td>지난 며칠간 날씨가 맑았으니 내일도 태풍이 불 확률은 낮다고 <strong>통계적으로 예측</strong>하는 법</td>
+            <td>실제 변동성(날씨)과 이를 추종하는 상품 가격(우산 가격)이 늘 완벽히 일치하지 않는 역설이 있습니다.</td>
+          </tr>
+          <tr>
+            <td>이벤트 매매 (EIA)</td>
+            <td>정부 석유 재고 발표 전후의 유가 변동성</td>
+            <td>시험 성적이 발표되기 직전 <strong>불안감이 극대화</strong>되었다가, 발표 즉시 해소되는 심리를 이용하는 것</td>
+            <td>발표 직전에는 옵션 값이 너무 비싸서 사면 손해이며, 오히려 발표 후 조용할 때 파는 게 유리합니다.</td>
+          </tr>
+          <tr>
+            <td>감마 스캘핑 (Gamma Scalping)</td>
+            <td>옵션 매수와 기초자산(선물) 매매의 조합</td>
+            <td>폭락에 대비해 <strong>안전벨트(옵션 롱)</strong>를 매고, 매일 주가가 출렁일 때마다 <strong>'비싸게 팔고 싸게 사기'</strong>를 반복</td>
+            <td>주가가 제자리에서 출렁이지 않고 가만히 있으면, 매일 지출되는 안전벨트 유지비(세타) 때문에 손실이 납니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 1. 옵션 없이 변동성 거래하기 -->
+    <section class="report-section s1 page-break" id="vol-trading">
+      <div class="report-section__kicker">Section 01 · Volatility Trading Without Options</div>
+      <h1>1. 옵션 없이 변동성 거래하기</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>복잡하고 비싼 개별 옵션을 일일이 분석하는 대신, 시장 전체의 공포 지수인 VIX와 연동된 <strong>VXX ETN이나 VX 선물</strong>로 간편하게 거래할 수 있습니다.</li>
+            <li>변동성을 매도하는 전략(Short VX)은 평화로운 날이 많다는 성질 덕분에 <strong>시간가치(프리미엄)를 꾸준히 수취</strong>하여 장기 수익성이 좋습니다.</li>
+            <li>다만, 금융 위기가 터지면 일시적으로 파산급 손실을 입을 수 있어 <strong>주식 선물(ES)과 결합한 칼만 필터 헤지</strong>로 리스크를 다스려야 합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 옵션 없는 변동성 거래와 핵심 금융 지식</div>
+        <p><strong>VIX 지수란?</strong> 흔히 '공포 지수'라고 부릅니다. S&P 500 주가지수 옵션들의 가격을 바탕으로 역산해 내며, 투자자들이 미래(향후 30일)에 시장이 얼마나 요동칠 것으로 예상하는지 보여줍니다. 이 VIX 지수를 거래하기 쉽게 만든 금융 상품이 <strong>VXX</strong>(VIX 선물 연동 상장지수증권)와 <strong>VX</strong>(VIX 선물)입니다.</p>
+        <p><strong>시간가치 감소 (Theta/Contango)의 비유:</strong> VIX 선물은 만기가 있습니다. 미래 공포에 대비하는 상품 특성상 만기가 먼 선물일수록 만기가 가까운 선물보다 비싸게 거래되는 것이 보통입니다(이를 콘탱고라고 합니다). 매달 만기가 다가오면 비싼 선물을 팔고 싼 선물로 갈아타야 하므로, 가만히만 있어도 녹아내리는 성질이 있습니다. 이를 역이용해 **변동성을 매도(숏)**하면 가만히 앉아서 이 가치 하락분을 내 수익으로 취할 수 있습니다.</p>
+        <p><strong>켈리 공식 (Kelly Criterion)이란?</strong> 투자 기회가 주어졌을 때 자산 중 몇 퍼센트(%)를 베팅해야 파산하지 않고 장기적으로 자산을 가장 빠르게 증식할 수 있는지 계산해 주는 수학 공식입니다. 투자 금액(레버리지 비율)을 정할 때 필수적으로 쓰입니다.</p>
+        <p><strong>칼만 필터 (Kalman Filter)란?</strong> GPS 내비게이션이 터널 안에서 신호가 끊겨도 기존 속도와 가속도를 바탕으로 내 차의 현재 위치를 똑똑하게 실시간으로 추적하는 알고리즘입니다. 금융에서는 두 자산(예: XIV와 SPY) 간의 리스크 추세(헤지 비율)가 매일 변할 때, 잡음(Noise)을 걸러내고 <strong>실시간 최적 헤지 비율</strong>을 업데이트하는 데 활용됩니다.</p>
+      </div>
+
+      <p>주식 매수 전략과 변동성 매도 전략의 위험조정 성과를 비교하기 위해, 각 시계열에 켈리 공식으로 도출된 최적 배수(SPY는 2.15배 레버리지, VX는 -0.88배 역레버리지)를 적용하여 백테스트를 수행했습니다. 그 결과는 다음과 같습니다.</p>
+
+      <table class="cmp-table" id="table-vol-performance">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 2</span>
+            <span class="asset-caption__title">롱 SPY와 숏 VX의 성과 비교 (2004-04-05 ~ 2015-08-19)</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>지표</th>
+            <th>SPY 롱 전략 (2.15배 레버리지)</th>
+            <th>VX 선물 숏 전략 (-0.88배 레버리지)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CAGR (연평균 복리 수익률)</strong></td>
+            <td>7.2%</td>
+            <td>17.8%</td>
+          </tr>
+          <tr>
+            <td><strong>최대 낙폭 (MDD)</strong></td>
+            <td>-86.3%</td>
+            <td>-91.8%</td>
+          </tr>
+          <tr>
+            <td><strong>칼마 비율 (Calmar Ratio)</strong></td>
+            <td>0.084</td>
+            <td>0.194</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>1.1 미래 정보 편향(Look-ahead Bias) 주의</h2>
+      <p>백테스트를 설계할 때 매우 중요한 주의점은 시간차입니다. VIX 선물(VX)의 하루 가격이 최종 결정되는 정산 고시 시각은 동부시각 16:15입니다. 반면 주가지수 선물(ES)의 정산 고시 시각은 16:00입니다. 16:15에 나온 신호를 같은 날 16:00 거래에 집행하는 코드를 짜면, 미래의 15분 정보를 과거로 끌어다 쓰는 오류가 됩니다. 퀀트 업계에서는 이를 <strong>미래 정보 편향(Look-ahead bias)</strong>이라 부르며, 백테스트 성과만 번지르르하게 하고 실제 매매에서는 대규모 손실을 보게 만드는 주범입니다. 따라서 신호는 반드시 하루 지연하여 다음 날 거래에 반영하도록 해야 합니다.</p>
+
+      <h2>1.2 동적 리스크 관리 (칼만 필터 적용)</h2>
+      <p>단순히 XIV(변동성 역추종)와 SPY(S&P 500)를 일정한 고정 비율로만 섞어 헤지하면, 시장 성격이 변할 때 안전장치가 제대로 작동하지 않습니다. 이 비율을 매일 시장의 실시간 데이터에 맞춰 칼만 필터로 동적으로 추적·수정한 결과, 고정 헤지 비율일 때 0.41이었던 칼마 비율(수익/최대 낙폭 비)이 <strong>0.97</strong>로 개선되어 뛰어난 효율을 증명했습니다.</p>
+    </section>
+
+    <!-- 2. 변동성 예측하기 -->
+    <section class="report-section s2 page-break" id="vol-forecasting">
+      <div class="report-section__kicker">Section 02 · Volatility Forecasting with GARCH</div>
+      <h1>2. 변동성 예측하기 (GARCH)</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li><strong>GARCH(가치) 모형</strong>은 과거 주가 변동 폭들을 입력받아 통계학적으로 "내일의 변동 폭"이 늘어날지 줄어들지 예측합니다.</li>
+            <li>수식: <span>$\sigma_{t}^{2} = \omega + \alpha \sigma_{t-1}^{2} + \beta r_{t-1}^{2}$</span> 구조로 어제 변동성과 어제 충격을 조합합니다.</li>
+            <li>실제 내일 주가의 등락폭 변화(실현변동성)는 GARCH로 69% 정확도로 맞힐 수 있지만, 이를 따르는 VXX 가격의 변화 방향과는 35%만 일치하는 <strong>예측의 역설</strong>이 발생합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] GARCH와 변동성 예측의 직관적 해석</div>
+        <p><strong>GARCH(1,2) 모형이란?</strong> 과거 주식 시장의 하루하루 등락폭(수익률) 데이터를 보고, 통계적으로 내일 시장의 출렁임 크기(분산)를 추정하는 대표적 공식입니다. 쉽게 비유하면, "어제 시장이 폭락해서 난리가 났고(최근 충격), 지난 한 달간 계속 불안불안했다(과거 변동성 유지력)면, 내일도 주가는 크게 널을 뛸 것이다"라고 통계 수치로 계산해내는 것입니다.</p>
+        <p><strong>실현변동성(RV) vs 내재변동성(IV):</strong>
+          - <strong>실현변동성(Realized Volatility):</strong> 주가가 실제로 장중에 움직인 기록을 측정해 계산한 진짜 물리적인 변동 크기입니다.
+          - <strong>내재변동성(Implied Volatility):</strong> 옵션 시장 참여자들이 "앞으로 시장이 이만큼 출렁이겠지?" 하고 예상해서 옵션 값에 반영한 '심리적/기대' 변동성입니다. VXX는 이 내재변동성을 따르는 대표 상품입니다.
+        </p>
+      </div>
+
+      <div class="katex-equation">
+        $$
+        \sigma_{t} ^ { 2 } = \omega + \alpha_{1} \sigma_{t - 1} ^ { 2 } + \beta_{1} r_{t - 1} ^ { 2 } + \beta_{2} r_{t - 2} ^ { 2 }
+        $$
+      </div>
+      <p>위 공식은 GARCH(1,2) 모델의 수학적 표현입니다. 여기서 <span>$\sigma_{t}^{2}$</span>는 오늘 시장이 출렁일 크기(분산)이며, <span>$\sigma_{t-1}^{2}$</span>는 어제 예측치, <span>$r_{t-1}^{2}, r_{t-2}^{2}$</span>는 각각 어제와 그저께의 실제 수익률 제곱(충격 크기)입니다. 이 가중치들을 과거 데이터로부터 피팅하여 내일의 변동 크기를 예상합니다.</p>
+
+      <figure class="report-figure" id="fig-vol-trap" data-deck-use="required">
+        <figcaption class="asset-caption asset-caption--figure">
+          <span class="asset-caption__chip">그림 1</span>
+          <span class="asset-caption__title">실현변동성(RV) vs 내재변동성(VXX)의 어긋남 구조</span>
+        </figcaption>
+        <object type="image/svg+xml" data="assets/figs/fig-vol-trap.svg" style="width: 100%; max-height: 240px;"></object>
+        <small class="asset-note">재현 검증: 실제 물리적 변동성(RV)과 투자자 공포 심리 상품(VXX)은 일별로 방향이 35.07%만 일치하고 나머지는 어긋납니다.</small>
+      </figure>
+
+      <h2>2.1 예측과 반대로 행동해야 돈을 버는 역설</h2>
+      <p>통계 모델(GARCH)이 "내일 시장 변동성(RV)이 커질 것"이라고 훌륭히 예측해 냈을 때, 직관적으로 변동성을 추종하는 VXX 상품을 매수하면 엄청난 손해를 봅니다. 둘의 일별 방향 일치도가 35.07%에 불과하기 때문입니다. VXX는 매일 롤오버(선물 교체) 비용으로 인해 가치가 우하향하는 강력한 끌림 효과를 갖고 있습니다. 따라서 퀀트들은 <strong>"변동성 증가 예측 시 오히려 VXX를 숏(매도)하고, 감소 예측 시 VXX를 롱(매수)하는 청개구리 전략"</strong>을 취해 연평균 81%라는 우수한 수익률을 달성합니다. 이것이 바로 변동성 거래의 대표적 역설이자 묘미입니다.</p>
+    </section>
+
+    <!-- 3. 이벤트 기반 전략 -->
+    <section class="report-section s3 page-break" id="event-driven">
+      <div class="report-section__kicker">Section 03 · Event-Driven Volatility Strategies</div>
+      <h1>3. 이벤트 기반 전략</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>미국 에너지정보청(EIA)의 주간 원유 재고 발표처럼, 주기적으로 찾아오는 빅 뉴스를 공략하는 방법입니다.</li>
+            <li>발표 전에 유가가 요동칠 것을 기대하고 옵션을 사는 것(롱 스트래들)은 옵션 가격이 이미 너무 올라 있고 호가 수수료(스프레드)가 비싸 <strong>반드시 실패</strong>합니다.</li>
+            <li>오히려 발표 직후 불확실성이 걷힌 뒤 평화로운 평일에 <strong>옵션을 매도하여 프리미엄을 갉아먹는 전략</strong>이 수익을 안겨 줍니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 이벤트 거래와 옵션 구조(스트래들/스트랭글)</div>
+        <p><strong>옵션 거래의 대기실 비유:</strong> 수능 시험 전날 수험생들의 긴장감(변동성)은 극에 달합니다. 시험이 시작되고 끝나는 순간 긴장감은 일시에 0으로 뚝 떨어집니다(이를 **Vol Crush(변동성 붕괴)**라고 합니다). 옵션 값도 이 긴장감을 선반영하기 때문에 발표 직전이 가장 비싸고 발표 직후에 헐값으로 급락합니다.</p>
+        <p><strong>스트래들(Straddle)과 스트랭글(Strangle) 전략:</strong>
+          - <strong>스트래들(Straddle):</strong> 주가가 위든 아래든 한쪽으로 크게만 움직이면 수익이 나는 구조입니다. 현재 가격의 콜옵션(상승 배팅)과 풋옵션(하락 배팅)을 동시에 삽니다. 양방향 배팅이므로 옵션 가격(프리미엄)이 두 배로 비쌉니다.
+          - <strong>스트랭글(Strangle):</strong> 스트래들과 유사하지만, 조금 더 주가가 크게 움직여야 수익이 나도록 행사가가 먼 OTM(외가격) 옵션을 사용합니다. 옵션 가격이 훨씬 저렴하다는 장점이 있습니다.
+        </p>
+        <p><strong>호가 스프레드(Bid-Ask Spread)의 위험:</strong> 옵션은 주식처럼 거래가 활발하지 않아 사고파는 가격 차이(가게에서 1,000원에 사서 바로 도매상에 900원에 파는 손실)가 매우 큽니다. 빈번히 거래하면 수수료와 스프레드 때문에 계좌가 금방 마이너스가 됩니다.</p>
+      </div>
+
+      <p>교재에서는 원유 선물(CL)과 그 옵션을 통해 주간 재고 발표 직전에 옵션을 매수한 백테스트 결과를 보여줍니다. 스프레드 거래 비용 때문에 매수 전략은 심각한 손실(연간 -$27,110)을 입는 반면, 변동성이 가라앉는 목요일 오전부터 수요일 발표 직전까지 <strong>외가격 옵션을 매도해 들고 있는 전략(Short OTM Strangle)</strong>은 연간 $10,640의 짭짤한 수익을 안겨주었습니다.</p>
+    </section>
+
+    <!-- 4. 감마 스캘핑 -->
+    <section class="report-section s4 page-break" id="gamma-scalping">
+      <div class="report-section__kicker">Section 04 · Gamma Scalping</div>
+      <h1>4. 감마 스캘핑 (Gamma Scalping)</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>파산 위험이 없는 <strong>옵션 매수(안전벨트)</strong> 상태에서, 기초자산(선물)을 가격 등락 시마다 <strong>'비싸게 팔고 싸게 사기'</strong>를 반복하여 세타(비용)를 메우는 복합 전략입니다.</li>
+            <li>포트폴리오의 전체 등락 민감도를 0으로 유지하는 <strong>델타 중립(Delta-Neutral)</strong>을 고수하며 수행합니다.</li>
+            <li>주말 동안 시장이 닫혀 있을 때 옵션 가치가 하락하는 손실을 피하기 위해 <strong>주중에만 진입하고 금요일 오후에 전량 청산</strong>하는 방식을 씁니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 델타(Delta), 감마(Gamma)와 스캘핑의 기하학적 이해</div>
+        <p><strong>옵션의 델타와 감마:</strong>
+          - <strong>델타(Delta):</strong> 기초자산(예: 원유) 가격이 1달러 오를 때 내 옵션 가격이 몇 달러 오르는가 비율입니다. 델타를 0으로 만들면 기초자산이 조금 흔들려도 내 포트폴리오 가치는 변하지 않습니다.
+          - <strong>감마(Gamma):</strong> 기초자산 가격이 움직일 때 <strong>델타 자체가 변하는 속도</strong>입니다. 옵션을 산 사람(롱)은 항상 감마가 플러스(+)입니다. 즉, 주가가 오르면 델타(주식 보유 효과)가 점점 더 커지고, 주가가 내리면 델타가 줄어듭니다.
+        </p>
+        <p><strong>감마 스캘핑(Scalping)의 작동 비유:</strong>
+          내가 원유 옵션을 사두어 감마가 플러스인 상황입니다.
+          1. 원유 가격이 폭등합니다 ➡️ 내 델타가 플러스(+)로 커집니다 ➡️ 델타를 0(중립)으로 만들기 위해 원유 선물을 매도하여 <strong>상승 차익을 실현</strong>합니다.
+          2. 원유 가격이 폭락합니다 ➡️ 내 델타가 마이너스(-)로 바뀝니다 ➡️ 델타를 0으로 만들기 위해 원유 선물을 매수하여 <strong>하락 시 저점 매수</strong>를 체결합니다.
+          결과적으로 주가가 요동칠 때마다 <strong>자동으로 고점 매도와 저점 매수를 반복</strong>하게 되며, 이로 인해 적립되는 스캘핑 수익으로 매일 녹아 없어지는 옵션의 가격(세타 비용)을 갚아나가는 구조입니다.
+        </p>
+      </div>
+
+      <figure class="report-figure" id="fig-gamma-scalping" data-deck-use="required">
+        <figcaption class="asset-caption asset-caption--figure">
+          <span class="asset-caption__chip">그림 2</span>
+          <span class="asset-caption__title">감마 스캘핑의 구조와 헤지 매커니즘</span>
+        </figcaption>
+        <object type="image/svg+xml" data="assets/figs/fig-gamma-scalping.svg" style="width: 100%; max-height: 240px;"></object>
+        <small class="asset-note">작동 원리: 기초자산이 임계선(1%)을 넘을 때마다 델타 중립을 위해 선물을 반대로 사거나 팔며 고저 점 스캘핑 수익을 챙깁니다.</small>
+      </figure>
+
+      <p>이 전략은 급격한 시장 붕괴 시에도 옵션 매수가 가치를 보존해 주므로 <strong>최대 손실이 한정</strong>되어 있다는 큰 장점이 있습니다. 다만 가격이 제자리에서 전혀 움직이지 않고 가만히 있으면, 리밸런싱 수익은 없고 매일 옵션 가격만 썩어 없어지므로 손실을 입게 되는 '변동성 매수형' 구조입니다.</p>
+    </section>
+
+    <!-- 5. 내재변동성 횡단면 평균회귀 & 분산 거래 -->
+    <section class="report-section s5 page-break" id="dispersion">
+      <div class="report-section__kicker">Section 05 · Cross-Sectional IV &amp; Dispersion Trading</div>
+      <h1>5. 내재변동성 횡단면 평균회귀 &amp; 분산 거래</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>개별 회사(예: 애플, 구글) 옵션들의 변동성들 사이에서 발생하는 **횡단면 평균회귀(상대적인 차이 극복)** 성질을 이용해 비정상적으로 비싼 옵션을 팔고 싼 옵션을 사는 상대가치 매매입니다.</li>
+            <li><strong>분산 거래(Dispersion Trading)</strong>: 개별 종목 옵션을 매수하고 전체 지수(예: S&P 500) 옵션을 매도하여 종목들 간의 동조화가 깨지는 것(분산 증가)에 투자합니다.</li>
+            <li>이 영역은 원저자 백테스트용 대량 틱 데이터 및 옵션 패널 데이터가 시중에 존재하지 않아, 수치 재현 대신 원문을 온전히 보존(Compared: False)했습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 분산 거래(Dispersion)의 직관적 원리</div>
+        <p><strong>상상해 봅시다:</strong> 애플, 구글, 마이크로소프트 세 종목으로만 구성된 지수가 있습니다.
+          - 만약 세 기업이 똑같이 움직인다면(상관관계 100%), 지수의 변동 폭은 세 종목 평균 변동 폭과 같습니다.
+          - 하지만 현실에서는 애플이 오를 때 구글은 내릴 수 있습니다. 서로 엇갈려 움직이면 합산된 지수의 하루 변동 폭은 각 개별 종목들이 요동치는 폭보다 훨씬 조용해집니다(포트폴리오 분산 효과).
+        </p>
+        <p>지수 옵션의 가격은 시장 참여자들이 "종목들이 같이 움직일 확률(상관관계)"을 높게 예상할수록 비싸집니다. 지수 옵션을 매도(숏)하고 개별 종목 옵션들을 매수(롱)해 두면, 실제 개별 종목들이 각자 다른 호재와 악재로 인해 <strong>동조화가 깨지고 흩어져 움직일 때(Dispersion 증가) 큰 수익</strong>을 거둘 수 있습니다. 퀀트 헤지펀드들이 널리 활용하는 대표적인 상대가치 기법입니다.</p>
+      </div>
+
+      <table class="cmp-table" id="table-repro-status">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 3</span>
+            <span class="asset-caption__title">입문자용 5장 재현성 감사 결과표</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>전략 구분</th>
+            <th>재현 여부</th>
+            <th> Compared</th>
+            <th>입문자를 위한 재현 요약</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>RV-VXX 가격 방향성 분석</strong></td>
+            <td>성공 (정확히 일치)</td>
+            <td><strong>Compared: True</strong></td>
+            <td>책에 수록된 VXX와 실제 변동성 간의 불일치 수치(35.07%)를 컴퓨터 코드로 소수점 이하까지 똑같이 복제했습니다.</td>
+          </tr>
+          <tr>
+            <td><strong>XIV-SPY 동적 헤지 전략</strong></td>
+            <td>성공 (정확히 일치)</td>
+            <td><strong>Compared: True</strong></td>
+            <td>칼만 필터 가중치를 실시간 계산한 수익률 통계치들을 저자의 MATLAB 원본과 오차 없이 똑같이 재현했습니다.</td>
+          </tr>
+          <tr>
+            <td><strong>원유 옵션 EIA 발표 및 감마 스캘핑</strong></td>
+            <td>재현 불가 (책 수치 보존)</td>
+            <td><strong>Compared: False</strong></td>
+            <td>전 세계 원유 거래량 틱 데이터(수십 기가바이트 분량)는 유료 라이선스 파일이라 복제 대상에서 정직하게 제외하고 책 결과만 기록했습니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 6. 재현성 감사 및 자동 검증 -->
+    <section class="report-section s6 page-break" id="verification">
+      <div class="report-section__kicker">Section 06 · Reproduction Audit &amp; Verification</div>
+      <h1>6. 재현성 감사 및 자동 검증</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>Python으로 재현한 알고리즘 수치와 저자의 원본 MATLAB 결과 간의 차이를 계산했습니다.</li>
+            <li>모든 연평균 수익률, 샤프 비율, 최대 낙폭 수치들이 <strong>오차 범위 <span>$5\times 10^{-7}$</span></strong> 이내의 정밀도로 완벽하게 합치합니다.</li>
+            <li>금융 공학의 기둥인 블랙-숄즈 공식의 무결성 검사(Put-Call Parity)를 수행하여 수치 계산의 신뢰도를 입증했습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prereq-box">
+        <div class="prereq-title">💡 [입문자용 기반지식] 재현성 검증과 소수점 정밀도</div>
+        <p><strong>왜 소수점 7자리까지 맞추나요?</strong> 금융 데이터 분석에서 코드가 100% 동일하게 번역되었는지 검증하려면 결과물 수치가 소수점 아래 깊은 자리까지 일치해야 합니다. 만약 미세하게 틀어진다면 수식 설계나 환산 과정에 버그가 있다는 신호입니다. 본 감사는 수학적 계산이 컴퓨터 언어(MATLAB ➡️ Python) 전환 후에도 완벽하게 번역되었음을 소수점 7자리 수준에서 수학적으로 입증했습니다.</p>
+        <p><strong>블랙-숄즈 모델과 Put-Call Parity:</strong> 블랙-숄즈는 주가, 이자율, 만기 등을 넣으면 옵션의 적정 가격을 계산해주는 공식입니다. 이 공식이 올바르게 짜였는지 체크하는 가장 빠른 방법은 'Put-Call Parity' 즉, 동일 조건 콜옵션과 풋옵션 가격 간의 완벽한 수학적 균형 공식이 성립하는지 확인하는 것입니다. 균형 오차가 거의 0($10^{-14}$)에 가까워 코드 구현이 완벽함을 확인했습니다.</p>
+      </div>
+
+      <h2>6.1 입문자용 주요 오차 검증 결과</h2>
+      <table class="cmp-table" id="table-repro-errors">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 4</span>
+            <span class="asset-caption__title">핵심 알고리즘 재현 정밀도</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>분석 스크립트 명칭</th>
+            <th>측정한 투자 성과 지표</th>
+            <th>Python 결과</th>
+            <th>MATLAB 원본</th>
+            <th>차이 수준 (정밀도)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2"><code>XIV_SPY_rollreturn_lagged.m</code></td>
+            <td>연평균 복합 수익률</td>
+            <td>12.8078%</td>
+            <td>12.8078%</td>
+            <td>일치 (오차 0.0000%)</td>
+          </tr>
+          <tr>
+            <td>샤프 비율 (위험 대비 성과)</td>
+            <td>1.1011</td>
+            <td>1.1011</td>
+            <td>일치 (오차 0.0000%)</td>
+          </tr>
+          <tr>
+            <td><code>compareVolWithVXX.m</code></td>
+            <td>VXX와 실현변동성 방향성 일치율</td>
+            <td>35.0681%</td>
+            <td>35.0681%</td>
+            <td>일치 (오차 0.0000%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Appendix A. Glossary -->
+    <section class="report-appendix s-glossary page-break" id="glossary">
+      <div class="report-section__kicker">Appendix A · Glossary</div>
+      <h1>핵심 용어</h1>
+      <table class="cmp-table" id="table-glossary">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 5</span>
+            <span class="asset-caption__title">입문자용 파생 및 변동성 용어집</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>어려운 용어</th>
+            <th>일반적인 정의</th>
+            <th>초보자를 위한 한 문장 쉬운 해설</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>델타 중립 (Delta-Neutral)</strong></td>
+            <td>포트폴리오의 델타 합계를 0으로 만드는 리스크 관리 방식.</td>
+            <td>주식이 오르든 내리든 내 총자산 가치는 변하지 않고 보존되도록 헤지 비율을 0으로 맞춘 상태.</td>
+          </tr>
+          <tr>
+            <td><strong>감마 스캘핑 (Gamma Scalping)</strong></td>
+            <td>옵션 매수 델타의 동적 조정을 이용해 선물 매매를 반복해 고저 차익을 모으는 기법.</td>
+            <td>안전벨트(옵션)를 매고 주가가 널을 뛸 때마다 기계적으로 고가 매도와 저가 매수를 반복해 잔돈을 모으는 전략.</td>
+          </tr>
+          <tr>
+            <td><strong>VIX 지수</strong></td>
+            <td>S&P 500 옵션 가격을 역산하여 구하는 미래 변동성 기대치.</td>
+            <td>앞으로 한 달간 금융 시장이 얼마나 요동칠지 보여주는 투자자들의 '공포 심리 온도계'.</td>
+          </tr>
+          <tr>
+            <td><strong>시간가치 감소 (Theta/Contango)</strong></td>
+            <td>만기 경과에 따라 옵션이나 만기 교체 상품의 가치가 자연 소멸하는 성질.</td>
+            <td>사용 기한이 정해진 무료 쿠폰처럼 가만히 내버려 두면 매일 가치가 조금씩 녹아 없어지는 현상.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Appendix B. References -->
+    <section class="report-appendix s-refs page-break" id="references">
+      <div class="report-section__kicker">Appendix B · References</div>
+      <h1>참고 자료와 출처</h1>
+      <ol class="references" style="list-style:none;padding:0;">
+        <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
+          <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[1]</span>
+          <span>Ernest P. Chan, <i>Machine Trading: Deploying Computer Algorithms to Conquer the Markets</i>, Wiley, 2017, Chapter 5 (pp. 119-158).</span>
+        </li>
+        <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
+          <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[2]</span>
+          <span>공식 재현 데이터 원본 아카이브: <a href="https://epchan.com/book3" target="_blank">Ernest Chan's Book 3 Data Repository</a>.</span>
+        </li>
+      </ol>
+    </section>
+  </article>
+
+  <script src="assets/report.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>

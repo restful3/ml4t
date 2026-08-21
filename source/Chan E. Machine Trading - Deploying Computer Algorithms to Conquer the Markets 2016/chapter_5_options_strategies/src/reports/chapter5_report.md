@@ -1,4 +1,4 @@
-# Machine Trading 2016 Chapter 5 — Options Strategies
+# Machine Trading 2016 : Chapter 5 — Options Strategies
 
 ## 1. 결론 먼저
 

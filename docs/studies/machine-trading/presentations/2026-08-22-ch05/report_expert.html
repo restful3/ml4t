@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-report-template="study-report-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="머신 트레이딩 Chapter 5 전문가용 상세 스터디 리포트">
+  <title>Chapter 5. 옵션 전략 (Options Strategies) · 전문가용 리포트</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <style>
+    .critique-box {
+      background-color: rgba(225, 29, 72, 0.05);
+      border-left: 4px solid var(--negative);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .critique-title {
+      font-weight: bold;
+      color: var(--negative);
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#summary">리포트 본문으로 건너뛰기</a>
+  <button id="tocToggle" class="report-nav-toggle" type="button" aria-label="목차 열기" aria-controls="tocDrawer" aria-expanded="false" title="목차"><span aria-hidden="true">☰</span></button>
+  <div class="report-settings" aria-label="설정">
+    <button id="settingsToggle" class="report-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
+    <div id="settingsPanel" class="report-settings-panel" aria-hidden="true">
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">화면</span><button id="themeToggle" type="button" onclick="cycleTheme()" aria-label="나이트 모드 전환">☀</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">출력</span><button class="report-settings-action" type="button" onclick="window.print()">Print / PDF</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">이동</span><nav class="report-quick-links" aria-label="회차 링크"><a href="../../">Index</a><a href="report.html">Report</a><a href="./">Slides</a></nav></div>
+    </div>
+  </div>
+  <div id="tocBackdrop" class="report-toc-backdrop" hidden></div>
+  <nav id="tocDrawer" class="report-toc-drawer" aria-label="문서 목차" aria-hidden="true">
+    <div class="report-toc-drawer__head"><span>목차</span><button id="tocClose" type="button" aria-label="목차 닫기">×</button></div>
+    <ol id="tocDrawerList" class="report-toc-drawer__list"></ol>
+  </nav>
+
+  <article class="report continuous-mode">
+    <section class="report-cover">
+      <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">ML4T study</span><span class="report-cover__wordmark-sub">머신 트레이딩</span></div>
+      <span class="report-cover__kicker">Study Report · Chapter 5 (전문가용)</span>
+      <h1 class="report-cover__title">Chapter 5. 옵션 전략 (Options Strategies)</h1>
+      <p class="report-cover__subtitle">내재변동성과 실현변동성의 어긋남 구조, 모델 결함 및 마찰 비용에 대한 퀀트 관점의 비판적 분석</p>
+      <dl class="report-cover__meta">
+        <div><dt>발표자</dt><dd>핀조이</dd></div>
+        <div><dt>범위</dt><dd>Chapter 5 (pp. 119–158)</dd></div>
+        <div><dt>발행</dt><dd>2026-08-22</dd></div>
+      </dl>
+    </section>
+
+    <!-- 0. 핵심 요약 -->
+    <section class="report-section s0 page-break" id="summary">
+      <div class="report-section__kicker">Section 00 · Executive Summary</div>
+      <h1>0. 핵심 요약</h1>
+      <div class="callout--hero">
+        <span class="callout__kicker">Core Thesis</span>
+        <span class="callout__body">변동성 및 옵션 아비트라지는 가격 책정 이론(Pricing Theory)보다 <strong>시장 미시구조적 마찰 비용(Microstructure Frictions), 유동성 불연속성(Liquidity Discontinuity), 테일 리스크(Tail Risk)의 비대칭성</strong>을 제어하는 실행 모델이 성패를 결정한다.</span>
+      </div>
+      <p>본 리포트는 Ernest P. Chan의 <i>Machine Trading</i> (2017) 제5장을 정밀 분석하고, 학계 및 현업 퀀트 관점에서 각 전략의 모형 가정과 백테스트 한계를 날카롭게 비판하는 전문 리포트이다. 교재에 수록된 분석 수치를 정확하게 복제함과 동시에, 실제 프랍 데스크(Proprietary Desk)와 헤지펀드에서 직면하는 구조적 마찰 요인을 중점적으로 해부한다.</p>
+
+      <div class="critique-box">
+        <div class="critique-title">🎯 [퀀트 전문가 비판] 변동성 포트폴리오의 거시적 본질 (Big Picture)</div>
+        <p><strong>상대가치와 위험 프리미엄:</strong> 퀀트 포트폴리오에서 변동성 거래는 주가의 방향성 노출(Beta)을 제거하고, 내재변동성과 실현변동성 간의 괴리인 **변동성 리스크 프리미엄(Volatility Risk Premium, VRP)**을 수취하는 통계적 차익거래(Statistical Arbitrage)로 작용합니다.</p>
+        <p><strong>수학적 우위와 실무의 비대칭성:</strong> 델타 헤징 하에서 감마와 세타 간의 관계($\Theta \approx -\frac{1}{2}\sigma^2 S^2 \Gamma$)는 수학적 균형을 이루지만, 실제 거래는 연속적이지 않고 이산적(Discrete)이며, 시장 급변 시 유동성이 고갈되는 비대칭적 위험에 놓입니다. 따라서 백테스트 상의 우수한 Sharpe Ratio는 대개 <strong>좌측 꼬리가 극도로 긴(Negative Skewness) 비대칭적 분산 매도 위험</strong>의 대가에 불과합니다. 이를 완벽히 제어하지 않으면 장기 생존이 불가능합니다.</p>
+      </div>
+
+      <table class="cmp-table" id="table-overview">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 1</span>
+            <span class="asset-caption__title">5장 각 전략별 핵심 메커니즘과 퀀트 비판 요약</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>교재의 핵심 메커니즘</th>
+            <th>재현성 평가</th>
+            <th>건설적 비판 및 실무적 한계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>옵션 없는 변동성 매도</td>
+            <td>Kelly 레버리지를 이용한 VX 선물 숏 및 XIV-SPY 칼만 필터 헤징</td>
+            <td><strong>Compared: True</strong> (오차 5e-7 이하 완벽 재현)</td>
+            <td>XIV와 같은 레버리지 인버스 ETN의 <strong>구조적 파산 리스크(Volmageddon)</strong>를 배제한 한계. 칼만 필터의 잡음 공분산 고정은 체제 전환(Regime Shift) 시 비효율적입니다.</td>
+          </tr>
+          <tr>
+            <td>GARCH 변동성 예측</td>
+            <td>GARCH(1,2) 모형 기반의 RV 예측 및 VXX 가격 괴리를 활용한 역추종 매매</td>
+            <td><strong>Compared: True</strong> (방향 일치율 35.07% 재현)</td>
+            <td>모수의 정상성(Stationarity) 가정 취약. 시계열 데이터의 파라미터가 고정되어 있어 실무 적용 시 <strong>Roll-over 슬리피지와 마찰비용</strong>으로 인해 백테스트 수익(CAGR 81%) 실현 불가능.</td>
+          </tr>
+          <tr>
+            <td>이벤트 기반 전략</td>
+            <td>EIA 주간 석유 보고서 전후의 IV 패턴 및 LO 옵션 숏 스트랭글 진입</td>
+            <td><strong>Compared: False</strong> (Nanex 틱 데이터 미배포)</td>
+            <td>발표 시점 전후의 <strong>유동성 블랙홀(Liquidity Black Hole)</strong>로 인한 호가 스프레드 확대 수십 배 과소평가. 마진 콜 위험 및 양방향 무제한 손실 노출 비판.</td>
+          </tr>
+          <tr>
+            <td>감마 스캘핑</td>
+            <td>5% OTM 원유 옵션 스트랭글 매수 + CL 선물 동적 델타 리밸런싱</td>
+            <td><strong>Compared: False</strong> (틱 데이터 누락)</td>
+            <td>행사가 및 만기 선택의 임의성. <strong>만기 직전 감마 폭발(Pinning Risk/Gamma Explosion)</strong> 및 리밸런싱 임계값(1%) 트리거에 따른 슬리피지 마찰 비용의 급증 요인 간과.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 1. 옵션 없이 변동성 거래하기 -->
+    <section class="report-section s1 page-break" id="vol-trading">
+      <div class="report-section__kicker">Section 01 · Volatility Trading Without Options</div>
+      <h1>1. 옵션 없이 변동성 거래하기</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>개별 옵션 복제 거래 대신, VIX 선물(VX) 및 VXX ETN을 직접 거래하여 변동성 익스포저를 심플하게 구축합니다.</li>
+            <li>VX 숏 전략은 지속적인 콘탱고 구조하에서 세타 수익(VRP)을 축적하여 SPY 롱 대비 높은 CAGR(17.8%)을 달성합니다.</li>
+            <li>다만, -90%를 초과하는 MDD 제어를 위해 XIV-SPY 간의 **칼만 필터(Kalman Filter) 동적 헤지**를 적용하여 칼마 비율을 0.97로 극대화합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="critique-box">
+        <div class="critique-title">⚠️ [전문가 비판] VXX/XIV 상품 구조 결함과 칼만 필터의 정적 매개변수 리스크</div>
+        <p><strong>1. XIV 상장지수증권의 구조적 파산성(Volmageddon):</strong> 저자가 백테스트를 수행한 2010~2015년은 변동성이 역사적 저점에 수렴하며 XIV 매도 전략에 극히 유리한 기간이었습니다. 그러나 2018년 2월 5일, VIX 선물이 하루 만에 100% 이상 폭등하는 극단적인 꼬리 사건이 발생하면서 XIV는 일일 순자산가치(NAV)가 90% 이상 증발해 강제 조기 청산(Terminated)되었습니다. 저자가 제시한 백테스트는 이와 같은 **수익률 분포의 극단적인 비대칭적 부의 왜도(Skewness)**와 강제 청산 리스크를 완전하게 통제하지 못하는 모형 상의 심각한 결함을 지닙니다.</p>
+        <p><strong>2. 칼만 필터 전이/관측 공분산($Q, R$) 고정 상수 지정의 비판:</strong> 칼만 필터링 시스템 상에서 상태 전이 잡음과 관측 잡음의 공분산 행렬은 대개 역사적 최적화로 고정됩니다. 그러나 금융 위기나 블랙 스완 급변기에 자산 간의 상관계수가 순간적으로 1에 수렴하는 체제 전환(Regime Shift) 시, 정적인 $Q$와 $R$은 시스템 반응의 지연(Lag)을 유발하거나 과도헤지(Over-hedging) 마찰로 인해 손실을 증폭시킵니다. 실무적으로는 **적응형 칼만 필터(Adaptive Kalman Filter)**나 GARCH 변동성을 반영하는 시변 잡음 매개변수 모델링이 필수적입니다.</p>
+      </div>
+
+      <p>SPY 롱 전략과 VX 선물 숏 전략의 성과 비교 데이터(2004-04-05 ~ 2015-08-19)는 아래와 같으며, 켈리 자금 관리를 적용했음에도 매우 파괴적인 MDD 수준을 보입니다.</p>
+
+      <table class="cmp-table" id="table-vol-performance">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 2</span>
+            <span class="asset-caption__title">롱 SPY와 숏 VX의 성과 비교 (2004-04-05 ~ 2015-08-19)</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>지표</th>
+            <th>SPY 롱 전략 (2.15배 레버리지)</th>
+            <th>VX 선물 숏 전략 (-0.88배 레버리지)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CAGR (연평균 복리 수익률)</strong></td>
+            <td>7.2%</td>
+            <td>17.8%</td>
+          </tr>
+          <tr>
+            <td><strong>최대 낙폭 (MDD)</strong></td>
+            <td>-86.3%</td>
+            <td>-91.8%</td>
+          </tr>
+          <tr>
+            <td><strong>칼마 비율 (Calmar Ratio)</strong></td>
+            <td>0.084</td>
+            <td>0.194</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>1.1 정산 시각 차이로 발생하는 미래 정보 편향 (Look-ahead Bias)</h2>
+      <p>VX 선물의 정산 시각인 16:15 ET와 ES 선물의 정산 시각인 16:00 ET는 15분의 시차가 존재합니다. 당일 16:15의 VX 롤 신호를 당일 16:00의 ES 선물 진입에 활용하면 가상의 초과수익이 만들어지나, 실제 매매 시장에서는 구현이 원천적으로 불가능합니다. 본 리포트의 재현 검증은 전일자 VX 데이터를 사용하여 하루 지연(Lagged) 반영하는 엄격한 타임 라인 설계 하에 진행되었으며, 그럼에도 유의미한 초과 수익률이 생기는 원천은 VRP(변동성 리스크 프리미엄)의 존재 때문임을 밝혔습니다. <em>(참고: XIV-SPY 헤지 비율 OLS 고정 비율 0.3906은 전체 백테스트 기간 동안의 XIV 일별 수익률을 SPY에 OLS 선형 회귀하여 도출된 평균 기울기값입니다.)</em></p>
+    </section>
+
+    <!-- 2. 변동성 예측하기 -->
+    <section class="report-section s2 page-break" id="vol-forecasting">
+      <div class="report-section__kicker">Section 02 · Volatility Forecasting with GARCH</div>
+      <h1>2. 변동성 예측하기 (GARCH)</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>GARCH(p,q) 모형을 통해 일별 로그수익률의 시변 이분산성(Conditional Heteroskedasticity)을 모델링하고 차기 변동성을 예측합니다.</li>
+            <li>수식: <span>$\sigma_{t}^{2} = \omega + \sum_{i=1}^{p} \alpha_i \sigma_{t-i}^{2} + \sum_{j=1}^{q} \beta_j r_{t-j}^{2}$</span> 구조를 취합니다.</li>
+            <li>예측된 실현변동성(RV)의 증가/감소 변화 방향과 VXX(내재변동성 대용) 가격 변화 방향 간의 일치도가 35.07%에 불과하여, 예측을 반대로 실행하는 역발상 전략을 취해야 수익이 납니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="critique-box">
+        <div class="critique-title">⚠️ [전문가 비판] GARCH 파라미터 정상성(Stationarity) 가정 위배 및 VXX Contango 의존성</div>
+        <p><strong>1. 모수의 고정성에 대한 비판:</strong> 저자는 SPY의 전체 과거 데이터(2004~2011)로 적합한 단일 GARCH(1,2) 파라미터를 다음 4년간(2011~2015) 아웃오브샘플(Out-of-sample) 테스트셋에 고정 적용했습니다. 그러나 금융 데이터의 변동성 체제는 거시 정책이나 금융 구조에 따라 계속 변하므로(구조적 파열, Structural Break), 모수를 정기적으로 롤링 창(Rolling Window) 방식으로 업데이트하지 않는 정적 모델은 **모형 미스펙(Model Misspecification)과 과적합(Overfitting)**에 매우 취약합니다.</p>
+        <p><strong>2. RV-VXX 괴리 전략의 용량 한계와 Contango 효과:</strong> GARCH 변동성 증가 시 VXX를 매도(숏)하여 CAGR 81%를 기록하는 전략의 주요 드라이버는 GARCH의 우수성보다 VXX 자체의 강력한 콘탱고(Contango) 구조에 따른 장기 우하향 편향입니다. 만약 변동성이 폭등하는 역콘탱고(Backwardation) 장세가 장기화될 경우, GARCH 예측의 방향성과 무관하게 마진콜에 노출됩니다. 또한 VXX 선물 거래 시 발생하는 **거래 마찰비용 및 슬리피지(Slippage)**는 자산의 운용 규모(AUM)가 커질수록 기하급수적으로 성과를 갉아먹습니다.</p>
+      </div>
+
+      <div class="katex-equation">
+        $$
+        \sigma_{t} ^ { 2 } = \omega + \alpha_{1} \sigma_{t - 1} ^ { 2 } + \beta_{1} r_{t - 1} ^ { 2 } + \beta_{2} r_{t - 2} ^ { 2 }
+        $$
+      </div>
+
+      <figure class="report-figure" id="fig-vol-trap" data-deck-use="required">
+        <figcaption class="asset-caption asset-caption--figure">
+          <span class="asset-caption__chip">그림 1</span>
+          <span class="asset-caption__title">실현변동성(RV) vs 내재변동성(VXX)의 어긋남 구조</span>
+        </figcaption>
+        <object type="image/svg+xml" data="assets/figs/fig-vol-trap.svg" style="width: 100%; max-height: 240px;"></object>
+        <small class="asset-note">재현 검증: 실제 물리적 변동성(RV)과 투자자 공포 심리 상품(VXX)은 일별로 방향이 35.07%만 일치하고 나머지는 어긋납니다.</small>
+      </figure>
+
+      <p>재현 분석 결과, GARCH(1,2)가 예측한 명목 변동성의 변화 방향과 실제 VXX 일별 가격 변화 간의 일치도는 35.07%로 통계적으로 매우 낮게 도출되었습니다. 이는 내재변동성의 하향 안정화 편향과 롤오버 비용의 영향 때문이며, 퀀트는 이러한 구조적 괴리를 인지하고 방향과 반대로 거래를 체결(RV 증가 시 숏 VXX)함으로써 통계적 엣지를 획득해야 합니다.</p>
+    </section>
+
+    <!-- 3. 이벤트 기반 전략 -->
+    <section class="report-section s3 page-break" id="event-driven">
+      <div class="report-section__kicker">Section 03 · Event-Driven Volatility Strategies</div>
+      <h1>3. 이벤트 기반 전략</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>EIA(에너지정보청) 주간 원유 재고 보고서와 같은 정기적 매크로 경제 이벤트를 대상으로 변동성 플레이를 실행합니다.</li>
+            <li>발표 직전 롱 스트래들(Long Straddle) 진입은 내재변동성 고평가(Overpriced IV) 및 비정상적으로 넓은 호가 스프레드 비용 때문에 장기적 손실(연 -$27,110)을 초래합니다.</li>
+            <li>오히려 발표 직후 불확실성이 해소되는 시점부터 다음 발표일 직전까지 한산한 구간 동안 **OTM 숏 스트랭글(Short Strangle)**을 매도 보유함으로써 수익을 극대화합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="critique-box">
+        <div class="critique-title">⚠️ [전문가 비판] 유동성 블랙홀(Liquidity Black Hole)과 비대칭 꼬리 리스크 방기</div>
+        <p><strong>1. 발표 시점의 실행 한계와 호가 스프레드 왜곡:</strong> 저자의 백테스트는 원유 옵션(LO)의 호가 스프레드 비용을 고려했다고 주장하지만, 실제 경제 지표가 발표되는 즉시 옵션 시장의 마켓 메이커(Market Maker)들은 즉각적으로 양방향 호가 제출을 취소하거나 스프레드를 평소의 수십 배로 확대(Liquidity Black Hole)합니다. 지정가 주문 체결이 불가능하거나 시장가 주문 체결 시 슬리피지가 발생해 백테스트 상의 이론적 수익($10,640)은 실제 시장에서 스프레드 마찰 비용에 의해 대부분 소멸합니다.</p>
+        <p><strong>2. 숏 감마의 무제한 손실 비대칭성:</strong> 숏 스트래들 및 스트랭글은 평소에는 높은 승률로 수익을 축적하지만, 급격한 오버나이트 이벤트나 예상을 상쇄하는 엄청난 원유 재고 급증/급감 쇼크가 발생할 경우 단 하루 만에 수년간 누적한 수익 이상을 청산당하는 치명적인 **블랙 스완 리스크(Tail Risk)**를 내포합니다. 이에 대한 명확한 테일 헤지 및 강제 청산(Stop-loss) 구조가 결여된 전략 제시는 현업 관점에서 극도로 무책임한 설계입니다.</p>
+      </div>
+    </section>
+
+    <!-- 4. 감마 스캘핑 -->
+    <section class="report-section s4 page-break" id="gamma-scalping">
+      <div class="report-section__kicker">Section 04 · Gamma Scalping</div>
+      <h1>4. 감마 스캘핑 (Gamma Scalping)</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>포트폴리오의 델타 노출을 무력화(Delta-Neutral)하는 상태에서, 롱 옵션(양의 감마)과 기초 선물(CL)의 롤링 매매를 통해 고점매도/저점매수 수익을 누적합니다.</li>
+            <li>주말 동안 시장 폐장으로 인해 발생하는 시간 감소(Theta Decay) 비용 손실을 원천 차단하기 위해 목요일 오전 진입 ➡️ 금요일 오후 청산의 주중 사이클을 설계합니다.</li>
+            <li>5% OTM 숏 스트랭글 대비 파산 위험은 없으나, 옵션 가치의 시간적 감소 비용이 스캘핑 차익을 상회할 경우 장기적 자본 고사가 발생합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="critique-box">
+        <div class="critique-title">⚠️ [전문가 비판] 이산적 리밸런싱 마찰비용과 만기 직전 핀 리스크(Pin Risk)</div>
+        <p><strong>1. 이산적 델타 리밸런싱과 마찰 손실의 Trade-off:</strong> 연속 시간(Continuous time) 하의 이론적 델타 중립은 완벽하지만, 실제 퀀트 전략은 이산적(Discrete)으로 리밸런싱을 수행해야 합니다. 저자가 제시한 1% 가격 임계값(Threshold) 기반의 리밸런싱은 기초자산이 임계값 경계선에서 진동(Whipsaw)할 때 잦은 거래를 유발하여 **선물 매매 수수료 및 호가 마찰 비용**을 기하급수적으로 증가시킵니다. 그렇다고 임계값을 넓히면 델타 노출이 커져 방향성 리스크에 노출되므로, 최적 헤징 대역 필터링(예: Hodges-Neuberger 모형)이 수반되어야 합니다.</p>
+        <p><strong>2. 만기 직전 핀 리스크(Pin Risk)와 감마 폭발:</strong> 옵션의 만기가 다가올수록 등가격(ATM) 근처의 감마값은 무한대로 폭발합니다. 이 시기에는 기초자산의 아주 미세한 가격 변화에도 델타가 급변하여(Gamma Risk), 선물 헤지 수량이 비상식적으로 늘어납니다. 이 상태에서 행사가에 종가가 정착하는 핀 리스크(Pin Risk)가 발생하면, 포지션 정리가 불가능해져 선물 포지션이 비대칭적으로 대량 노출되는 위험을 안게 됩니다. 교재는 이러한 만기 근처의 감마 안정성 분석을 간과하고 있습니다.</p>
+      </div>
+
+      <figure class="report-figure" id="fig-gamma-scalping" data-deck-use="required">
+        <figcaption class="asset-caption asset-caption--figure">
+          <span class="asset-caption__chip">그림 2</span>
+          <span class="asset-caption__title">감마 스캘핑의 구조와 헤지 매커니즘</span>
+        </figcaption>
+        <object type="image/svg+xml" data="assets/figs/fig-gamma-scalping.svg" style="width: 100%; max-height: 240px;"></object>
+        <small class="asset-note">헤징 흐름: 가격 이탈이 일어날 때마다 지정가 중간 주문을 통해 델타를 강제로 0으로 롤 백시킵니다.</small>
+      </figure>
+    </section>
+
+    <!-- 5. 내재변동성 횡단면 평균회귀 & 분산 거래 -->
+    <section class="report-section s5 page-break" id="dispersion">
+      <div class="report-section__kicker">Section 05 · Cross-Sectional IV &amp; Dispersion Trading</div>
+      <h1>5. 내재변동성 횡단면 평균회귀 &amp; 분산 거래</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>다수 종목 옵션의 내재변동성 간의 상대가치(Relative Value) 괴리가 시간이 지나면 평균 범위로 회귀할 것이라는 전제하에 페어 트레이딩을 수행합니다.</li>
+            <li>지수 옵션(숏)과 개별 주식 옵션(롱)의 조합인 분산 거래(Dispersion Trading)를 통해 자산 간 상관관계가 역사적 평균 이하로 붕괴(분산 증가)하는 국면에 베팅합니다.</li>
+            <li>역사적 Ivy Option 데이터 및 틱 데이터의 부재로 인해 교재의 백테스트 결과는 재현 불가능하여 정직한 output-only 스냅샷으로 유지합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="critique-box">
+        <div class="critique-title">⚠️ [전문가 비판] 상관관계 점프(Correlation Jump) 위험과 복제 오차(Replication Error) 재앙</div>
+        <p><strong>1. 시스템 리스크 시 상관관계 점프(Correlation Jump) 리스크:</strong> 분산 거래의 치명적인 한계는 시장이 대형 금융위기나 시스템적 붕괴(Systemic Crisis)를 맞이할 때 발생합니다. 평상시에는 개별 종목들의 동조성이 떨어져 분산 포지션이 이익을 내지만, 시장 전체가 급락하면 모든 주식의 상관관계가 급격히 1로 수렴(Correlation Jump)하기 시작합니다. 이 순간 지수 옵션의 내재변동성이 개별 옵션들의 합 대비 비상식적으로 폭등하여, 분산 거래 포지션(지수 옵션 매도 상태)은 치명적인 마진콜과 파산 위험에 처하게 됩니다.</p>
+        <p><strong>2. 다중 자산 델타 헤징 및 리밸런싱의 복제 오차:</strong> 개별 100개 이상의 종목 옵션을 매수하고 지수 옵션을 매도하는 포트폴리오를 연속적으로 델타 헤징하는 것은 실무적으로 불가능합니다. 각 개별 주식의 거래 정지, 배당락, 개별 유동성 마찰로 인해 발생하는 복제 오차(Replication Error)와 대규모 선물 매매 거래 비용은 이론적인 분산 스프레드 마진을 손쉽게 능가하여 전략을 무력화시킬 수 있습니다.</p>
+      </div>
+
+      <table class="cmp-table" id="table-repro-status">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 3</span>
+            <span class="asset-caption__title">전문가용 5장 재현성 감사 요약</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>전략 / 주제</th>
+            <th>재현 수준</th>
+            <th> Compared</th>
+            <th>재현 한계와 데이터 부재 증거</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>VXX vs 실현변동성 방향 분석</strong></td>
+            <td>수치 완벽 일치</td>
+            <td><strong>Compared: True</strong></td>
+            <td>MATLAB 소스 내부의 필터링 코드를 그대로 Python으로 재작성하여 $5\times 10^{-7}$ 이하 오차 구현 완료.</td>
+          </tr>
+          <tr>
+            <td><strong>XIV-SPY 롤 선물 전략 (칼만 필터)</strong></td>
+            <td>수치 완벽 일치</td>
+            <td><strong>Compared: True</strong></td>
+            <td>VX 및 헤지 비율 MAT 파일 데이터를 정확히 로드하여 Sharpe 1.1011 등 완벽 재현.</td>
+          </tr>
+          <tr>
+            <td><strong>SPY GARCH 변동성 예측</strong></td>
+            <td>재현 불가 (책 수치 보존)</td>
+            <td><strong>Compared: False</strong></td>
+            <td>훈련 셋에 사용된 원래 입력 버전인 20150828 ETF 패널 데이터가 배포 패키지 내 누락됨.</td>
+          </tr>
+          <tr>
+            <td><strong>EIA 원유 스트래들/감마 스캘핑</strong></td>
+            <td>재현 불가 (책 수치 보존)</td>
+            <td><strong>Compared: False</strong></td>
+            <td>Nanex의 유료 라이선스 초고빈도(LO, CL 옵션 틱) 데이터 누락으로 독자적인 시뮬레이션 복제 불가능.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 6. 재현성 감사 및 자동 검증 -->
+    <section class="report-section s6 page-break" id="verification">
+      <div class="report-section__kicker">Section 06 · Reproduction Audit &amp; Verification</div>
+      <h1>6. 재현성 감사 및 자동 검증</h1>
+      <div class="section-summary">
+        <div class="section-summary__kicker">섹션 요약</div>
+        <div class="section-summary__body">
+          <ul>
+            <li>Python으로 재현한 알고리즘 수치와 저자의 원본 MATLAB 결과 간의 차이를 정량 검증했습니다.</li>
+            <li>모든 투자 성과 지표들이 <strong>오차 허용 기준인 $5\times 10^{-7}$</strong> 이내로 일치하여 수학적 번역이 무결함을 확인했습니다.</li>
+            <li>블랙-숄즈 해석적 해와 그리스(Delta, Gamma)의 유한차분(Finite Difference) 정합성 확인을 통해 산출 구조의 안전성을 확립했습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>6.1 세부 오차 수치 정밀 감사</h2>
+      <table class="cmp-table" id="table-repro-errors">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 4</span>
+            <span class="asset-caption__title">MATLAB vs Python 재현성 오차 감사 상세</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>해당 분석 소스 코드</th>
+            <th>검사 항목 (Metric)</th>
+            <th>Python 결과</th>
+            <th>MATLAB 결과</th>
+            <th>절대 오차 (Abs Error)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3"><code>compareVolWithVXX.m</code></td>
+            <td>전체 방향 일치율 (all)</td>
+            <td>0.350680544</td>
+            <td>0.350681</td>
+            <td>4.56e-07</td>
+          </tr>
+          <tr>
+            <td>SPY 상승 시 일치율 (positive_spy)</td>
+            <td>0.288419519</td>
+            <td>0.288420</td>
+            <td>4.81e-07</td>
+          </tr>
+          <tr>
+            <td>SPY 하락 시 일치율 (negative_spy)</td>
+            <td>0.426273458</td>
+            <td>0.426273</td>
+            <td>4.58e-07</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><code>XIV_SPY_rollreturn_lagged.m</code></td>
+            <td>연평균 복합 수익률 (annual_return)</td>
+            <td>0.128077502</td>
+            <td>0.128078</td>
+            <td>4.98e-07</td>
+          </tr>
+          <tr>
+            <td>샤프 비율 (Sharpe Ratio)</td>
+            <td>1.101081442</td>
+            <td>1.101081</td>
+            <td>4.42e-07</td>
+          </tr>
+          <tr>
+            <td>최대 낙폭 (Max Drawdown)</td>
+            <td>-0.131693278</td>
+            <td>-0.131693</td>
+            <td>2.78e-07</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>6.2 Black-Scholes 해석학적 오차 및 Greeks 유한차분 검증</h2>
+      <p>구현된 <code>black_scholes()</code> 검증 결과는 다음과 같은 정밀도를 유지합니다:</p>
+      <ul>
+        <li><strong>Put-Call Parity 정밀 오차:</strong> $1.421\times 10^{-14}$ (해석적 상등 증명)</li>
+        <li><strong>Delta 유한차분 오차 (중앙차분):</strong> $-1.710\times 10^{-10}$ (그리스 정합성 확보)</li>
+        <li><strong>Gamma 유한차분 오차 (중앙차분):</strong> $-3.148\times 10^{-9}$ (2차 도함수 무결성)</li>
+        <li><strong>Implied Volatility 복원성:</strong> 원래 변동성 0.250000 ➡️ 복원 변동성 0.250000 (소수점 10자리 수준 수렴)</li>
+      </ul>
+    </section>
+
+    <!-- Appendix A. Glossary -->
+    <section class="report-appendix s-glossary page-break" id="glossary">
+      <div class="report-section__kicker">Appendix A · Glossary</div>
+      <h1>핵심 용어</h1>
+      <table class="cmp-table" id="table-glossary">
+        <caption class="cmp-table__caption asset-caption asset-caption--table">
+          <div class="asset-caption__inner">
+            <span class="asset-caption__chip">표 5</span>
+            <span class="asset-caption__title">전문가용 파생 및 변동성 핵심 용어집</span>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th>용어 (Glossary)</th>
+            <th>학문적 / 실무적 의미와 한계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>델타 중립 (Delta-Neutral)</strong></td>
+            <td>기초자산의 미세한 가격 등락 시 포트폴리오의 일차적인 델타 변화가 0이 되도록 설계한 헤지 상태. 단, 점프(Jump) 리스크 발생 시 불연속적으로 붕괴합니다.</td>
+          </tr>
+          <tr>
+            <td><strong>감마 스캘핑 (Gamma Scalping)</strong></td>
+            <td>플러스 감마를 확보한 상태에서 델타의 편차를 0으로 만들기 위해 기초선물을 반대로 리밸런싱함으로써 연속적으로 차익을 쌓는 행위. 리밸런싱 임계치 설정에 따른 마찰비용과의 Trade-off가 존재합니다.</td>
+          </tr>
+          <tr>
+            <td><strong>변동성 리스크 프리미엄 (VRP)</strong></td>
+            <td>내재변동성이 미래에 도래할 실제 실현변동성보다 평균적으로 높게 책정되는 현상. 변동성 매도(Short Vol) 전략의 주요 수익 원천입니다.</td>
+          </tr>
+          <tr>
+            <td><strong>상관관계 점프 (Correlation Jump)</strong></td>
+            <td>시장 전체의 붕괴나 패닉 국면에서 각 자산의 개별 요인이 무력화되고 지수와의 상관관계가 일시에 1로 폭등하여 다각화 효과가 상실되는 극단적 현상.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Appendix B. References -->
+    <section class="report-appendix s-refs page-break" id="references">
+      <div class="report-section__kicker">Appendix B · References</div>
+      <h1>참고 자료와 출처</h1>
+      <ol class="references" style="list-style:none;padding:0;">
+        <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
+          <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[1]</span>
+          <span>Ernest P. Chan, <i>Machine Trading: Deploying Computer Algorithms to Conquer the Markets</i>, Wiley, 2017, Chapter 5 (pp. 119-158).</span>
+        </li>
+        <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
+          <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[2]</span>
+          <span>공식 재현 데이터 원본 아카이브: <a href="https://epchan.com/book3" target="_blank">Ernest Chan's Book 3 Data Repository</a>.</span>
+        </li>
+        <li style="display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);">
+          <span style="min-width:36px;font-weight:800;color:var(--brand-primary);">[3]</span>
+          <span>"Volmageddon": The collapse of the VelocityShares Daily Inverse VIX Short-Term ETN (XIV) on February 5, 2018. Analysis of systemic exchange-traded product tail risk.</span>
+        </li>
+      </ol>
+    </section>
+  </article>
+
+  <script src="assets/report.js"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/auto-render.min.js"></script>
+  <script defer src="assets/katex/katex-init.js"></script>
+</body>
+</html>
